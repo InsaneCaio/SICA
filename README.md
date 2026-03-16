@@ -1,2 +1,14 @@
-# eng-soft-2026-1
-Projeto de Engenharia de Software II
+# NOME DO PROJETO
+## Resumo
+
+## Atores/Personas
+
+## Principais Problemas
+
+## Tecnologias
+
+## Membros
+* Caio Domingues Bernardino
+* Emanuel Almeida
+* Gustavo Carvalho dos Santos
+* Paulo Guilherme Lopes da Silva
