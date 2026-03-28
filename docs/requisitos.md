@@ -32,22 +32,24 @@
 | RF28 | Ver agendamentos do dependente  | Mostra todos os agendamentos de um dependente específico.                | Média      |
 | RF29 | Identificar responsável         | Indica claramente para quem é cada agendamento.                          | Média      |
 
+
+
 # Requisitos Não Funcionais (RNF)
 
-| ID    | Nome do Requisito        | Descrição | Prioridade |
-|-------|---------------------------|------------|-------------|
-| RNF01 | Segurança – Criptografia | O sistema deve criptografar todos os dados sensíveis (CPF, laudos e histórico médico) em repouso e em trânsito utilizando o protocolo TLS 1.3 ou superior. | Alta |
-| RNF02 | Desempenho – Tempo de Resposta | O tempo de resposta para a busca de clínicas por proximidade não deve exceder 2 segundos sob condições normais de rede (4G/5G). | Alta |
-| RNF03 | Confiabilidade – Disponibilidade | A aplicação deve garantir uma disponibilidade de 99,9% (SLA), com janelas de manutenção programadas apenas em horários de baixa utilização. | Alta |
-| RNF04 | Usabilidade – Acessibilidade | A interface deve seguir as diretrizes de acessibilidade WCAG 2.1, garantindo suporte a leitores de tela e contraste adequado para usuários com deficiência visual. | Alta |
-| RNF05 | Escalabilidade – Acessos Simultâneos | O sistema deve suportar picos de até 10.000 acessos simultâneos sem degradação perceptível de performance por meio de escalonamento horizontal. | Alta |
-| RNF06 | Segurança – Armazenamento Seguro | Todos os anexos enviados (.pdf, .png, .jpg) devem ser armazenados em ambiente isolado (Bucket) com controle de acesso via tokens temporários. | Alta |
-| RNF07 | Desempenho – Carregamento Inicial | O carregamento inicial do mapa e dos marcadores de clínicas deve ser otimizado para não ultrapassar 3 segundos. | Média |
-| RNF08 | Confiabilidade – Consistência Transacional | O aplicativo deve manter a consistência transacional (ACID), garantindo que um horário de consulta nunca seja agendado em duplicidade (overbooking). | Alta |
-| RNF09 | Usabilidade – Padrões de Interface | A interface deve seguir os padrões nativos de Design System (Human Interface Guidelines para iOS e Material Design para Android). | Média |
-| RNF10 | Segurança – Auditoria e Logs | O sistema deve registrar logs de auditoria imutáveis para qualquer acesso ou alteração em dados de saúde, conforme exigido pela LGPD. | Alta |
-| RNF11 | Manutenibilidade – Microsserviços | O backend deve ser arquitetado em microsserviços para permitir atualizações independentes de módulos sem afetar a disponibilidade total do app. | Média |
-| RNF12 | Desempenho – Tamanho do Aplicativo | O tamanho total do pacote de instalação do aplicativo não deve exceder 150MB para facilitar o download em conexões móveis. | Média |
-| RNF13 | Confiabilidade – Backup e Recuperação | O sistema deve realizar backups automáticos e incrementais a cada 6 horas, com tempo de recuperação (RTO) máximo de 1 hora. | Alta |
-| RNF14 | Segurança – Autenticação 2FA | A aplicação deve implementar autenticação de dois fatores (2FA) para o acesso às funcionalidades de visualização de exames e dados de perfil. | Alta |
-| RNF15 | Manutenibilidade – Testes Automatizados | O código-fonte deve possuir cobertura de testes unitários mínima de 80% para garantir a estabilidade durante evoluções do software. | Média |
+| ID    | Nome do Requisito | Tipo | Descrição | Prioridade |
+|-------|--------------------|------|------------|-------------|
+| RNF01 | Criptografia de Dados Sensíveis | Segurança | O sistema deve criptografar todos os dados sensíveis (CPF, laudos e histórico médico) em repouso e em trânsito utilizando o protocolo TLS 1.3 ou superior. | Alta |
+| RNF02 | Tempo de Resposta na Busca | Desempenho | O tempo de resposta para a busca de clínicas por proximidade não deve exceder 2 segundos sob condições normais de rede (4G/5G). | Alta |
+| RNF03 | Disponibilidade do Sistema | Confiabilidade | A aplicação deve garantir uma disponibilidade de 99,9% (SLA), com janelas de manutenção programadas apenas em horários de baixa utilização. | Alta |
+| RNF04 | Acessibilidade da Interface | Usabilidade | A interface deve seguir as diretrizes de acessibilidade WCAG 2.1, garantindo suporte a leitores de tela e contraste adequado para usuários com deficiência visual. | Alta |
+| RNF05 | Suporte a Acessos Simultâneos | Escalabilidade | O sistema deve suportar picos de até 10.000 acessos simultâneos sem degradação perceptível de performance por meio de escalonamento horizontal. | Alta |
+| RNF06 | Armazenamento Seguro de Anexos | Segurança | Todos os anexos enviados (.pdf, .png, .jpg) devem ser armazenados em ambiente isolado (Bucket) com controle de acesso via tokens temporários. | Alta |
+| RNF07 | Tempo de Carregamento do Mapa | Desempenho | O carregamento inicial do mapa e dos marcadores de clínicas deve ser otimizado para não ultrapassar 3 segundos. | Média |
+| RNF08 | Consistência Transacional | Confiabilidade | O aplicativo deve manter a consistência transacional (ACID), garantindo que um horário de consulta nunca seja agendado em duplicidade (overbooking). | Alta |
+| RNF09 | Padrões de Interface Nativa | Usabilidade | A interface deve seguir os padrões nativos de Design System (Human Interface Guidelines para iOS e Material Design para Android). | Média |
+| RNF10 | Registro de Logs de Auditoria | Segurança | O sistema deve registrar logs de auditoria imutáveis para qualquer acesso ou alteração em dados de saúde, conforme exigido pela LGPD. | Alta |
+| RNF11 | Arquitetura em Microsserviços | Manutenibilidade | O backend deve ser arquitetado em microsserviços para permitir atualizações independentes de módulos sem afetar a disponibilidade total do app. | Média |
+| RNF12 | Tamanho do Aplicativo | Desempenho | O tamanho total do pacote de instalação do aplicativo não deve exceder 150MB para facilitar o download em conexões móveis. | Média |
+| RNF13 | Backup e Recuperação de Dados | Confiabilidade | O sistema deve realizar backups automáticos e incrementais a cada 6 horas, com tempo de recuperação (RTO) máximo de 1 hora. | Alta |
+| RNF14 | Autenticação em Dois Fatores | Segurança | A aplicação deve implementar autenticação de dois fatores (2FA) para o acesso às funcionalidades de visualização de exames e dados de perfil. | Alta |
+| RNF15 | Cobertura de Testes Unitários | Manutenibilidade | O código-fonte deve possuir cobertura de testes unitários mínima de 80% para garantir a estabilidade durante evoluções do software. | Média |
