@@ -1,1 +1,18 @@
-A
+# Casos de Uso - Médico
+
+Este diagrama representa as interações do médico com o sistema de agendamento.
+
+## Casos de uso
+- Consultar agenda
+- Consultar detalhes da consulta 
+- Anexar receitas e encaminhamentos
+- Cancelar consulta  
+- Editar agenda
+- Definir horário e dias disponíveis na agenda
+- Editar perfil
+- Editar valores de consultas
+- Editar convenios aceitos
+- Configurar especialidades
+
+## Diagrama
+<img width="694" height="397" alt="caso_de_uso_paciente" src="https://github.com/user-attachments/assets/1b53b2f2-8107-4791-9d31-200d3397c23e" />
