@@ -6,6 +6,7 @@ Este diagrama representa as interações do médico com o sistema de agendamento
 - Consultar agenda
 - Consultar detalhes da consulta 
 - Anexar receitas e encaminhamentos
+- Visualizar dados do paciente
 - Cancelar consulta  
 - Editar agenda
 - Definir horário e dias disponíveis na agenda
