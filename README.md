@@ -127,25 +127,25 @@ O projeto foi planejado com foco em:
     <td align="center">
       <a href="https://github.com/InsaneCaio">
         <img src="https://github.com/InsaneCaio.png" width="100px;"><br>
-        <sub><b>Caio</b></sub>
+        <sub><b>Caio Domingues</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/EmanuelAlmeida27">
         <img src="https://github.com/EmanuelAlmeida27.png" width="100px;"><br>
-        <sub><b>Emanuel</b></sub>
+        <sub><b>Emanuel Almeida</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/gustavo-carvalh0">
         <img src="https://github.com/gustavo-carvalh0.png" width="100px;"><br>
-        <sub><b>Gustavo</b></sub>
+        <sub><b>Gustavo Carvalho</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/PGLS87">
         <img src="https://github.com/PGLS87.png" width="100px;"><br>
-        <sub><b>Paulo</b></sub>
+        <sub><b>Paulo Guilherme</b></sub>
       </a>
     </td>
   </tr>
