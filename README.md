@@ -28,7 +28,7 @@ Além disso, oferece suporte à gestão de dependentes, envio de encaminhamentos
 
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/1dc29105-ddbb-41fb-870f-e64e2103578f" width="450"/>
+<img src="https://private-user-images.githubusercontent.com/226869026/567420060-cc0bd9c9-dc1e-443a-82fa-feb9e1a6ff37.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzQ4ODAwNjAsIm5iZiI6MTc3NDg3OTc2MCwicGF0aCI6Ii8yMjY4NjkwMjYvNTY3NDIwMDYwLWNjMGJkOWM5LWRjMWUtNDQzYS04MmZhLWZlYjllMWE2ZmYzNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzMwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMzMFQxNDA5MjBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wYzJjMjg3Y2FlZDM0NTBkMGUwYThiYTllOThhNDgxZmNjODg2OWU1ZTMyM2I3NDYyNzg2ZDRjMGI0ODhhMjVmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.JT4hM1PAUKk1QUzix6zh-ChecFqHcVRZRJW_T6m79f8" width="450"/>
 
 **Maria Eduarda Oliveira**  
 38 anos • Persona Primária  
