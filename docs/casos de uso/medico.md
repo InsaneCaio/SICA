@@ -16,4 +16,5 @@ Este diagrama representa as interações do médico com o sistema de agendamento
 - Configurar especialidades
 
 ## Diagrama
-<img width="888" height="722" alt="DAmHA6K" src="https://github.com/user-attachments/assets/b487af79-7916-410d-a1b2-4e30d0f8888d" />
+<img width="935" height="757" alt="image" src="https://github.com/user-attachments/assets/592291b2-bb70-4240-9391-ce3fa845827d" />
+
