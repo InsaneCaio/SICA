@@ -3,15 +3,12 @@
 Este diagrama representa as interações do administrador com o sistema de agendamento.
 
 ## Casos de uso
-- Consultar médicos
-- Editar médico
-- Cadastrar médico
-- Consultar agenda
-- Reagendar
-- Cancelar agendamento
-- Gerenciar exames
-- Editar exame
-- Cadastrar exame
+- Visualizar agenda
+- Editar agenda
+- Consultar detalhes da consulta
+- Cancelar consulta
+- Anexar receitas e encaminhamentos
+- Editar perfil médico
 
 ## Diagrama
-<img width="793" height="633" alt="image" src="https://github.com/user-attachments/assets/c80f9323-2d0b-4fa6-b3d6-4917b70934c2" />
+<img width="623" height="580" alt="image" src="https://github.com/user-attachments/assets/e86c43b2-d8e1-4b84-bca4-4e4e98e2438c" />
