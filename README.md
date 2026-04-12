@@ -86,7 +86,7 @@ Responsável por organizar a saúde da família, Maria enfrenta dificuldades com
 - Reagendar e cancelar consultas  
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/c80f9323-2d0b-4fa6-b3d6-4917b70934c2" width="650"/>
+  <img width="637" height="653" alt="image" src="https://github.com/user-attachments/assets/5608191c-5f5f-42af-917c-34c903bb95d4" />
 </div>
 
 📄 Acesse os casos de uso completos:
