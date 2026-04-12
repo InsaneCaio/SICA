@@ -3,18 +3,13 @@
 Este diagrama representa as interações do médico com o sistema de agendamento.
 
 ## Casos de uso
-- Consultar agenda
-- Consultar detalhes da consulta 
-- Anexar receitas e encaminhamentos
-- Visualizar dados do paciente
-- Cancelar consulta  
+- Visualizar agenda
 - Editar agenda
-- Definir horário e dias disponíveis na agenda
-- Editar perfil
-- Editar valores de consultas
-- Editar convenios aceitos
-- Configurar especialidades
+- Consultar detalhes da consulta
+- Cancelar consulta
+- Anexar receitas e encaminhamentos
+- Editar perfil médico
 
 ## Diagrama
-<img width="935" height="757" alt="image" src="https://github.com/user-attachments/assets/592291b2-bb70-4240-9391-ce3fa845827d" />
+<img width="623" height="580" alt="image" src="https://github.com/user-attachments/assets/e86c43b2-d8e1-4b84-bca4-4e4e98e2438c" />
 
