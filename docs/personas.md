@@ -2,6 +2,7 @@
 - [Persona Administrador](#persona-administrador)
 - [Persona Médico](#persona-médico)
 - [Persona Paciente](#persona-paciente)
+- [Persona Gestor](#persona-gestor)
 
 ---
 
@@ -97,3 +98,26 @@ Maria é casada, mãe de um casal de filhos e principal responsável pelos cuida
 
 ## Imagem da Persona Paciente
 <img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/1dc29105-ddbb-41fb-870f-e64e2103578f" />
+
+---
+
+# Persona Gestor
+**Nome:** Gerson Almeida  
+**Idade:** 20 anos  
+**Peso:** Persona Secundária  
+
+## Resumo
+Responsável pela manutenção e gestão do aplicativo, resolvendo problemas de clientes sobre o app e gerindo os ganhos/prejuízos, assinaturas e simular/prever o futuro desempenho
+## Objetivos
+- Resolução de problemas do sistema
+- Gestão monetária
+- Gerenciamento de assinaturas
+- Prever futuro desempenho
+## Funções no app
+- Painel de gestão completo
+- Detalhes de pagamento das assinaturas de cada clinica
+- Previsão de entrada para o mês
+- Gastos previstos para o mês
+
+## Imagem da Persona Gestor
+<img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/ead73813-e242-484c-b9d7-72ee08a01da9" />
