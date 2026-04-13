@@ -111,10 +111,8 @@ Responsável por organizar a saúde da família, Maria enfrenta dificuldades com
 
 O projeto foi planejado com foco em:
 
-- Escalabilidade  
-- Segurança de dados  
-- Alto desempenho  
-- Arquitetura moderna  
+- Database Oracle 
+- Expo.dev  
 
 ---
 
