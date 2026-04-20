@@ -11,5 +11,25 @@ Este diagrama representa as interações do administrador com o sistema de agend
 - Cancelar agendamento
 
 ## Diagrama
-<img width="637" height="653" alt="image" src="https://github.com/user-attachments/assets/66ec0c9e-0ca8-4d6e-b7bd-0742e2e7408b" />
+```mermaid
+flowchart LR
+    A[Administrador]
+
+    subgraph Sistema de Agendamento
+        UC1((Consultar médicos))
+        UC2((Editar médico))
+        UC3((Cadastrar médico))
+        UC4((Fazer agendamento))
+        UC5((Reagendar))
+        UC6((Cancelar agendamento))
+    end
+
+    A --> UC1
+    A --> UC2
+    A --> UC3
+    A --> UC4
+    A --> UC5
+    A --> UC6
+
+```
 
