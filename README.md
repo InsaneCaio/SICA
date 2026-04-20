@@ -1,4 +1,4 @@
-<h1 align="center">Sistema de Agendamento de Consultas e Exames</h1>
+<h1 align="center">Sistema de Agendamento de Consultas</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=for-the-badge">
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  Aplicação mobile para agendamento e gerenciamento de consultas e exames,<br>
+  Aplicação mobile para agendamento e gerenciamento de consultas,<br>
   centralizando informações e facilitando a organização do usuário.
 </p>
 
@@ -82,7 +82,6 @@ Responsável por organizar a saúde da família, Maria enfrenta dificuldades com
 **Principais ações:**
 - Gerenciar médicos  
 - Controlar agenda  
-- Cadastrar exames  
 - Reagendar e cancelar consultas  
 
 <div align="center">
@@ -99,7 +98,7 @@ Responsável por organizar a saúde da família, Maria enfrenta dificuldades com
 
 ## ✦ Problemas Abordados
 
-- Falta de organização de consultas e exames  
+- Falta de organização de consultas
 - Dependência de processos manuais  
 - Dificuldade em visualizar horários disponíveis  
 - Falta de lembretes eficientes  
