@@ -47,15 +47,13 @@ Responsável por realizar consultas e gerenciar sua própria agenda no sistema
 - Manter agenda organizada  
 - Reduzir faltas de pacientes  
 - Atender pacientes de forma eficiente  
-- Evitar consultas agendadas incorretamente  
-- Garantir validade de pedidos de exame  
+- Evitar consultas agendadas incorretamente    
 
 ## Dores
 - Faltas de pacientes  
 - Falta de confirmação de consultas  
 - Informações incompletas dos pacientes  
-- Consultas marcadas na especialidade errada  
-- Pedidos de exame inválidos  
+- Consultas marcadas na especialidade errada 
 
 ## Funções no app
 - Visualização da agenda  
@@ -77,11 +75,11 @@ Responsável por realizar consultas e gerenciar sua própria agenda no sistema
 **Peso:** Persona Primária  
 
 ## Resumo
-Maria é casada, mãe de um casal de filhos e principal responsável pelos cuidados do pai idoso. É ela quem cuida de todos os agendamentos de exames e consultas médicas de sua família.  
+Maria é casada, mãe de um casal de filhos e principal responsável pelos cuidados do pai idoso. É ela quem cuida de todos os agendamentos de consultas médicas de sua família.  
 
 ## Objetivos
 - Gerenciar a saúde de sua família  
-- Agendar exames, consultas médicas, administrar as receitas e medicamentos  
+- Agendar consultas médicas, administrar as receitas e medicamentos  
 - Manter controle de datas e horários  
 
 ## Dores
