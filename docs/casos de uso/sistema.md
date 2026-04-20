@@ -6,7 +6,7 @@ Este diagrama representa os processos internos do sistema responsáveis por gara
 - Registrar agendamento  
 - Validar dados  
 - Notificar confirmação  
-- Atualizar agenda  
+- Atualizar agenda 
 
 ## Diagrama
 ```mermaid
