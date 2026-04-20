@@ -10,4 +10,22 @@ Este diagrama representa as interações do paciente com o sistema de agendament
 - Responder confirmação
 
 ## Diagrama
-<img width="694" height="397" alt="caso_de_uso_paciente" src="https://github.com/user-attachments/assets/1b53b2f2-8107-4791-9d31-200d3397c23e" />
+```mermaid
+flowchart LR
+    P[Paciente]
+
+    subgraph Sistema de Agendamento
+        UC1((Fazer agendamento))
+        UC2((Consultar agenda))
+        UC3((Cancelar consulta))
+        UC4((Consultar detalhes))
+        UC5((Responder confirmacao))
+    end
+
+    P --> UC1
+    P --> UC2
+    P --> UC3
+    P --> UC4
+    P --> UC5
+
+```
