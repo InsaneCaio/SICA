@@ -13,24 +13,22 @@
 | RF09 | Informar dados pessoais         | Solicita nome, CPF e data de nascimento para agendamento.                | Alta       |
 | RF10 | Validar dados                   | Verifica se os dados obrigatórios foram preenchidos corretamente.        | Alta       |
 | RF11 | Confirmar agendamento           | Finaliza o agendamento após validação dos dados.                         | Alta       |
-| RF12 | Iniciar agendamento de exame    | Permite iniciar o fluxo de agendamento de exames.                        | Alta       |
-| RF13 | Enviar encaminhamento           | Exige upload de arquivo médico para exames.                              | Alta       |
-| RF14 | Validar arquivo                | Verifica formato do arquivo enviado (.png, .jpg, .pdf, etc.).           | Alta       |
-| RF15 | Prosseguir após validação       | Permite continuar após envio válido do encaminhamento.                   | Alta       |
-| RF16 | Fluxo de exame                 | Repete o fluxo de agendamento para exames.                               | Alta       |
-| RF17 | Visualizar agendamentos         | Permite ver consultas e exames agendados.                                | Média      |
-| RF18 | Armazenar agendamentos          | Guarda os dados dos agendamentos realizados.                             | Média      |
-| RF19 | Cancelar agendamento            | Permite cancelar consultas ou exames agendados.                          | Baixa      |
-| RF20 | Atualizar disponibilidade       | Atualiza horários após agendamento ou cancelamento.                      | Média      |
-| RF21 | Notificação de lembrete         | Envia notificação 2 dias antes do agendamento.                           | Média      |
-| RF22 | Cadastrar dependentes           | Permite cadastrar pessoas dependentes.                                   | Média      |
-| RF23 | Editar dependentes              | Permite atualizar dados dos dependentes cadastrados.                     | Média      |
-| RF24 | Remover dependentes             | Permite excluir dependentes cadastrados.                                 | Média      |
-| RF25 | Selecionar dependente           | Permite escolher dependente para agendamento.                            | Média      |
-| RF26 | Associar agendamento            | Vincula agendamento ao usuário ou dependente.                            | Média      |
-| RF27 | Listar por dependente           | Exibe agendamentos separados por dependente.                             | Média      |
-| RF28 | Ver agendamentos do dependente  | Mostra todos os agendamentos de um dependente específico.                | Média      |
-| RF29 | Identificar responsável         | Indica claramente para quem é cada agendamento.                          | Média      |
+| RF12 | Enviar encaminhamento           | Exige upload de arquivo médico.                                          | Alta       |
+| RF13 | Validar arquivo                | Verifica formato do arquivo enviado (.png, .jpg, .pdf, etc.).             | Alta       |
+| RF14 | Prosseguir após validação       | Permite continuar após envio válido do encaminhamento.                   | Alta       |
+| RF15 | Visualizar agendamentos         | Permite ver consultas agendados.                                         | Média      |
+| RF16 | Armazenar agendamentos          | Guarda os dados dos agendamentos realizados.                             | Média      |
+| RF17 | Cancelar agendamento            | Permite cancelar consultas agendados.                                    | Baixa      |
+| RF18 | Atualizar disponibilidade       | Atualiza horários após agendamento ou cancelamento.                      | Média      |
+| RF19 | Notificação de lembrete         | Envia notificação 2 dias antes do agendamento.                           | Média      |
+| RF20 | Cadastrar dependentes           | Permite cadastrar pessoas dependentes.                                   | Média      |
+| RF21 | Editar dependentes              | Permite atualizar dados dos dependentes cadastrados.                     | Média      |
+| RF22 | Remover dependentes             | Permite excluir dependentes cadastrados.                                 | Média      |
+| RF23 | Selecionar dependente           | Permite escolher dependente para agendamento.                            | Média      |
+| RF24 | Associar agendamento            | Vincula agendamento ao usuário ou dependente.                            | Média      |
+| RF25 | Listar por dependente           | Exibe agendamentos separados por dependente.                             | Média      |
+| RF26 | Ver agendamentos do dependente  | Mostra todos os agendamentos de um dependente específico.                | Média      |
+| RF27 | Identificar responsável         | Indica claramente para quem é cada agendamento.                          | Média      |
 
 
 
@@ -51,5 +49,5 @@
 | RNF11 | Arquitetura em Microsserviços | Manutenibilidade | O backend deve ser arquitetado em microsserviços para permitir atualizações independentes de módulos sem afetar a disponibilidade total do app. | Média |
 | RNF12 | Tamanho do Aplicativo | Desempenho | O tamanho total do pacote de instalação do aplicativo não deve exceder 150MB para facilitar o download em conexões móveis. | Média |
 | RNF13 | Backup e Recuperação de Dados | Confiabilidade | O sistema deve realizar backups automáticos e incrementais a cada 6 horas, com tempo de recuperação (RTO) máximo de 1 hora. | Alta |
-| RNF14 | Autenticação em Dois Fatores | Segurança | A aplicação deve implementar autenticação de dois fatores (2FA) para o acesso às funcionalidades de visualização de exames e dados de perfil. | Alta |
+| RNF14 | Autenticação em Dois Fatores | Segurança | A aplicação deve implementar autenticação de dois fatores (2FA) para o acesso às funcionalidades de visualização de consultas e dados de perfil. | Alta |
 | RNF15 | Cobertura de Testes Unitários | Manutenibilidade | O código-fonte deve possuir cobertura de testes unitários mínima de 80% para garantir a estabilidade durante evoluções do software. | Média |
