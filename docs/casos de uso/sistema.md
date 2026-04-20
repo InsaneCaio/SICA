@@ -9,4 +9,20 @@ Este diagrama representa os processos internos do sistema responsáveis por gara
 - Atualizar agenda  
 
 ## Diagrama
-<img width="326" height="273" alt="caso_de_uso_sistema" src="https://github.com/user-attachments/assets/9f15d349-c6de-49fd-a63f-93334e095cb9" />
+```mermaid
+flowchart LR
+    S[Sistema]
+
+    subgraph Processos Internos
+        UC1((Registrar agendamento))
+        UC2((Validar dados))
+        UC3((Notificar confirmacao))
+        UC4((Atualizar agenda))
+    end
+
+    S --> UC1
+    S --> UC2
+    S --> UC3
+    S --> UC4
+
+```
