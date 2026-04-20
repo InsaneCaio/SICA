@@ -11,5 +11,23 @@ Este diagrama representa as interações do médico com o sistema de agendamento
 - Editar perfil médico
 
 ## Diagrama
-<img width="623" height="580" alt="image" src="https://github.com/user-attachments/assets/e86c43b2-d8e1-4b84-bca4-4e4e98e2438c" />
+```mermaid
+flowchart LR
+    M[Medico]
 
+    subgraph Sistema de Agendamento
+        UC1((Visualizar agenda))
+        UC2((Editar agenda))
+        UC3((Consultar detalhes da consulta))
+        UC4((Cancelar consulta))
+        UC5((Anexar receitas e encaminhamentos))
+        UC6((Editar perfil medico))
+    end
+
+    M --> UC1
+    M --> UC2
+    M --> UC3
+    M --> UC4
+    M --> UC5
+    M --> UC6
+```
