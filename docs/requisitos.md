@@ -29,6 +29,26 @@
 | RF25 | Listar por dependente           | Exibe agendamentos separados por dependente.                             | Média      |
 | RF26 | Ver agendamentos do dependente  | Mostra todos os agendamentos de um dependente específico.                | Média      |
 | RF27 | Identificar responsável         | Indica claramente para quem é cada agendamento.                          | Média      |
+| RF28 | Visualizar receita total             | Permite ao gestor visualizar o total de receitas do sistema              | Alta       |
+| RF29 | Visualizar despesas totais           | Permite ao gestor visualizar o total de despesas                         | Alta       |
+| RF30 | Consultar lucro/prejuízo            | Calcula e exibe o lucro ou prejuízo com base em receitas e despesas      | Alta       |
+| RF31 | Gerar relatórios financeiros        | Gera relatórios detalhados de receitas, despesas e resultados financeiros | Alta       |
+| RF32 | Visualizar previsão de receita mensal | Exibe estimativas de receita com base em dados históricos                | Média      |
+| RF33 | Visualizar previsão de despesas     | Exibe estimativas de despesas futuras                                    | Média      |
+| RF34 | Comparar desempenho entre períodos  | Permite comparar métricas financeiras entre períodos distintos           | Média      |
+| RF35 | Visualizar assinaturas ativas       | Lista todas as assinaturas ativas no sistema                             | Alta       |
+| RF36 | Consultar detalhes de pagamento     | Exibe informações detalhadas de pagamento por clínica                    | Alta       |
+| RF37 | Alterar plano de assinatura         | Permite modificar o plano de assinatura de uma clínica                   | Alta       |
+| RF38 | Cancelar assinatura                 | Permite cancelar uma assinatura ativa                                   | Alta       |
+| RF39 | Reativar assinatura                 | Permite reativar uma assinatura previamente cancelada                   | Média      |
+| RF40 | Acessar painel administrativo       | Permite acesso ao painel completo de gestão do sistema                  | Alta       |
+| RF41 | Monitorar funcionamento do sistema  | Exibe status e desempenho geral do sistema                              | Alta       |
+| RF42 | Visualizar logs de atividades       | Permite consultar registros de ações realizadas no sistema              | Média      |
+| RF43 | Gerenciar usuários administrativos  | Permite criar, editar e remover usuários administrativos                | Alta       |
+| RF44 | Receber alertas de falhas no sistema| Notifica o gestor sobre falhas ou indisponibilidade do sistema          | Alta       |
+| RF45 | Receber alertas de inadimplência    | Notifica sobre assinaturas com pagamentos em atraso                     | Alta       |
+| RF46 | Receber alertas financeiros         | Notifica sobre variações financeiras relevantes                         | Média      |
+
 
 
 
@@ -51,3 +71,14 @@
 | RNF13 | Backup e Recuperação de Dados | Confiabilidade | O sistema deve realizar backups automáticos e incrementais a cada 6 horas, com tempo de recuperação (RTO) máximo de 1 hora. | Alta |
 | RNF14 | Autenticação em Dois Fatores | Segurança | A aplicação deve implementar autenticação de dois fatores (2FA) para o acesso às funcionalidades de visualização de consultas e dados de perfil. | Alta |
 | RNF15 | Cobertura de Testes Unitários | Manutenibilidade | O código-fonte deve possuir cobertura de testes unitários mínima de 80% para garantir a estabilidade durante evoluções do software. | Média |
+| RNF16 | Tempo de Atualização de Dados Financeiros | Desempenho | Dados financeiros devem ser atualizados em no máximo 5 segundos após alteração | Alta |
+| RNF17 | Precisão das Previsões Financeiras | Confiabilidade | O sistema deve utilizar dados históricos consistentes para gerar previsões com margem mínima de erro aceitável | Média |
+| RNF18 | Segurança de Dados Financeiros | Segurança | Informações financeiras devem ser protegidas com criptografia e controle de acesso restrito | Alta |
+| RNF19 | Controle de Acesso por Nível | Segurança | Apenas usuários autorizados podem acessar o painel administrativo e dados sensíveis | Alta |
+| RNF20 | Registro de Logs Administrativos | Auditoria | Todas as ações do gestor devem ser registradas para auditoria e rastreabilidade | Alta |
+| RNF21 | Disponibilidade do Painel Administrativo | Confiabilidade | O painel deve estar disponível com SLA de 99,9% | Alta |
+| RNF22 | Escalabilidade do Sistema Financeiro | Escalabilidade | O sistema deve suportar aumento no volume de dados e usuários sem perda de desempenho | Média |
+| RNF23 | Tempo de Geração de Relatórios | Desempenho | Relatórios financeiros devem ser gerados em até 10 segundos | Média |
+| RNF24 | Interface Intuitiva para Gestão | Usabilidade | O painel deve ser intuitivo, com visualização clara de métricas e indicadores | Média |
+| RNF25 | Backup de Dados Financeiros | Confiabilidade | Dados financeiros devem ser salvos com backups automáticos periódicos | Alta |
+
