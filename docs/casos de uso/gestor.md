@@ -1,4 +1,4 @@
-# Casos de Uso - Gestor (Versão UML Profissional)
+# Casos de Uso - Gestor
 
 Este diagrama representa as interações do gestor com o sistema de agendamento.
 
