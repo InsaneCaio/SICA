@@ -16,7 +16,6 @@ Este diagrama representa as interações do gestor com o sistema de agendamento.
 * Alterar plano de assinatura
 * Cancelar assinatura
 * Reativar assinatura
-* Acessar painel administrativo
 * Monitorar funcionamento do sistema
 * Visualizar logs de atividades
 * Gerenciar usuários administrativos
@@ -44,7 +43,6 @@ flowchart LR
         UC10((Alterar plano de assinatura))
         UC11((Cancelar assinatura))
         UC12((Reativar assinatura))
-        UC13((Acessar painel administrativo))
         UC14((Monitorar funcionamento do sistema))
         UC15((Visualizar logs de atividades))
         UC16((Gerenciar usuarios administrativos))
@@ -65,7 +63,6 @@ flowchart LR
     G --> UC10
     G --> UC11
     G --> UC12
-    G --> UC13
     G --> UC14
     G --> UC15
     G --> UC16
