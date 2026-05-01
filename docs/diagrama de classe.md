@@ -49,11 +49,11 @@ class Agenda {
     +id: int
 }
 
-Paciente "1" --> "*" Consulta : agenda
-Medico "1" --> "*" Consulta : atende
+Paciente "1" -- "*" Consulta : agenda
+Medico "1" -- "*" Consulta : atende
 
-Medico "1" --> "1" Agenda
-Agenda "1" --> "*" Consulta
+Medico "1" -- "1" Agenda
+Agenda "1" -- "*" Consulta
 
 %% =======================
 %% DOCUMENTOS MÉDICOS
@@ -83,7 +83,7 @@ class Pagamento {
     +data: date
 }
 
-Assinatura "1" --> "*" Pagamento
+Assinatura "1" -- "*" Pagamento
 Gestor "1" --> "*" Assinatura
 
 %% =======================
@@ -114,9 +114,7 @@ class Alerta {
     +mensagem: string
 }
 
-Sistema --> Log
-Sistema --> Alerta
+Gestor --> Log
+Gestor --> Alerta
 
-class Sistema {
-}
 ```
