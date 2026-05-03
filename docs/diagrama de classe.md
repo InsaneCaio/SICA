@@ -16,7 +16,7 @@ class Usuario {
     +logout()
 }
 
-class Paciente {
+class Cliente {
     +cpf: string
     +telefone: string
     +dataNascimento: date
@@ -65,7 +65,7 @@ class Gestor {
     +gerenciarAlertas()
 }
 
-Usuario <|-- Paciente
+Usuario <|-- Cliente
 Usuario <|-- Medico
 Usuario <|-- Administrador
 Usuario <|-- Gestor
@@ -74,7 +74,7 @@ Usuario <|-- Gestor
 %% RELAÇÃO PACIENTE - DEPENDENTE
 %% =======================
 
-Paciente "1" -- "0..*" Dependente : gerencia
+Cliente "1" -- "0..*" Dependente : gerencia
 
 %% =======================
 %% AGENDAMENTO
@@ -95,11 +95,12 @@ class Agenda {
     +atualizarDisponibilidade()
 }
 
-Paciente "1" -- "*" Consulta : agenda
-Dependente "1" -- "*" Consulta : agenda
+Cliente "1" -- "*" Consulta : agenda
+Dependente "1" -- "*" Consulta : faz
 Medico "1" -- "*" Consulta : atende
 
 Medico "1" -- "1" Agenda
+Administrador "1" -- "*" Agenda
 Agenda "1" -- "*" Consulta
 
 %% =======================
