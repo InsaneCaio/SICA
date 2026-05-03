@@ -12,28 +12,69 @@ class Usuario {
     +nome: string
     +email: string
     +senha: string
+    +login()
+    +logout()
 }
 
 class Paciente {
     +cpf: string
     +telefone: string
+    +dataNascimento: date
+    +fazerAgendamento()
+    +consultarAgenda()
+    +cancelarConsulta()
+    +consultarDetalhes()
+    +responderConfirmacao()
+}
+
+class Dependente {
+    +id: int
+    +nome: string
+    +dataNascimento: date
 }
 
 class Medico {
     +crm: string
     +especialidade: string
+    +biografia: string
+    +valorConsulta: double
+    +visualizarAgenda()
+    +editarAgenda()
+    +consultarDetalhesConsulta()
+    +cancelarConsulta()
+    +anexarDocumento()
+    +editarPerfil()
 }
 
 class Administrador {
+    +consultarMedicos()
+    +cadastrarMedico()
+    +editarMedico()
+    +fazerAgendamento()
+    +reagendarConsulta()
+    +cancelarAgendamento()
 }
 
 class Gestor {
+    +analisarDesempenhoFinanceiro()
+    +gerarRelatorios()
+    +analisarPrevisoes()
+    +gerenciarAssinaturas()
+    +monitorarSistema()
+    +gerenciarUsuarios()
+    +gerenciarAlertas()
 }
 
 Usuario <|-- Paciente
 Usuario <|-- Medico
 Usuario <|-- Administrador
 Usuario <|-- Gestor
+
+%% =======================
+%% RELAÇÃO PACIENTE - DEPENDENTE
+%% =======================
+
+Paciente "1" -- "0..*" Dependente : gerencia
 
 %% =======================
 %% AGENDAMENTO
@@ -43,13 +84,19 @@ class Consulta {
     +id: int
     +dataHora: datetime
     +status: string
+    +criar()
+    +reagendar()
+    +cancelar()
 }
 
 class Agenda {
     +id: int
+    +listarConsultas()
+    +atualizarDisponibilidade()
 }
 
 Paciente "1" -- "*" Consulta : agenda
+Dependente "1" -- "*" Consulta : agenda
 Medico "1" -- "*" Consulta : atende
 
 Medico "1" -- "1" Agenda
@@ -63,6 +110,7 @@ class Documento {
     +id: int
     +tipo: string
     +descricao: string
+    +anexar()
 }
 
 Consulta "1" --> "*" Documento
@@ -75,12 +123,16 @@ class Assinatura {
     +id: int
     +plano: string
     +status: string
+    +alterarPlano()
+    +cancelar()
+    +reativar()
 }
 
 class Pagamento {
     +id: int
     +valor: float
     +data: date
+    +registrarPagamento()
 }
 
 Assinatura "1" -- "*" Pagamento
@@ -94,6 +146,7 @@ class Relatorio {
     +id: int
     +tipo: string
     +dataGeracao: date
+    +gerar()
 }
 
 Gestor "1" --> "*" Relatorio
@@ -106,12 +159,14 @@ class Log {
     +id: int
     +descricao: string
     +data: datetime
+    +registrar()
 }
 
 class Alerta {
     +id: int
     +tipo: string
     +mensagem: string
+    +gerarAlerta()
 }
 
 Gestor --> Log
