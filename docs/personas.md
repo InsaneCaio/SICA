@@ -44,25 +44,22 @@ Responsável por organizar as operações de agendamento
 Responsável por realizar consultas e gerenciar sua própria agenda no sistema  
 
 ## Objetivos
-- Manter agenda organizada  
-- Reduzir faltas de pacientes  
-- Atender pacientes de forma eficiente  
-- Evitar consultas agendadas incorretamente    
+Manter agenda organizada
+Reduzir faltas de pacientes
+Atender pacientes de forma eficiente
+Evitar consultas agendadas incorretamente
 
 ## Dores
-- Faltas de pacientes  
-- Falta de confirmação de consultas  
-- Informações incompletas dos pacientes  
-- Consultas marcadas na especialidade errada 
+Faltas de pacientes
+Falta de confirmação de consultas
+Informações incompletas dos pacientes
+Consultas marcadas na especialidade errada
 
 ## Funções no app
-- Visualização da agenda  
-- Definição de horários disponíveis  
-- Configuração de especialidades  
-- Definição de valores por consulta  
-- Aceitação de convênios  
-- Visualização de dados do paciente  
-- Recebimento de cancelamentos  
+Visualização da agenda
+Visualização de dados do paciente
+Envio de receitas, encaminhamentos e pedidos de exame
+Recebimento de cancelamentos
 
 ## Imagem da Persona Médico
 <img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/4200a151-a162-4770-befd-d501a200f413" />
