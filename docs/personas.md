@@ -1,7 +1,7 @@
 # Sumário
 - [Persona Administrador](#persona-administrador)
 - [Persona Médico](#persona-médico)
-- [Persona Paciente](#persona-paciente)
+- [Persona Cliente](#persona-paciente)
 - [Persona Gestor](#persona-gestor)
 
 ---
@@ -65,7 +65,7 @@ Responsável por realizar consultas e gerenciar sua própria agenda no sistema
 
 ---
 
-# Persona Paciente
+# Persona Cliente
 **Nome:** Maria Eduarda Oliveira  
 **Idade:** 38 anos  
 **Peso:** Persona Primária  
@@ -90,7 +90,7 @@ Maria é casada, mãe de um casal de filhos e principal responsável pelos cuida
 - Calendário de agendamentos eficiente, de fácil compreensão e com alertas/notificações  
 - Recebimento de receitas online, caso necessário  
 
-## Imagem da Persona Paciente
+## Imagem da Persona Cliente
 <img width="2000" height="1414" alt="Cópia de Cópia de User Persona Worksheet Worksheet in Style" src="https://github.com/user-attachments/assets/462ecadc-44ac-441f-a4cb-0a6d4f2dc852" />
 
 ---
