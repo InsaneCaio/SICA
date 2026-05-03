@@ -6,7 +6,7 @@ Este diagrama representa as interações do cliente com o sistema de agendamento
 - Fazer agendamento  
 - Consultar agenda  
 - Cancelar consulta  
-- Consultar detalhes  
+- Gerenciar dependentes  
 - Responder confirmação
 
 ## Diagrama
@@ -18,7 +18,7 @@ flowchart LR
         UC1((Fazer agendamento))
         UC2((Consultar agenda))
         UC3((Cancelar consulta))
-        UC4((Consultar detalhes))
+        UC4((Gerenciar dependentes))
         UC5((Responder confirmacao))
     end
 
