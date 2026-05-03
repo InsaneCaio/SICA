@@ -1,6 +1,6 @@
-# Casos de Uso - Paciente
+# Casos de Uso - Cliente
 
-Este diagrama representa as interações do paciente com o sistema de agendamento.
+Este diagrama representa as interações do cliente com o sistema de agendamento.
 
 ## Casos de uso
 - Fazer agendamento  
@@ -12,7 +12,7 @@ Este diagrama representa as interações do paciente com o sistema de agendament
 ## Diagrama
 ```mermaid
 flowchart LR
-    P[Paciente]
+    P[Cliente]
 
     subgraph Sistema de Agendamento
         UC1((Fazer agendamento))
