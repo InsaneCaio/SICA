@@ -5,10 +5,9 @@ Este diagrama representa as interações do médico com o sistema de agendamento
 ## Casos de uso
 - Visualizar agenda
 - Editar agenda
-- Consultar detalhes da consulta
+- Visualizar consulta
 - Cancelar consulta
-- Anexar receitas e encaminhamentos
-- Editar perfil médico
+- Enviar documentos médicos
 
 ## Diagrama
 ```mermaid
@@ -18,10 +17,9 @@ flowchart LR
     subgraph Sistema de Agendamento
         UC1((Visualizar agenda))
         UC2((Editar agenda))
-        UC3((Consultar detalhes da consulta))
+        UC3((Visualizar consulta))
         UC4((Cancelar consulta))
-        UC5((Anexar receitas e encaminhamentos))
-        UC6((Editar perfil medico))
+        UC5((Enviar documentos médicos))
     end
 
     M --> UC1
