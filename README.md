@@ -84,9 +84,27 @@ Responsável por organizar a saúde da família, Maria enfrenta dificuldades com
 - Controlar agenda  
 - Reagendar e cancelar consultas  
 
-<div align="center">
-  <img width="637" height="653" alt="image" src="https://github.com/user-attachments/assets/5608191c-5f5f-42af-917c-34c903bb95d4" />
-</div>
+```mermaid
+flowchart LR
+    A[Administrador]
+
+    subgraph Sistema de Agendamento
+        UC1((Consultar médicos))
+        UC2((Editar médico))
+        UC3((Cadastrar médico))
+        UC4((Fazer agendamento))
+        UC5((Reagendar))
+        UC6((Cancelar agendamento))
+    end
+
+    A --> UC1
+    A --> UC2
+    A --> UC3
+    A --> UC4
+    A --> UC5
+    A --> UC6
+
+```
 
 📄 Acesse os casos de uso completos:
 - [Administrador](docs/casos%20de%20uso/administrador.md)  
