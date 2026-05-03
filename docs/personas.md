@@ -30,7 +30,7 @@ Responsável por organizar as operações de agendamento
 - Gerencimento de cadastro de médicos
 
 ## Imagem da Persona Administrador
-<img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/cc0bd9c9-dc1e-443a-82fa-feb9e1a6ff37" />
+<img width="2000" height="1414" alt="User Persona Worksheet Worksheet in Style" src="https://github.com/user-attachments/assets/7729a5b3-cde0-4ea7-a04c-7d2196a7c298" />
 
 ---
 
@@ -61,7 +61,7 @@ Responsável por realizar consultas e gerenciar sua própria agenda no sistema
 - Recebimento de cancelamentos
 
 ## Imagem da Persona Médico
-<img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/4200a151-a162-4770-befd-d501a200f413" />
+<img width="2000" height="1414" alt="Cópia de User Persona Worksheet Worksheet in Style" src="https://github.com/user-attachments/assets/78b82cda-c5f4-43ea-99b5-a89598135aa7" />
 
 ---
 
@@ -91,7 +91,7 @@ Maria é casada, mãe de um casal de filhos e principal responsável pelos cuida
 - Recebimento de receitas online, caso necessário  
 
 ## Imagem da Persona Paciente
-<img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/1dc29105-ddbb-41fb-870f-e64e2103578f" />
+<img width="2000" height="1414" alt="Cópia de Cópia de User Persona Worksheet Worksheet in Style" src="https://github.com/user-attachments/assets/462ecadc-44ac-441f-a4cb-0a6d4f2dc852" />
 
 ---
 
