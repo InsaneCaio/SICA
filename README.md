@@ -28,7 +28,7 @@ Além disso, oferece suporte à gestão de dependentes, envio de encaminhamentos
 
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/cc0bd9c9-dc1e-443a-82fa-feb9e1a6ff37" width="500"/>
+<img src="https://github.com/user-attachments/assets/74cfe30f-3c5d-4cd7-802a-60854295352c" width="500"/>
 
 **Maria Eduarda Oliveira**  
 38 anos • Persona Primária  
