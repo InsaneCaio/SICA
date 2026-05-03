@@ -27,5 +27,4 @@ flowchart LR
     M --> UC3
     M --> UC4
     M --> UC5
-    M --> UC6
 ```
