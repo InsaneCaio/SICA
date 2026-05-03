@@ -17,7 +17,7 @@ Responsável por organizar as operações de agendamento
 ## Objetivos
 - Manter agenda atualizada  
 - Evitar conflitos de horário  
-- Gerenciar consultas e exames  
+- Gerenciar consultas  
 
 ## Dores
 - Demora na resposta de pacientes  
