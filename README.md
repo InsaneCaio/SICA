@@ -1,4 +1,4 @@
-<h1 align="center">Sistema de Agendamento de Consultas</h1>
+<h1 align="center">SICA - Sistema Integrado para Clínicas e Agendamentos</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=for-the-badge">
