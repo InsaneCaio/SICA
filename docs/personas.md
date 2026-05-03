@@ -25,10 +25,9 @@ Responsável por organizar as operações de agendamento
 - Trabalho manual  
 
 ## Funções no app
-- Painel administrativo completo  
-- Controle de agendas  
-- Cadastro/edição de médicos e exames  
-- Validação de encaminhamentos  
+- Painel administrativo completo
+- Controle de agendas
+- Gerencimento de cadastro de médicos
 
 ## Imagem da Persona Administrador
 <img width="2000" height="1414" alt="Image" src="https://github.com/user-attachments/assets/cc0bd9c9-dc1e-443a-82fa-feb9e1a6ff37" />
