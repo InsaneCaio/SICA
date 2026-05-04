@@ -110,7 +110,7 @@ flowchart LR
 - [Sistema](docs/casos%20de%20uso/sistema.md)  
 
 ---
-## ✦ Protótipo
+## ✦ Protótipo parcial
 
 <div align="center">
   <img src="https://github.com/InsaneCaio/eng-soft-2026-1/blob/main/docs/imagens%20prot%C3%B3tipo/img1.jpeg" width="300"/>
@@ -119,7 +119,7 @@ flowchart LR
 
 <br>
 
-### 🔗 Interfaces do Sistema
+### Acesse todas as telas do protótipo
 
 - 👤 [Interface Cliente](https://stitch.withgoogle.com/projects/11329770657792360424)  
 - 🛠️ [Interface Administrativa](https://stitch.withgoogle.com/projects/3155227529588405910)  
