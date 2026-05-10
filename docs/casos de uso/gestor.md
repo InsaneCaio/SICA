@@ -70,23 +70,23 @@ flowchart LR
     UC3_2 -->|generalização| UC3
 
     %% <<include>> (obrigatórios)
-    UC1 -.->|<<include>>| UC1_1
-    UC1 -.->|<<include>>| UC1_2
-    UC1 -.->|<<include>>| UC1_3
-    UC1 -.->|<<include>>| UC1_4
+    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_1
+    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_2
+    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_3
+    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_4
 
-    UC5 -.->|<<include>>| UC5_1
+    UC5 -.->|&lt;&lt;include&gt;&gt;| UC5_1
 
     %% <<extend>> (opcionais / condicionais)
 
     %% Alterações de assinatura são ações específicas
-    UC4_2 -.->|<<extend>>| UC4
-    UC4_3 -.->|<<extend>>| UC4
-    UC4_4 -.->|<<extend>>| UC4
-    UC4_5 -.->|<<extend>>| UC4
+    UC4_2 -.->|&lt;&lt;extend&gt;&gt;| UC4
+    UC4_3 -.->|&lt;&lt;extend&gt;&gt;| UC4
+    UC4_4 -.->|&lt;&lt;extend&gt;&gt;| UC4
+    UC4_5 -.->|&lt;&lt;extend&gt;&gt;| UC4
 
     %% Tipos de alertas (variações)
-    UC7_1 -.->|<<extend>>| UC7
-    UC7_2 -.->|<<extend>>| UC7
-    UC7_3 -.->|<<extend>>| UC7
+    UC7_1 -.->|&lt;&lt;extend&gt;&gt;| UC7
+    UC7_2 -.->|&lt;&lt;extend&gt;&gt;| UC7
+    UC7_3 -.->|&lt;&lt;extend&gt;&gt;| UC7
 ```
