@@ -3,6 +3,21 @@
 ```mermaid
 classDiagram
 
+class Cliente {
+    +cpf: string
+    +dataNascimento: date
+    +convenio: string
+}
+
+class Dependente {
+    +id: int
+    +nome: string
+}
+
+Cliente <|-- Dependente
+Cliente <|-- Principal
+
+
 %% =======================
 %% USUÁRIOS (HERANÇA)
 %% =======================
@@ -21,8 +36,9 @@ class Principal {
 class Medico {
     +crm: string
     +especialidade: string
-    +biografia: string
     +valorConsulta: double
+    +diasAtend: Set<string>
+    +horarioAtend: List<string>
 }
 
 class Administrador {
@@ -40,18 +56,7 @@ Usuario <|-- Gestor
 %% CLIENTE (HERANÇA)
 %% =======================
 
-class Cliente {
-    +cpf: string
-    +dataNascimento: date
-}
 
-class Dependente {
-    +id: int
-    +nome: string
-}
-
-Cliente <|-- Principal
-Cliente <|-- Dependente
 
 %% =======================
 %% RELAÇÃO PACIENTE - DEPENDENTE
@@ -59,26 +64,21 @@ Cliente <|-- Dependente
 
 Principal "0..1" -- "0..1" Dependente : gerencia
 
-
-%% =======================
-%% CLINICA - RELACIONAMENTOS
-%% =======================
-
 class Clinica{
-    
+    +nome: string
+    +cnpj: string
+    +email: string
+    +telefone: string
+    +endereço: string
+    +diasAtend: Set<string>
+    +horarioAtend: List<string>
 }
 
 Administrador "0..1" -- "0..1" Clinica : administra
 Gestor "0..*" -- "0..*" Assinatura : gerencia
-Clinica "0..1" -- "0..*" Assinatura : possui
+Clinica "0..1" o-- "0..*" Medico
+Clinica "0..1" *-- "0..*" Assinatura
 
-%% =======================
-%% DISPONIBILIDADE MÉDICO
-%% =======================
-
-class HorarioMedico{
-    +
-}
 
 %% =======================
 %% AGENDAMENTO
@@ -103,19 +103,9 @@ class Prontuario {
     +medicamento: List<string>
 }
 
-Prontuario "1..1" -- "1..1" Cliente
+Consulta "0..*" -- "0..1" Prontuario
 
-%% =======================
-%% DOCUMENTOS MÉDICOS
-%% =======================
 
-class Documento {
-    +id: int
-    +tipo: string
-    +descricao: string
-}
-
-Consulta "1..1" --> "0..*" Documento
 
 %% =======================
 %% ASSINATURA / FINANCEIRO
@@ -133,7 +123,7 @@ class Pagamento {
     +data: date
 }
 
-Assinatura "1..1" -- "1..*" Pagamento
+Assinatura "1..1" *-- "1..*" Pagamento
 
 %% =======================
 %% RELATÓRIOS
