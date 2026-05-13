@@ -46,9 +46,6 @@ flowchart LR
         UC4_4((Cancelar assinatura))
         UC4_5((Reativar assinatura))
 
-        %% Subcasos - Monitoramento
-        UC5_1((Visualizar log de atividade))
-
         %% Subcasos - Alertas
         UC7_1((Alerta de falha))
         UC7_2((Alerta de atraso))
@@ -69,15 +66,10 @@ flowchart LR
     UC3_1 -->|generalização| UC3
     UC3_2 -->|generalização| UC3
 
-    %% <<include>> (obrigatórios)
-    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_1
-    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_2
-    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_3
-    UC1 -.->|&lt;&lt;include&gt;&gt;| UC1_4
-
-    UC5 -.->|&lt;&lt;include&gt;&gt;| UC5_1
-
-    %% <<extend>> (opcionais / condicionais)
+    UC1_1 -.->|&lt;&lt;extend&gt;&gt;| UC1
+    UC1_2 -.->|&lt;&lt;extend&gt;&gt;| UC1
+    UC1_3 -.->|&lt;&lt;extend&gt;&gt;| UC1
+    UC1_4 -.->|&lt;&lt;extend&gt;&gt;| UC1
 
     %% Alterações de assinatura são ações específicas
     UC4_2 -.->|&lt;&lt;extend&gt;&gt;| UC4
