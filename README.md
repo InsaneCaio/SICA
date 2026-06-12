@@ -322,7 +322,8 @@ Gestor --> Alerta
 O projeto foi planejado com foco em:
 
 - Database Oracle  
-- Expo.dev  
+- Expo.dev
+- Visual Studio 2022
 
 ---
 
