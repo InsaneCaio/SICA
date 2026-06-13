@@ -133,6 +133,21 @@ flowchart LR
 ```mermaid
 classDiagram
 
+class Cliente {
+    +cpf: string
+    +dataNascimento: date
+    +convenio: string
+}
+
+class Dependente {
+    +id: int
+    +nome: string
+}
+
+Cliente <|-- Dependente
+Cliente <|-- Principal
+
+
 %% =======================
 %% USUÁRIOS (HERANÇA)
 %% =======================
@@ -142,69 +157,58 @@ class Usuario {
     +nome: string
     +email: string
     +senha: string
-    +login()
-    +logout()
 }
 
-class Cliente {
-    +cpf: string
-    +telefone: string
-    +dataNascimento: date
-    +fazerAgendamento()
-    +consultarAgenda()
-    +cancelarConsulta()
-    +consultarDetalhes()
-    +responderConfirmacao()
-}
-
-class Dependente {
-    +id: int
-    +nome: string
-    +dataNascimento: date
+class Principal {
+    +telefone
 }
 
 class Medico {
     +crm: string
     +especialidade: string
-    +biografia: string
     +valorConsulta: double
-    +visualizarAgenda()
-    +editarAgenda()
-    +consultarDetalhesConsulta()
-    +cancelarConsulta()
-    +anexarDocumento()
-    +editarPerfil()
+    +diasAtend: Set<string>
+    +horarioAtend: List<string>
 }
 
 class Administrador {
-    +consultarMedicos()
-    +cadastrarMedico()
-    +editarMedico()
-    +fazerAgendamento()
-    +reagendarConsulta()
-    +cancelarAgendamento()
 }
 
 class Gestor {
-    +analisarDesempenhoFinanceiro()
-    +gerarRelatorios()
-    +analisarPrevisoes()
-    +gerenciarAssinaturas()
-    +monitorarSistema()
-    +gerenciarUsuarios()
-    +gerenciarAlertas()
 }
 
-Usuario <|-- Cliente
+Usuario <|-- Principal
 Usuario <|-- Medico
 Usuario <|-- Administrador
 Usuario <|-- Gestor
 
 %% =======================
+%% CLIENTE (HERANÇA)
+%% =======================
+
+
+
+%% =======================
 %% RELAÇÃO PACIENTE - DEPENDENTE
 %% =======================
 
-Cliente "1" -- "0..*" Dependente : gerencia
+Principal "0..1" -- "0..1" Dependente : gerencia
+
+class Clinica{
+    +nome: string
+    +cnpj: string
+    +email: string
+    +telefone: string
+    +endereço: string
+    +diasAtend: Set<string>
+    +horarioAtend: List<string>
+}
+
+Administrador "0..1" -- "0..1" Clinica : administra
+Gestor "0..*" -- "0..*" Assinatura : gerencia
+Clinica "0..1" o-- "0..*" Medico
+Clinica "0..1" *-- "0..*" Assinatura
+
 
 %% =======================
 %% AGENDAMENTO
@@ -214,37 +218,24 @@ class Consulta {
     +id: int
     +dataHora: datetime
     +status: string
-    +criar()
-    +reagendar()
-    +cancelar()
 }
 
-class Agenda {
-    +id: int
-    +listarConsultas()
-    +atualizarDisponibilidade()
-}
-
-Cliente "1" -- "*" Consulta : agenda
-Dependente "1" -- "*" Consulta : faz
-Medico "1" -- "*" Consulta : atende
-
-Medico "1" -- "1" Agenda
-Administrador "1" -- "*" Agenda
-Agenda "1" -- "*" Consulta
+Principal "1..1" -- "0..*" Consulta : agenda
+Dependente "1..1" -- "0..*" Consulta : agenda
+Medico "1..1" -- "0..*" Consulta : atende
 
 %% =======================
-%% DOCUMENTOS MÉDICOS
+%% PRONTUÁRIO
 %% =======================
 
-class Documento {
-    +id: int
-    +tipo: string
-    +descricao: string
-    +anexar()
+class Prontuario {
+    +alergia: Set<string>
+    +medicamento: List<string>
 }
 
-Consulta "1" --> "*" Documento
+Consulta "0..*" -- "0..1" Prontuario
+
+
 
 %% =======================
 %% ASSINATURA / FINANCEIRO
@@ -254,20 +245,15 @@ class Assinatura {
     +id: int
     +plano: string
     +status: string
-    +alterarPlano()
-    +cancelar()
-    +reativar()
 }
 
 class Pagamento {
     +id: int
     +valor: float
     +data: date
-    +registrarPagamento()
 }
 
-Assinatura "1" -- "*" Pagamento
-Gestor "1" --> "*" Assinatura
+Assinatura "1..1" *-- "1..*" Pagamento
 
 %% =======================
 %% RELATÓRIOS
@@ -277,35 +263,11 @@ class Relatorio {
     +id: int
     +tipo: string
     +dataGeracao: date
-    +gerar()
 }
 
-Gestor "1" --> "*" Relatorio
-
-%% =======================
-%% SISTEMA / MONITORAMENTO
-%% =======================
-
-class Log {
-    +id: int
-    +descricao: string
-    +data: datetime
-    +registrar()
-}
-
-class Alerta {
-    +id: int
-    +tipo: string
-    +mensagem: string
-    +gerarAlerta()
-}
-
-Gestor --> Log
-Gestor --> Alerta
-
+Gestor "1..1" --> "0..*" Relatorio
 ```
 
----
 
 ## ✦ Problemas Abordados
 
