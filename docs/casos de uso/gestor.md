@@ -25,7 +25,6 @@ flowchart LR
         UC1((Analisar desempenho financeiro))
         UC3((Analisar previsão financeira))
         UC4((Vizualizar assinatura))
-        UC5((Monitorar sistema))
         UC6((Gerenciar usuário administrativo))
         UC7((Visualizar alerta))
 
@@ -56,7 +55,6 @@ flowchart LR
     G --> UC1
     G --> UC3
     G --> UC4
-    G --> UC5
     G --> UC6
     G --> UC7
 
