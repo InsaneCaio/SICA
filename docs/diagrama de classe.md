@@ -76,7 +76,7 @@ class Clinica{
 
 Administrador "0..1" -- "0..1" Clinica : administra
 Gestor "0..*" -- "0..*" Assinatura : gerencia
-Clinica "0..1" o-- "0..*" Medico
+Clinica "0..1" *-- "0..*" Medico
 Clinica "0..1" *-- "0..*" Assinatura
 
 
