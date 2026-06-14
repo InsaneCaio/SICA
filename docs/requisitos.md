@@ -2,7 +2,7 @@
 
 | ID   | Nome do Requisito                | Descrição                                                                 | Prioridade |
 |------|----------------------------------|---------------------------------------------------------------------------|------------|
-| RF01 | Receber alertas financeiros       | Notifica sobre variações financeiras relevantes                         | Média       |
+| RF01 | Visualizar agendamentos          | Permite ver consultas agendados.                                         | Média       |
 | RF02 | Selecionar clínica              | Permite escolher uma clínica para atendimento.                           | Alta       |
 | RF03 | Selecionar especialidade        | Permite escolher a especialidade médica desejada.                        | Alta       |
 | RF04 | Listar médicos                  | Exibe médicos disponíveis da especialidade selecionada.                  | Alta       |
@@ -16,7 +16,7 @@
 | RF12 | Enviar encaminhamento, receita ou pedido    | Exige envio de link ou impressão                             | Alta       |
 | RF13 | Receber alertas de falhas no sistema |  Notifica o gestor sobre falhas ou indisponibilidade do sistema.    | Alta       |
 | RF14 | Receber alertas de inadimplência| Notifica sobre assinaturas com pagamentos em atraso.                     | Alta       |
-| RF15 | Visualizar agendamentos         | Permite ver consultas agendados.                                         | Média      |
+| RF15 | Receber alertas financeiros    | Notifica sobre variações financeiras relevantes                           | Média      |
 | RF16 | Armazenar agendamentos          | Guarda os dados dos agendamentos realizados.                             | Média      |
 | RF17 | Cancelar agendamento            | Permite cancelar consultas agendados.                                    | Baixa      |
 | RF18 | Atualizar disponibilidade       | Atualiza horários após agendamento ou cancelamento.                      | Média      |
@@ -45,8 +45,6 @@
 | RF41 | Monitorar funcionamento do sistema  | Exibe status e desempenho geral do sistema                              | Alta       |
 | RF42 | Visualizar logs de atividades       | Permite consultar registros de ações realizadas no sistema              | Média      |
 | RF43 | Gerenciar usuários administrativos  | Permite criar, editar e remover usuários administrativos                | Alta       |
-
-
 
 # Requisitos Não Funcionais (RNF)
 
