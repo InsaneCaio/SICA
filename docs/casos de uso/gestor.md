@@ -23,7 +23,6 @@ flowchart LR
 
         %% Casos principais
         UC1((Analisar desempenho financeiro))
-        UC2((Gerar relatório financeiro))
         UC3((Analisar previsão financeira))
         UC4((Vizualizar assinatura))
         UC5((Monitorar sistema))
@@ -55,7 +54,6 @@ flowchart LR
 
     %% Ligações com ator
     G --> UC1
-    G --> UC2
     G --> UC3
     G --> UC4
     G --> UC5
