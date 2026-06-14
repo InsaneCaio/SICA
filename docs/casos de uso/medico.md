@@ -4,9 +4,9 @@ Este diagrama representa as interações do médico com o sistema de agendamento
 
 ## Casos de uso
 - Visualizar agenda
-- Enviar documentos médicos
 - Visualizar consulta
 - Visualizar prontuário
+- Enviar documentos médicos
 
 ## Diagrama
 ```mermaid
@@ -15,9 +15,9 @@ flowchart LR
 
     subgraph Sistema de Agendamento
         UC1((Visualizar agenda))
-        UC2((Enviar documentos médicos))
-        UC3((Visualizar consulta))
-        UC4((Visualizar prontuário))
+        UC2((Visualizar consulta))
+        UC3((Visualizar prontuário))
+        UC4((Enviar documentos médicos))
     end
 
     M --> UC1
