@@ -295,6 +295,12 @@ O projeto foi planejado com foco em:
 
 ---
 
+## ✦ Proposta
+
+📄 https://github.com/InsaneCaio/eng-soft-2026-1/blob/main/docs/SICA%20-%20Proposta.pdf
+
+---
+
 ## ✦ Equipe
 
 <div align="center">
