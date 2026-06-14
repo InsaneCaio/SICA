@@ -46,7 +46,6 @@ flowchart LR
 
         %% Subcasos - Alertas
         UC7_1((Alerta de falha))
-        UC7_2((Alerta de atraso))
         UC7_3((Alerta financeiro))
 
     end
@@ -75,6 +74,5 @@ flowchart LR
 
     %% Tipos de alertas (variações)
     UC7_1 -.->|&lt;&lt;extend&gt;&gt;| UC7
-    UC7_2 -.->|&lt;&lt;extend&gt;&gt;| UC7
     UC7_3 -.->|&lt;&lt;extend&gt;&gt;| UC7
 ```
