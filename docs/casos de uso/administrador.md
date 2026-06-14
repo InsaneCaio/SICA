@@ -4,7 +4,6 @@ Este diagrama representa as interações do administrador com o sistema de agend
 
 ## Casos de uso
 - Gerenciar médicos
-- Cadastrar/Editar médicos
 - Gerenciar/Editar dados da clínica
 - Fazer agendamento
 - Reagendar
@@ -18,7 +17,6 @@ flowchart LR
 
     subgraph Sistema de Agendamento
         UC1((Gerenciar médicos))
-        UC2((Cadastrar/Editar médicos))
         UC3((Gerenciar/Editar dados da clínica))
         UC4((Fazer agendamento))
         UC5((Reagendar))
