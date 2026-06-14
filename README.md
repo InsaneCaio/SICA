@@ -133,24 +133,19 @@ flowchart LR
 ```mermaid
 classDiagram
 
-class Cliente {
-    +cpf: string
-    +dataNascimento: date
-    +convenio: string
-}
+class USUARIO
+class PACIENTE
+class PRINCIPAL
 
-class Dependente {
-    +id: int
-    +nome: string
-}
-
-Cliente <|-- Dependente
-Cliente <|-- Principal
+USUARIO <|-- PRINCIPAL
+PACIENTE <|-- PRINCIPAL
 
 
-%% =======================
-%% USUÁRIOS (HERANÇA)
-%% =======================
+
+
+%% ==================================================
+%% PESSOAS
+%% ==================================================
 
 class Usuario {
     +id: int
@@ -159,60 +154,56 @@ class Usuario {
     +senha: string
 }
 
+class Paciente {
+    +cpf: string
+    +dataNascimento: date
+    +convenio: string
+}
+
+
+%% ==================================================
+%% USUÁRIOS
+%% ==================================================
+
 class Principal {
-    +telefone
+    +telefone: string
 }
 
 class Medico {
     +crm: string
     +especialidade: string
     +valorConsulta: double
-    +diasAtend: Set<string>
-    +horarioAtend: List<string>
+    +diasAtend: Set~string~
+    +horarioAtend: List~string~
 }
 
-class Administrador {
-}
+class Administrador
 
-class Gestor {
-}
+class Gestor
 
-Usuario <|-- Principal
 Usuario <|-- Medico
 Usuario <|-- Administrador
 Usuario <|-- Gestor
 
-%% =======================
-%% CLIENTE (HERANÇA)
-%% =======================
+%% ==================================================
+%% PACIENTES
+%% ==================================================
 
+class Paciente
 
-
-%% =======================
-%% RELAÇÃO PACIENTE - DEPENDENTE
-%% =======================
-
-Principal "0..1" -- "0..1" Dependente : gerencia
-
-class Clinica{
+class Dependente{
+    +id: int
     +nome: string
-    +cnpj: string
-    +email: string
-    +telefone: string
-    +endereço: string
-    +diasAtend: Set<string>
-    +horarioAtend: List<string>
 }
 
-Administrador "0..1" -- "0..1" Clinica : administra
-Gestor "0..*" -- "0..*" Assinatura : gerencia
-Clinica "0..1" o-- "0..*" Medico
-Clinica "0..1" *-- "0..*" Assinatura
+Paciente <|-- Principal
+Paciente <|-- Dependente
 
+Principal "1..1" *-- "0..*" Dependente
 
-%% =======================
-%% AGENDAMENTO
-%% =======================
+%% ==================================================
+%% ATENDIMENTO
+%% ==================================================
 
 class Consulta {
     +id: int
@@ -220,26 +211,41 @@ class Consulta {
     +status: string
 }
 
-Principal "1..1" -- "0..*" Consulta : agenda
-Dependente "1..1" -- "0..*" Consulta : agenda
-Medico "1..1" -- "0..*" Consulta : atende
-
-%% =======================
-%% PRONTUÁRIO
-%% =======================
-
 class Prontuario {
-    +alergia: Set<string>
-    +medicamento: List<string>
+    +alergia: Set~string~
+    +medicamento: List~string~
+    +obs: string
 }
 
-Consulta "0..*" -- "0..1" Prontuario
+Paciente "0..1" -- "0..*" Consulta : agenda
 
+Medico "0..1" -- "0..*" Consulta : atende
 
+Paciente "1..1" *-- "1..1" Prontuario
 
-%% =======================
-%% ASSINATURA / FINANCEIRO
-%% =======================
+Consulta "0..*" --> "1..1" Prontuario
+
+%% ==================================================
+%% CLÍNICA
+%% ==================================================
+
+class Clinica {
+    +nome: string
+    +cnpj: string
+    +email: string
+    +telefone: string
+    +endereco: string
+    +diasAtend: Set~string~
+    +horarioAtend: List~string~
+}
+
+Administrador "1..1" -- "0..1" Clinica : administra
+
+Clinica "0..*" -- "0..*" Medico
+
+%% ==================================================
+%% FINANCEIRO
+%% ==================================================
 
 class Assinatura {
     +id: int
@@ -253,11 +259,15 @@ class Pagamento {
     +data: date
 }
 
+Clinica "1..1" *-- "0..*" Assinatura
+
 Assinatura "1..1" *-- "1..*" Pagamento
 
-%% =======================
+Gestor "0..*" -- "0..*" Assinatura : gerencia
+
+%% ==================================================
 %% RELATÓRIOS
-%% =======================
+%% ==================================================
 
 class Relatorio {
     +id: int
@@ -265,7 +275,7 @@ class Relatorio {
     +dataGeracao: date
 }
 
-Gestor "1..1" --> "0..*" Relatorio
+Gestor "1..1" --> "0..*" Relatorio : gera
 ```
 
 
