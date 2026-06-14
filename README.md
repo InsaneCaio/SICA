@@ -114,7 +114,7 @@ flowchart LR
 
 <div align="center">
   <img src="https://github.com/InsaneCaio/eng-soft-2026-1/blob/main/docs/imagens%20prot%C3%B3tipo/img1.jpeg" width="300"/>
-  <img src="https://github.com/InsaneCaio/eng-soft-2026-1/blob/main/docs/imagens%20prot%C3%B3tipo/img2.jpeg" width="300"/>
+  <img src="https://github.com/InsaneCaio/eng-soft-2026-1/blob/main/docs/imagens%20prot%C3%B3tipo/img2.png" width="300"/>
 </div>
 
 <br>
