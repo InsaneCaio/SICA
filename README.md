@@ -104,6 +104,7 @@ flowchart LR
 ```
 
 📄 Acesse os casos de uso completos:
+- [Gestor](docs/casos%20de%20uso/gestor.md)
 - [Administrador](docs/casos%20de%20uso/administrador.md)  
 - [Médico](docs/casos%20de%20uso/medico.md)  
 - [Cliente](docs/casos%20de%20uso/cliente.md)  
