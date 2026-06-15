@@ -54,7 +54,7 @@ Responsável por organizar a saúde da família, Maria enfrenta dificuldades com
 
 | ID   | Descrição |
 |------|----------|
-| RF01 | Listar clínicas próximas |
+| RF03 | Selecionar especialidade |
 | RF04 | Listar médicos disponíveis |
 | RF08 | Selecionar data e horário |
 | RF11 | Confirmar agendamento |
@@ -299,9 +299,10 @@ O projeto foi planejado com foco em:
 
 ---
 
-## ✦ Vídeo do Projeto
+## ✦ Vídeos do Projeto
 
-🎥 https://www.youtube.com/watch?v=061SmmCakYc
+🎥 Projeto Parcial: https://www.youtube.com/watch?v=061SmmCakYc
+🎥 Projeto Final: [https://www.youtube.com/watch?v=061SmmCakYc](https://www.youtube.com/watch?v=gcqeSQ4xo2w)
 
 ---
 
