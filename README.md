@@ -106,7 +106,7 @@ flowchart LR
 📄 Acesse os casos de uso completos:
 - [Administrador](docs/casos%20de%20uso/administrador.md)  
 - [Médico](docs/casos%20de%20uso/medico.md)  
-- [Cliente](docs/casos de uso/cliente.md)  
+- [Cliente](docs/casos%de%uso/cliente.md)  
 - [Sistema](docs/casos%20de%20uso/sistema.md)  
 
 ---
