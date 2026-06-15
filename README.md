@@ -123,8 +123,8 @@ flowchart LR
 
 - 👤 [Interface Cliente](https://stitch.withgoogle.com/projects/11329770657792360424)  
 - 🛠️ [Interface Administrativa](https://stitch.withgoogle.com/projects/3155227529588405910)  
-- 🧑‍⚕️ [Interface Médica](https://stitch.withgoogle.com/projects/15991185783286400575)  
-- 📊 [Interface Gestor](https://stitch.withgoogle.com/projects/11630288415312253588)
+- 🧑‍⚕️ [Interface Médica](https://stitch.withgoogle.com/projects/4247148496098155792) 
+- 📊 [Interface Gestor](https://stitch.withgoogle.com/projects/9086520015571938135)
 
 ---
 
