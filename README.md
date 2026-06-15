@@ -87,12 +87,12 @@ flowchart LR
     A[Administrador]
 
     subgraph Sistema de Agendamento
-        UC1((Consultar médicos))
-        UC2((Editar médico))
-        UC3((Cadastrar médico))
-        UC4((Fazer agendamento))
-        UC5((Reagendar))
-        UC6((Cancelar agendamento))
+        UC1((Gerenciar médicos))
+        UC2((Gerenciar/Editar dados da clínica))
+        UC3((Fazer agendamento))
+        UC4((Reagendar))
+        UC5((Cancelar agendamento))
+        UC6((Gerenciar assinatura))
     end
 
     A --> UC1
