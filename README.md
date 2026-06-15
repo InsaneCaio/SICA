@@ -302,7 +302,7 @@ O projeto foi planejado com foco em:
 ## ✦ Vídeos do Projeto
 
 🎥 Projeto Parcial: https://www.youtube.com/watch?v=061SmmCakYc
-🎥 Projeto Final: [https://www.youtube.com/watch?v=061SmmCakYc](https://www.youtube.com/watch?v=gcqeSQ4xo2w)
+🎥 Projeto Final: https://www.youtube.com/watch?v=gcqeSQ4xo2w
 
 ---
 
