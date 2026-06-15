@@ -110,7 +110,7 @@ flowchart LR
 - [Sistema](docs/casos%20de%20uso/sistema.md)  
 
 ---
-## ✦ Protótipo parcial
+## ✦ Protótipo Final
 
 <div align="center">
   <img src="https://github.com/InsaneCaio/eng-soft-2026-1/blob/main/docs/imagens%20prot%C3%B3tipo/img1.jpeg" width="300"/>
