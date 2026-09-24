@@ -1,6 +1,6 @@
 # Diagrama Entidade-Relacionamento
 
-<img width="1563" height="536" alt="der" src="https://github.com/user-attachments/assets/fa94c66c-e2f7-4add-b855-db2b20cdfa9f" />
+<img width="1548" height="736" alt="image" src="https://github.com/user-attachments/assets/f360abdc-9f69-4a90-a7c9-dfa3cb253217" />
 
 ## Código
 ```plantuml
