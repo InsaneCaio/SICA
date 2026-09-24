@@ -36,6 +36,7 @@ flowchart LR
 
         UC7_1((Alerta de falha))
         UC7_2((Alerta financeiro))
+        UC7_3((Alerta de inadimplência))
     end
 
     G --> UC1
@@ -54,4 +55,5 @@ flowchart LR
 
     UC7_1 -.->|extend| UC7
     UC7_2 -.->|extend| UC7
+    UC7_3 -.->|<<extend>>| UC7
 ```
