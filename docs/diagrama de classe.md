@@ -2,16 +2,6 @@
 ```mermaid
 classDiagram
 
-class USUARIO
-class PACIENTE
-class PRINCIPAL
-
-USUARIO <|-- PRINCIPAL
-PACIENTE <|-- PRINCIPAL
-
-
-
-
 %% ==================================================
 %% PESSOAS
 %% ==================================================
@@ -58,7 +48,12 @@ Usuario <|-- Gestor
 %% PACIENTES
 %% ==================================================
 
-class Paciente
+class Paciente {
+    +id: int
+    +nome: string
+    +email: string
+    +senha: string
+}
 
 class Dependente{
     +id: int
@@ -109,6 +104,7 @@ class Clinica {
 }
 
 Administrador "1..1" -- "0..1" Clinica : administra
+Administrador "1..1" <-- "0..*" Notificao : gera
 
 Clinica "0..*" -- "0..*" Medico
 
@@ -142,6 +138,15 @@ class Relatorio {
     +id: int
     +tipo: string
     +dataGeracao: date
+}
+
+class Notificao {
+    +id: int
+    +data: varchar
+    +hora: varchar
+    +modulo: varchar
+    +desc: varchar
+    +status: varchar
 }
 
 Gestor "1..1" --> "0..*" Relatorio : gera
