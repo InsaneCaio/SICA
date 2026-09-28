@@ -18,9 +18,9 @@
 
 ## ✦ Sobre o Projeto
 
-O sistema foi desenvolvido com o objetivo de simplificar o processo de agendamento médico, permitindo que usuários encontrem rapidamente clínicas, médicos e horários disponíveis.
+O sistema está sendo desenvolvido com o objetivo de simplificar o processo de agendamento médico, permitindo que usuários agendem suas consultas rapidamente de acordo com os horários disponíveis.
 
-Além disso, oferece suporte à gestão de dependentes, envio de encaminhamentos e acompanhamento completo dos compromissos de saúde.
+Além disso, oferece suporte à gestão de dependentes e acompanhamento completo dos compromissos de saúde.
 
 ---
 
