@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#4c616c",
+                        "secondary-fixed": "#cfe6f2",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#006876",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#d1f7ff",
+                        "surface-tint": "#005faf",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "inverse-primary": "#a5c8ff",
+                        "on-primary-fixed": "#001c3a",
+                        "secondary-container": "#cfe6f2",
+                        "primary-container": "#eaf0ff",
+                        "background": "#f7f9fb",
+                        "outline-variant": "#c3c7cb",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-container": "#006dc8",
+                        "on-secondary-fixed": "#071e27",
+                        "on-secondary-container": "#526772",
+                        "primary-fixed": "#d4e3ff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#007887",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "outline": "#73787b",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#43474a",
+                        "primary": "#005faf",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#9eefff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-4xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline font-bold text-xl tracking-tight text-on-surface leading-tight">Escolher data e horário</h1>
+<p class="text-xs font-medium text-on-surface-variant">Para: Maria</p>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 space-y-6">
+<!-- SELECTION SUMMARY CARD -->
+<section class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-surface-container-highest/50">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container shadow-inner bg-surface-container">
+<img alt="Dr. Adriano Martins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJt--QttqnLqcaFNkWTuIA7tCTYo1LCYPpuSX_NFrNp23h7XJevZp4PyN3C8KpD64kOEN-zl-Yn544JEkBCeD0EFgU4HVjHf-TN5A6_6mDlra3LLC0bnVcfZcrqWFoSCuEB2lcBy3vvv6P4gPuob8EM6aXZRb_7JkhB4o37mgP3dS5RE8K4WEbJI-ws2wLnTk5Quwu29UoeWoxigEHH50mglDIGLmmoG5OuteDBpaLD4qGTshtZqjrvNtJZ80XxVnT4WmmYtRMazs">
+</div>
+<div class="flex-1 space-y-1">
+<h2 class="font-headline font-bold text-lg text-on-surface leading-tight">Dr. Adriano Martins</h2>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-primary/80 uppercase tracking-widest">Cardiologia Geral</span>
+
+<span class="text-sm font-bold text-on-surface mt-1">R$ 350,00</span></div>
+</div>
+</div>
+</section>
+<div class="flex flex-col gap-6">
+<!-- CALENDAR SECTION -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-container-highest/50">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h2 class="font-headline font-bold text-lg text-on-surface">Outubro 2023</h2>
+<p class="text-xs text-on-surface-variant font-medium">Selecione o dia da consulta</p>
+</div>
+<div class="flex gap-1">
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-y-2 text-center">
+<!-- Days of week -->
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Dom</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Seg</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Ter</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Qua</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Qui</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Sex</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 py-2">Sáb</div>
+<!-- Active Month Days Only -->
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    1
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    2
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold opacity-30 cursor-not-allowed">
+                    3
+                </button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-bold bg-primary text-on-primary shadow-md ring-4 ring-primary-container/30 transition-all relative">
+                    4
+                </button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    5
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    6
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold opacity-30 cursor-not-allowed">
+                    7
+                </button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    8
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    9
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    10
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    11
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    12
+                    
+</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold opacity-30 cursor-not-allowed">
+                    13
+                </button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">
+                    14
+                    
+</button>
+<!-- Continuing days for October... -->
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">15</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">16</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">17</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">18</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">19</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">20</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">21</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">22</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">23</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">24</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">25</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">26</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">27</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">28</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">29</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">30</button>
+<button class="flex flex-col items-center justify-center py-3 rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors relative group">31</button>
+</div>
+</section>
+<!-- TIME SLOTS SECTION -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-container-highest/50">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<h2 class="font-headline font-bold text-lg text-on-surface">Horários Disponíveis</h2>
+</div>
+<!-- Manhã -->
+<div class="mb-8">
+<p class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-4">Manhã</p>
+<div class="grid grid-cols-3 gap-3">
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">08:00</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-primary text-on-primary text-sm font-bold shadow-md transform scale-105">08:30</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">09:00</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-highest/30 text-sm font-medium text-on-surface-variant/40 opacity-40 cursor-not-allowed border border-transparent">09:30</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-highest/30 text-sm font-medium text-on-surface-variant/40 opacity-40 cursor-not-allowed border border-transparent">10:00</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">10:30</button>
+</div>
+</div>
+<!-- Tarde -->
+<div class="mb-8">
+<p class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-4">Tarde</p>
+<div class="grid grid-cols-3 gap-3">
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">14:00</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">14:30</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">15:00</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">15:30</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">16:00</button>
+<button class="min-h-[44px] flex items-center justify-center px-4 rounded-xl bg-surface-container-low border border-surface-container-highest/50 text-sm font-semibold text-on-surface hover:bg-primary-container hover:text-primary hover:border-primary/20 transition-all">16:30</button>
+</div>
+</div>
+<div class="p-4 bg-tertiary-container/30 rounded-xl border border-tertiary/10">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">info</span>
+<p class="text-xs text-on-tertiary-container font-medium">Os horários exibidos são para o fuso horário de Brasília (BRT).</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-surface-container-highest z-50 px-6 py-6 flex items-center shadow-[0_-8px_30px_rgb(0,0,0,0.04)] flex-col gap-4">
+<div class="flex flex-col gap-0.5">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">Data e Horário</p>
+<p class="text-sm font-bold text-on-surface">4 Out, 08:30</p>
+</div>
+<button class="py-4 bg-primary text-on-primary font-bold rounded-xl shadow-lg shadow-primary/25 hover:bg-on-primary-container active:scale-[0.98] transition-all text-center w-full">
+        Próximo
+    </button>
+</footer>
+
+
+</body></html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Clinical Archive - Selecionar Médico</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e5",
+                        "primary-container": "#eaf0ff",
+                        "tertiary": "#006876",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#a5c8ff",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "tertiary-container": "#d1f7ff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#007887",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#001c3a",
+                        "error": "#ba1a1a",
+                        "background": "#f7f9fb",
+                        "primary-fixed": "#d4e3ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-tint": "#005faf",
+                        "outline-variant": "#c3c7cb",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "tertiary-fixed": "#9eefff",
+                        "on-surface-variant": "#43474a",
+                        "surface-dim": "#d8dadc",
+                        "primary": "#005faf",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-primary-container": "#006dc8",
+                        "on-surface": "#191c1e",
+                        "outline": "#73787b",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed": "#071e27",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "surface": "#f7f9fb",
+                        "secondary": "#4c616c",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#cfe6f2",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#526772",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #191c1e;
+            background-color: #f7f9fb;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d8dadc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed-dim">
+<!-- Side Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-dim dark:bg-inverse-surface flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-4">
+<h1 class="font-headline font-bold text-on-surface dark:text-inverse-on-surface text-2xl tracking-tight">Admin Portal</h1>
+<p class="text-on-surface-variant dark:text-surface-variant text-xs font-medium uppercase tracking-widest mt-1">Precision Care</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">dashboard</span>
+<span class="font-body text-body-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-lowest dark:bg-surface-container-high text-primary dark:text-primary-fixed-dim rounded-lg font-semibold transition-transform active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">calendar_today</span>
+<span class="font-body text-body-sm">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">medical_services</span>
+<span class="font-body text-body-sm font-medium">Doctors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">settings</span>
+<span class="font-body text-body-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 px-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Clinic Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a healthcare administrator with a clean, confident expression. The person is wearing a modern navy blazer against a softly blurred, high-end medical clinic background with cool blue tones and ample natural light. The overall aesthetic is professional, minimalist, and clinical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTH4lVGj9nluOMiv6JYdjEyL20vxIxPP3rYvtg7ViPvT2DmFd1zQsJFV-85GYqyhT6frvaMMTOqSi-ymXAfCI_FN6MtA9s0BZN89WMNAn01RsGLh-DH-pHzYHOHlJxZ1AoAWipRzGsh1060049m1ZPgXan_mqzOhI0IxDkRq2-iQd05etgm2vprl15Tan2kpbxlp2Y61723zbvVLpHcrGooPrRKrE4gOmcnF4Dx1pcOzJdSjyT8St1Qd5W2FV0rlm8xzbl_EGWK6g">
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold text-on-surface dark:text-inverse-on-surface truncate">Dr. Helena Meyer</p>
+<p class="text-xs text-on-surface-variant dark:text-surface-variant truncate">Chief of Staff</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 left-64 h-16 glass-header flex justify-between items-center px-8 z-40">
+<div class="flex items-center gap-6 w-full max-w-xl">
+<span class="font-headline font-black text-on-surface dark:text-inverse-on-surface text-xl">Clinical Archive</span>
+<div class="relative flex-1 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary">search</span>
+<input class="w-full bg-surface-container-highest/50 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant transition-all" placeholder="Search records, doctors or patients..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30 mx-2"></div>
+<button class="px-4 py-2 bg-gradient-to-br from-primary to-primary-fixed-variant text-on-primary rounded-lg text-sm font-semibold cloud-shadow transition-transform active:scale-95">
+                New Appointment
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="p-8 max-w-[1400px] mx-auto">
+<!-- Breadcrumbs & Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<nav class="flex items-center gap-2 text-on-surface-variant text-xs font-medium mb-3">
+<span class="hover:text-primary cursor-pointer transition-colors">Agendamentos</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Novo Agendamento</span>
+</nav>
+<h2 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight leading-tight">
+                        Novo Agendamento: <br>
+<span class="text-primary">Selecionar Médico</span>
+</h2>
+</div>
+<div class="flex items-center gap-3">
+
+</div>
+</div>
+<!-- Filters Section -->
+<section class="mb-8 space-y-6">
+<div class="flex flex-col lg:flex-row gap-4">
+<div class="flex-1 relative group">
+<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary px-12 py-4 text-on-surface font-medium placeholder:text-outline focus:ring-0 transition-all rounded-t-xl" placeholder="Buscar por nome, CRM ou especialidade..." type="text">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">person_search</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 rounded-xl">
+<span class="material-symbols-outlined text-outline">filter_list</span>
+<select class="bg-transparent border-none focus:ring-0 text-on-surface font-semibold text-sm pr-10">
+<option>Ordernar por: Relevância</option>
+<option>Ordernar por: Avaliação</option>
+<option>Ordernar por: Próximo Horário</option>
+</select>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 py-2 overflow-x-auto no-scrollbar">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-semibold cloud-shadow">Todos</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Cardiologia</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Dermatologia</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Pediatria</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Ortopedia</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Ginecologia</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Psiquiatria</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold">Clínica Geral</button>
+</div>
+</section>
+<!-- Doctors Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Doctor Card 1 -->
+<div class="group bg-surface-container-low rounded-xl p-6 transition-all duration-300 hover:bg-surface-container-lowest hover:translate-y-[-4px] cloud-shadow border border-transparent hover:border-primary/5">
+<div class="flex items-start justify-between mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-inner">
+<img alt="Dr. Ricardo Silva" class="w-full h-full object-cover" data-alt="A portrait of a male doctor in his 40s with a warm, professional smile. He is wearing a crisp white medical coat and a stethoscope around his neck. The lighting is soft and flattering, coming from a large window in a high-end, contemporary clinic. The color palette features clean whites, soft greys, and deep clinical blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaVOz1Swjp4yF3l6X7OKZphim2BRsOEieMfZ8drRIhYAu7TkcM5JDOC9iXcUKaxr_iBghilYcIsz6hEwj64Q_qSOXrnlXkxsyZYGQDIIdJTBmeyPxkASc7xqVrmz2_1l2jzBqLC2gXBW8GqjYDvFteiPLunzI49pl60sv6YKvJcmClNJgUbX_mIOvIZeklME53J6VcHI-UXSrCDEMzHHjKc-6W1navEynmGjjTsmvEjUeN-nmdI0epXA45ntuRBYVNMsK_Y4TKSKA">
+</div>
+<div class="absolute -bottom-2 -right-2 bg-success text-white w-6 h-6 rounded-full border-4 border-surface-container-low group-hover:border-surface-container-lowest flex items-center justify-center transition-colors">
+<div class="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-1 justify-end text-primary mb-1">
+
+
+</div>
+
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">Dr. Ricardo Silva</h3>
+<p class="text-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">cardiology</span>
+                            Cardiologista
+                        </p>
+<p class="text-xs text-outline mt-2 font-medium tracking-wide">CRM: 123456-SP</p>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Seg</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Ter</span>
+<span class="px-3 py-1 bg-primary-container text-primary text-xs font-bold rounded-lg">Qui</span>
+<span class="text-xs text-on-surface-variant font-medium ml-auto">Prox. qui, 09:00</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest group-hover:bg-primary text-on-surface group-hover:text-on-primary rounded-lg text-sm font-bold transition-all active:scale-[0.98]">
+                        Selecionar Médico
+                    </button>
+</div>
+<!-- Doctor Card 2 -->
+<div class="group bg-surface-container-low rounded-xl p-6 transition-all duration-300 hover:bg-surface-container-lowest hover:translate-y-[-4px] cloud-shadow border border-transparent hover:border-primary/5">
+<div class="flex items-start justify-between mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-inner">
+<img alt="Dra. Beatriz Santos" class="w-full h-full object-cover" data-alt="A portrait of a confident female physician in her late 30s. She has a friendly, professional gaze and is wearing a modern tailored lab coat. The setting is a minimalist, airy medical office with light-toned wooden accents and blurred green plants. The image has high-key lighting, emphasizing a clean, modern, and clinical aesthetic with a palette of whites and clinical blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL0G0dZz4xj88RluXwuKg_SubatQAROJG8lh6MNQ9kM6GMXDocJLdCaiLIuUZc048Jghrbh-A-rHv4dxA0s4B5ei52CXituApFQ7y1Y16InlzEd58_2DKPbfA7qYFFM1BznodUyYq_Z3_q8WXF4J5xdO_VUh-FWPdNDm6JL-8yCZFUu2RXNzsnOmTOjYWe0p39r-3_3ivz2nvUQMPgHCCBUJG3DzAkHwPSpV1nshb4YyxXysY3AZLbYE0I4tNoiND87kkIyklIvEE">
+</div>
+</div>
+<div class="text-right">
+
+
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">Dra. Beatriz Santos</h3>
+<p class="text-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">health_and_safety</span>
+                            Dermatologista
+                        </p>
+<p class="text-xs text-outline mt-2 font-medium tracking-wide">CRM: 654321-SP</p>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary-container text-primary text-xs font-bold rounded-lg">Hoje</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Qua</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Sex</span>
+<span class="text-xs text-on-surface-variant font-medium ml-auto">Hoje, 14:30</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest group-hover:bg-primary text-on-surface group-hover:text-on-primary rounded-lg text-sm font-bold transition-all active:scale-[0.98]">
+                        Selecionar Médica
+                    </button>
+</div>
+<!-- Doctor Card 3 -->
+<div class="group bg-surface-container-low rounded-xl p-6 transition-all duration-300 hover:bg-surface-container-lowest hover:translate-y-[-4px] cloud-shadow border border-transparent hover:border-primary/5">
+<div class="flex items-start justify-between mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-inner">
+<img alt="Dr. André Costa" class="w-full h-full object-cover" data-alt="A portrait of a male pediatrician with a kind, approachable expression. He is wearing a blue polo shirt and a white medical coat. The background is a brightly lit, cheerful pediatric exam room with subtle colorful wall decals, maintaining a clean and professional look. The lighting is warm and welcoming, consistent with a clinical precision design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJYVeND1jly9uHScdD_jxZSpWSuUOV21atezPF9416kYfsHnyX87byz1InILom2xv8SefAmoSIJeDCdZBKGE0VDTgKiFwGYdSXvavKsZ3LQolC3dKChi9DXd_p_OU8QaScUvdjc8jGRJDel1T_8EIZ2MhJlwqgwTbcviFeJ10Y9gfMXUbf7wbSpmQp3CTVU0zJDtwsZCLxGz8w3BR58MOYeLaFi3t39gxX2JIKmx3xpsctV707w1bfv_D7OqsQRufmFhmGsXFO-qU">
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-1 justify-end text-primary mb-1">
+
+
+</div>
+
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">Dr. André Costa</h3>
+<p class="text-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">child_care</span>
+                            Pediatra
+                        </p>
+<p class="text-xs text-outline mt-2 font-medium tracking-wide">CRM: 987654-SP</p>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Ter</span>
+<span class="px-3 py-1 bg-primary-container text-primary text-xs font-bold rounded-lg">Qua</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Qui</span>
+<span class="text-xs text-on-surface-variant font-medium ml-auto">Amanhã, 08:15</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest group-hover:bg-primary text-on-surface group-hover:text-on-primary rounded-lg text-sm font-bold transition-all active:scale-[0.98]">
+                        Selecionar Médico
+                    </button>
+</div>
+<!-- Doctor Card 4 -->
+<div class="group bg-surface-container-low rounded-xl p-6 transition-all duration-300 hover:bg-surface-container-lowest hover:translate-y-[-4px] cloud-shadow border border-transparent hover:border-primary/5">
+<div class="flex items-start justify-between mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-inner">
+<img alt="Dra. Marina Lopes" class="w-full h-full object-cover" data-alt="A portrait of a highly experienced female surgeon or physician. She has silver hair and a serene, authoritative expression. She is wearing a modern medical scrub and a white coat. The background is a pristine, high-tech hospital corridor with soft focus and cool blue lighting accents. The overall mood is one of editorial authority and sterile clinical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPKJBpcRT6oe4f3EOY0L3Ue_Tgw4aN-i1tQ5tVqGztEAC9mt0dvRToFqvY8OwBzQUkAiagweerZkyBU7JPsAOeQYcxfhNhNY7aop1x9bTsEKzCDg_S-3qiCGzgL6fuHbLj5UXoHq5v9fj1-rSXJ5KpcGMEJRN1rrtfrSGPViPGvBxkVmhCruJMiINzboChpDwf8mBTywl7mUeVeOCW1AbVCLJaAch3C4oVZ-HMv8N0bkM73UTWQUPERFA0WApzssJ1SQ115YlRQZA">
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-1 justify-end text-primary mb-1">
+
+
+</div>
+
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">Dra. Marina Lopes</h3>
+<p class="text-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">psychiatry</span>
+                            Psiquiatra
+                        </p>
+<p class="text-xs text-outline mt-2 font-medium tracking-wide">CRM: 135790-SP</p>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Seg</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Qua</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Sex</span>
+<span class="text-xs text-on-surface-variant font-medium ml-auto">Prox. seg, 13:00</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest group-hover:bg-primary text-on-surface group-hover:text-on-primary rounded-lg text-sm font-bold transition-all active:scale-[0.98]">
+                        Selecionar Médica
+                    </button>
+</div>
+<!-- Doctor Card 5 -->
+<div class="group bg-surface-container-low rounded-xl p-6 transition-all duration-300 hover:bg-surface-container-lowest hover:translate-y-[-4px] cloud-shadow border border-transparent hover:border-primary/5">
+<div class="flex items-start justify-between mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-inner">
+<img alt="Dr. Paulo Mello" class="w-full h-full object-cover" data-alt="A portrait of a male doctor in his 50s, projecting warmth and deep expertise. He is wearing a stethoscope and a neatly pressed white coat. The background is a bright, organized clinic office with medical journals and subtle technological details. High-key lighting highlights the sterile but approachable feel, with a focus on clinical blues and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeraUkTOnk0wHYABXW_-GTL_60DLQp1cPifMFkCgNE8Adt-YPZpJSNCaqzBeCXhmkiTfQd_YUEIoBP-rNM-Hu8roXPzzKqMROeRzyz9yDxDOcL28noYFc0fnGtCFwYUMeD0VBVDcDB1WgrhBOD704En3_RXFwV0n0YvdWkIsFD99CwUSMzMuqW7VB39VNsdgAutEKO-x7YSeRpcn1mKn_v2OB7EjqXVpQR3X4jYaIPStiDSTxQz6dAe8JfRMfeS0gOLxuGJbfSm4Q">
+</div>
+<div class="absolute -bottom-2 -right-2 bg-success text-white w-6 h-6 rounded-full border-4 border-surface-container-low group-hover:border-surface-container-lowest flex items-center justify-center transition-colors">
+<div class="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-1 justify-end text-primary mb-1">
+
+
+</div>
+
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">Dr. Paulo Mello</h3>
+<p class="text-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">skeleton</span>
+                            Ortopedista
+                        </p>
+<p class="text-xs text-outline mt-2 font-medium tracking-wide">CRM: 246810-SP</p>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary-container text-primary text-xs font-bold rounded-lg">Hoje</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Ter</span>
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg text-on-surface-variant">Qui</span>
+<span class="text-xs text-on-surface-variant font-medium ml-auto">Hoje, 16:45</span>
+</div>
+<button class="w-full py-3 bg-surface-container-highest group-hover:bg-primary text-on-surface group-hover:text-on-primary rounded-lg text-sm font-bold transition-all active:scale-[0.98]">
+                        Selecionar Médico
+                    </button>
+</div>
+<!-- Add Doctor Placeholder / External Network -->
+
+</div>
+</div>
+</main>
+<!-- Contextual Slide-out Tray (Hidden by default) -->
+<div class="fixed top-0 right-0 h-screen w-[480px] bg-surface-container-lowest z-[60] transform translate-x-full transition-transform duration-500 ease-in-out cloud-shadow" id="doctor-tray">
+<div class="p-8 h-full flex flex-col overflow-y-auto custom-scrollbar">
+<div class="flex items-center justify-between mb-10">
+<h3 class="text-2xl font-headline font-bold text-on-surface">Detalhes do Médico</h3>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors" onclick="toggleTray()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex items-center gap-6 mb-8">
+<div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg">
+<img alt="Doctor" class="w-full h-full object-cover" id="tray-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqrmeIJHCbv6Dt8LFG8Zr1KrMbVlOhq6NMULFX529z0Pts0qaDeFIyARcG74XnOTvM8JLVkEjDV657WkXIatjViLIFpPhalraVjX4sbjq_GWGH5BKLXwlvb4vU5yACs7xiR9_T7fGG7mz9GNpqM26dj4sgSgHwHK6oSgoCJay709ExRmILCSKPxqhm_0AqIfe9raiKadL7pOU31Tx6rwdWWvO4m3AuuTZCvh1SSpnXIZwZQSV4Hxn39eDxu3XHdR2a3Mf5J14h66s">
+</div>
+<div>
+<h4 class="text-2xl font-bold text-on-surface" id="tray-name">Dr. Ricardo Silva</h4>
+<p class="text-primary font-semibold" id="tray-specialty">Cardiologista</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.9</span>
+<span class="text-xs text-outline font-medium ml-2">(1.204 avaliações)</span>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<h5 class="text-sm font-bold uppercase tracking-widest text-outline mb-4">Sobre o Profissional</h5>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Especialista em cardiologia clínica e intervencionista com mais de 15 anos de experiência. Focado em prevenção de doenças coronarianas e acompanhamento de longo prazo para atletas de alto rendimento. Graduado pela USP com residência no Instituto do Coração.
+                    </p>
+</div>
+<div>
+<h5 class="text-sm font-bold uppercase tracking-widest text-outline mb-4">Horários Disponíveis (Quinta, 12 de Out)</h5>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-3 bg-surface-container rounded-lg text-sm font-bold hover:bg-primary-container hover:text-primary transition-all">09:00</button>
+<button class="py-3 bg-surface-container rounded-lg text-sm font-bold hover:bg-primary-container hover:text-primary transition-all">09:30</button>
+<button class="py-3 bg-surface-container rounded-lg text-sm font-bold hover:bg-primary-container hover:text-primary transition-all">10:00</button>
+<button class="py-3 bg-surface-container rounded-lg text-sm font-bold hover:bg-primary-container hover:text-primary transition-all">11:00</button>
+<button class="py-3 bg-surface-container rounded-lg text-sm font-bold opacity-50 cursor-not-allowed">11:30</button>
+<button class="py-3 bg-surface-container rounded-lg text-sm font-bold hover:bg-primary-container hover:text-primary transition-all">14:00</button>
+</div>
+</div>
+<div class="pt-6 mt-auto">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-fixed-variant text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-transform active:scale-95">
+                        Confirmar e Avançar
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Backdrop for Tray -->
+<div class="fixed inset-0 bg-on-surface/20 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-500" id="tray-backdrop" onclick="toggleTray()"></div>
+<script>
+        function toggleTray() {
+            const tray = document.getElementById('doctor-tray');
+            const backdrop = document.getElementById('tray-backdrop');
+            
+            if (tray.classList.contains('translate-x-full')) {
+                tray.classList.remove('translate-x-full');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.add('opacity-100'), 10);
+            } else {
+                tray.classList.add('translate-x-full');
+                backdrop.classList.remove('opacity-100');
+                setTimeout(() => backdrop.classList.add('hidden'), 500);
+            }
+        }
+
+        // Mock interaction for doctor cards
+        document.querySelectorAll('.group button').forEach(button => {
+            if (button.textContent.trim().includes('Selecionar')) {
+                button.addEventListener('click', (e) => {
+                    const card = e.target.closest('.group');
+                    const name = card.querySelector('h3').textContent;
+                    const specialty = card.querySelector('p').textContent;
+                    const imgSrc = card.querySelector('img').src;
+
+                    document.getElementById('tray-name').textContent = name;
+                    document.getElementById('tray-specialty').textContent = specialty;
+                    document.getElementById('tray-img').src = imgSrc;
+                    
+                    toggleTray();
+                });
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

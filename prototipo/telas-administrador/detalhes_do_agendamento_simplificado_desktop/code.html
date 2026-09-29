@@ -1,0 +1,281 @@
+<!DOCTYPE html><html class="light" lang="pt-br"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Precision Clinic - Detalhes do Agendamento</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#cfe6f2",
+                        "tertiary-container": "#d1f7ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-container": "#526772",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#9eefff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#d4e3ff",
+                        "on-secondary-fixed": "#071e27",
+                        "inverse-surface": "#2d3133",
+                        "surface-tint": "#005faf",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#43474a",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#4c616c",
+                        "primary-container": "#eaf0ff",
+                        "tertiary": "#006876",
+                        "on-primary-fixed": "#001c3a",
+                        "primary": "#005faf",
+                        "on-primary-container": "#006dc8",
+                        "outline-variant": "#c3c7cb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "outline": "#73787b",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-tertiary-container": "#007887",
+                        "background": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#001f24",
+                        "secondary-fixed": "#cfe6f2",
+                        "inverse-primary": "#a5c8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-72 fixed left-0 top-0 flex flex-col p-6 gap-8 bg-surface-dim dark:bg-inverse-surface z-50">
+<div class="flex flex-col gap-1">
+<h1 class="font-headline text-lg font-extrabold tracking-tight text-on-surface dark:text-on-surface">Precision Clinic</h1>
+<p class="text-xs font-medium text-on-surface-variant opacity-70">Administrative Portal</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:text-on-surface transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-surface-container-lowest dark:bg-surface-container-high text-primary dark:text-primary-fixed-dim rounded-xl font-semibold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-medium">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:text-on-surface transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-medium">Doctors</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:text-on-surface transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 rounded-xl bg-surface-container-low flex items-center gap-3">
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional studio portrait of a healthcare administrator, middle-aged with a warm expression, wearing professional attire in a bright, modern office setting with soft clinical blue lighting and a clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz9OVnD3kXid1V8vVvsQ1AoHDPCphAW-Lrra89GOVDmtpYMFBKJe5eSfMb7o0Yz725-Fx75gnXRSTjtj97vJx4CER8rH9rSMGikzZbcr-V5QYycXs3imP_IkIV0cZHYYGzeYfgLtVAZ4FxLkYpwvTTyDDXeMmAZLpz-eKelrWU-KiZ02ZbxEWS9tmGQmqUFmhCzzlqnqI2eAZ3Gb2xJkMhTc87inRcpud_HytFANxAzOvavp3K_VsXrKP_fnffiOs3utvOrceiXGE">
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Admin User</p>
+<p class="text-xs text-on-surface-variant">Portal Supervisor</p>
+</div>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="ml-72 flex flex-col min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="w-full sticky top-0 z-40 bg-surface dark:bg-surface">
+<div class="flex justify-between items-center px-10 py-6 max-w-full">
+<div class="flex items-center gap-6">
+<h2 class="font-headline text-display-sm font-bold text-on-surface dark:text-on-surface">Clinical Overview</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Search patient or ID..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors Active: scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors Active: scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<div class="h-8 w-px bg-outline-variant opacity-20 mx-2"></div>
+<img alt="Precision Clinic Logo" class="h-8 object-contain" data-alt="A minimalist and high-end clinic logo emblem, featuring abstract geometric forms resembling clinical precision and medical care, designed with a deep blue and silver palette against a crisp white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEGjYW6p0G8nOcw2EcDMKq50GZyUuJ5szf47b9SjxxPCpXaoUgQvrrNKsA7WIxGkw6V9R3sQlMdnJd8-HD8NrcgRhW1Nr1f_p2Y1VawCTXs8uYMkg7ps6sin0DwlvFgtNUFIqIcJkrFXYDOCmY-Yha8waQxkYjVTJcj10FIRSsQyP12H0TWKuUk44TiXBukquvyOztxSJCtTUD4dWhLimwWglNAdxjdON2RM6xzpNZkRAHXjFtKlN8_nCPRGU8Q4nWKCRTG2FuO8M">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-10 max-w-7xl">
+<!-- Breadcrumbs / Back Action -->
+<div class="mb-8 flex items-center gap-2">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-on-surface-variant text-sm font-medium">Schedule</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface text-sm font-semibold">Appointment Details #APT-4920</span>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Patient & Main Details -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Header Card: Asymmetric Layout -->
+<div class="bg-surface-container-lowest rounded-xl p-8 relative overflow-hidden group">
+<!-- Subtle Background Detail -->
+<div class="absolute -right-16 -top-16 w-64 h-64 signature-gradient rounded-full opacity-5 blur-3xl group-hover:opacity-10 transition-opacity"></div>
+<div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
+<img alt="Mariana Silva" class="w-24 h-24 rounded-2xl object-cover shadow-sm" data-alt="A natural, bright portrait of a 28-year-old woman with a friendly and calm expression. She has dark hair and is wearing a professional light-colored blouse. The lighting is soft and airy, conveying health and wellness in a clinical but warm environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gKz_hU9XMaMyuRrTibLQtL4kMOEe9ZEd6v-dzj5km0wORVjZGfan4offemt6H8h03Hv-JIGUXTHrq3uV_Wsq7QcVRFRpvyMOGLSSS1nK7ssz9ib3OnlPo45dH2aUpcJGFG6PBWEHwv19nmH5IEtuFAwVYajOfoF60Wr5AwdOqsMXxCQpj6IlxsICZlb-rdTRn9GCguOCOUBz6dfo5Pdz-V8XMmNW0j8lFAGFZtgbG2mILkcwoapWo0OyPvER0eG-LZFtPNBNohQ">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<h1 class="font-headline text-3xl font-extrabold tracking-tight">Mariana Silva</h1>
+<span class="px-4 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-wide flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                                        Confirmed
+                                    </span>
+</div>
+<div class="flex flex-wrap gap-x-6 gap-y-2 text-on-surface-variant text-sm">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg" data-icon="person">person</span> 28 years old</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg" data-icon="badge">badge</span> ID: 882.391.004-X</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg" data-icon="health_and_safety">health_and_safety</span> Bradesco Saúde</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Details Bento Grid Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Appointment Time Card -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<p class="text-on-surface-variant font-bold text-xs uppercase tracking-widest mb-4">Date &amp; Time</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+</div>
+<div>
+<p class="font-headline font-bold text-lg">24 May 2024</p>
+<p class="text-primary font-semibold">09:30 AM</p>
+</div>
+</div>
+</div>
+<!-- Responsible Doctor Card -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<p class="text-on-surface-variant font-bold text-xs uppercase tracking-widest mb-4">Responsible Doctor</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="stethoscope">stethoscope</span>
+</div>
+<div>
+<p class="font-headline font-bold text-lg">Dr. Arnaldo Souza</p>
+<p class="text-on-surface-variant font-medium text-sm">Cardiology • CRM 12345</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Clinical Reason Section -->
+</div>
+<!-- Right Column: Contacts & Actions -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Contact Info Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6">
+<h3 class="font-headline text-lg font-bold mb-6">Patient Contact</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-semibold">Mobile Phone</p>
+<p class="text-on-surface font-bold text-sm">+55 (11) 98765-4321</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-semibold">Email Address</p>
+<p class="text-on-surface font-bold text-sm">mariana.silva@email.com</p>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Administrative Actions Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6">
+<h3 class="font-headline text-lg font-bold mb-6">Quick Actions</h3>
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 px-6 rounded-xl bg-surface-container-high text-on-surface font-bold flex items-center justify-center gap-2 hover:bg-outline-variant/30 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="edit_calendar">edit_calendar</span>
+                                Reagendar
+                            </button>
+<button class="w-full py-4 px-6 rounded-xl border-2 border-error/10 text-error font-bold flex items-center justify-center gap-2 hover:bg-error/5 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                                Cancelar Agendamento
+                            </button>
+</div>
+</div>
+<!-- Audit Trail -->
+<div class="px-2">
+<p class="text-on-surface-variant text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
+                            Agendamento criado em 10/05/2024 por Admin User
+                        </p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => el.classList.add('scale-95'));
+            el.addEventListener('mouseup', () => el.classList.remove('scale-95'));
+            el.addEventListener('mouseleave', () => el.classList.remove('scale-95'));
+        });
+    </script>
+
+
+</body></html>

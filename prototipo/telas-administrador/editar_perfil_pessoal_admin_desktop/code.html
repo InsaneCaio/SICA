@@ -1,0 +1,346 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Vitalis Portal - Perfil do Administrador</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c3c7cb",
+                    "on-surface": "#191c1e",
+                    "surface-container-high": "#e6e8ea",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#071e27",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-tint": "#005faf",
+                    "on-secondary-container": "#526772",
+                    "surface": "#f7f9fb",
+                    "secondary-container": "#cfe6f2",
+                    "on-surface-variant": "#43474a",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary": "#006876",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "primary-fixed": "#d4e3ff",
+                    "on-primary-fixed": "#001c3a",
+                    "on-primary-container": "#006dc8",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#001f24",
+                    "tertiary-container": "#d1f7ff",
+                    "tertiary-fixed": "#9eefff",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "primary": "#005faf",
+                    "on-tertiary-container": "#007887",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "secondary-fixed": "#cfe6f2",
+                    "primary-container": "#eaf0ff",
+                    "background": "#f7f9fb",
+                    "secondary": "#4c616c",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline": "#73787b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #f7f9fb;
+        color: #191c1e;
+      }
+      .glass-effect {
+        background: rgba(247, 249, 251, 0.8);
+        backdrop-filter: blur(16px);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+      }
+      .cloud-shadow {
+        box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #e0e3e5;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="font-body overflow-hidden">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 flex flex-col fixed left-0 top-0 bg-surface-dim dark:bg-inverse-surface py-6">
+<div class="px-8 mb-10">
+<h1 class="text-2xl font-display font-bold text-primary dark:text-inverse-primary tracking-tight">Vitalis</h1>
+<p class="text-xs font-body text-on-surface dark:text-inverse-on-surface uppercase tracking-widest opacity-60">Clinical Admin</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-secondary-fixed-variant dark:text-on-secondary-fixed flex items-center px-8 py-3 hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-body-sm font-medium">Dashboard</span>
+</a>
+<a class="text-on-secondary-fixed-variant dark:text-on-secondary-fixed flex items-center px-8 py-3 hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">calendar_today</span>
+<span class="text-body-sm font-medium">Schedule</span>
+</a>
+<a class="text-on-secondary-fixed-variant dark:text-on-secondary-fixed flex items-center px-8 py-3 hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">medical_services</span>
+<span class="text-body-sm font-medium">Doctors</span>
+</a>
+<!-- Active State Navigation -->
+<a class="text-primary dark:text-inverse-primary font-bold bg-surface dark:bg-surface-container-high rounded-l-full ml-4 pl-4 py-3 flex items-center scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: &quot;FILL&quot; 1;">settings</span>
+<span class="text-body-sm">Settings</span>
+</a>
+</nav>
+<div class="px-8 mt-auto pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">support_agent</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Help Center</p>
+<p class="text-[10px] text-on-surface-variant">Access documentation</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center h-16 px-8 ml-64 w-[calc(100%-16rem)] sticky top-0 bg-surface dark:bg-surface-dim z-30">
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-full border-none focus:ring-2 focus:ring-primary text-sm w-64 transition-all duration-300" placeholder="Search records..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/20 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface leading-tight">Julian Pierce</p>
+<p class="text-xs text-on-surface-variant">Admin</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover border-2 border-surface-container-high" data-alt="A professional headshot of a middle-aged male hospital administrator with a warm and confident expression. He is wearing a modern charcoal grey blazer over a light blue shirt, set against a clean, softly lit clinical office background. The lighting is bright and even, reinforcing a high-end light-mode UI aesthetic with professional medical vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYxZtZwFGpRQGXdDtj63zx5fcDJZNzsFYlTpeVJDY0cLn5KOYQqc4nq6vEY19Za2BW8fZaUhXUAgpW5DcWUxUH7grqoTJmnKYuLWqcl0KCTZksKVE0UnE-E4WE0LO7kTAsXkyZY-Et981ZwWF4uOZxsnHpyJg6MYsCLsV5s5ElqgVJhhLy6e63UpKJaMq1wzyQilLxM4eMcMMZLQf_G31HG8nmgy7gKX8xZWe7gci15X0SepU4T40BgeAjLX898Cpar6bhQ8d1y-Q">
+</div>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="ml-64 p-8 h-[calc(100vh-4rem)] overflow-y-auto custom-scrollbar">
+<div class="max-w-6xl mx-auto">
+<!-- Page Header (Asymmetric Layout) -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+<div class="flex-1">
+<h2 class="font-display text-4xl font-extrabold text-on-surface tracking-tight mb-2">Configurações da Conta</h2>
+<p class="text-on-surface-variant max-w-xl font-medium">Gerencie suas informações pessoais, segurança e preferências de comunicação dentro do portal Vitalis.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 rounded-lg font-bold text-sm text-primary hover:bg-primary-container transition-all">
+                        Discard
+                    </button>
+<button class="px-8 py-2.5 rounded-lg primary-gradient text-on-primary font-bold text-sm cloud-shadow hover:opacity-90 transition-all transform active:scale-95">
+                        Save Changes
+                    </button>
+</div>
+</div>
+<!-- Bento Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column (Identity & Security) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Section: Informações de Identificação -->
+<section class="bg-surface-container-lowest p-8 rounded-xl cloud-shadow border-b-2 border-primary/5">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">badge</span>
+<h3 class="text-xl font-display font-bold text-on-surface">Informações de Identificação</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-md font-semibold text-on-surface-variant block ml-1">Full Name</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant/15 focus:border-primary focus:ring-0 rounded-t-lg px-4 py-3 text-on-surface font-medium transition-all" type="text" value="Julian Pierce">
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-semibold text-on-surface-variant block ml-1">Email Address</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant/15 focus:border-primary focus:ring-0 rounded-t-lg px-4 py-3 text-on-surface font-medium transition-all" type="email" value="julian.pierce@vitalis.md">
+</div>
+</div>
+</section>
+<!-- Section: Segurança e Senha -->
+<section class="bg-surface-container-lowest p-8 rounded-xl cloud-shadow border-b-2 border-primary/5">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">lock_person</span>
+<h3 class="text-xl font-display font-bold text-on-surface">Segurança e Senha</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-md font-semibold text-on-surface-variant block ml-1">Current Password</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant/15 focus:border-primary focus:ring-0 rounded-t-lg px-4 py-3 text-on-surface font-medium transition-all" placeholder="••••••••••••" type="password">
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-semibold text-on-surface-variant block ml-1">New Password</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant/15 focus:border-primary focus:ring-0 rounded-t-lg px-4 py-3 text-on-surface font-medium transition-all" placeholder="Min. 8 characters" type="password">
+</div>
+</div>
+
+</section>
+<!-- Destructive Action -->
+<div class="pt-4 flex justify-start">
+<button class="flex items-center gap-2 text-error font-semibold hover:bg-error-container/20 px-4 py-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">no_accounts</span>
+<span class="">Deactivate Account</span>
+</button>
+</div>
+</div>
+<!-- Right Column (Profile Card & Preferences) -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Profile Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl cloud-shadow text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 primary-gradient"></div>
+<div class="relative inline-block mb-6">
+<img alt="Profile Large" class="w-32 h-32 rounded-full object-cover ring-4 ring-surface-container mx-auto" data-alt="Close-up professional portrait of Julian Pierce, a healthcare administrator, looking directly into the camera with a gentle, professional smile. The image shows high detail in skin texture and eyes, illuminated by bright daylight from a large window. The background is a blurred high-end medical clinic reception area, emphasizing the clinical yet premium and welcoming nature of the Vitalis health center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuKZIXajwoyOQqyCNqOc6oVnFaKSP1KB7RNTObw9TZAzvbbG0VG1rCDCAyhnmp1pJn3WUkU6vD6_PvVeFLkd34HM3DuVunntiR4pcx2tgFtDBzqRwCupOFmVDhpzcPld-wBaeRqfDr7AlGhukrnVOFMYIhxnjfQxKRxairs9vsJEdyZMZnvlM73j8QYBvo18koUNzAeLJw1K8qW6w1kZD1iK6HR9WhBLth_TyfPohCMGMAwux2cCelC7vaJepVrShbJnDbFWM_7G8">
+<button class="absolute bottom-1 right-1 w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center border-4 border-surface-container-lowest shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<h4 class="text-2xl font-display font-extrabold text-on-surface">Julian Pierce</h4>
+<p class="text-primary font-bold text-sm mb-6">Clinic Administrator</p>
+<div class="space-y-4 text-left border-t border-outline-variant/10 pt-6">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant font-medium">Clinic Name</span>
+<span class="text-on-surface font-bold">Vitalis Health Center</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant font-medium">Administrator ID</span>
+<span class="text-on-surface font-bold">#88429</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant font-medium">Last updated</span>
+<span class="text-on-surface font-bold text-xs">Oct 24, 2023</span>
+</div>
+</div>
+</div>
+<!-- Communication Preferences -->
+<section class="bg-surface-container-lowest p-8 rounded-xl cloud-shadow">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">mail</span>
+<h3 class="text-lg font-display font-bold text-on-surface">Preferências de Comunicação</h3>
+</div>
+<div class="space-y-6">
+<!-- Toggle Item -->
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">System alerts</p>
+<p class="text-[11px] text-on-surface-variant leading-tight">Critical clinic operation notifications</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle Item -->
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Appointment updates</p>
+<p class="text-[11px] text-on-surface-variant leading-tight">Patient schedule changes &amp; cancellations</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle Item -->
+<div class="flex items-center justify-between">
+<div>
+
+
+</div>
+
+</div>
+</div>
+
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Simple feedback for Save button
+        const saveBtn = document.querySelector('.primary-gradient');
+        saveBtn.addEventListener('click', () => {
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm mr-2">progress_activity</span> Saving...';
+            saveBtn.disabled = true;
+            setTimeout(() => {
+                saveBtn.innerHTML = '<span class="material-symbols-outlined text-sm mr-2">check_circle</span> Saved!';
+                saveBtn.classList.remove('primary-gradient');
+                saveBtn.classList.add('bg-tertiary');
+                setTimeout(() => {
+                    saveBtn.innerHTML = originalText;
+                    saveBtn.classList.add('primary-gradient');
+                    saveBtn.classList.remove('bg-tertiary');
+                    saveBtn.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+    </script>
+
+
+</body></html>

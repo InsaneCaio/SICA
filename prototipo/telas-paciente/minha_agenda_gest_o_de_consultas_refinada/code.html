@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-fixed": "#9eefff",
+                    "secondary-container": "#cfe6f2",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed": "#071e27",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a5c8ff",
+                    "on-tertiary-container": "#007887",
+                    "on-primary-fixed": "#001c3a",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c3c7cb",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#4c616c",
+                    "surface-tint": "#005faf",
+                    "tertiary": "#006876",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "surface-container": "#eceef0",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#73787b",
+                    "background": "#f7f9fb",
+                    "inverse-surface": "#2d3133",
+                    "error": "#ba1a1a",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-surface-variant": "#43474a",
+                    "on-primary-fixed-variant": "#004786",
+                    "on-secondary-container": "#526772",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#006dc8",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#eaf0ff",
+                    "tertiary-container": "#d1f7ff",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "primary": "#005faf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<main class="px-6 py-6 space-y-8">
+<!-- Main Title -->
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-bold tracking-tight text-on-surface">Minha Agenda</h2>
+<p class="text-on-surface-variant text-sm">Gerencie as consultas médicas da sua família</p>
+</div>
+<!-- Section 1: Patient Filter -->
+<section class="space-y-4">
+<h3 class="font-bold text-on-surface">Filtrar por Paciente</h3>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-full shadow-sm">
+<span class="text-sm font-bold">Todos</span>
+</button>
+<button class="flex items-center gap-2 bg-white border border-outline-variant text-on-surface-variant px-3 py-2 rounded-full">
+<img alt="Maria" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg70EBZTsqZg2EOi0QmY4RYMoB4_0FE5Hu4imHS86nxW57LVK6urrqj-rCB8P5uCXJpJRRRf28YkF5nCkkaszcLcbgxjmUsTVjgH6GxC9A6--DXneSFVmuUr7YI69R7uCmLr3LjFuZjg-uNrqAHVa8qt1XY3hfY-qWujj0n1M5d6KsxJRZowtSPEIYdoj_nr6QXGcVyKOJJVHkmP4_hzVzSREAvlgHzMvGFh9eH3vDdOQzVYkvkdu0BRBa6Xx9BzGGGLijUT-snvun"/>
+<span class="text-sm font-medium">Maria</span>
+</button>
+<button class="flex items-center gap-2 bg-white border border-outline-variant text-on-surface-variant px-3 py-2 rounded-full">
+<img alt="Leo" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC35H6WiEgUHIEHISgqqrM8i10W-4efMMvF7pQsO0V5Yp9yDNM6NYGHakxF6Uc-kWeEStYDWDlVcofLwnlK7a-H3X3VgCew6rdk-znDppVVcfE7cEhHXFzIUeJlJHHSL8GJU5TRbDMgz8nkzfNnEtKlypUmYahicXtT_i4QWkMzC6DtiyiUT-uJPKJr24sWOQPXOxLzPkjNe89uCjY1WNueI9v8bfGhM0vpWBOMKv3yNIqJByTnaSG1y8tUouhEBWOR4fwSExc2xTGB"/>
+<span class="text-sm font-medium">Leo</span>
+</button>
+<button class="flex items-center gap-2 bg-white border border-outline-variant text-on-surface-variant px-3 py-2 rounded-full">
+<div class="w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px]">person</span>
+</div>
+<span class="text-sm font-medium">Pai</span>
+</button>
+</div>
+</section>
+<!-- Section 2: Próximos Compromissos -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-bold text-on-surface">Próximos Compromissos</h3>
+</div>
+<div class="space-y-4">
+<!-- Appointment Card 1: Pediatria -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all hover:shadow-md">
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-100 text-green-700">Confirmada</span>
+<span class="text-on-surface-variant font-bold text-xs">Hoje às 14:30</span>
+</div>
+<div class="flex gap-4">
+<div class="flex-none w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">videocam</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-on-surface truncate">Pediatria - Leonardo Silva</h4>
+<p class="text-xs text-on-surface-variant">Dr. Ricardo Mendes • Consulta Online</p>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<img alt="Leo" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVA6fdv79SXxPOHmydGMO-upLcVcvNeVxfDLtS778b-b8NkRsehwzKOnUHcs0Jvhr1UronGNNKRXTFmZy0Du4qNFFs9mbyadR_7zHVCPiGzS22221XDAJ-Guouuzv2hjwZXzrKXSUsZ7_goB15RlIFs1SWy9deGpfXHYFcueimeMbpBMlss9gBnN8PbW-Snbf2Opm0jKeNTpO711UHE0Lgb0fEfW8w6oTi2y1_9cQIfwqWS791ghh2cIT5HeyIoa5l6d_tJqKc31kq"/>
+<span class="text-xs text-on-surface-variant font-medium">Paciente: Leonardo</span>
+</div>
+</div>
+<div class="flex border-t border-surface-container-low divide-x divide-surface-container-low">
+<button class="flex-1 py-3 text-xs font-bold text-on-surface-variant hover:bg-surface-container-low transition-colors">Ver detalhes</button>
+<button class="flex-1 py-3 text-xs font-bold text-primary hover:bg-surface-container-low transition-colors">Reagendar</button>
+<button class="flex-1 py-3 text-xs font-bold text-error hover:bg-error-container transition-colors">Cancelar</button>
+</div>
+</div>
+<!-- Appointment Card 2: Cardiologia -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all hover:shadow-md">
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-100 text-green-700">Confirmada</span>
+<span class="text-on-surface-variant font-bold text-xs">Amanhã às 09:00</span>
+</div>
+<div class="flex gap-4">
+<div class="flex-none w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">local_hospital</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-on-surface truncate">Cardiologia - Maria Costa</h4>
+<p class="text-xs text-on-surface-variant">Dra. Ana Paula • Presencial</p>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<img alt="Maria" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg70EBZTsqZg2EOi0QmY4RYMoB4_0FE5Hu4imHS86nxW57LVK6urrqj-rCB8P5uCXJpJRRRf28YkF5nCkkaszcLcbgxjmUsTVjgH6GxC9A6--DXneSFVmuUr7YI69R7uCmLr3LjFuZjg-uNrqAHVa8qt1XY3hfY-qWujj0n1M5d6KsxJRZowtSPEIYdoj_nr6QXGcVyKOJJVHkmP4_hzVzSREAvlgHzMvGFh9eH3vDdOQzVYkvkdu0BRBa6Xx9BzGGGLijUT-snvun"/>
+<span class="text-xs text-on-surface-variant font-medium">Paciente: Maria</span>
+</div>
+</div>
+<div class="flex border-t border-surface-container-low divide-x divide-surface-container-low">
+<button class="flex-1 py-3 text-xs font-bold text-on-surface-variant hover:bg-surface-container-low transition-colors">Ver detalhes</button>
+<button class="flex-1 py-3 text-xs font-bold text-primary hover:bg-surface-container-low transition-colors">Reagendar</button>
+<button class="flex-1 py-3 text-xs font-bold text-error hover:bg-error-container transition-colors">Cancelar</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Calendar & Integrated Details -->
+<section class="space-y-4">
+<h3 class="font-bold text-on-surface">Calendário de Consultas</h3>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm">
+<div class="p-5">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold text-lg">Outubro 2023</h4>
+<div class="flex gap-1">
+<button class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined text-lg">chevron_left</span></button>
+<button class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined text-lg">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center mb-2">
+<span class="text-[10px] font-bold text-outline uppercase">Dom</span>
+<span class="text-[10px] font-bold text-outline uppercase">Seg</span>
+<span class="text-[10px] font-bold text-outline uppercase">Ter</span>
+<span class="text-[10px] font-bold text-outline uppercase">Qua</span>
+<span class="text-[10px] font-bold text-outline uppercase">Qui</span>
+<span class="text-[10px] font-bold text-outline uppercase">Sex</span>
+<span class="text-[10px] font-bold text-outline uppercase">Sáb</span>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<!-- Calendar days 1-31 -->
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">1</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">2</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">3</button>
+<button class="h-10 flex flex-col items-center justify-center rounded-lg hover:bg-surface-container-low text-sm font-medium relative group">
+                        4
+                        <div class="flex gap-0.5 mt-0.5"><span class="w-1 h-1 bg-primary rounded-full"></span></div>
+</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">5</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">6</button>
+<button class="h-10 flex flex-col items-center justify-center rounded-lg bg-primary text-on-primary text-sm font-bold shadow-md shadow-primary/30">
+                        7
+                        <div class="flex gap-0.5 mt-0.5"><span class="w-1 h-1 bg-on-primary rounded-full"></span></div>
+</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">8</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">9</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">10</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">11</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">12</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">13</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">14</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">15</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">16</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">17</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">18</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">19</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">20</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">21</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">22</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">23</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">24</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">25</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">26</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">27</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">28</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">29</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">30</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-sm font-medium">31</button>
+</div>
+</div>
+<!-- Integrated Selection Details -->
+<div class="bg-primary-container/20 border-t border-primary/10 p-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Pediatria - Leonardo Silva</p>
+<p class="text-xs text-on-surface-variant font-medium">7 de Outubro • 14:30 • Dr. Ricardo</p>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-[0_-4px_20px_rgba(25,28,30,0.08)] flex justify-around items-center px-4 pb-6 pt-3 rounded-t-2xl border-t border-outline-variant/10">
+<a class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1.5 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1.5 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Buscar</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary bg-primary/10 rounded-xl px-4 py-1.5 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-[10px] font-bold">Agenda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1.5 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</a>
+</nav>
+</body></html>

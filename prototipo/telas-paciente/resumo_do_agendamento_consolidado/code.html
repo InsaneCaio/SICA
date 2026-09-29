@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Confirmação de Agendamento - Vitalis Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#354a53",
+                        "surface-variant": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "outline-variant": "#c3c7cb",
+                        "on-surface-variant": "#43474a",
+                        "primary": "#005faf",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#cfe6f2",
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#d1f7ff",
+                        "surface-tint": "#005faf",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#006dc8",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "surface-container": "#eceef0",
+                        "surface-dim": "#d8dadc",
+                        "tertiary": "#006876",
+                        "primary-container": "#eaf0ff",
+                        "tertiary-fixed": "#9eefff",
+                        "primary-fixed": "#d4e3ff",
+                        "inverse-primary": "#a5c8ff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-secondary-container": "#526772",
+                        "outline": "#73787b",
+                        "background": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#007887",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "on-secondary-fixed": "#071e27",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "secondary": "#4c616c",
+                        "on-primary-fixed": "#001c3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-[#f7f9fb] dark:bg-slate-900 flex items-center px-6 py-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-4 w-full max-w-2xl mx-auto">
+<button class="text-[#005faf] active:opacity-70 transition-opacity p-2 rounded-full hover:bg-[#f2f4f6] dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline font-bold text-xl tracking-tight text-[#191c1e] dark:text-white">Confirmação</h1>
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium text-on-surface-variant">Para: Maria</span>
+</div>
+</div>
+</div>
+</header>
+<main class="w-full max-w-2xl px-6 py-8 flex flex-col gap-6 mb-24">
+<!-- Alert Message -->
+<div class="bg-primary-container/40 px-5 py-4 rounded-xl flex items-center gap-3 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-on-primary-fixed-variant text-sm font-medium">Revise as informações antes de confirmar seu agendamento</p>
+</div>
+<!-- Unified Core Appointment Card -->
+<div class="bg-surface-container-lowest cloud-shadow rounded-xl overflow-hidden">
+<!-- Header Section: Speciality -->
+<div class="p-6 pb-4 flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-xs font-semibold uppercase tracking-wider text-outline">Especialidade</span>
+<h3 class="font-headline font-extrabold text-2xl text-on-surface">Cardiologia</h3>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">cardiology</span>
+</div>
+</div>
+<!-- Details Section -->
+<div class="px-6 pb-6 space-y-5">
+<!-- Professional & Patient -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img alt="Dr. Adriano Martins" class="w-10 h-10 rounded-full object-cover border border-surface-container" data-alt="professional portrait of a male doctor in a white lab coat with a stethoscope around his neck, clinical setting background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xGDxEthrPqbxGkv_98wILFS1d92BaFWMdHHS0OtAMarn3x7_fuceszgP-rq0cp990X2hfPzgeHKaMyQNDV4e32djcvL9Qmi7ae7Rt-UPNFpKj6XnRO1n0eqFJs9Wy8Udou1hJ86r3s_hsFxteR1liqbD6H60xBOmLIiWR8UwkPWfAsbH8uEuxaUb5_6d07p14GTLLaiF83nPnGkqTbNcQlTEyKpO0_TR9Wo1bOnZgaDq2m2jUeGYbbueoxqCsXEPFgdn5YY__p-6">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Médico</span>
+<span class="font-bold text-sm">Dr. Adriano Martins</span>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low/40 p-2 rounded-lg">
+<div class="w-8 h-8 bg-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Paciente</span>
+<span class="font-bold text-sm text-on-surface">Maria</span>
+</div>
+</div>
+</div>
+<!-- Location -->
+<div class="flex items-start gap-4 pt-4 border-t border-outline-variant/10">
+<div class="p-2.5 bg-surface-container rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline">Local do Atendimento</span>
+<span class="font-bold text-base text-on-surface">Clínica Vida - Unidade Central</span>
+<span class="text-xs text-on-surface-variant">Rua das Flores, 123 - Centro</span>
+</div>
+</div>
+<!-- Date & Time -->
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-lg">calendar_today</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline">Data</span>
+<span class="font-bold text-sm">04 de Out, 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-lg">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline">Horário</span>
+<span class="font-bold text-sm">08:30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Visualization -->
+<div class="w-full h-32 relative bg-surface-container-high">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="a minimalist map visualization showing a blue location pin on a light gray urban grid pattern" data-location="São Paulo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA69f-M1S06KsK7LkrmTFf5k8svWhA7Xlv789ctiDikdSVwpQMSZeADDhO0T-oP4-rX4jEMrc0MQAAKExihfcM47znZY4pbH7pzW1VY6MvhW4fs0IZZtjv21p19Hqv_AQX5wc5NUUr3-KcJFw4ll7q_VOy97balxGe502cUl_3Cpsky2jmj5kW5qsGME2RJBUa8_k7_gUE_7rZCTxtBnlvAgcpLzgyevcrwMdq-gi1Zj_qrkxZlT_BLyxE6AdHMm5dXaDVFNdoRKVVW')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+</div>
+</div>
+<!-- Additional Details -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex flex-wrap gap-x-12 gap-y-6">
+<div class="flex flex-col gap-1">
+<span class="text-xs font-semibold uppercase tracking-wider text-outline">Valor da consulta</span>
+<span class="font-headline font-extrabold text-2xl text-primary">R$ 350,00</span>
+</div>
+
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant/30">
+<div class="flex items-start gap-3 bg-white/50 p-4 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">event_note</span>
+<div class="flex flex-col gap-1">
+<span class="text-xs font-semibold uppercase tracking-wider text-outline">Observação</span>
+<p class="text-sm text-on-surface-variant leading-relaxed font-medium">Chegar com 15 min de antecedência e levar documento com foto original.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col gap-3 mt-4">
+<button class="w-full py-4 rounded-xl font-headline font-bold text-white bg-gradient-to-br from-primary to-on-primary-container shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                Confirmar agendamento
+                <span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</main>
+<!-- Bottom Spacer -->
+<div class="fixed bottom-0 w-full bg-white/80 backdrop-blur-md h-safe"></div>
+
+
+</body></html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Clinic Admin - Central de Ajustes</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1e",
+                      "surface-tint": "#005faf",
+                      "surface-container-highest": "#e0e3e5",
+                      "inverse-primary": "#a5c8ff",
+                      "on-primary-fixed-variant": "#004786",
+                      "on-primary-fixed": "#001c3a",
+                      "secondary-fixed-dim": "#b4cad6",
+                      "primary": "#005faf",
+                      "on-secondary-fixed-variant": "#354a53",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#006876",
+                      "outline": "#73787b",
+                      "surface-container-low": "#f2f4f6",
+                      "on-tertiary-fixed-variant": "#004e59",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#cfe6f2",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-secondary-container": "#526772",
+                      "secondary": "#4c616c",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#a5c8ff",
+                      "primary-container": "#eaf0ff",
+                      "tertiary-container": "#d1f7ff",
+                      "outline-variant": "#c3c7cb",
+                      "surface-dim": "#d8dadc",
+                      "background": "#f7f9fb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#eceef0",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-fixed": "#071e27",
+                      "surface-variant": "#e0e3e5",
+                      "surface-container-high": "#e6e8ea",
+                      "surface": "#f7f9fb",
+                      "tertiary-fixed-dim": "#55d7ed",
+                      "on-tertiary-container": "#007887",
+                      "on-primary-container": "#006dc8",
+                      "secondary-fixed": "#cfe6f2",
+                      "primary-fixed": "#d4e3ff",
+                      "tertiary-fixed": "#9eefff",
+                      "on-surface-variant": "#43474a",
+                      "inverse-surface": "#2d3133",
+                      "inverse-on-surface": "#eff1f3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "display": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-glow {
+            box-shadow: 0 0 0 0 rgba(0, 104, 118, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 104, 118, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 104, 118, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 104, 118, 0); }
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+        .glass-panel {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased flex overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-72 flex flex-col shrink-0 bg-surface dark:bg-surface-dim z-50">
+<div class="p-8 flex flex-col h-full">
+<!-- Brand Logo -->
+<div class="mb-12">
+<h1 class="font-headline text-xl font-bold text-primary dark:text-inverse-primary tracking-tight">Precision Clinic</h1>
+<p class="text-on-surface-variant text-sm font-medium">Admin Portal</p>
+</div>
+<!-- Main Navigation -->
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 rounded-xl group active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body text-label-md font-medium tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 rounded-xl group active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body text-label-md font-medium tracking-wide">Schedule</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 rounded-xl group active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-body text-label-md font-medium tracking-wide">Doctors</span>
+</a>
+<!-- Active Item: Settings -->
+<a class="flex items-center gap-4 px-4 py-3 bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-xl active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body text-label-md font-medium tracking-wide">Settings</span>
+</a>
+</nav>
+<!-- Bottom Actions -->
+<div class="pt-8 space-y-2 border-t-0">
+<button class="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-fixed-dim text-on-primary py-3 px-4 rounded-xl font-semibold shadow-sm hover:opacity-90 transition-opacity mb-6">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+<span>New Appointment</span>
+</button>
+<a class="flex items-center gap-4 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-body text-label-md font-medium tracking-wide">Support</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body text-label-md font-medium tracking-wide">Sign Out</span>
+</a>
+</div>
+<!-- Admin Avatar -->
+<div class="mt-8 flex items-center gap-3 px-2">
+<img alt="Clinic Administrator Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a female clinic administrator in her 40s, wearing a tailored blazer and glasses, set against a bright, softly blurred clinical environment. The lighting is bright and clean, typical of a high-end medical facility, with a palette of soft whites and professional blues. The expression is confident and welcoming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiSIOAQNNk5Ml_GR6Em-BZu0N0AXrPyyLJENL7Jt1kRhWw_X4R8_Jul08XMtHKj2aKsOBeMMEQnFhJMfT8FctGcJyXiDIZPLci-mjZ-KnzVv-Q7T_drYKAnPfy9-fL5pqoG7alwxOLGxBWRrpRCM0jwxziTC-lbRiHk0e5b9c7bWHMShA4dom_0_OAF_LVRhQIlp0ToU0sQP1ndjFuQ-Q0HjU0oBELuouY8rekA2tm1v4WEJtKtKtdv45TSa3ReHUKXoJPKRJPnvw"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Dr. Elena Smith</p>
+<p class="text-xs text-on-surface-variant">Administrator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-72 h-screen overflow-y-auto">
+<!-- TopAppBar Component -->
+<header class="w-full h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-md flex items-center justify-between px-8">
+<div class="flex items-center gap-8 w-full max-w-6xl mx-auto">
+<div class="relative flex-1 max-w-md focus-within:ring-2 focus-within:ring-primary rounded-full overflow-hidden transition-all">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container border-none py-2 pl-12 pr-4 text-sm focus:ring-0" placeholder="Search settings, staff, or documents..." type="text"/>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<div class="max-w-6xl mx-auto p-12 space-y-12">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline text-display-sm font-bold text-on-surface tracking-tight leading-none mb-4">Central de Ajustes</h2>
+<p class="text-on-surface-variant max-w-xl">Configure sua experiência administrativa, gerencie as credenciais da clínica e controle suas preferências de segurança.</p>
+</div>
+<div class="flex gap-2">
+<span class="inline-flex items-center gap-2 px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-full text-sm font-semibold">
+<span class="w-2 h-2 bg-tertiary rounded-full pulse-glow"></span>
+                        Sistema Operacional
+                    </span>
+</div>
+</section>
+<!-- Configuration Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card: Editar Perfil Pessoal -->
+<div class="group relative bg-surface-container-lowest p-8 rounded-xl cloud-shadow border-b-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">person</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Editar Perfil Pessoal</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Atualize suas informações de contato, foto de perfil e credenciais profissionais de acesso.</p>
+<a class="text-primary font-semibold text-sm flex items-center gap-1 group/link" href="#">
+                        Gerenciar perfil
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card: Editar Perfil da Clínica -->
+<div class="group relative bg-surface-container-lowest p-8 rounded-xl cloud-shadow border-b-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="w-12 h-12 bg-secondary-container rounded-xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">home_health</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Editar Perfil da Clínica</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Ajuste o endereço, logotipo, horários de atendimento e especialidades oferecidas pela unidade.</p>
+<a class="text-primary font-semibold text-sm flex items-center gap-1 group/link" href="#">
+                        Configurar clínica
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card: Gerenciar Assinatura -->
+<div class="group relative bg-surface-container-lowest p-8 rounded-xl cloud-shadow border-b-2 border-transparent hover:border-primary transition-all duration-300 overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/20 rounded-full blur-2xl"></div>
+<div class="w-12 h-12 bg-tertiary-container rounded-xl flex items-center justify-center text-tertiary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Gerenciar Assinatura</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Visualize faturas, altere planos ou atualize métodos de pagamento para o Precision Framework.</p>
+<a class="text-primary font-semibold text-sm flex items-center gap-1 group/link" href="#">
+                        Painel financeiro
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Security Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-2xl font-bold text-on-surface tracking-tight">Segurança</h2>
+<button class="text-sm font-semibold text-primary">Ver política completa</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- 2-Step Verification -->
+<div class="bg-surface-container-low rounded-xl p-8 flex items-start gap-6">
+<div class="w-14 h-14 bg-surface-container-lowest rounded-full flex items-center justify-center text-primary flex-shrink-0 cloud-shadow">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-bold text-lg">Autenticação em Duas Etapas</h4>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Adicione uma camada extra de proteção à sua conta exigindo um código de verificação enviado ao seu dispositivo móvel.</p>
+<button class="text-primary font-semibold text-sm hover:underline">Configurar dispositivo confiável</button>
+</div>
+</div>
+<!-- Access Logs Table -->
+</div>
+</section>
+<!-- Advanced Appearance Options (Editorial Asymmetry) -->
+<section class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center bg-inverse-surface rounded-3xl p-10 text-inverse-on-surface overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="md:col-span-3 space-y-4 relative z-10">
+<span class="text-primary-fixed font-bold text-xs tracking-widest uppercase">Visual &amp; Interface</span>
+<h3 class="font-headline text-3xl font-extrabold leading-tight">Experiência Personalizada</h3>
+<p class="text-inverse-on-surface/70 text-lg leading-relaxed">
+                        Ajuste o modo de visualização do seu dashboard. Escolha entre o modo clássico clínico ou o modo escuro de alta concentração para plantões noturnos.
+                    </p>
+<div class="flex gap-4 pt-4">
+<button class="px-6 py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+                            Ativar Dark Mode
+                        </button>
+<button class="px-6 py-3 bg-transparent border border-outline-variant/30 text-inverse-on-surface rounded-xl font-bold hover:bg-white/5 transition-colors">
+                            Personalizar Cores
+                        </button>
+</div>
+</div>
+<div class="md:col-span-2 relative">
+<div class="aspect-square bg-surface-container-highest/10 rounded-2xl p-4 transform rotate-6 border border-white/10 glass-panel">
+<div class="w-full h-full bg-gradient-to-tr from-primary/40 to-tertiary/40 rounded-xl flex items-center justify-center">
+<img alt="Abstract interface mockup showing a medical dashboard" class="w-full h-full object-cover rounded-xl opacity-80" data-alt="A futuristic, high-tech administrative interface dashboard mockup displayed on a sleek digital screen. The interface features complex data visualizations, translucent medical icons, and elegant typography in tones of electric blue and pristine white. The atmosphere is sophisticated, modern, and clinical, emphasizing advanced healthcare technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChnkHofuaMTGuXCjxkSVh1_4SeMeY1UyKMknMdm3tBTImSV3cnZ6BuKXmjmuTn8DuNnga_wGclMql4XAZbWvhZvfmlO2iITk06k3IytzzFLqkWHIupzWPBQdSe8OmgJ6as_NMOm0DOsQhvZhooKDcWz_zWPaJ31_Iswoaqc4CvoF6cpvZ3Gz0RZhCz9bJyebzF8dTBExh7GO_bGAE5I4_qMVch1B5wDS2xTP2wr7EDQqqnYPHdvHq2ULwAvEWRAVu-_ZzFOkJebKI"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed for Settings as per rule, but here's a subtle scroll-to-top or feedback if needed) -->
+<!-- Suppressing per: "You MUST suppress the FAB on Settings, Profile, Details, and Transactional screens." -->
+<script>
+        // Micro-interaction: Toggle Switch logic
+        const toggle = document.querySelector('input[type="checkbox"]');
+        if(toggle) {
+            toggle.addEventListener('change', function() {
+                console.log('2FA status changed:', this.checked);
+            });
+        }
+
+        // Active state logging
+        console.log("Settings view initialized within Clinical Precision Framework.");
+    </script>
+</body></html>

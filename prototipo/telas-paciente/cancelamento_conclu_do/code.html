@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#cfe6f2",
+                    "on-primary-fixed": "#001c3a",
+                    "on-background": "#191c1e",
+                    "on-surface": "#191c1e",
+                    "tertiary-container": "#d1f7ff",
+                    "on-primary-fixed-variant": "#004786",
+                    "on-secondary-container": "#526772",
+                    "on-error-container": "#93000a",
+                    "background": "#f7f9fb",
+                    "surface-container": "#eceef0",
+                    "surface-tint": "#005faf",
+                    "on-tertiary-container": "#007887",
+                    "inverse-primary": "#a5c8ff",
+                    "outline": "#73787b",
+                    "tertiary-fixed": "#9eefff",
+                    "secondary": "#4c616c",
+                    "on-surface-variant": "#43474a",
+                    "primary-fixed": "#d4e3ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#cfe6f2",
+                    "surface-bright": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f2f4f6",
+                    "outline-variant": "#c3c7cb",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-primary-container": "#006dc8",
+                    "inverse-surface": "#2d3133",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary": "#005faf",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-tertiary-fixed": "#001f24",
+                    "tertiary": "#006876",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "surface-variant": "#e0e3e5",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed": "#071e27",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#eaf0ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        .glass-overlay {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Success Feedback Canvas -->
+<main class="min-h-screen flex flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
+<!-- Abstract Background Elements (Tonal Layering) -->
+<div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-surface-container-low rounded-full blur-3xl opacity-50"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-primary-container rounded-full blur-3xl opacity-30"></div>
+<div class="w-full max-w-md relative z-10 flex flex-col items-center">
+<!-- Icon Container -->
+<div class="mb-8 relative">
+<!-- Outer Glow -->
+<div class="absolute inset-0 bg-tertiary-container rounded-full blur-2xl opacity-40 scale-150"></div>
+<!-- Circle Surface -->
+<div class="relative w-24 h-24 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-[0_12px_40px_rgba(25,28,30,0.06)]">
+<span class="material-symbols-outlined text-tertiary text-6xl" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Content Header -->
+<div class="text-center space-y-4 mb-12">
+<h1 class="font-headline font-extrabold text-3xl tracking-tight text-on-surface md:text-4xl">
+                    Consulta cancelada com sucesso
+                </h1>
+<p class="font-body text-on-surface-variant max-w-[280px] mx-auto text-lg leading-relaxed">
+                    Sua solicitação foi processada. O horário agora está disponível para outros pacientes.
+                </p>
+</div>
+<!-- Detailed Card (The "Curated Archive" look) -->
+<div class="w-full bg-surface-container-low rounded-xl p-6 flex flex-col gap-4 border-none mb-8">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/15">
+<span class="font-label text-sm font-medium text-on-surface-variant">Protocolo</span>
+<span class="font-label text-sm font-bold text-on-surface">#CAN-882910</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Doctor profile photo" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a smiling doctor in clinical setting with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuokF0VCwtus0R3wzQJtM6g-HAPcKp06LWQl5KmZXZ6NBHExhv5qinFvsg_4-8P52AQwt7SsLI1jQw8DKFppmA0cdpU4iKoo9UBVh6kdgCLFZ1GceAGX7vLiNujErCQIJjVvHt_RAgtpPLpEPVZ9doDVSNYkKsF7xN81t3v2IJevWav8OCHrr4uA-Lwx_7zrmDCcqJ_Md4aTWYZwarxPXhhDSkG9SP7gqj6Lf5X6Jir4TZrsb0FkqP--t6kJckYlKvwGR3QXAOJhYH"/>
+</div>
+<div>
+<p class="font-label text-xs text-on-surface-variant">Especialista</p>
+<p class="font-label text-sm font-bold text-on-surface">Dr. Ricardo Mendes</p>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="w-full flex flex-col items-center">
+<button class="w-full h-14 max-w-[320px] bg-primary text-on-primary font-display font-bold text-base rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-[0.98] transition-all shadow-md shadow-primary/10">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_month">calendar_month</span>
+        Voltar para a agenda
+    </button>
+</div>
+<!-- Minimal Metadata Footer -->
+<div class="mt-12">
+<p class="font-label text-xs text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
+                    Um e-mail de confirmação foi enviado para você.
+                </p>
+</div>
+</div>
+<!-- Decorative Asymmetric Element -->
+<div class="hidden lg:block absolute left-12 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[240px]" data-icon="event_busy">event_busy</span>
+</div>
+</main>
+<!-- Background texture / Noise pattern simulation -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100]" data-alt="Subtle natural paper texture for administrative digital surface depth" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAit340dxWWmsDTU-qKQre4Z0Ja6uOyEkSEr62_Tkd1YjH5D_SxMHHgVh0Qx6OKhN7i2PNv1-8w9Re_GoMFosNOf5UehvsA0UGAa1nigXL07UDxXCV6Ksp5ndtbvI9_w5jRnClO-5TL5crRqRldwhCkeTLsbCtN9_KXRQ1gHDSl8lh6oBcDSp2AOoyhS-do-YV3mEd7JNAJBCfJT2S9wmpAG0QUv1PmN2Hn2idar02lGJbxGs253N3THJFC88MLkjNfIR__-RBynYT-');">
+</div>
+</body></html>

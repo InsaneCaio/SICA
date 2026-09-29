@@ -1,0 +1,518 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Clinical Governance Portal - Agenda Geral</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#43474a",
+                        "on-primary-fixed": "#001c3a",
+                        "surface": "#f7f9fb",
+                        "secondary": "#4c616c",
+                        "on-tertiary-fixed": "#001f24",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#071e27",
+                        "on-background": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed-variant": "#004786",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "surface-tint": "#005faf",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "primary": "#005faf",
+                        "secondary-container": "#cfe6f2",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#006dc8",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#9eefff",
+                        "on-tertiary-container": "#007887",
+                        "primary-container": "#eaf0ff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container": "#eceef0",
+                        "outline-variant": "#c3c7cb",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline": "#73787b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#d1f7ff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "tertiary": "#006876",
+                        "inverse-primary": "#a5c8ff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "primary-fixed": "#d4e3ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .calendar-card-active {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        /* Custom scrollbar for high-density data */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c3c7cb; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<div class="flex min-h-screen overflow-hidden">
+<!-- SideNavBar (Authority: JSON + Design System) -->
+<aside class="h-screen w-72 left-0 sticky flex flex-col h-full p-6 space-y-4 bg-surface-container-low hidden md:flex z-50">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">medical_services</span>
+</div>
+<div>
+<h1 class="font-headline text-lg font-bold text-on-surface">Precision Health</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Clinical Admin</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Patient Records -->
+
+<!-- Clinical Audit (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-lowest text-primary font-semibold rounded-lg font-body text-label-md transition-transform active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">fact_check</span>
+<span class="">Agenda Geral</span>
+</a>
+<!-- Staff Management -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group</span>
+<span class="">Staff Management</span>
+</a>
+<!-- Compliance -->
+
+<!-- Reports -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">analytics</span>
+<span class="">Reports</span>
+</a>
+</nav>
+<div class="pt-6 mt-6 border-t border-outline-variant/10">
+<button class="w-full py-3 px-4 rounded-xl bg-gradient-to-br from-primary to-primary-fixed text-on-primary font-bold text-sm flex items-center justify-center gap-2 shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">New Entry</span>
+</button>
+</div>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 transition-all font-body text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="w-full top-0 sticky z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 h-16">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search patient, doctor or ID..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">Dr. Ricardo M.</p>
+<p class="text-[10px] text-on-surface-variant">Administrator</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a middle-aged male doctor with a kind expression and grey-flecked hair, wearing a crisp white medical coat and a blue tie. The background is a brightly lit, high-end clinical office with soft-focus medical equipment and a cool blue and white color palette, maintaining a premium and sterile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKSVe4fxqY4izsQRCFN_y_Oh7dfyqqC0oqJXXhqHl5QoteVt9IytqRP2B1nXzFNVn2lMRKWcPoFc6mT8QVjIWK2o1XbZOD75X31aleW493mZR2Zy-QBPcWVAUcJi79SwHQDvsAu8sjt72KTk2WG12DiVPH6u-bsurREvcSyWYj03BYXZEkJT6_quyItl2-jwpRXD7e3oEAnvEXVUDEepf0TCY4NvlEgnXIS0uNaLFgAFa2oqZhg4QoLD-clvl_v77_GJwCblfDLBA">
+</div>
+</div>
+</header>
+<!-- Agenda Content -->
+<div class="p-8 flex flex-col gap-8 max-w-[1400px]">
+<!-- Date Header & Weekly Picker -->
+<section class="flex flex-col gap-6">
+<div class="flex items-end justify-between">
+<div>
+<p class="text-on-surface-variant font-medium mb-1">Agenda Semanal</p>
+<h2 class="font-display text-4xl font-extrabold text-on-surface tracking-tight">24 Outubro</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-4 py-2 font-semibold text-primary">Hoje</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Horizontal Weekly Calendar -->
+<div class="grid grid-cols-5 gap-4">
+<!-- MON -->
+<div class="p-4 rounded-xl bg-surface-container-low transition-all cursor-pointer hover:bg-surface-container-high" style="transform: translateY(0px);">
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-2">SEG 21</p>
+<p class="text-lg font-bold text-on-surface">12 <span class="text-xs font-medium text-outline">Consultas</span></p>
+</div>
+<!-- TUE -->
+<div class="p-4 rounded-xl bg-surface-container-low transition-all cursor-pointer hover:bg-surface-container-high" style="transform: translateY(0px);">
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-2">TER 22</p>
+<p class="text-lg font-bold text-on-surface">08 <span class="text-xs font-medium text-outline">Consultas</span></p>
+</div>
+<!-- WED -->
+<div class="p-4 rounded-xl bg-surface-container-low transition-all cursor-pointer hover:bg-surface-container-high">
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-2">QUA 23</p>
+<p class="text-lg font-bold text-on-surface">15 <span class="text-xs font-medium text-outline">Consultas</span></p>
+</div>
+<!-- THU (Active) -->
+<div class="p-4 rounded-xl calendar-card-active text-on-primary shadow-lg shadow-primary/20 transform scale-[1.02] ring-2 ring-primary ring-offset-4 ring-offset-surface">
+<p class="text-xs font-bold text-on-primary/70 uppercase tracking-wider mb-2">QUI 24</p>
+<p class="text-lg font-bold">18 <span class="text-xs font-medium text-on-primary/80">Consultas</span></p>
+</div>
+<!-- FRI -->
+<div class="p-4 rounded-xl bg-surface-container-low transition-all cursor-pointer hover:bg-surface-container-high">
+<p class="text-xs font-bold text-outline uppercase tracking-wider mb-2">SEX 25</p>
+<p class="text-lg font-bold text-on-surface">09 <span class="text-xs font-medium text-outline">Consultas</span></p>
+</div>
+</div>
+</section>
+<!-- Daily Schedule Table -->
+<section class="bg-surface-container-low rounded-2xl overflow-hidden border-none">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left">
+<thead>
+<tr class="bg-surface-container-high/50">
+<th class="px-6 py-4 font-headline text-sm font-bold text-on-surface">Horário</th>
+<th class="px-6 py-4 font-headline text-sm font-bold text-on-surface">Paciente</th>
+<th class="px-6 py-4 font-headline text-sm font-bold text-on-surface">Médico / Especialidade</th>
+<th class="px-6 py-4 font-headline text-sm font-bold text-on-surface">Status</th>
+<th class="px-6 py-4 font-headline text-sm font-bold text-on-surface text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent">
+<!-- Row 1 -->
+<tr class="bg-surface-container-lowest hover:bg-primary-container/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,104,118,0.4)]"></span>
+<span class="text-sm font-bold text-on-surface">08:00</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">AM</div>
+<span class="text-sm font-semibold text-on-surface">Ana Maria Silveira</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-medium text-on-surface">Dra. Daniele Almeida</p>
+<p class="text-xs text-on-surface-variant">Cardiologia</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-tertiary-container text-on-tertiary-container">Confirmado</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">Reagendar</button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-error hover:bg-error/10 transition-colors">Cancelar</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface hover:bg-primary-container/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="text-sm font-bold text-on-surface">08:45</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-[10px] font-bold text-on-primary-container">JP</div>
+<span class="text-sm font-semibold text-on-surface">João Pedro Santos</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-medium text-on-surface">Dr. Marcos Vinícius</p>
+<p class="text-xs text-on-surface-variant">Ortopedia</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-surface-variant text-on-surface-variant">Aguardando</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">Reagendar</button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-error hover:bg-error/10 transition-colors">Cancelar</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-surface-container-lowest hover:bg-primary-container/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-sm font-bold text-on-surface">09:30</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-[10px] font-bold text-on-tertiary-container">CL</div>
+<span class="text-sm font-semibold text-on-surface">Carla Lacerda</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-medium text-on-surface">Dra. Daniele Almeida</p>
+<p class="text-xs text-on-surface-variant">Cardiologia</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-tertiary-container text-on-tertiary-container">Confirmado</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">Reagendar</button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-error hover:bg-error/10 transition-colors">Cancelar</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface hover:bg-primary-container/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,95,175,0.3)]"></span>
+<span class="text-sm font-bold text-on-surface">10:15</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">RF</div>
+<span class="text-sm font-semibold text-on-surface">Roberto Ferreira</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-medium text-on-surface">Dr. André Silva</p>
+<p class="text-xs text-on-surface-variant">Clínico Geral</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-primary-container text-on-primary-container">Em Atendimento</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">Reagendar</button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-error hover:bg-error/10 transition-colors">Cancelar</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="bg-surface-container-lowest hover:bg-primary-container/30 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="text-sm font-bold text-on-surface">11:00</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-outline-variant flex items-center justify-center text-[10px] font-bold text-surface">ML</div>
+<span class="text-sm font-semibold text-on-surface">Mariana Lima</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-medium text-on-surface">Dra. Beatriz Costa</p>
+<p class="text-xs text-on-surface-variant">Dermatologia</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-surface-variant text-on-surface-variant">Aguardando</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">Reagendar</button>
+<button class="px-3 py-1.5 rounded-lg text-xs font-semibold text-error hover:bg-error/10 transition-colors">Cancelar</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Insights Bento Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-on-surface">Volume de Consultas</h3>
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-on-surface">18</span>
+<span class="text-xs font-medium text-tertiary">+12% hoje</span>
+</div>
+<div class="w-full bg-outline-variant/20 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4 rounded-full"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant">75% da capacidade operacional atingida.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-on-surface">Médicos Ativos</h3>
+<span class="material-symbols-outlined text-primary">medical_information</span>
+</div>
+<div class="flex -space-x-2">
+<img alt="Doctor 1" class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Close-up portrait of a professional female doctor with glasses and a stethoscope around her neck, smiling warmly in a modern clinic environment. Lighting is soft and bright, highlighting a professional and trustworthy demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjHCxuRWmCXsd20lfW8hFi_y0cllcrN2r4qGE_gm32dYkZmEeWc8q3ztDxAmUGsI2H8wUKrqbcluupm6sUYqmej9U7j1FDHhsDfdALEU9TNu7GVd6dhxra6ckmDgrKPSxZDKP_chVmpjFwg3v66fiAxu95sXv6sCV4byi1aitVQzJMdtENOg921u-tT1DbALQ0oF7Mveqn_EgyPsv5Pl2qDZUantqRZ44vSVgf_w9nNaAxYyOgfJkzGA2VlCOniZT5wI1XGzI8yS0">
+<img alt="Doctor 2" class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="A portrait of a male physician in a navy blue scrub suit, looking confident and professional. He is standing in a brightly lit hallway of a contemporary medical center with neutral architectural tones and premium finishings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCarUOaTCeB6bPVxFJAB1f1e0T6o_BWbC8JddWfuo185OuveCi0si7mvOz3lhqO_1WITrPUKdZyuj96-upxmrFyRxC3Foxjh9LpHcJP87GZkOVhM1t8eGvPNjIiOXKV1SplLACuFMQflosccd_sbGZBaXxYttEJjF7S3_E667b3V7WIoJc37e8nte79TXMFJzTZXAFXdcMuOkwqbMxvdHIKRs8JEJNv8s3FArw6Pg_4hEoFX9x_X3CPpzROz5Y3_qI0GjO9ZZYw7hY">
+<img alt="Doctor 3" class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Professional medical professional in a lab coat holding a tablet, standing in a clean, minimalist consultation room. The environment is airy and uses a crisp color palette of white and soft blues, conveying clinical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_k_V0OZpK7tu1e9bLQjlAXTrC7iIZQ0EqXNmzb9FRrAB5tUrMlCnYESBkk84hZvg_nndMEy1dIyPnnq7Jfrxu1eHxa2Veel38Z3satqd8bD96FT6lmv7t6OPA0riarhb01m441vyY8rDgKRiyq6WdyKHG9RRRpGJBjyEbWMJt05RbbnXVGxv5qdqCIk4Gok4HU2oYYBLji6sWF7_9N1giRtGVyIUA-sKmb-BpUvS8fxPfn1TM9Z2J_Gs8Zi21spIlD8mwBi8UGAo">
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-low bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">+4</div>
+</div>
+<p class="text-sm font-medium text-on-surface">7 profissionais em plantão</p>
+<p class="text-[10px] text-on-surface-variant">Disponibilidade total até as 19:00.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-on-surface">Avisos do Sistema</h3>
+<span class="material-symbols-outlined text-error">campaign</span>
+</div>
+<div class="flex items-start gap-3 p-3 bg-error-container/30 rounded-xl">
+<span class="material-symbols-outlined text-on-error-container text-sm">priority_high</span>
+<p class="text-[11px] font-medium text-on-error-container leading-tight">2 pacientes não confirmaram a consulta das 14h.</p>
+</div>
+<button class="mt-auto text-xs font-bold text-primary text-left">Ver todos os alertas</button>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Right Slide-out Tray (Contextual Action) - Hidden by default -->
+<div class="fixed top-0 right-0 h-screen w-96 bg-surface-container-lowest shadow-[-12px_0_40px_rgba(25,28,30,0.06)] transform translate-x-full transition-transform duration-300 ease-in-out z-[100] p-8 border-none" id="side-tray">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-xl font-bold text-on-surface">Detalhes do Agendamento</h3>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors" onclick="toggleTray()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-xl">
+<img alt="Patient Avatar" class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a young adult woman with a neutral, calm expression, looking directly at the camera. She is in a high-key, bright studio setting that mimics the soft lighting of a premium clinic. The aesthetic is clean, modern, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkq8AoD9O1qDdCe-bBuS5Nd3GnHZcYLa8UdXWvVNmgFZgDGq0FSs6YbjLynC-OIWfVCmP-8c3dPIyI51fyFgqpgIWMlbRsokrfUAp07rcg1hCGVC7_wAOko-g2dShfHE32C8DvsH4K5MHB0Py_oivcCCh46ZWvkJyux6T7lAqvhNizaai4qad-aiR1aUm36EmfbAnqlZDjLXsFnpflCtYYIMDWn1HOA7xOUYTrpdn4QedqftKQxk3eQ7AKte_D27pxDP4I0mcX0pY">
+<div>
+<h4 class="font-bold text-on-surface">Ana Maria Silveira</h4>
+<p class="text-xs text-on-surface-variant">ID: #88291-B</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase font-bold text-outline tracking-wider">Médico Responsável</label>
+<p class="text-sm font-semibold text-on-surface">Dra. Daniele Almeida (Cardiologia)</p>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase font-bold text-outline tracking-wider">Data e Horário</label>
+<p class="text-sm font-semibold text-on-surface">24 Outubro, 2024 — 08:00</p>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase font-bold text-outline tracking-wider">Tipo de Consulta</label>
+<p class="text-sm font-semibold text-on-surface">Primeira Consulta (Eletivo)</p>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase font-bold text-outline tracking-wider">Notas Adicionais</label>
+<p class="text-sm text-on-surface-variant leading-relaxed">Paciente relatou desconforto torácico leve ao realizar exercícios aeróbicos. Histórico familiar de hipertensão.</p>
+</div>
+</div>
+<div class="pt-8 space-y-3">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-fixed text-on-primary font-bold rounded-xl shadow-md hover:opacity-90 transition-all">Iniciar Atendimento</button>
+<button class="w-full py-4 border border-outline-variant/30 text-on-surface-variant font-bold rounded-xl hover:bg-surface-container-high transition-all">Editar Informações</button>
+</div>
+</div>
+</div>
+<script>
+        function toggleTray() {
+            const tray = document.getElementById('side-tray');
+            tray.classList.toggle('translate-x-full');
+        }
+
+        // Simulate row click to open tray
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', (e) => {
+                // Prevent tray if clicking action buttons
+                if (e.target.closest('button')) return;
+                toggleTray();
+            });
+        });
+
+        // Simple animation on calendar cards
+        const cards = document.querySelectorAll('.grid-cols-5 > div');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if(!card.classList.contains('calendar-card-active')) {
+                    card.style.transform = 'translateY(-4px)';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reschedule Appointment | Clinical Governance Portal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#354a53",
+                      "primary-container": "#eaf0ff",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#d4e3ff",
+                      "outline-variant": "#c3c7cb",
+                      "on-tertiary-container": "#007887",
+                      "on-surface-variant": "#43474a",
+                      "on-surface": "#191c1e",
+                      "surface": "#f7f9fb",
+                      "primary-fixed-dim": "#a5c8ff",
+                      "tertiary-container": "#d1f7ff",
+                      "outline": "#73787b",
+                      "on-secondary-container": "#526772",
+                      "surface-container": "#eceef0",
+                      "secondary": "#4c616c",
+                      "on-tertiary-fixed": "#001f24",
+                      "on-primary-fixed": "#001c3a",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#f7f9fb",
+                      "secondary-fixed": "#cfe6f2",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e0e3e5",
+                      "surface-container-high": "#e6e8ea",
+                      "tertiary-fixed-dim": "#55d7ed",
+                      "on-secondary-fixed": "#071e27",
+                      "on-primary-fixed-variant": "#004786",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#9eefff",
+                      "surface-container-highest": "#e0e3e5",
+                      "inverse-on-surface": "#eff1f3",
+                      "surface-dim": "#d8dadc",
+                      "secondary-container": "#cfe6f2",
+                      "surface-tint": "#005faf",
+                      "primary": "#005faf",
+                      "secondary-fixed-dim": "#b4cad6",
+                      "tertiary": "#006876",
+                      "on-error-container": "#93000a",
+                      "on-background": "#191c1e",
+                      "inverse-primary": "#a5c8ff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-tertiary-fixed-variant": "#004e59",
+                      "on-primary-container": "#006dc8",
+                      "background": "#f7f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "display": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Authority: JSON & Design System) -->
+<aside class="h-screen w-72 left-0 sticky bg-surface-container-low flex flex-col p-6 space-y-4 shrink-0 overflow-y-auto border-r-0">
+<div class="flex flex-col space-y-1 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined fill-icon">health_and_safety</span>
+</div>
+<div>
+<h2 class="font-headline text-lg font-bold text-on-surface">Precision Health</h2>
+<p class="text-xs font-medium text-on-surface-variant/70 uppercase tracking-widest">Clinical Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium group" href="#">
+<span class="material-symbols-outlined text-outline">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-lowest text-primary font-semibold rounded-lg transition-all font-body text-label-md" href="#">
+<span class="material-symbols-outlined fill-icon">medical_services</span>
+<span class="">Patient Records</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="">Clinical Audit</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="">Staff Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="">Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="">Reports</span>
+</a>
+</nav>
+<div class="pt-6 border-t-0 space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-transform mb-4">
+<span class="material-symbols-outlined">add</span>
+                New Entry
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all font-body text-label-md font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Cluster -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="w-full top-0 sticky bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 h-16 z-10 border-b-0">
+<div class="flex items-center gap-8 flex-1">
+<h1 class="font-headline text-xl font-extrabold text-primary tracking-tight shrink-0">Clinical Governance Portal</h1>
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search records, patients, or audits..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-8">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high/50 transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high/50 transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right hidden xl:block">
+<p class="text-xs font-bold text-on-surface">Dr. Admin User</p>
+<p class="text-[10px] text-on-surface-variant">System Administrator</p>
+</div>
+<img alt="Administrator Profile" class="w-9 h-9 rounded-full object-cover border border-outline-variant/20" data-alt="A close-up portrait of a professional healthcare administrator in a clean, brightly lit modern clinic environment. The person has a friendly but authoritative expression, wearing a minimalist white clinical coat over a grey business shirt. The background is a soft-focus clinical setting with cool blue and white tones, emphasizing a professional and trustworthy healthcare atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0WekJrwgOuoA4_1WAGm8eE7QWFf0iDdXLOIIOx2xXDMktIA3XI8hWvLKVFjiEPKa6oZMuEtUOmFQIDoacpDTYwZbFaBeUTKwguUXfwwAJVQbSRPbyL6RglZlW4O43GRUqE7OFIhlxx-GrXfDj9TmbUgFgMGhpPlJOeebyAUwEEv4TX6_yCnSuGrp6KlWdv7PVMCwRzlhX6V1GBa9Hdo64Qx00XFFkuUM0KtgmEvS4jdYGFlkfrwFMmfjjdjTGkOWLi4ZCX8jbfZ4"/>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<main class="flex-1 overflow-y-auto p-8 max-w-7xl mx-auto w-full">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm font-medium text-on-surface-variant mb-8">
+<a class="hover:text-primary transition-colors" href="#">Schedule</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Appointment Details #APT-4920</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-bold">Reschedule</span>
+</nav>
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Column: Current Details & Selection -->
+<div class="col-span-12 lg:col-span-7 space-y-6">
+<!-- Current Appointment Header (Tonal Layering) -->
+<section class="bg-surface-container-low rounded-2xl p-6 relative overflow-hidden border-none">
+<div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">event_repeat</span>
+</div>
+<h2 class="font-headline text-headline-sm font-bold text-on-surface mb-6">Current Appointment Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-1">
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill-icon">person</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-tighter">Patient</p>
+<p class="font-headline text-lg font-bold text-on-surface leading-tight">Ricardo Mendes Albuquerque</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill-icon">medical_information</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-tighter">Practitioner</p>
+<p class="font-headline text-lg font-bold text-on-surface leading-tight">Dra. Daniele Almeida</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl col-span-1 md:col-span-2 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined fill-icon">schedule</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-tighter">Original Schedule</p>
+<p class="font-headline text-lg font-bold text-on-surface leading-tight">Oct 24, 08:00 AM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Calendar Selection (Bento Style) -->
+<section class="bg-surface-container-lowest rounded-2xl p-8 border-none shadow-[0_12px_40px_rgba(25,28,30,0.04)]">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Select New Date</h3>
+<p class="text-sm text-on-surface-variant">November 2024</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant/30 hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant/30 hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-y-4 text-center"><!-- Weekdays -->
+<div class="text-xs font-bold text-outline-variant uppercase">Mon</div>
+<div class="text-xs font-bold text-outline-variant uppercase">Tue</div>
+<div class="text-xs font-bold text-outline-variant uppercase">Wed</div>
+<div class="text-xs font-bold text-outline-variant uppercase">Thu</div>
+<div class="text-xs font-bold text-outline-variant uppercase">Fri</div>
+<div class="text-xs font-bold text-outline-variant uppercase">Sat</div>
+<div class="text-xs font-bold text-outline-variant uppercase">Sun</div>
+<!-- Empty days for Nov 2024 start (Friday start) -->
+<div class="h-12 flex items-center justify-center text-outline-variant/40">28</div>
+<div class="h-12 flex items-center justify-center text-outline-variant/40">29</div>
+<div class="h-12 flex items-center justify-center text-outline-variant/40">30</div>
+<div class="h-12 flex items-center justify-center text-outline-variant/40">31</div>
+<!-- Calendar Days -->
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">1</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">2</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">3</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">4</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">5</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">6</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">7</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">8</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">9</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">10</button>
+<button class="h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary font-bold shadow-lg shadow-primary/20">11</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">12</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">13</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">14</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">15</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">16</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">17</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">18</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">19</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">20</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">21</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">22</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">23</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">24</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">25</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">26</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">27</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">28</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">29</button>
+<button class="h-12 flex items-center justify-center rounded-xl hover:bg-surface-container transition-all text-on-surface font-medium">30</button></div>
+</section>
+</div>
+<!-- Right Column: Time Slots & Action -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<!-- Time Selection Card -->
+<section class="bg-surface-container-lowest rounded-2xl p-8 border-none shadow-[0_12px_40px_rgba(25,28,30,0.04)]">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-6">Available Time Slots</h3>
+<div class="grid grid-cols-2 gap-4">
+<button class="p-4 rounded-xl border border-outline-variant/30 hover:border-primary/50 hover:bg-primary-container/20 transition-all text-center">
+<span class="text-xs font-bold text-on-surface-variant uppercase mb-1 block">Morning</span>
+<span class="font-headline text-lg font-bold text-on-surface">09:15 AM</span>
+</button>
+<button class="p-4 rounded-xl border border-outline-variant/30 hover:border-primary/50 hover:bg-primary-container/20 transition-all text-center">
+<span class="text-xs font-bold text-on-surface-variant uppercase mb-1 block">Morning</span>
+<span class="font-headline text-lg font-bold text-on-surface">10:00 AM</span>
+</button>
+<button class="p-4 rounded-xl border-2 border-primary bg-primary-container text-center ring-4 ring-primary/10">
+<span class="text-xs font-bold text-on-primary-container uppercase mb-1 block">Morning</span>
+<span class="font-headline text-lg font-bold text-on-primary-container">10:45 AM</span>
+</button>
+<button class="p-4 rounded-xl border border-outline-variant/30 hover:border-primary/50 hover:bg-primary-container/20 transition-all text-center">
+<span class="text-xs font-bold text-on-surface-variant uppercase mb-1 block">Afternoon</span>
+<span class="font-headline text-lg font-bold text-on-surface">14:00 PM</span>
+</button>
+<button class="p-4 rounded-xl border border-outline-variant/30 hover:border-primary/50 hover:bg-primary-container/20 transition-all text-center col-span-2">
+<span class="text-xs font-bold text-on-surface-variant uppercase mb-1 block">Afternoon</span>
+<span class="font-headline text-lg font-bold text-on-surface">15:30 PM</span>
+</button>
+</div>
+<!-- Policy Alert -->
+<!-- Confirmation Button -->
+<div class="mt-8 space-y-4">
+<button class="w-full h-14 rounded-xl bg-gradient-to-r from-primary to-primary-fixed-dim text-on-primary font-headline text-lg font-extrabold flex items-center justify-center gap-2 hover:opacity-95 active:scale-[0.99] transition-all shadow-xl shadow-primary/20">
+<span class="material-symbols-outlined fill-icon">check_circle</span>
+                                Confirm Reschedule
+                            </button>
+<button class="w-full h-12 rounded-xl border-none text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-colors">
+                                Cancel Operation
+                            </button>
+</div>
+</section>
+<!-- Auxiliary Data Card (Clinical Detail) -->
+</div>
+</div>
+</main>
+</div>
+<!-- Right Slide-out Contextual Tray (Hidden by default, used for interaction) -->
+<div class="fixed inset-y-0 right-0 w-[400px] bg-surface-container-lowest shadow-[-20px_0_60px_rgba(0,0,0,0.1)] translate-x-full transition-transform duration-500 ease-in-out z-50 p-8 hidden" id="patient-tray">
+<div class="flex justify-between items-center mb-10">
+<h2 class="font-headline text-2xl font-bold">Patient Context</h2>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container flex items-center justify-center" onclick="toggleTray()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-8">
+<img alt="Patient Profile" class="w-24 h-24 rounded-2xl object-cover" data-alt="A professional medical profile photo of a middle-aged male patient with a friendly, calm expression. He is wearing a clean casual blue linen shirt against a minimalist, neutral studio background. The lighting is soft and flattering, creating a high-end, professional medical portal aesthetic that feels clinical yet humane and compassionate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCEpzQKqDTUsH-kVDgyHqgN7GlQCU6dPpex8Z4ooK2fYChgGpw-i33GBAklwVvIDwRsULUNcvcl9jh-LyA0nQ_-V1GQ8jO8PQShwVB_CzhXTbZDe1mk7KaJ8ojm28-_jERK9JPFbsxyhLhZD2z80dF0of8k3Alq8z93kadF-h2TPMy6Jqj8Md9JeBSwgBup2sCueQUxrkx5Uhzr7k7q7rPre5zW03kDAskLlXHV-7wi24AmUI8DcxSuxUobkYxc-dgyd3fMzqdEuk"/>
+<div>
+<h3 class="text-xl font-bold">Ricardo M. Albuquerque</h3>
+<p class="text-on-surface-variant text-sm">Patient ID: #RM-9281-22</p>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-low rounded-xl">
+<p class="text-xs font-bold text-outline uppercase mb-1">Primary Condition</p>
+<p class="font-medium">Type II Diabetes Management</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl">
+<p class="text-xs font-bold text-outline uppercase mb-1">Last Visit</p>
+<p class="font-medium">August 12, 2024 (Routine Checkup)</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', function() {
+                this.classList.add('scale-95');
+            });
+            btn.addEventListener('mouseup', function() {
+                this.classList.remove('scale-95');
+            });
+        });
+
+        // Simple Tray Toggle (Demo Purpose)
+        function toggleTray() {
+            const tray = document.getElementById('patient-tray');
+            tray.classList.toggle('hidden');
+            setTimeout(() => {
+                tray.classList.toggle('translate-x-full');
+            }, 10);
+        }
+
+        // Logic for highlighting active date (Simplified for demo)
+        const dateButtons = document.querySelectorAll('main section:nth-of-type(2) button.h-12');
+        dateButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                dateButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-lg', 'shadow-primary/20');
+                    b.classList.add('hover:bg-surface-container', 'text-on-surface', 'font-medium');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-lg', 'shadow-primary/20');
+                btn.classList.remove('hover:bg-surface-container', 'text-on-surface', 'font-medium');
+            });
+        });
+    </script>
+</body></html>

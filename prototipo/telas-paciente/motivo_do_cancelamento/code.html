@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#cfe6f2",
+                "on-primary-fixed": "#001c3a",
+                "on-background": "#191c1e",
+                "on-surface": "#191c1e",
+                "tertiary-container": "#d1f7ff",
+                "on-primary-fixed-variant": "#004786",
+                "on-secondary-container": "#526772",
+                "on-error-container": "#93000a",
+                "background": "#f7f9fb",
+                "surface-container": "#eceef0",
+                "surface-tint": "#005faf",
+                "on-tertiary-container": "#007887",
+                "inverse-primary": "#a5c8ff",
+                "outline": "#73787b",
+                "tertiary-fixed": "#9eefff",
+                "secondary": "#4c616c",
+                "on-surface-variant": "#43474a",
+                "primary-fixed": "#d4e3ff",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#cfe6f2",
+                "surface-bright": "#f7f9fb",
+                "error": "#ba1a1a",
+                "surface-container-low": "#f2f4f6",
+                "outline-variant": "#c3c7cb",
+                "on-secondary-fixed-variant": "#354a53",
+                "primary-fixed-dim": "#a5c8ff",
+                "on-primary-container": "#006dc8",
+                "inverse-surface": "#2d3133",
+                "inverse-on-surface": "#eff1f3",
+                "primary": "#005faf",
+                "secondary-fixed-dim": "#b4cad6",
+                "on-tertiary-fixed": "#001f24",
+                "tertiary": "#006876",
+                "surface-container-highest": "#e0e3e5",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed-variant": "#004e59",
+                "surface-variant": "#e0e3e5",
+                "surface-dim": "#d8dadc",
+                "on-secondary-fixed": "#071e27",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#eaf0ff",
+                "error-container": "#ffdad6",
+                "surface-container-high": "#e6e8ea",
+                "surface": "#f7f9fb",
+                "on-error": "#ffffff",
+                "tertiary-fixed-dim": "#55d7ed",
+                "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "display": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #004786 100%);
+        }
+        .selection-card:has(input:checked) {
+            background-color: #eaf0ff;
+            outline: 2px solid #005faf;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-[#f7f9fb] dark:bg-slate-900 flex items-center justify-between px-6 h-16 w-full no-border bg-[#f2f4f6] dark:bg-slate-800 transition-colors duration-200">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[#005faf] dark:text-blue-400" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-bold text-lg tracking-tight text-[#005faf] dark:text-blue-400">Minha Agenda</h1>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-6 py-8 pb-32">
+<!-- Header Content -->
+<section class="mb-10">
+<h2 class="font-display font-extrabold text-3xl text-on-surface tracking-tight mb-3">Por que você está cancelando?</h2>
+<p class="text-on-surface-variant font-body leading-relaxed">Sentimos muito que você precise cancelar. Por favor, nos conte o motivo para podermos melhorar nosso atendimento.</p>
+</section>
+<!-- Options Form -->
+<form class="space-y-4">
+<!-- Option 1 -->
+<label class="selection-card group flex items-center p-5 bg-surface-container-lowest rounded-xl cursor-pointer transition-all duration-200 shadow-sm border border-transparent">
+<input class="hidden" name="cancel_reason" type="radio" value="not_attending"/>
+<div class="flex-grow flex items-center gap-4">
+<div class="w-6 h-6 border-2 border-outline rounded-full flex items-center justify-center group-hover:border-primary transition-colors">
+<div class="w-3 h-3 bg-primary rounded-full scale-0 transition-transform duration-200 group-has-[:checked]:scale-100"></div>
+</div>
+<span class="font-label font-semibold text-on-surface">Não posso comparecer</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="selection-card group flex items-center p-5 bg-surface-container-lowest rounded-xl cursor-pointer transition-all duration-200 shadow-sm border border-transparent">
+<input class="hidden" name="cancel_reason" type="radio" value="rescheduled"/>
+<div class="flex-grow flex items-center gap-4">
+<div class="w-6 h-6 border-2 border-outline rounded-full flex items-center justify-center group-hover:border-primary transition-colors">
+<div class="w-3 h-3 bg-primary rounded-full scale-0 transition-transform duration-200 group-has-[:checked]:scale-100"></div>
+</div>
+<span class="font-label font-semibold text-on-surface">Consegui outro horário</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="selection-card group flex items-center p-5 bg-surface-container-lowest rounded-xl cursor-pointer transition-all duration-200 shadow-sm border border-transparent">
+<input class="hidden" name="cancel_reason" type="radio" value="personal"/>
+<div class="flex-grow flex items-center gap-4">
+<div class="w-6 h-6 border-2 border-outline rounded-full flex items-center justify-center group-hover:border-primary transition-colors">
+<div class="w-3 h-3 bg-primary rounded-full scale-0 transition-transform duration-200 group-has-[:checked]:scale-100"></div>
+</div>
+<span class="font-label font-semibold text-on-surface">Problema pessoal</span>
+</div>
+</label>
+<!-- Option 4 (Other) -->
+<div class="bg-surface-container-low rounded-xl p-5 space-y-4">
+<label class="group flex items-center cursor-pointer transition-all duration-200">
+<input class="hidden" id="radio-other" name="cancel_reason" type="radio" value="other"/>
+<div class="flex-grow flex items-center gap-4">
+<div class="w-6 h-6 border-2 border-outline rounded-full flex items-center justify-center group-hover:border-primary transition-colors">
+<div class="w-3 h-3 bg-primary rounded-full scale-0 transition-transform duration-200 group-has-[:checked]:scale-100"></div>
+</div>
+<span class="font-label font-semibold text-on-surface">Outro</span>
+</div>
+</label>
+<div class="pl-10">
+<textarea class="w-full min-h-[120px] bg-surface-container-lowest rounded-lg border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all font-body p-4 text-sm resize-none" placeholder="Conte-nos o motivo (opcional)"></textarea>
+</div>
+</div>
+</form>
+</main>
+<!-- Bottom Action Bar (Contextual for transaction) -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-lowest px-6 py-6 shadow-[0_-4px_20px_rgba(0,0,0,0.03)] z-50">
+<div class="max-w-2xl mx-auto flex flex-col gap-3">
+<button class="text-on-primary py-4 px-8 rounded-xl font-headline font-bold text-base shadow-lg active:scale-95 transition-transform" style="background-color: #C62828;">
+                Confirmar cancelamento
+            </button>
+</div>
+</footer>
+<!-- Informational Card (Clinical Context) -->
+<div class="fixed top-24 right-8 hidden lg:block w-72">
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border-l-4 border-primary">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="font-display font-bold text-sm uppercase tracking-wider">Aviso</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Cancelamentos com menos de 24 horas de antecedência podem estar sujeitos a taxas administrativas conforme a política da clínica.
+            </p>
+<div class="mt-6 pt-4 border-t border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="doctor">medical_services</span>
+</div>
+<div>
+<p class="text-xs font-label font-medium text-on-surface-variant">Consulta com</p>
+<p class="text-sm font-label font-bold text-on-surface">Dr. Ricardo Silva</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

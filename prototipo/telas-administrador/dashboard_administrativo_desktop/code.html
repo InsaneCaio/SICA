@@ -1,0 +1,344 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Precision Clinic Admin Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "on-error": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-tint": "#005faf",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-surface-variant": "#43474a",
+                    "inverse-surface": "#2d3133",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline": "#73787b",
+                    "on-tertiary-container": "#007887",
+                    "tertiary-container": "#d1f7ff",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "primary-container": "#eaf0ff",
+                    "on-secondary-fixed": "#071e27",
+                    "surface-container": "#eceef0",
+                    "on-primary-container": "#006dc8",
+                    "secondary-container": "#cfe6f2",
+                    "error": "#ba1a1a",
+                    "secondary": "#4c616c",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-background": "#191c1e",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-fixed": "#9eefff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed": "#d4e3ff",
+                    "on-primary-fixed": "#001c3a",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "background": "#f7f9fb",
+                    "tertiary": "#006876",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#005faf",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "on-secondary-container": "#526772",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c3c7cb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar (Authority Source: Shared Components JSON) -->
+<aside class="h-screen w-72 fixed left-0 top-0 flex flex-col p-6 gap-8 bg-surface-dim dark:bg-inverse-surface">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl primary-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">medical_services</span>
+</div>
+<div>
+<h1 class="font-headline text-lg font-extrabold tracking-tight text-on-surface dark:text-on-surface">Precision Clinic</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Administrative Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<!-- Dashboard Active -->
+<a class="flex items-center gap-3 px-6 py-3 bg-surface-container-lowest dark:bg-surface-container-high text-primary dark:text-primary-fixed-dim rounded-xl font-semibold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="">Doctors</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 rounded-2xl bg-surface-container-low flex items-center gap-3">
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a senior clinical administrator in a bright, modern medical office. The lighting is soft and natural, reflecting a clean, high-contrast healthcare environment. The background is slightly blurred, showing a minimalist architectural space with soft blues and whites. The overall mood is authoritative yet approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRihOLK-T99dW_RvnItgEOihoxgBJwW0RYnq96Rvwz67bjDmrjXrg9-Z0ZWWX4Atb1adi-BeHXTngqcjHr1FXaxJ03CIB43WUZ7dbMx5yiOXPbZ8nF9u4Mq6XBtAxhSWAWdNLlGZRlF7xsVvh3X4soxbFneOr5JIi63WxcnzHyEblQ4CPE2iFB9KUB4ap45rXB3Tp7OaxMz9XXxNgUMssA9-xmmSHMsw6pdJ_-MDbwDQH05siD7Dld2GHaW9BlL5wXeHKgYPHqRiQ">
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Dr. Ricardo Silva</p>
+<p class="text-xs text-on-surface-variant truncate">Chief Administrator</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Authority Source: Shared Components JSON) -->
+<header class="ml-72 flex justify-between items-center px-10 py-6 max-w-full sticky top-0 z-40 glass-header">
+<div class="flex items-center gap-8 w-full max-w-2xl">
+<h2 class="font-headline text-2xl font-black text-on-surface dark:text-on-surface whitespace-nowrap">Clinical Overview</h2>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-2.5 bg-surface-container-highest/50 rounded-full border-none focus:ring-2 focus:ring-primary/20 text-sm placeholder:text-on-surface-variant/60" placeholder="Search patients, records, or doctors..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold group-hover:text-primary transition-colors">Admin Portal</p>
+<p class="text-[10px] text-on-surface-variant">System Online</p>
+</div>
+<div class="w-8 h-8 rounded-lg bg-primary-container text-primary flex items-center justify-center font-bold text-xs">
+                    AD
+                </div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-72 p-10 space-y-10">
+<!-- Metrics Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl cloud-shadow border-b-2 border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-container rounded-xl text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">event_available</span>
+</div>
+<span class="text-xs font-bold text-tertiary bg-tertiary-container px-2 py-1 rounded-full">+12% hoje</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Total Appointments</p>
+<h3 class="text-4xl font-black mt-1">150+</h3>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl cloud-shadow border-b-2 border-tertiary/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-tertiary-container rounded-xl text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">stethoscope</span>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary text-[10px] flex items-center justify-center text-white font-bold">+9</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Active Doctors</p>
+<h3 class="text-4xl font-black mt-1">12</h3>
+</div>
+<!-- Quick Actions (Source Request #5) -->
+<div class="bg-surface-container-low p-6 rounded-2xl flex flex-col justify-center gap-4">
+<h4 class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Ações Rápidas</h4>
+<div class="grid grid-cols-2 gap-3">
+<button class="primary-gradient text-white px-4 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                        Novo Agendamento
+                    </button>
+<button class="bg-surface-container-lowest text-primary border border-primary/20 px-4 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-white transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                        Registrar Médico
+                    </button>
+</div>
+</div>
+</section>
+<!-- Dynamic Content Area -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-2xl font-black text-on-surface">Próximos Agendamentos</h2>
+<p class="text-on-surface-variant text-sm">Lista detalhada de consultas para as próximas 24 horas.</p>
+</div>
+<a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="#">
+                    Ver Tudo
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Table UI (Source Request #6) -->
+<div class="bg-surface-container-lowest rounded-3xl cloud-shadow overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-5 text-xs font-black text-on-surface-variant uppercase tracking-widest">Patient Name</th>
+<th class="px-8 py-5 text-xs font-black text-on-surface-variant uppercase tracking-widest">Specialty</th>
+<th class="px-8 py-5 text-xs font-black text-on-surface-variant uppercase tracking-widest">Doctor</th>
+<th class="px-8 py-5 text-xs font-black text-on-surface-variant uppercase tracking-widest">Time</th>
+<th class="px-8 py-5 text-xs font-black text-on-surface-variant uppercase tracking-widest text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-primary-container/30 transition-colors cursor-pointer group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface-variant">AB</div>
+<span class="font-bold text-on-surface">Ana Beatriz Oliveira</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-on-surface-variant">Cardiologia</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<img alt="Dr. Marco" class="w-6 h-6 rounded-full object-cover" data-alt="A close-up portrait of a professional male doctor with a kind expression, wearing a pristine white coat and a stethoscope. The setting is a minimalist, brightly lit clinical space with high-contrast surfaces and soft blue ambient lighting. The visual style is clean, modern, and clinical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbKtC3aHzX0maDbVKOjZ_H8TdUgp5GGgg1phy35WSVXfDI4X80Kbk03z5vIOJf9IkHKyfHsmyIqNgZPSbQwIJqmvkdew2DVdjkM3pynGLTC83UagHsA0_dfh1ZNuzOh0iCI30Ke1aSxg1ACXkerFAKi2SmuwffaQ59LoeMKdnwRfxrtWVWnWMcr12L_9RpHemJ7dluHcaRCYpi8biGtfJVYCXREeP6CmafPwP6KjPE4D4kP1_XrXu90Zcj1oiGVc9jcn_9O0jZO2U">
+<span class="text-sm">Dr. Marco Aurélio</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-bold text-primary">09:30 AM</td>
+<td class="px-8 py-6 text-right">
+<span class="px-3 py-1 bg-tertiary-container text-tertiary text-[10px] font-black uppercase rounded-full">Confirmado</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-primary-container/30 transition-colors cursor-pointer group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface-variant">JL</div>
+<span class="font-bold text-on-surface">João Lucas Santos</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-on-surface-variant">Dermatologia</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<img alt="Dra. Sara" class="w-6 h-6 rounded-full object-cover" data-alt="A portrait of a confident female medical professional in a sleek, high-tech clinical environment. She is smiling warmly, representing excellence and trust in healthcare. The background features blurred glass partitions and soft, cool-toned lighting that emphasizes a clean and sophisticated administrative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU2qgdQJeubz02oDxaPiMRY0cVCK9dVViFnMI5YCFuuBxEQFValWuYhEiUf66cOificjslA349ve4qSlgS8_xfSHB0Es3eAk5goXf32ekiON1kbSNkeDKogHPL-7aqn1Coio4tzXWtz5ZdHmNfVa5PApaLtdgn6pXT25RGt0JjqD14fFpQNIRiOQ7OLeOKIkWZJozfJboHK0K_3_NSBxvpLocACAM1BNoiB0KiDWNrOnNkia1FW57RtIZt9NmTEe-3gwfVTY_hZE4">
+<span class="text-sm">Dra. Sara Mendes</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-bold text-primary">10:15 AM</td>
+<td class="px-8 py-6 text-right">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-black uppercase rounded-full">Pendente</span>
+</td>
+</tr>
+<tr class="hover:bg-primary-container/30 transition-colors cursor-pointer group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface-variant">MC</div>
+<span class="font-bold text-on-surface">Maria Clara Costa</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-on-surface-variant">Pediatria</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<img alt="Dr. Ricardo" class="w-6 h-6 rounded-full object-cover" data-alt="A professional headshot of a senior male physician in a bright, modern clinic. The doctor has a graying beard and wears a sophisticated white medical coat. The room is flooded with high-key natural light, highlighting the sterile and pristine qualities of a premium medical facility. The mood is calm and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDOw_AhYa-b7dck6Ww2P1XVbn4S2kcEEQT7QKsdqbcZAgV5T9xBCElMgnEaTBYLOJBKFNOtjOMThUnzT-58IcHQY5PI8AxzaWkE9uieqTNfLGsdIS-S1uOW_tLO7gWQpAM6RsbwM5rAa9fxgjc0WCt8NwrHkNPnjeXiynSdLAzdTG1LYdMtXuM2kWb1AQ-V75FpJ1yN4PUMHyoLfx6brL8vNuwd8uy2AWVtWrBMOv3OQBslyqENdqYzKwhJ1Tnt-BCfT6CVYi84O4">
+<span class="text-sm">Dr. Ricardo Silva</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-bold text-primary">11:00 AM</td>
+<td class="px-8 py-6 text-right">
+<span class="px-3 py-1 bg-tertiary-container text-tertiary text-[10px] font-black uppercase rounded-full">Confirmado</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-primary-container/30 transition-colors cursor-pointer group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface-variant">RF</div>
+<span class="font-bold text-on-surface">Roberto Fernandes</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-on-surface-variant">Ortopedia</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<img alt="Dr. Marco" class="w-6 h-6 rounded-full object-cover" data-alt="A male orthopedic surgeon in a modern, well-lit medical environment. He is leaning slightly forward with a professional and attentive look. The background features architectural clinical lines and high-contrast surfaces in white and soft blues. The overall aesthetic is one of clean, high-end administrative precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMLb4dtTxDp8Sfh0gl22_1LxqB6RhT-WYyKzDKsL8ICnQzUnUZCkUq-E0Sy0YbZ3qHLaKg1UbjrKH9L8QWbwozr5CyVm7LLSczsm0uUjQULNuMrE0HuPwW20cFuBhRc1GFoHGyJwh0Av_Tk3u9z4pvLyzJUNFWdOHv_cGk-zHEUI_deWupVvHkHo2o5WiXcr6m8TOmDr4fmwESWUCRtRk5mIxQ5UI66fRtnBxWITHE4fJunZEmKUSZyz5OTLsLC6-Z0mHFCW_blIg">
+<span class="text-sm">Dr. Marco Aurélio</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm font-bold text-primary">02:30 PM</td>
+<td class="px-8 py-6 text-right">
+<span class="px-3 py-1 bg-tertiary-container text-tertiary text-[10px] font-black uppercase rounded-full">Confirmado</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Secondary Row: Charts & Logs (Bento Grid Style) -->
+
+</main>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, a, tr').forEach(el => {
+            el.addEventListener('click', function(e) {
+                if(this.tagName === 'A' && this.getAttribute('href') === '#') e.preventDefault();
+                // Simple ripple-like feedback
+                this.classList.add('opacity-70');
+                setTimeout(() => this.classList.remove('opacity-70'), 150);
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+            searchInput.parentElement.style.transition = 'all 0.3s ease';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

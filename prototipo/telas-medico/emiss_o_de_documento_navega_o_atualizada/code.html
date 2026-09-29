@@ -1,0 +1,323 @@
+<!DOCTYPE html><html class="light" lang="pt-br"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ClinicalArchive | Document Editor</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#321200",
+                        "primary-container": "#005faf",
+                        "on-surface": "#191c1e",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414751",
+                        "secondary-container": "#c2d8fe",
+                        "outline": "#727783",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-primary": "#a5c8ff",
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "surface-container": "#eceef0",
+                        "surface-dim": "#d8dadc",
+                        "outline-variant": "#c1c6d3",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-container": "#495e7f",
+                        "on-secondary-fixed": "#021c39",
+                        "on-primary-container": "#c4daff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#753400",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-background": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#d4e3ff",
+                        "secondary-fixed-dim": "#b2c8ed",
+                        "on-tertiary-container": "#ffceb4",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#4a5f80",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#324867",
+                        "on-primary-fixed": "#001c3a",
+                        "inverse-surface": "#2d3133",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#ffdbc9",
+                        "tertiary-container": "#9a4600",
+                        "surface": "#f7f9fb",
+                        "surface-tint": "#005faf",
+                        "on-primary": "#ffffff",
+                        "primary": "#004786",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editor-paper {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(25, 28, 30, 0.04);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c6d3;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden flex h-screen">
+<!-- Sidebar (Shared SideNavBar Mapping) -->
+<aside class="hidden md:flex flex-col h-full py-6 bg-surface-container-low w-64 flex-shrink-0 z-50">
+<div class="px-6 mb-8">
+<h1 class="font-headline text-lg font-black text-on-surface">The Curator</h1>
+<p class="font-label text-label-md uppercase tracking-wider text-on-surface-variant opacity-70">Precision Medicine</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all text-on-surface-variant hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label-md uppercase tracking-wider">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all text-on-surface-variant hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label text-label-md uppercase tracking-wider">Agenda</span>
+</div>
+
+<div class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all text-on-surface-variant hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-label-md uppercase tracking-wider">Settings</span>
+</div></nav>
+<div class="mt-auto px-4">
+<button class="w-full flex items-center justify-center gap-2 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+<span class="">New Consultation</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-40 px-6 py-3 w-full flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<h2 class="font-headline text-xl font-bold text-primary">Emissão de Documento</h2>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-on-surface-variant font-medium text-sm">Patient: Sarah Jenkins</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-primary font-bold hover:bg-primary-fixed transition-colors rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined">visibility</span>
+                    Visualizar Impressão
+                </button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface font-bold hover:bg-surface-container-highest transition-colors rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                    Gerar PDF
+                </button>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">help_outline</span>
+</div>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden">
+<!-- Document Context Sidebar (MetaData) -->
+<aside class="w-72 bg-surface-container-low flex-shrink-0 flex flex-col p-6 overflow-y-auto custom-scrollbar">
+<section class="space-y-6">
+<div>
+<label class="block font-label text-label-sm uppercase tracking-[0.15em] text-on-surface-variant mb-3 opacity-80">Document Metadata</label>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl">
+<span class="block text-xs text-outline font-medium mb-1">Patient ID</span>
+<span class="text-on-surface font-bold">#CL-88294-SJ</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl">
+<span class="block text-xs text-outline font-medium mb-1">Date of Emission</span>
+<span class="text-on-surface font-bold">October 24, 2023</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block font-label text-label-sm uppercase tracking-[0.15em] text-on-surface-variant mb-3 opacity-80">Document Type</label>
+<select class="w-full bg-surface-container-highest border-none rounded-xl text-on-surface font-medium focus:ring-2 focus:ring-primary-fixed py-3 px-4 cursor-pointer">
+<option>Prescrição Médica</option>
+<option>Laudo Clínico</option>
+<option>Atestado de Saúde</option>
+<option>Encaminhamento Especialista</option>
+</select>
+</div>
+<div class="pt-4">
+<label class="block font-label text-label-sm uppercase tracking-[0.15em] text-on-surface-variant mb-3 opacity-80">Quick Templates</label>
+<div class="grid grid-cols-1 gap-2">
+<button class="text-left px-4 py-3 rounded-lg hover:bg-surface-container-high transition-colors text-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">description</span> Antibiotics Standard
+                            </button>
+<button class="text-left px-4 py-3 rounded-lg hover:bg-surface-container-high transition-colors text-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">description</span> Chronic Care Follow-up
+                            </button>
+</div>
+</div>
+
+</section>
+</aside>
+<!-- Editor Content Area -->
+<section class="flex-1 flex flex-col bg-surface overflow-hidden relative">
+<!-- Rich Text Toolbar -->
+<div class="flex items-center justify-center p-2 bg-surface-container-low border-b-0">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1.5 rounded-2xl shadow-sm border border-outline-variant/10">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_bold</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_italic</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_underlined</span></button>
+<div class="w-px h-6 bg-outline-variant/30 mx-1"></div>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_align_left</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_align_center</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_align_right</span></button>
+<div class="w-px h-6 bg-outline-variant/30 mx-1"></div>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_list_bulleted</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">format_list_numbered</span></button>
+<div class="w-px h-6 bg-outline-variant/30 mx-1"></div>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">add_link</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-all"><span class="material-symbols-outlined">image</span></button>
+</div>
+</div>
+<!-- Scrollable Paper Container -->
+<div class="flex-1 overflow-y-auto p-12 custom-scrollbar bg-surface-container-low/50">
+<div class="editor-paper bg-surface-container-lowest animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Paper Header -->
+<div class="flex justify-between items-start mb-16">
+<div class="space-y-1">
+<h3 class="font-headline text-lg font-bold text-on-surface tracking-tight">ClinicalArchive Hospital</h3>
+<p class="text-xs text-outline-variant uppercase tracking-widest font-semibold">Department of Internal Medicine</p>
+</div>
+<img alt="Logo" class="w-12 h-12 rounded-lg grayscale opacity-80" data-alt="A minimal, geometric corporate logo for a medical institution, featuring clean lines and a professional blue and white color scheme. The logo is displayed as a subtle watermark style mark on a high-end white paper background, conveying trust and authority in a modern clinical setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_ucpV_0n0wxfzHjoUkTlZtG2BVANLm9LEfpYiwgqyGmz1X_nf5JMLftdRozCeHxsbUVL-VL2ujCpU4_c5AwGhehbHmrDK6v-xVMvT5CG-wG1r18RBzHcCdKGr9S6qlMxt3EO-hwSFs10cX1z_IXEIOfsIWbYfzgt6N4lsaEgsraae306S_ilRbbRXyyocCSa3GMwfedcZiA5vYe31Za8Osy-QdzBjudgjeyBCphhfRTD52IDxa9VHyFj78Jd9L7A5rMk_bUD2bwo">
+</div>
+<!-- Document Title -->
+<div class="text-center mb-12">
+<h2 class="text-3xl font-headline font-black text-on-surface tracking-tight">PRESCRIÇÃO MÉDICA</h2>
+<div class="w-12 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+</div>
+<!-- Editor Canvas Content -->
+<div class="space-y-8 text-on-surface font-body leading-relaxed">
+<div>
+<p class="text-sm font-bold text-outline uppercase tracking-wider mb-2">Paciente</p>
+<p class="text-xl font-medium">Sarah Jenkins, 34 anos</p>
+</div>
+<div class="space-y-6">
+<div class="bg-surface p-6 rounded-2xl border-l-4 border-primary">
+<p class="font-bold text-lg mb-2">1. Amoxicilina + Clavulanato 875mg/125mg</p>
+<p class="text-on-surface-variant italic">Tomar 01 comprimido via oral de 12 em 12 horas por 07 dias.</p>
+</div>
+<div class="bg-surface p-6 rounded-2xl border-l-4 border-outline-variant">
+<p class="font-bold text-lg mb-2">2. Dipirona Sódica 500mg/mL</p>
+<p class="text-on-surface-variant italic">Tomar 40 gotas via oral em caso de dor ou febre (acima de 37.8°C) até de 6 em 6 horas.</p>
+</div>
+</div>
+<div class="pt-12">
+<p class="text-sm text-outline-variant mb-12 italic">Observações: Repouso relativo por 48 horas e ingestão hídrica abundante.</p>
+</div>
+</div>
+<!-- Paper Footer -->
+<div class="mt-24 pt-8 border-t border-outline-variant/20">
+<div class="flex flex-col items-center">
+<div class="w-48 h-px bg-on-surface-variant mb-2"></div>
+<p class="font-bold text-on-surface">Dr. Alexander Thorne</p>
+<p class="text-xs text-outline-variant">CRM/SP 123.456 - Medicina Interna</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bottom Bar -->
+<footer class="bg-surface-container-lowest px-8 py-4 flex justify-between items-center shadow-lg border-t border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">history</span>
+<span class="text-xs text-outline-variant font-medium">Auto-salvo às 14:32</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">language</span>
+<span class="text-xs text-outline-variant font-medium">Português (BR)</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-3 rounded-xl text-on-surface-variant font-bold hover:bg-surface-container-high transition-all">Descartar</button>
+<button class="px-10 py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-3 shadow-lg hover:shadow-primary/20 transition-all active:scale-95 group">
+<span class="material-symbols-outlined group-hover:animate-bounce">print</span>
+                            Imprimir Agora
+                        </button>
+</div>
+</footer>
+</section>
+</div>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Focus editor initially
+            const editor = document.querySelector('[contenteditable="true"]');
+            
+            // Subtle hover effect for buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            });
+
+            // Tab highlighting logic (from JSON)
+            const navItems = document.querySelectorAll('nav > div');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navItems.forEach(i => {
+                        i.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-bold');
+                        i.classList.add('text-on-surface-variant');
+                    });
+                    item.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-bold');
+                    item.classList.remove('text-on-surface-variant');
+                });
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

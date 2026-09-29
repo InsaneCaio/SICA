@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vitalis Admin - Confirmar Exclusão</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-surface-variant": "#43474a",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "on-primary-fixed": "#001c3a",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-primary-container": "#006dc8",
+                        "primary": "#005faf",
+                        "primary-fixed": "#d4e3ff",
+                        "background": "#f7f9fb",
+                        "primary-container": "#eaf0ff",
+                        "outline": "#73787b",
+                        "on-tertiary-container": "#007887",
+                        "secondary": "#4c616c",
+                        "on-tertiary-fixed": "#001f24",
+                        "inverse-primary": "#a5c8ff",
+                        "secondary-container": "#cfe6f2",
+                        "tertiary-fixed": "#9eefff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#d1f7ff",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "surface-tint": "#005faf",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c3c7cb",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-error": "#ffffff",
+                        "tertiary": "#006876",
+                        "surface-container": "#eceef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .modal-blur {
+            backdrop-filter: blur(8px);
+            background-color: rgba(25, 28, 30, 0.4);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden">
+<!-- Background Layer (Gestão de Médicos Desktop Simulation) -->
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="bg-surface-dim dark:bg-surface-dim h-screen w-72 fixed left-0 top-0 flex flex-col p-6 gap-y-2 z-0">
+<div class="mb-8">
+<h1 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">Vitalis Admin</h1>
+<p class="text-label-md text-on-surface-variant">Clinical Portal</p>
+</div>
+<nav class="flex flex-col gap-y-1">
+<div class="text-on-surface-variant px-4 py-3 font-medium flex items-center gap-3">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </div>
+<div class="text-on-surface-variant px-4 py-3 font-medium flex items-center gap-3">
+<span class="material-symbols-outlined">calendar_today</span> Schedule
+                </div>
+<div class="bg-primary-container text-on-primary-container rounded-lg font-semibold px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span> Doctors
+                </div>
+<div class="text-on-surface-variant px-4 py-3 font-medium flex items-center gap-3">
+<span class="material-symbols-outlined">settings</span> Settings
+                </div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-72 flex flex-col h-full bg-surface">
+<!-- TopNavBar -->
+<header class="bg-surface-container-low flex justify-between items-center w-full px-8 py-4 z-0">
+<div class="flex items-center gap-4 bg-surface rounded-full px-4 py-2 w-96">
+<span class="material-symbols-outlined text-outline">search</span>
+<span class="text-on-surface-variant">Search doctors or CRM...</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-headline font-bold text-on-surface">Gestão de Médicos</h2>
+<p class="text-on-surface-variant mt-2 font-medium">Controle e edição de registros clínicos</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined">add</span> Novo Médico
+                    </button>
+</div>
+<!-- Table Content Placeholder -->
+<div class="bg-surface-container-low rounded-xl p-6 space-y-4">
+<div class="grid grid-cols-5 text-label-md font-bold text-outline border-b border-outline-variant/15 pb-4">
+<span>NOME</span>
+<span>ESPECIALIDADE</span>
+<span>CRM</span>
+<span>STATUS</span>
+<span class="text-right">AÇÕES</span>
+</div>
+<div class="grid grid-cols-5 items-center bg-surface-container-lowest p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant"></div>
+<span class="font-semibold">Dr. Elias Vance</span>
+</div>
+<span class="text-on-surface-variant">Neurology</span>
+<span class="text-on-surface-variant">123456-SP</span>
+<div><span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">ATIVO</span></div>
+<div class="text-right"><span class="material-symbols-outlined text-outline">more_vert</span></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center modal-blur transition-all duration-300" id="delete-modal">
+<!-- Modal Container -->
+<div class="glass-card w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border border-white/20 animate-in fade-in zoom-in duration-300">
+<!-- Modal Header -->
+<div class="px-8 pt-8 pb-6 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-error-container text-error mb-6">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<h3 class="font-headline font-extrabold text-2xl text-on-surface mb-2">Confirmar Exclusão</h3>
+<p class="text-on-surface-variant font-medium leading-relaxed">
+                    Tem certeza que deseja excluir o registro do médico?
+                </p>
+</div>
+<!-- Summary Card -->
+<div class="mx-8 p-6 rounded-xl bg-surface-container-low space-y-4">
+<div class="flex items-center gap-5">
+<img alt="Dr. Elias Vance" class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="A professional portrait of an experienced male doctor with a kind and confident expression, wearing a clean white clinical coat over a soft blue shirt. He has short salt-and-pepper hair and is posed against a brightly lit, minimalist medical office background. The lighting is soft and high-key, conveying a trustworthy and clinical administrative atmosphere consistent with a modern healthcare portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9RwkxHPbL-U4nyOfGheMKX_wv9B2bjchbGRcozwL9Kjjc_D6g_JznIpIlLQ9_lJVMFwQdENEQsmMvegDe3gAPwwy_nJtZGQ57EGBALlKXrnQQm8fGQuI5PA-ggP9TGToWIeUpeH9o845dZwHTi3e06UMJCFmBVS90-SqNwM4X0a0116kJ2gCbLJ0qtOJodBYFspOg5819AdCbUIK8-6coFnr3145MlawuBdwT32gKgZZCZjPiMcZxzo8-1uKog0vbh9LJ7xFwqxU"/>
+<div>
+<p class="font-headline font-bold text-lg text-on-surface leading-tight">Dr. Elias Vance</p>
+<p class="text-primary font-semibold text-sm">Neurology</p>
+<p class="text-on-surface-variant text-xs mt-1 font-mono tracking-wider">CRM: 123456-SP</p>
+</div>
+</div>
+</div>
+<!-- Warning Text -->
+<div class="px-8 py-6">
+<div class="bg-error-container/20 border-l-4 border-error p-4 rounded-r-lg">
+<p class="text-error font-semibold text-sm leading-snug">
+                        Esta ação não poderá ser desfeita e o profissional deixará de ter acesso à plataforma.
+                    </p>
+</div>
+</div>
+<!-- Actions -->
+<div class="px-8 pb-8 flex flex-col gap-3">
+<button class="w-full bg-error text-on-error py-4 rounded-xl font-bold font-headline text-base shadow-lg shadow-error/20 hover:brightness-110 active:scale-[0.98] transition-all" onclick="closeModal()">
+                    Excluir Médico
+                </button>
+<button class="w-full py-3 text-on-surface-variant font-semibold hover:text-on-surface transition-colors" onclick="closeModal()">
+                    Cancelar
+                </button>
+</div>
+</div>
+</div>
+<script>
+        function closeModal() {
+            const modal = document.getElementById('delete-modal');
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body></html>

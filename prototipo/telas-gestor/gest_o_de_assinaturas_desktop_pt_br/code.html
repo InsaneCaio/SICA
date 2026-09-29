@@ -1,0 +1,314 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #f8fafa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#8ed1db",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e6e8e9",
+                        "surface-bright": "#f8fafa",
+                        "secondary-container": "#dae2fd",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "primary": "#00454c",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#1d6871",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f4f4",
+                        "primary-fixed": "#aaeef8",
+                        "on-primary-container": "#92d5df",
+                        "inverse-surface": "#2e3131",
+                        "secondary": "#565e74",
+                        "on-tertiary-fixed": "#311300",
+                        "surface-variant": "#e1e3e3",
+                        "on-surface-variant": "#3f484a",
+                        "surface-container-highest": "#e1e3e3",
+                        "on-primary-fixed": "#001f23",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#6b3a17",
+                        "on-primary-fixed-variant": "#004f57",
+                        "inverse-on-surface": "#eff1f1",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#8ed1db",
+                        "background": "#f8fafa",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary-fixed": "#dae2fd",
+                        "on-secondary-container": "#5c647a",
+                        "outline-variant": "#bfc8ca",
+                        "outline": "#6f797a",
+                        "surface-container": "#eceeee",
+                        "error": "#ba1a1a",
+                        "tertiary": "#60320f",
+                        "tertiary-fixed": "#ffdbc7",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#feb78a",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#7c4824",
+                        "surface": "#f8fafa",
+                        "primary-container": "#0d5e67"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-margin": "32px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "data-tabular": ["Public Sans"],
+                        "label-caps": ["Public Sans"],
+                        "title-sm": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "display-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container border-r border-outline-variant flex flex-col h-screen py-lg px-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md text-primary">Inteligência Clínica</h1>
+<p class="font-body-md text-body-sm text-on-surface-variant">Portal do Gestor</p>
+</div>
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#"><span class="material-symbols-outlined">payments</span><span class="">Financeiro</span></a>
+
+<a class="flex items-center gap-md px-md py-sm rounded-lg transition-colors font-body-md text-body-md text-primary font-bold border-r-4 border-primary bg-surface-container-highest" href="#"><span class="material-symbols-outlined">domain</span><span class="">Clinicas</span></a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest" href="#"><span class="material-symbols-outlined">desktop_windows</span><span class="">Sistema</span></a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#"><span class="material-symbols-outlined">settings</span><span class="">Configura'ões</span></a>
+</nav>
+
+</aside>
+<!-- Top App Bar -->
+
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="p-xl max-w-7xl mx-auto">
+<header class="mb-xl flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Gestão de Assinaturas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Monitore e gerencie planos de serviços institucionais em todas as unidades clínicas.</p>
+</div>
+<div class="flex gap-md"><button class="flex items-center justify-center w-10 h-10 rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">
+  <span class="material-symbols-outlined">notifications</span>
+</button>
+
+<button class="flex items-center gap-sm px-lg py-sm bg-primary text-on-primary rounded-lg font-title-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+                    Adicionar Nova Clínica
+                </button>
+</div>
+</header>
+<!-- Stats Overview - Bento Style -->
+<div class="grid grid-cols-12 gap-gutter mb-xl">
+
+
+
+</div>
+<!-- Subscription Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card: Hospital Geral Metro -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface">Hospital Geral Metro</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Plano Enterprise</p>
+</div>
+<span class="px-sm py-xs bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps rounded">ATIVO</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Custo Mensal</span>
+<span class="font-data-tabular text-on-surface">R$12.400,00</span>
+</div>
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Data de Renovação</span>
+<span class="font-data-tabular text-on-surface">24 Out, 2024</span>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-outline-variant p-md bg-surface-container-low flex justify-between items-center">
+<button class="text-primary font-title-sm text-body-sm hover:underline">Ver Detalhes</button>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+</div>
+<!-- Card: Pediatria Westside -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface">Pediatria Westside</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Plano Profissional</p>
+</div>
+<span class="px-sm py-xs bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps rounded">EXPIRANDO</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Custo Mensal</span>
+<span class="font-data-tabular text-on-surface">R$4.200,00</span>
+</div>
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Data de Renovação</span>
+<span class="font-data-tabular text-tertiary font-bold">12 Out, 2024</span>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-outline-variant p-md bg-surface-container-low flex gap-sm">
+<button class="flex-1 bg-primary text-on-primary py-xs rounded-lg font-title-sm text-body-sm hover:opacity-90">Renovar Agora</button>
+<button class="px-md border border-outline rounded-lg text-on-surface-variant hover:bg-surface-container transition-all">
+
+</button>
+</div>
+</div>
+<!-- Card: Dental Centro -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-dashed border-outline-variant shadow-sm opacity-80 hover:opacity-100 transition-all overflow-hidden flex flex-col">
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface">Dental Centro</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Plano Básico</p>
+</div>
+<span class="px-sm py-xs bg-error-container text-on-error-container font-label-caps text-label-caps rounded">INATIVO</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Custo Anterior</span>
+<span class="font-data-tabular text-on-surface-variant line-through">R$1.800,00</span>
+</div>
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Expirou em</span>
+<span class="font-data-tabular text-on-surface-variant">15 Set, 2024</span>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-outline-variant p-md bg-error-container/20">
+<button class="w-full bg-error text-on-error py-xs rounded-lg font-title-sm text-body-sm hover:bg-error/90 transition-all">Reativar</button>
+</div>
+</div>
+<!-- Card: Urgent Care Northside -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface">Urgent Care Northside</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Plano Enterprise</p>
+</div>
+<span class="px-sm py-xs bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps rounded">ATIVO</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Custo Mensal</span>
+<span class="font-data-tabular text-on-surface">R$15.800,00</span>
+</div>
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Data de Renovação</span>
+<span class="font-data-tabular text-on-surface">02 Nov, 2024</span>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-outline-variant p-md bg-surface-container-low flex justify-between items-center">
+<button class="text-primary font-title-sm text-body-sm hover:underline">Ver Detalhes</button>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+</div>
+<!-- Card: Wellness Riverside -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-sm text-title-sm text-on-surface">Wellness Riverside</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Plano Profissional</p>
+</div>
+<span class="px-sm py-xs bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps rounded">ATIVO</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Custo Mensal</span>
+<span class="font-data-tabular text-on-surface">R$4.200,00</span>
+</div>
+<div class="flex justify-between font-body-sm">
+<span class="text-on-surface-variant">Data de Renovação</span>
+<span class="font-data-tabular text-on-surface">28 Out, 2024</span>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-outline-variant p-md bg-surface-container-low flex justify-between items-center">
+<button class="text-primary font-title-sm text-body-sm hover:underline">Ver Detalhes</button>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+</div>
+<!-- Add New Empty State Card -->
+
+</div>
+<!-- Recent Activity Log -->
+<section class="mt-xl bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+
+<div class="divide-y divide-outline-variant">
+
+
+
+</div>
+</section>
+</div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

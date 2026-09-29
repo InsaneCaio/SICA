@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Referral Upload - Clinical Precision</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary": "#4c616c",
+                "tertiary-container": "#d1f7ff",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#354a53",
+                "secondary-fixed": "#cfe6f2",
+                "tertiary-fixed": "#9eefff",
+                "on-tertiary-fixed": "#001f24",
+                "on-tertiary": "#ffffff",
+                "surface": "#f7f9fb",
+                "surface-container-highest": "#e0e3e5",
+                "outline": "#73787b",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#55d7ed",
+                "on-tertiary-fixed-variant": "#004e59",
+                "on-primary-container": "#006dc8",
+                "primary-container": "#eaf0ff",
+                "outline-variant": "#c3c7cb",
+                "on-primary-fixed": "#001c3a",
+                "on-secondary-fixed": "#071e27",
+                "surface-bright": "#f7f9fb",
+                "surface-variant": "#e0e3e5",
+                "secondary-fixed-dim": "#b4cad6",
+                "inverse-surface": "#2d3133",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-container": "#007887",
+                "on-secondary-container": "#526772",
+                "on-primary-fixed-variant": "#004786",
+                "surface-container-high": "#e6e8ea",
+                "inverse-primary": "#a5c8ff",
+                "secondary-container": "#cfe6f2",
+                "error": "#ba1a1a",
+                "tertiary": "#006876",
+                "error-container": "#ffdad6",
+                "primary-fixed-dim": "#a5c8ff",
+                "on-surface": "#191c1e",
+                "primary": "#005faf",
+                "on-surface-variant": "#43474a",
+                "surface-container-low": "#f2f4f6",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#d4e3ff",
+                "on-error": "#ffffff",
+                "surface-dim": "#d8dadc",
+                "surface-container": "#eceef0",
+                "inverse-on-surface": "#eff1f3",
+                "surface-tint": "#005faf",
+                "background": "#f7f9fb",
+                "on-background": "#191c1e"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "display": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .ghost-border {
+        border: 2px dashed #c3c7cb;
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#f2f4f6] flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<button class="active:scale-95 transition-all duration-200 text-[#005faf]">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-['Manrope'] font-bold text-lg tracking-tight text-[#191c1e]">Encaminhamento</h1>
+<span class="font-label text-xs font-medium text-on-surface-variant">Para: Maria</span>
+</div>
+</div>
+<button class="active:scale-95 transition-all duration-200 text-[#005faf]">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-20 px-6 pb-12 flex flex-col">
+<!-- Editorial Headline Section -->
+<section class="mt-8 mb-10">
+<h2 class="font-display text-[2.5rem] leading-tight font-extrabold text-on-surface tracking-tight mb-3">
+                Envie seu <br><span class="text-primary">encaminhamento</span>
+</h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                Esta consulta requer um encaminhamento médico.
+            </p>
+</section>
+<!-- Upload Area: Tonal Layering with Cloud Shadow -->
+<div class="relative flex-1 group">
+<div class="w-full h-80 rounded-[24px] bg-surface-container-lowest ghost-border flex flex-col items-center justify-center p-8 text-center active:bg-primary-container transition-colors cursor-pointer" style="box-shadow: 0 12px 40px rgba(25, 28, 30, 0.04);">
+<!-- Stylized Icon Container -->
+<div class="w-20 h-20 rounded-full bg-primary-container flex items-center justify-center mb-6 group-active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">cloud_upload</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface mb-2">
+                    Toque para enviar ou tirar foto
+                </h3>
+<p class="font-label text-sm text-on-surface-variant">
+                    Formatos aceitos: PDF, JPG ou PNG
+                </p>
+<!-- Visual Accent: Subtle Tonal Detail -->
+<div class="absolute -bottom-2 right-8 w-24 h-1 bg-primary/20 rounded-full blur-sm"></div>
+</div>
+</div>
+<!-- Informative Context Card (Subtle UI Shift) -->
+<div class="mt-8 p-4 rounded-xl bg-secondary-container/30 flex items-start gap-4">
+<span class="material-symbols-outlined text-on-secondary-container mt-1">info</span>
+<p class="text-sm font-medium text-on-secondary-container">
+                Certifique-se de que o carimbo e a assinatura do médico estejam legíveis no documento.
+            </p>
+</div>
+<!-- Image Reference (Patient Context) -->
+
+<!-- Sticky Actions Area (No Border separation) -->
+<footer class="mt-auto pt-10 flex flex-col gap-4">
+<!-- Primary CTA: Gradient & Heavy Shadow -->
+<button class="w-full py-5 rounded-xl primary-gradient text-white font-bold text-lg shadow-[0_8px_30px_rgba(0,95,175,0.25)] active:scale-95 transition-transform">
+                Enviar e continuar
+            </button>
+<!-- Secondary CTA: Minimalist Ghost Style -->
+
+<!-- Footer Legal/System Note -->
+
+</footer>
+</main>
+<!-- Contextual Pulse Element (Purely Decorative) -->
+<div class="fixed top-24 right-0 w-2 h-16 bg-primary/10 rounded-l-full"></div>
+
+
+</body></html>

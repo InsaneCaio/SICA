@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vitalis Health Center - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e6e8ea",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#005faf",
+                        "on-tertiary-fixed": "#001f24",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-primary-fixed": "#001c3a",
+                        "on-primary-container": "#006dc8",
+                        "tertiary-container": "#d1f7ff",
+                        "secondary-fixed": "#cfe6f2",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#eaf0ff",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#526772",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d4e3ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline": "#73787b",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-surface-variant": "#43474a",
+                        "inverse-primary": "#a5c8ff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "outline-variant": "#c3c7cb",
+                        "tertiary": "#006876",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed": "#071e27",
+                        "on-tertiary-container": "#007887",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dadc",
+                        "secondary": "#4c616c",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "secondary-container": "#cfe6f2",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "tertiary-fixed": "#9eefff",
+                        "primary": "#005faf",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "surface-bright": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .clinical-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        .glass-panel {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen overflow-hidden">
+<div class="flex min-h-screen">
+<!-- Left Section: Visual Branding -->
+<div class="hidden lg:flex lg:w-1/2 relative items-center justify-center bg-surface-container-low overflow-hidden">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-multiply" data-alt="A professional medical environment featuring a high-end, minimalist clinic hallway with soft morning light filtering through large glass windows. The aesthetic is clean and modern, utilizing a soft blue and white color palette. The mood is calm, sterile, and technologically advanced, reflecting a premium healthcare facility with clinical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzKv5m6vWWenfKciL0UWZqMuxFVK_Hyaatl2fNQQgRan5BaMZQdiChUkBoeU-89pN6_WjhVKfQprn55meWmGfqUWRJ8yaDz_p7qd3Xvy8ZnrLqlMsvIAWozxGBDT6cBxCxuvMQ96PUDuGKe47CZFUUYAtcuz65fIJUYesBqPW9gk0R-V8vM8Kfv8dM_6pREAh0mCYnzACXXb4L1CHDzvbM5bjKI37o54XZM6W0D1m-A74J4cnd4uvzXez42GzWYDQOecM6cepvJZI"/>
+</div>
+<div class="relative z-10 p-16 max-w-2xl">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 clinical-gradient rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<span class="text-3xl font-extrabold font-headline tracking-tighter text-on-primary-fixed-variant">Vitalis</span>
+</div>
+<h1 class="text-5xl font-extrabold font-headline leading-tight tracking-tight text-on-surface mb-6">
+                    A excelência clínica <br/><span class="text-primary">em cada detalhe.</span>
+</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed font-medium">
+                    Plataforma administrativa integrada para centros de saúde de alto desempenho. Precisão nos dados, humanização no atendimento.
+                </p>
+<div class="mt-12 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl cloud-shadow">
+<div class="text-primary mb-2"><span class="material-symbols-outlined">analytics</span></div>
+<div class="font-bold text-sm uppercase tracking-wider text-outline mb-1">Status do Sistema</div>
+<div class="text-on-surface font-semibold">99.9% Operacional</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl cloud-shadow">
+<div class="text-tertiary mb-2"><span class="material-symbols-outlined">verified_user</span></div>
+<div class="font-bold text-sm uppercase tracking-wider text-outline mb-1">Segurança</div>
+<div class="text-on-surface font-semibold">Criptografia Ponta-a-Ponta</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Section: Login Form -->
+<div class="w-full lg:w-1/2 flex items-center justify-center p-6 bg-surface-container-lowest">
+<div class="w-full max-w-md">
+<!-- Mobile Branding (Visible only on mobile) -->
+<div class="lg:hidden flex items-center gap-2 mb-12">
+<div class="w-10 h-10 clinical-gradient rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<span class="text-2xl font-extrabold font-headline tracking-tighter text-on-primary-fixed-variant">Vitalis</span>
+</div>
+<div class="mb-10">
+<h2 class="text-3xl font-bold font-headline text-on-surface tracking-tight mb-2">Entrar</h2>
+<p class="text-on-surface-variant font-medium">Bem-vindo de volta ao Vitalis Health Center.</p>
+</div>
+<form class="space-y-6" id="login-form">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant font-label" for="email">E-mail Corporativo</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 transition-all text-on-surface placeholder:text-outline/50 rounded-t-lg" id="email" name="email" placeholder="nome@vitalis.com.br" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-semibold text-on-surface-variant font-label" for="password">Senha</label>
+<a class="text-sm font-bold text-primary hover:text-on-primary-fixed-variant transition-colors" href="#">Esqueci minha senha</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="block w-full pl-11 pr-12 py-3.5 bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 transition-all text-on-surface placeholder:text-outline/50 rounded-t-lg" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-on-surface transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="password-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="w-full clinical-gradient text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200 text-lg" type="submit">
+                            Entrar
+                        </button>
+</div>
+</form>
+<div class="mt-12 text-center">
+<p class="text-on-surface-variant font-medium">
+                        Não tem uma conta? 
+                        <a class="text-primary font-bold hover:underline ml-1" href="#">Criar conta</a>
+</p>
+</div>
+<!-- Footer Support -->
+<div class="mt-20 pt-8 border-t border-outline-variant/15 flex flex-col sm:flex-row justify-between items-center gap-4 opacity-60">
+<span class="text-xs font-medium text-outline">Suporte Técnico: 0800 123 4567</span>
+<div class="flex gap-4">
+<a class="text-xs font-medium text-outline hover:text-on-surface transition-colors" href="#">Privacidade</a>
+<a class="text-xs font-medium text-outline hover:text-on-surface transition-colors" href="#">Termos</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordIcon = document.getElementById('password-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.innerText = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.innerText = 'visibility';
+            }
+        }
+
+        // Simple form handling simulation
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Autenticando...</span>';
+            
+            // Mock delay
+            setTimeout(() => {
+                btn.innerHTML = 'Acesso Autorizado';
+                btn.classList.remove('clinical-gradient');
+                btn.classList.add('bg-tertiary');
+                setTimeout(() => {
+                    // In a real app, redirection would happen here
+                    alert('Login simulado com sucesso. Bem-vindo ao Clinical Precision Dashboard.');
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                    btn.classList.add('clinical-gradient');
+                    btn.classList.remove('bg-tertiary');
+                }, 1000);
+            }, 1500);
+        });
+
+        // Background floating elements for atmosphere
+        const createFloatingElement = () => {
+            const el = document.createElement('div');
+            el.className = 'absolute rounded-full opacity-[0.03] pointer-events-none z-0 bg-primary';
+            const size = Math.random() * 300 + 100;
+            el.style.width = `${size}px`;
+            el.style.height = `${size}px`;
+            el.style.left = `${Math.random() * 100}%`;
+            el.style.top = `${Math.random() * 100}%`;
+            document.body.appendChild(el);
+            
+            let x = 0;
+            let y = 0;
+            const speedX = (Math.random() - 0.5) * 0.2;
+            const speedY = (Math.random() - 0.5) * 0.2;
+
+            function animate() {
+                x += speedX;
+                y += speedY;
+                el.style.transform = `translate(${x}px, ${y}px)`;
+                requestAnimationFrame(animate);
+            }
+            animate();
+        };
+
+        for(let i=0; i<5; i++) createFloatingElement();
+    </script>
+</body></html>
