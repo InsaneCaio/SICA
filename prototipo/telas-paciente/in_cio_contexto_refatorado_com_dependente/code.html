@@ -1,0 +1,260 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-fixed": "#9eefff",
+                    "secondary-container": "#cfe6f2",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed": "#071e27",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a5c8ff",
+                    "on-tertiary-container": "#007887",
+                    "on-primary-fixed": "#001c3a",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c3c7cb",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#4c616c",
+                    "surface-tint": "#005faf",
+                    "tertiary": "#006876",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "surface-container": "#eceef0",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#73787b",
+                    "background": "#f7f9fb",
+                    "inverse-surface": "#2d3133",
+                    "error": "#ba1a1a",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-surface-variant": "#43474a",
+                    "on-primary-fixed-variant": "#004786",
+                    "on-secondary-container": "#526772",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#006dc8",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#eaf0ff",
+                    "tertiary-container": "#d1f7ff",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "primary": "#005faf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "8px",
+                    "lg": "12px",
+                    "xl": "16px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, .brand-logo { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<main class="px-6 py-4 space-y-8 max-w-2xl mx-auto">
+<!-- Header & Context Indicator -->
+<section class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-on-surface-variant text-sm font-medium">Bem-vindo(a) de volta,</p>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Olá, Maria</h1>
+</div>
+<button class="text-blue-700 dark:text-blue-400 cursor-pointer active:scale-95 transition-transform mt-1">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div>
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-wide shadow-sm">
+      Visualizando: Maria
+    </span>
+</div>
+</section>
+<!-- Main Actions -->
+<section class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-start justify-between p-5 bg-gradient-to-br from-primary to-[#004786] text-white rounded-2xl h-40 shadow-lg active:scale-[0.98] transition-transform">
+<div class="bg-white/20 p-2 rounded-xl">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<span class="font-bold text-lg leading-tight text-left">Agendar<br>consulta</span>
+</button>
+<div class="grid gap-4">
+<button class="flex items-center justify-between px-4 py-3 bg-secondary-container text-on-secondary-container rounded-2xl font-semibold active:scale-[0.98] transition-transform h-full">
+<span class="">Histórico</span>
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+</section>
+<!-- Upcoming Appointments -->
+<section class="space-y-4">
+<h2 class="text-lg font-bold text-on-surface">Próximos agendamentos</h2>
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-low p-6 flex flex-col gap-4 border border-white/40">
+<div class="flex items-start justify-between">
+<div>
+<span class="px-3 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-widest">Cardiologia</span>
+<p class="mt-2 text-2xl font-bold text-on-surface">15 Out, 09:30</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant">Paciente</p>
+<p class="text-sm font-bold text-primary">Maria Oliveira</p>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-2 border-t border-outline-variant/20">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-sm text-on-surface-variant">Hospital Central • Sala 402</span>
+</div>
+</div><div class="relative overflow-hidden rounded-2xl bg-surface-container-low p-6 flex flex-col gap-4 border border-white/40 mt-4">
+<div class="flex items-start justify-between">
+<div>
+<span class="px-3 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-widest">Pediatria</span>
+<p class="mt-2 text-2xl font-bold text-on-surface">18 Out, 14:00</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant">Paciente</p>
+<p class="text-sm font-bold text-primary">João Silva</p>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-2 border-t border-outline-variant/20">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-sm text-on-surface-variant">Clínica Infantil • Sala 102</span>
+</div>
+</div>
+</section><!-- Medical Documents Section -->
+<section class="space-y-4">
+<h2 class="text-lg font-bold text-on-surface">Documentos Médicos</h2>
+<button class="w-full flex items-center gap-4 p-5 bg-primary text-white rounded-2xl shadow-lg active:scale-[0.98] transition-transform">
+<div class="bg-white/20 p-3 rounded-xl">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="text-left">
+<p class="font-bold text-lg leading-tight">Ver documentos</p>
+<p class="text-xs text-white/80 mt-0.5">Receitas, pedidos e encaminhamentos</p>
+</div>
+</button>
+</section>
+<!-- Family Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-lg font-bold text-on-surface">Quem você cuida</h2>
+<button class="text-primary text-sm font-bold">Gerenciar</button>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar -mx-6 px-6">
+<!-- Maria (Self) -->
+<!-- Son -->
+<div class="flex-shrink-0 w-32 p-4 bg-surface-container-lowest rounded-2xl flex flex-col items-center gap-2 text-center">
+<div class="w-14 h-14 rounded-full p-0.5 bg-surface-container">
+<img alt="Son" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMD_lDCsy7T_ArD5wZAm0n0hPh8945YcGufOsMPehe4B3rBINRfWjAHcI5NJiDLXaPT994Rt0Wk1d1izKKNSqVrhhhbkX5d3lOEIRDdF3pEKXNfAhDyW4GGOu8jE6xFwbrKmECUKhOWOLxtLEfcTUF-csr0Eqpx3HKkyHbaMtkB--XHA8ZLgsRweZ7XEpzJYEU41zlLS9lBNPDqQz3ZBE96Ouz1WLmqulUeQqYYuWH9_oO4gSdPUuiwoJBqfdaASptUDD2DxtpDgKE">
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">João</p>
+<p class="text-[10px] text-on-surface-variant">1 Agendamento</p>
+</div>
+</div>
+<!-- Father -->
+<div class="flex-shrink-0 w-32 p-4 bg-surface-container-lowest rounded-2xl flex flex-col items-center gap-2 text-center">
+<div class="w-14 h-14 rounded-full p-0.5 bg-surface-container">
+<img alt="Father" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA3yQ1FiXBqJ-tvRMVD-6Du-X4IraBN_PwUUskmkfM2s71HaiS9muAb-8KM_lV6eH35u_FnMMtmJQCA5mTDrnjRTe8bxEWoLOrgd0_2sB82h-S3vpwMqkYR8hFxGfbT1LbBnqNj3Lz_BRHaiwNjfm_4q7YT9gEW4xrE7O_1b9tFvTkquHAgGdiFnQ60NO5SBC7HXeJrYDUJF5gLQ5uCCKlL7Qui7EZ4JW_05QskqsZOBnTK4NFV3BvfEt9ZcVxqC_Q-dULFuGq2h8u">
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Ricardo</p>
+<p class="text-[10px] text-on-surface-variant">0 Agendamentos</p>
+</div>
+</div>
+<!-- Add New -->
+</div>
+</section>
+<section class="space-y-4 pb-4">
+  <h2 class="text-lg font-bold text-on-surface">Precisa de ajuda?</h2>
+  <div class="bg-secondary-container/30 p-5 rounded-2xl border border-primary/5">
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-xl">call</span>
+        </div>
+        <div>
+          <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Telefone</p>
+          <p class="text-sm font-semibold text-on-surface">(11) 4003-1234</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-xl">chat</span>
+        </div>
+        <div>
+          <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">WhatsApp</p>
+          <p class="text-sm font-semibold text-on-surface">(11) 98765-4321</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-xl">mail</span>
+        </div>
+        <div>
+          <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">E-mail</p>
+          <p class="text-sm font-semibold text-on-surface">suporte@vitalis.com.br</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md z-50 rounded-t-2xl shadow-[0_-4px_20px_rgba(25,28,30,0.04)] border-t border-slate-100/10"><!-- Início (Active) -->
+<button class="flex flex-col items-center gap-1 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 rounded-xl px-3 py-1.5 tap-highlight-transparent active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Início</span>
+</button>
+<!-- Buscar -->
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all tap-highlight-transparent active:scale-90 duration-200">
+<span class="material-symbols-outlined">search</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Buscar</span>
+</button>
+<!-- Agenda -->
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all tap-highlight-transparent active:scale-90 duration-200">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Agenda</span>
+</button>
+<!-- Perfil -->
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all tap-highlight-transparent active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">Perfil</span>
+</button></nav>
+
+
+</body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "outline": "#73787b",
+                    "on-background": "#191c1e",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004786",
+                    "background": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary": "#006876",
+                    "tertiary-container": "#d1f7ff",
+                    "secondary-container": "#cfe6f2",
+                    "on-surface-variant": "#43474a",
+                    "on-secondary-container": "#526772",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed": "#001c3a",
+                    "primary-container": "#eaf0ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#007887",
+                    "on-secondary-fixed": "#071e27",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "outline-variant": "#c3c7cb",
+                    "surface-dim": "#d8dadc",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed": "#9eefff",
+                    "primary": "#005faf",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#006dc8",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "primary-fixed": "#d4e3ff",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#4c616c",
+                    "secondary-fixed": "#cfe6f2",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-tint": "#005faf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .option-card.active {
+            outline: 2px solid #005faf;
+            background-color: #eaf0ff;
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-40">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 glass-header flex justify-between items-center px-6 py-4">
+<button class="text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-200 p-2 rounded-full">
+
+</button>
+</header>
+<main class="max-w-md mx-auto px-6 pt-8">
+<!-- Title Section: Breathable Density & Editorial Authority -->
+<div class="mb-10">
+
+<h2 class="font-display text-3xl font-extrabold text-on-surface leading-tight tracking-tight">
+                Como você deseja pagar?
+            </h2>
+
+</div>
+<!-- Payment Options: Minimalist Bento-style Cards -->
+<div class="space-y-4">
+<!-- Option 1: Health Insurance -->
+<div class="option-card group cursor-pointer bg-surface-container-lowest p-6 rounded-xl transition-all duration-300 hover:scale-[1.02] border-none shadow-sm flex flex-col gap-4 active" id="card-insurance" onclick="selectPayment('insurance')">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined !text-3xl" data-icon="badge" style="font-variation-settings: &quot;FILL&quot; 1;">badge</span>
+</div>
+<div class="text-primary" id="check-insurance">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-on-surface">Convênio</h3>
+<p class="text-on-surface-variant text-sm mt-1">Utilize seu plano de saúde cadastrado.</p>
+</div>
+<div class="flex items-center text-primary font-semibold text-sm group-hover:translate-x-1 transition-transform">
+<span class="">Selecionar</span>
+<span class="material-symbols-outlined ml-1 !text-lg">chevron_right</span>
+</div>
+</div>
+<!-- Option 2: Private -->
+<div class="option-card group cursor-pointer bg-surface-container-lowest p-6 rounded-xl transition-all duration-300 hover:scale-[1.02] border-none shadow-sm flex flex-col gap-4" id="card-private" onclick="selectPayment('private')">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined !text-3xl" data-icon="account_balance_wallet" style="font-variation-settings: &quot;FILL&quot; 1;">account_balance_wallet</span>
+</div>
+<div class="hidden text-primary" id="check-private">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-on-surface">Particular</h3>
+<p class="text-on-surface-variant text-sm mt-1">Pagamento direto via PIX, Cartão de Crédito ou Dinheiro.</p>
+</div>
+<div class="flex items-center text-primary font-semibold text-sm group-hover:translate-x-1 transition-transform">
+<span class="">Selecionar</span>
+<span class="material-symbols-outlined ml-1 !text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Adornment Content -->
+<div class="mt-12 p-6 rounded-xl bg-surface-container-low flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">security</span>
+<p class="text-sm text-on-surface-variant leading-tight">
+                Seus dados financeiros são processados com criptografia de ponta a ponta seguindo protocolos de segurança clínica.
+            </p>
+</div>
+</main>
+<!-- Bottom Action Area (Sticky Continue) -->
+<div class="fixed bottom-20 left-0 w-full px-6 py-4 bg-gradient-to-t from-surface via-surface to-transparent z-40">
+<button class="w-full bg-gradient-to-r from-primary to-on-primary-fixed-variant text-white font-headline font-bold py-4 rounded-xl shadow-lg transition-all active:scale-95 duration-200" id="continue-btn">
+            Continuar
+        </button>
+</div>
+<!-- BottomNavBar -->
+
+<script>
+        function selectPayment(type) {
+            const insuranceCard = document.getElementById('card-insurance');
+            const privateCard = document.getElementById('card-private');
+            const insuranceCheck = document.getElementById('check-insurance');
+            const privateCheck = document.getElementById('check-private');
+            const continueBtn = document.getElementById('continue-btn');
+
+            // Reset states
+            insuranceCard.classList.remove('active');
+            privateCard.classList.remove('active');
+            insuranceCheck.classList.add('hidden');
+            privateCheck.classList.add('hidden');
+
+            // Set active state
+            if (type === 'insurance') {
+                insuranceCard.classList.add('active');
+                insuranceCheck.classList.remove('hidden');
+            } else {
+                privateCard.classList.add('active');
+                privateCheck.classList.remove('hidden');
+            }
+
+            // Enable continue button
+            continueBtn.disabled = false;
+            continueBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+    </script>
+
+
+</body></html>

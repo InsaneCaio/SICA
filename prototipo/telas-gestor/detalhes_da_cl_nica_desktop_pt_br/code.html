@@ -1,0 +1,299 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-lowest": "#ffffff",
+                  "primary-fixed-dim": "#8ed1db",
+                  "on-primary": "#ffffff",
+                  "on-surface": "#191c1d",
+                  "surface-container-high": "#e6e8e9",
+                  "surface-bright": "#f8fafa",
+                  "secondary-container": "#dae2fd",
+                  "on-secondary-fixed-variant": "#3f465c",
+                  "primary": "#00454c",
+                  "on-error": "#ffffff",
+                  "surface-tint": "#1d6871",
+                  "on-error-container": "#93000a",
+                  "surface-container-low": "#f2f4f4",
+                  "primary-fixed": "#aaeef8",
+                  "on-primary-container": "#92d5df",
+                  "inverse-surface": "#2e3131",
+                  "secondary": "#565e74",
+                  "on-tertiary-fixed": "#311300",
+                  "surface-variant": "#e1e3e3",
+                  "on-surface-variant": "#3f484a",
+                  "surface-container-highest": "#e1e3e3",
+                  "on-primary-fixed": "#001f23",
+                  "on-secondary": "#ffffff",
+                  "on-tertiary-fixed-variant": "#6b3a17",
+                  "on-primary-fixed-variant": "#004f57",
+                  "inverse-on-surface": "#eff1f1",
+                  "on-tertiary": "#ffffff",
+                  "on-background": "#191c1d",
+                  "inverse-primary": "#8ed1db",
+                  "background": "#f8fafa",
+                  "on-secondary-fixed": "#131b2e",
+                  "secondary-fixed": "#dae2fd",
+                  "on-secondary-container": "#5c647a",
+                  "outline-variant": "#bfc8ca",
+                  "outline": "#6f797a",
+                  "surface-container": "#eceeee",
+                  "error": "#ba1a1a",
+                  "tertiary": "#60320f",
+                  "tertiary-fixed": "#ffdbc7",
+                  "secondary-fixed-dim": "#bec6e0",
+                  "tertiary-fixed-dim": "#feb78a",
+                  "error-container": "#ffdad6",
+                  "tertiary-container": "#7c4824",
+                  "surface": "#f8fafa",
+                  "primary-container": "#0d5e67"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "container-margin": "32px",
+                  "sm": "8px",
+                  "lg": "24px",
+                  "xl": "32px",
+                  "unit": "4px",
+                  "gutter": "24px",
+                  "xs": "4px",
+                  "md": "16px"
+          },
+          "fontFamily": {
+                  "data-tabular": ["Public Sans"],
+                  "label-caps": ["Public Sans"],
+                  "title-sm": ["Public Sans"],
+                  "headline-md": ["Public Sans"],
+                  "body-md": ["Public Sans"],
+                  "body-sm": ["Public Sans"],
+                  "display-lg": ["Public Sans"]
+          },
+          "fontSize": {
+                  "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                  "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                  "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md" data-mode="connect">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container border-r border-outline-variant flex flex-col py-lg px-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md text-primary">Inteligência Clínica</h1>
+<p class="font-body-sm text-body-sm text-outline">Portal Administrativo</p>
+</div>
+<nav class="flex-1 space-y-xs"><a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#"><span class="material-symbols-outlined" data-icon="payments">payments</span>
+        Financeiro
+      </a>
+<a class="flex items-center gap-md p-md rounded-lg hover:bg-surface-container-highest transition-colors font-body-md text-body-md bg-surface-container-highest text-primary" href="#"><span class="material-symbols-outlined" data-icon="hospital">add_box</span>
+        Clinicas
+      </a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#"><span class="material-symbols-outlined" data-icon="desktop_windows">desktop_windows</span>
+        Sistema
+      </a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span>
+        Configurações
+      </a></nav>
+
+</aside>
+<!-- Main Content Wrapper -->
+<div class="pl-64 min-h-screen">
+<!-- TopAppBar -->
+
+<!-- Content Canvas -->
+<main class="mt-16 p-xl max-w-7xl mx-auto space-y-gutter">
+<!-- Clinic Header Area -->
+<section class="grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-12 lg:col-span-8 space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-16 h-16 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[32px]" data-icon="domain" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">domain</span>
+</div>
+<div>
+<h2 class="font-display-lg text-display-lg text-primary">Hospital Geral Metro</h2>
+<div class="flex items-center gap-sm text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm">450 Medical Plaza Dr, Suíte 200, Metrópolis, NY 10001</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex justify-end gap-sm"><button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" title="Notificações">
+  <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+
+<button class="px-lg py-sm bg-primary text-on-primary font-title-sm text-title-sm rounded-lg hover:opacity-90 transition-opacity">Detalhes Assinatura</button>
+</div>
+</section>
+<!-- Bento Grid Stats & Overview -->
+<section class="grid grid-cols-12 gap-gutter">
+<!-- Subscription Card -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col justify-between">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<p class="font-label-caps text-label-caps text-outline mb-xs">ASSINATURA ATUAL</p>
+<h3 class="font-headline-md text-headline-md text-primary">Plano de Saúde Corporativo</h3>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-caps text-label-caps">
+              ATIVO
+            </div>
+</div>
+<div class="grid grid-cols-3 gap-md mb-lg">
+<div class="p-md bg-surface-container-low rounded-lg">
+<p class="font-body-sm text-body-sm text-outline">Custo Anual</p>
+<p class="font-title-sm text-title-sm text-on-surface">$12,450.00</p>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg">
+<p class="font-body-sm text-body-sm text-outline">Data de Renovação</p>
+<p class="font-title-sm text-title-sm text-on-surface">12 Out, 2024</p>
+</div>
+
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 90%;"></div>
+</div>
+
+</div>
+<!-- Billing Contacts -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg">
+<h3 class="font-title-sm text-title-sm text-on-surface mb-lg">Contato de Administrador</h3>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div class="flex items-center">
+<p class="font-data-tabular text-data-tabular text-on-surface">Sarah Jenkins</p>
+<p class="font-body-sm text-body-sm text-outline">Administrador Primário</p>
+<button class="ml-xs text-outline hover:text-primary transition-colors flex items-center" title="Editar Administrador">
+  <span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button></div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-primary">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+
+
+</div>
+</div>
+</section>
+<!-- Invoices Table Area -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-lg py-md border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-sm text-title-sm text-on-surface">Faturas Recentes</h3>
+<button class="text-primary font-title-sm text-title-sm flex items-center gap-xs">
+            Ver Tudo <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-lg py-md font-label-caps text-label-caps text-outline uppercase">ID da Fatura</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-outline uppercase">Data</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-outline uppercase">Valor</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-outline uppercase">Status</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-outline uppercase">Ação</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-data-tabular text-data-tabular text-on-surface">#INV-2023-9921</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">12 Set, 2023</td>
+<td class="px-lg py-md font-data-tabular text-data-tabular text-on-surface">$1,037.50</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs bg-green-100 text-green-800 rounded text-xs font-bold">PAGO</span>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary hover:underline font-body-sm text-body-sm">Download</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-data-tabular text-data-tabular text-on-surface">#INV-2023-8842</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">12 Ago, 2023</td>
+<td class="px-lg py-md font-data-tabular text-data-tabular text-on-surface">$1,037.50</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs bg-green-100 text-green-800 rounded text-xs font-bold">PAGO</span>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary hover:underline font-body-sm text-body-sm">Download</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-data-tabular text-data-tabular text-on-surface">#INV-2023-7719</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">12 Jul, 2023</td>
+<td class="px-lg py-md font-data-tabular text-data-tabular text-on-surface">$1,037.50</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs bg-green-100 text-green-800 rounded text-xs font-bold">PAGO</span>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary hover:underline font-body-sm text-body-sm">Download</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Danger Zone -->
+<section class="border border-error rounded-xl overflow-hidden">
+<div class="bg-error-container p-md border-b border-error">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<h3 class="font-title-sm text-title-sm text-on-error-container">Zona de Perigo</h3>
+</div>
+</div>
+<div class="p-lg bg-surface-container-lowest flex justify-between items-center">
+<div>
+<p class="font-title-sm text-title-sm text-on-surface mb-xs">Cancelar Assinatura</p>
+<p class="font-body-sm text-body-sm text-outline">Uma vez cancelada a assinatura do hospital, todo o acesso da equipe clínica será suspenso imediatamente.</p>
+</div>
+<button class="px-lg py-sm bg-error text-on-error font-title-sm text-title-sm rounded-lg hover:opacity-90 transition-opacity">
+            Cancelar Plano
+          </button>
+</div>
+</section>
+</main>
+</div>
+<!-- FAB - Only if contextual -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

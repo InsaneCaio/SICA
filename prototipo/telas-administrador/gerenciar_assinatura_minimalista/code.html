@@ -1,0 +1,348 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Vitalis Admin - Gerenciar Assinatura</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#d1f7ff",
+                        "on-surface": "#191c1e",
+                        "background": "#f7f9fb",
+                        "tertiary": "#006876",
+                        "surface-tint": "#005faf",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-dim": "#d8dadc",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "inverse-primary": "#a5c8ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "primary-container": "#eaf0ff",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-primary-fixed-variant": "#004786",
+                        "secondary": "#4c616c",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "primary": "#005faf",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-secondary-fixed": "#071e27",
+                        "primary-fixed": "#d4e3ff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed": "#001c3a",
+                        "on-secondary-container": "#526772",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#007887",
+                        "on-surface-variant": "#43474a",
+                        "outline": "#73787b",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "outline-variant": "#c3c7cb",
+                        "secondary-container": "#cfe6f2",
+                        "tertiary-fixed": "#9eefff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-primary-container": "#006dc8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(247, 249, 251, 0.8); backdrop-filter: blur(16px); }
+        .cloud-shadow { box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d8dadc; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-72 fixed left-0 top-0 bg-surface-dim dark:bg-surface-dim flex flex-col p-6 gap-y-2 z-50">
+<div class="mb-8 px-4">
+<h1 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">Vitalis Admin</h1>
+<p class="text-on-surface-variant font-medium text-xs">Clinical Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-y-1">
+<a class="text-on-surface-variant px-4 py-3 font-medium hover:bg-surface-container-high transition-all duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-on-surface-variant px-4 py-3 font-medium hover:bg-surface-container-high transition-all duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                Schedule
+            </a>
+<a class="text-on-surface-variant px-4 py-3 font-medium hover:bg-surface-container-high transition-all duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+                Doctors
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg font-semibold px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<!-- Sidebar Help Card (Custom Component) -->
+</aside>
+<div class="ml-72 flex flex-col min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="bg-surface sticky top-0 z-40 flex justify-between items-center w-full px-8 py-4 bg-surface-container-low">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-full pl-10 pr-4 py-2 focus:ring-2 focus:ring-primary text-sm" placeholder="Buscar pacientes, faturas..." type="text">
+</div>
+</div>
+<nav class="flex items-center gap-8 mr-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm" href="#">Minha Conta</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-sm" href="#">Assinatura</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-sm" href="#">Segurança</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-surface-container-highest">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional portrait of a senior clinical administrator in a modern office. The lighting is soft and neutral, reflecting a clinical but welcoming atmosphere. She is wearing professional medical administrative attire. The background is a blurred, high-end healthcare facility with soft blue and white tones that match the Vitalis branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDUK6OKYyT25ZqeKxgNjmTuw_-QN1sYyWC_3kzJhfj72NOsIoWA1CO4L-wIy1saahJdgE8sU4FlTMidU1vhjfbUuLz-VDnslPKs1DaaC1fQRstFjp8Dd61cq6GvTEOiUvIz0l2MeCXJ2ZPYTnJV6xQz1t7bvZ3rk-B4Ou1c4h39qz5cjDO5-IrrtjSC3sE-Slbiltq_aMf5WQv-tMBG1oq5Zm_0A9nSbz4QoU_g5xRou33eFJGSQ-2fUBl_qiH8YP1L3vmwFkOXd0">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="p-10 max-w-7xl mx-auto w-full animate-fade-in" style="transition: opacity 0.8s ease-out, transform 0.8s ease-out; transform: translateY(0px); opacity: 1;">
+<!-- Header Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline font-extrabold text-4xl text-on-surface tracking-tight mb-2">Gerenciar Assinatura</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl">Gerencie os detalhes do seu plano, faturas e métodos de pagamento com precisão clínica.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-highest text-on-surface-variant font-semibold rounded-lg text-sm hover:bg-surface-dim transition-colors">Upgrade de Plano</button>
+<button class="px-6 py-2.5 bg-primary text-white font-semibold rounded-lg text-sm hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Adicionar Usuário
+                    </button>
+</div>
+</div>
+<!-- Dashboard Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Configuration Stack -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Current Plan Bento Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 cloud-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between gap-8">
+<div>
+<span class="bg-primary-container text-primary font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block">Plano Atual</span>
+<h3 class="font-headline font-bold text-3xl text-on-surface mb-2">Plano Profissional</h3>
+<p class="text-on-surface-variant text-sm mb-6">Próxima renovação em 12 de Outubro, 2023</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-extrabold text-on-surface">R$ 499,90</span>
+<span class="text-on-surface-variant font-medium">/mês</span>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between">
+<div class="flex items-center gap-2 px-4 py-1.5 bg-tertiary/10 text-tertiary rounded-full">
+<span class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-wider">Ativo</span>
+</div>
+<button class="text-primary font-semibold text-sm flex items-center gap-2 hover:underline">
+                                    Mudar ciclo de faturamento
+                                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Usage and Capacity Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Agenda Usage Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 cloud-shadow">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline font-bold text-on-surface">Capacidade da Agenda</h4>
+<span class="text-xs font-bold text-on-surface-variant">8.500 / 10.000 slots</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden mb-4">
+<div class="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style="width: 85%"></div>
+</div>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary">info</span>
+                                85% do limite mensal utilizado. Considere o upgrade.
+                            </div>
+</div>
+<!-- Payment Method Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 cloud-shadow">
+<h4 class="font-headline font-bold text-on-surface mb-6">Método de Pagamento</h4>
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-lg">
+<div class="w-12 h-8 bg-[#1A1F71] rounded flex items-center justify-center">
+<span class="text-white text-[10px] italic font-bold">VISA</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">•••• •••• •••• 4242</p>
+<p class="text-xs text-on-surface-variant">Expira em 12/28</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Invoices Section -->
+<section class="bg-surface-container-lowest rounded-xl p-8 cloud-shadow">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-headline font-bold text-xl text-on-surface">Histórico de Faturas</h4>
+<button class="text-sm text-primary font-semibold hover:underline">Ver todas</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead>
+<tr class="text-left">
+<th class="pb-4 text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">Data</th>
+<th class="pb-4 text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">ID Fatura</th>
+<th class="pb-4 text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">Valor</th>
+<th class="pb-4 text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">Status</th>
+<th class="pb-4 text-right text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">Ação</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-5 px-2 text-sm text-on-surface">01 Out, 2023</td>
+<td class="py-5 px-2 text-sm font-mono text-on-surface-variant">#INV-88291</td>
+<td class="py-5 px-2 text-sm font-bold text-on-surface">R$ 499,90</td>
+<td class="py-5 px-2">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase">Pago</span>
+</td>
+<td class="py-5 px-2 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface transition-colors group">
+<td class="py-5 px-2 text-sm text-on-surface">01 Set, 2023</td>
+<td class="py-5 px-2 text-sm font-mono text-on-surface-variant">#INV-87102</td>
+<td class="py-5 px-2 text-sm font-bold text-on-surface">R$ 499,90</td>
+<td class="py-5 px-2">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase">Pago</span>
+</td>
+<td class="py-5 px-2 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-5 px-2 text-sm text-on-surface">01 Ago, 2023</td>
+<td class="py-5 px-2 text-sm font-mono text-on-surface-variant">#INV-86001</td>
+<td class="py-5 px-2 text-sm font-bold text-on-surface">R$ 499,90</td>
+<td class="py-5 px-2">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase">Pago</span>
+</td>
+<td class="py-5 px-2 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Sidebar Details Area -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Support Priority Card -->
+<!-- Additional Details Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 cloud-shadow">
+<h4 class="font-headline font-bold text-lg text-on-surface mb-6">Detalhamento do Plano</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<div class="text-sm">
+<p class="font-bold text-on-surface">Médicos Ilimitados</p>
+<p class="text-on-surface-variant text-xs">Sem limite de profissionais registrados.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<div class="text-sm">
+<p class="font-bold text-on-surface">Prontuário Eletrônico</p>
+<p class="text-on-surface-variant text-xs">Criptografia de nível militar e backups.</p>
+</div>
+</li>
+
+</ul>
+<div class="mt-8 pt-8 border-t border-surface-container">
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Assinado em 12/10/2022. Os termos de uso e política de privacidade se aplicam. Para cancelar sua assinatura, entre em contato com seu gerente de conta.</p>
+</div>
+</div>
+<!-- Quick Support Tip -->
+<div class="bg-secondary-container rounded-xl p-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-on-secondary-container">lightbulb</span>
+<h5 class="font-bold text-on-secondary-container text-sm">Dica de Gestão</h5>
+</div>
+<p class="text-xs text-on-secondary-container leading-relaxed">Você sabia que faturamento anual economiza até 15% nos custos administrativos? Explore nossos planos anuais.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple entry animation trigger
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.querySelector('main');
+            mainContent.classList.add('opacity-0');
+            mainContent.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            mainContent.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                mainContent.classList.remove('opacity-0');
+                mainContent.style.opacity = '1';
+                mainContent.style.transform = 'translateY(0)';
+            }, 50);
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+            searchInput.parentElement.style.transition = 'transform 0.2s ease-out';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+
+
+</body></html>

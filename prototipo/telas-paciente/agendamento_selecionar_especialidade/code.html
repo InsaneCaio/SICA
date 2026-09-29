@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7f9fb",
+                    "primary-container": "#eaf0ff",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#cfe6f2",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001c3a",
+                    "surface-container-highest": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "secondary": "#4c616c",
+                    "inverse-primary": "#a5c8ff",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "outline-variant": "#c3c7cb",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-primary-container": "#006dc8",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline": "#73787b",
+                    "tertiary-fixed": "#9eefff",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "primary": "#005faf",
+                    "on-tertiary-container": "#007887",
+                    "surface-tint": "#005faf",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed": "#071e27",
+                    "inverse-surface": "#2d3133",
+                    "tertiary": "#006876",
+                    "tertiary-container": "#d1f7ff",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed-variant": "#004786",
+                    "on-tertiary-fixed": "#001f24",
+                    "surface": "#f7f9fb",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-surface-variant": "#43474a",
+                    "on-secondary-container": "#526772",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-background": "#191c1e",
+                    "primary-fixed": "#d4e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 h-16 w-full sticky top-0 z-40 bg-slate-50/80 backdrop-blur-lg border-b border-surface-container-highest">
+<div class="flex items-center gap-4">
+<button class="text-primary active:scale-95 duration-200 ease-out flex items-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-slate-900 text-lg leading-tight">Selecionar especialidade</h1>
+<p class="text-[11px] font-semibold text-primary uppercase tracking-wide">Para: Maria</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden ring-2 ring-primary-container">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZUOrk459fro1k4OuReAJ1B2xRTE-KflF1avWDs6lzhn_sPdDzGk2GArxR8rV7kULjvp8YTRlYa4RymAi7SBWUEhRwdMcJy9RH2HkD_xo7qNC2ma4xeXjnNoCa4VkloMb7bRWZj3_pm4RXhEC32XhnFGvwk642iy7GWwehUXemnFqCgiKuO-rIXPN8XdjxTJu17eTa5sYKqpvwD7r8mrgycsFv6xC5tI1Mue63YAZZ1845A7I2r3gdf35AYCj5bPR5OEqIp_o0qhQ">
+</div>
+</header>
+<main class="px-6 pt-6 max-w-2xl mx-auto">
+<!-- Search Bar -->
+<div class="relative group mb-8">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-highest border-none rounded-xl text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all shadow-sm" placeholder="Buscar especialidade (ex: Cardiologia)..." type="text">
+</div>
+<!-- Section: Populares -->
+<div class="mb-10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-on-surface">Populares</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Cardiology Card (Highlighted/Selected) -->
+<button class="col-span-2 flex items-center justify-between p-5 rounded-xl bg-primary text-white shadow-lg ring-4 ring-primary/20 active:scale-95 transition-transform">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="cardiology" style="font-variation-settings: &quot;FILL&quot; 1;">cardiology</span>
+</div>
+<div class="text-left">
+<p class="font-bold text-lg">Cardiologia</p>
+
+</div>
+</div>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</button>
+<!-- Gynecology Card -->
+<button class="flex flex-col items-start gap-4 p-5 rounded-xl bg-surface-container-low active:scale-95 transition-transform text-on-surface hover:bg-primary-container">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="female" style="font-variation-settings: &quot;FILL&quot; 1;">female</span>
+</div>
+<div class="text-left">
+<p class="font-bold">Ginecologia</p>
+
+</div>
+</button>
+<!-- Dermatology Card -->
+<button class="flex flex-col items-start gap-4 p-5 rounded-xl bg-surface-container-low active:scale-95 transition-transform text-on-surface hover:bg-primary-container">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="clean_hands" style="font-variation-settings: &quot;FILL&quot; 1;">clean_hands</span>
+</div>
+<div class="text-left">
+<p class="font-bold">Dermatologia</p>
+
+</div>
+</button>
+</div>
+</div>
+<!-- Specialty List -->
+<div class="space-y-1 mb-24">
+<h3 class="text-lg font-bold text-on-surface mb-4">Todas as Especialidades</h3>
+<!-- List Item 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Pediatria</p>
+<p class="text-xs text-on-surface-variant">Cuidados para crianças e adolescentes</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="orthopedics">orthopedics</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Ortopedia</p>
+<p class="text-xs text-on-surface-variant">Ossos, músculos e articulações</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Psiquiatria</p>
+<p class="text-xs text-on-surface-variant">Saúde mental e bem-estar emocional</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</main>
+<!-- Persistent Bottom Action -->
+<div class="fixed bottom-0 left-0 w-full p-6 bg-surface/90 backdrop-blur-xl border-t border-surface-container-highest">
+<button class="w-full h-14 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/25 active:scale-[0.98] transition-all">
+<span class="">Próximo</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+
+
+</body></html>

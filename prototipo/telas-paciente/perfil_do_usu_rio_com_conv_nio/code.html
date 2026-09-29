@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Perfil - Vitalis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#cfe6f2",
+                        "primary": "#005faf",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-background": "#191c1e",
+                        "outline-variant": "#c3c7cb",
+                        "on-tertiary-container": "#007887",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#9eefff",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary": "#4c616c",
+                        "primary-fixed": "#d4e3ff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#43474a",
+                        "on-secondary-container": "#526772",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-high": "#e6e8ea",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-primary-fixed": "#001c3a",
+                        "tertiary": "#006876",
+                        "on-primary-container": "#006dc8",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#d1f7ff",
+                        "primary-container": "#eaf0ff",
+                        "inverse-primary": "#a5c8ff",
+                        "outline": "#73787b",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-tint": "#005faf",
+                        "on-secondary-fixed": "#071e27",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline, .font-display { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24 font-body">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md no-border bg-slate-100 dark:bg-slate-800 flat no shadows flex items-center w-full px-6 py-4 max-w-full justify-end">
+<button aria-label="Configurações" class="text-blue-700 dark:text-blue-400 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-colors rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="max-w-2xl mx-auto px-6 pt-6 pb-12 flex flex-col gap-8">
+<!-- User Profile Header Section -->
+<section class="flex flex-col items-center justify-center pt-4 pb-2">
+<div class="relative mb-4">
+<img alt="Profile photo" class="w-28 h-28 rounded-full object-cover border-4 border-surface-container-lowest shadow-[0_12px_40px_rgba(25,28,30,0.06)]" data-alt="A smiling man with short dark hair in a well-lit clinical environment, wearing a blue shirt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbuTwd0d15uQh-V6TU1nmGdUpC_8ckob-qR0nDWj5N93ksmM6XMUk_y0vXuF1ol2Ny-FK9lAB6QUkUeejFL_eQE-xFfwh1WkoH9-6jdbD8TNN4ejYQ4bD_hlHU6KRCdLE4ghUp2rAZKJTMlgHOJhIt8hL7JU1ZgyaA_ALiHxYQVkUCEtxGY-JIo1iD0ggDHx0NSJtAedSaP9cHTR7GbvmyylnqxhQ0GbEKa2tt6CdGNxRZFetnWK6d7u5kic8frQjpTDtqz2pmWP1G">
+<button aria-label="Edit Profile" class="absolute bottom-0 right-0 bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center hover:bg-on-primary-fixed-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="edit" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">edit</span>
+</button>
+</div>
+<h2 class="font-display font-bold text-2xl text-on-surface text-center">Ricardo Oliveira de Almeida</h2>
+<p class="font-body text-on-surface-variant text-sm mt-1">ricardo.almeida@email.com.br</p>
+</section>
+<!-- Personal Data Section -->
+<section>
+<h3 class="font-display font-semibold text-sm text-on-surface-variant mb-3 uppercase tracking-wider pl-2">Dados Pessoais</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(25,28,30,0.02)]">
+<!-- Full Name Card -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest transition-colors text-left bg-surface-container-lowest border-b border-outline-variant/15">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body text-xs text-on-surface-variant">Nome Completo</p>
+<p class="font-body font-medium text-sm text-on-surface">Ricardo Oliveira de Almeida</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Email Card -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest transition-colors text-left bg-surface-container-lowest border-b border-outline-variant/15">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-body text-xs text-on-surface-variant">E-mail</p>
+<p class="font-body font-medium text-sm text-on-surface">ricardo.almeida@email.com.br</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- CPF Card -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest transition-colors text-left bg-surface-container-lowest">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+</div>
+<div>
+<p class="font-body text-xs text-on-surface-variant">CPF</p>
+<p class="font-body font-medium text-sm text-on-surface">***.482.991-**</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button><button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest transition-colors text-left bg-surface-container-lowest border-t border-outline-variant/15">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+</div>
+<div>
+<p class="font-body text-xs text-on-surface-variant">Convênio</p>
+<p class="font-body font-medium text-sm text-on-surface">Unimed Pleno</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Settings Section -->
+<section>
+<h3 class="font-display font-semibold text-sm text-on-surface-variant mb-3 uppercase tracking-wider pl-2">Configurações</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(25,28,30,0.02)]">
+<!-- Notification Toggle -->
+<div class="w-full flex items-center justify-between p-4 bg-surface-container-lowest border-b border-outline-variant/15">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+<p class="font-body font-medium text-sm text-on-surface">Notificações</p>
+</div>
+<!-- Custom Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value="">
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-focus:ring-2 peer-focus:ring-primary/20 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Alterar Senha -->
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-container-highest transition-colors text-left bg-surface-container-lowest">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<p class="font-body font-medium text-sm text-on-surface">Alterar Senha</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Account Section (Logout) -->
+<section class="mt-4">
+<button class="w-full bg-error-container hover:bg-[#ffd1cc] text-error font-body font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sair da Conta
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-[0_-4px_20px_rgba(25,28,30,0.08)] flex justify-around items-center px-4 pb-6 pt-3 rounded-t-2xl border-t border-outline-variant/10">
+<a class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1.5 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1.5 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Buscar</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1.5 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Agenda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary bg-primary/10 rounded-xl px-4 py-1.5 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">person</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</a>
+</nav>
+
+
+</body></html>

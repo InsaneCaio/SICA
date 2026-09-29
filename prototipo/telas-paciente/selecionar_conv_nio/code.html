@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#4c616c",
+                    "outline-variant": "#c3c7cb",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed": "#001f24",
+                    "surface-tint": "#005faf",
+                    "inverse-surface": "#2d3133",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#43474a",
+                    "on-secondary-fixed": "#071e27",
+                    "tertiary-fixed": "#9eefff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#006876",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container": "#eceef0",
+                    "surface": "#f7f9fb",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#eaf0ff",
+                    "background": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#d1f7ff",
+                    "primary-fixed": "#d4e3ff",
+                    "primary": "#005faf",
+                    "on-primary-container": "#006dc8",
+                    "on-secondary-container": "#526772",
+                    "on-primary-fixed": "#001c3a",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "on-background": "#191c1e",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#73787b",
+                    "secondary-fixed": "#cfe6f2",
+                    "secondary-container": "#cfe6f2",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "surface-dim": "#d8dadc",
+                    "inverse-primary": "#a5c8ff",
+                    "on-primary-fixed-variant": "#004786",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#007887",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .cloud-shadow { box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06); }
+        .gradient-primary { background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-surface dark:bg-surface-dim flex items-center px-4 h-16 max-w-full">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-150" data-icon="arrow_back">arrow_back</button>
+<h1 class="font-headline font-bold text-lg tracking-tight ml-4 text-primary dark:text-primary-fixed">Selecionar Convênio</h1>
+</header>
+<main class="flex-1 w-full max-w-2xl mx-auto px-4 pb-40">
+<!-- Search Bar -->
+<div class="mt-4 mb-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-highest border-none border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-on-surface placeholder:text-on-surface-variant/60 font-medium" placeholder="Buscar convênio..." type="text">
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-outline-variant opacity-15 group-focus-within:opacity-0"></div>
+</div>
+</div>
+<!-- Popular Insurances (Bento-lite Horizontal Scroll) -->
+<section class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<h2 class="font-headline font-bold text-xl text-on-surface tracking-tight">Convênios Populares</h2>
+<span class="text-xs font-semibold text-primary uppercase tracking-widest px-2 py-1 bg-primary-container rounded-full">Destaques</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 -mx-4 px-4">
+<!-- Unimed -->
+<button class="flex-shrink-0 w-28 h-32 bg-surface-container-lowest rounded-xl cloud-shadow flex flex-col items-center justify-center border border-outline-variant/10 hover:scale-[1.02] transition-transform active:scale-95">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-3">
+<img class="w-10 h-10 object-contain" data-alt="A clean, minimalist logo of a healthcare provider centered in a soft circular frame. The palette consists of clinical whites and professional blues, reflecting a trustworthy medical environment with soft studio lighting and high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGC65ZHcCOEiZPOkJkR7Q0JDZATAp3c5G4_LEbT9Vjy1wZZyAmN1RUNRy-_0MJR7CLNx2kvEXihHjEwSv_-JqzgVZL_A4vEmvldASqJ6PshH5TGau37IToFEag5yxl6vIxO6xfN4gyR_YHbnMT-cW2ETnAEin615W_EL5pweUUdAXxr3awpzlgeeFeNVVWjJ__d5QOSnlnUzrnd9AI9hWDCCGBQHg3eHEl3lE1rVejlds8fi6-t4UuPt-J1EZszDApNSEgIgHzeJ3D">
+</div>
+<span class="text-sm font-semibold text-on-surface">Unimed</span>
+</button>
+<!-- Bradesco -->
+<button class="flex-shrink-0 w-28 h-32 bg-surface-container-lowest rounded-xl cloud-shadow flex flex-col items-center justify-center border border-outline-variant/10 hover:scale-[1.02] transition-transform active:scale-95">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-3">
+<img class="w-10 h-10 object-contain" data-alt="A sophisticated health insurance brand mark showcased on a crisp white surface. The visual style is editorial and clean, featuring soft ambient shadows and a professional color scheme of deep reds and muted grays that convey reliability and clinical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB143S2_sb6iuaR27KxxWWhBvQi6XB_u_vEmYz1FuxwRLvL15crdLRrxYcmVLTaSK2KcV5uZd4f35i7VOMOePlV8LOkq0C7V7N4PwIlkTY5wjHpkW1p44DZam9irFb31F8gICDu11NRFuHF8lane-YXRU6BSmacILInmxRT-a26bgukCAdTVVjZsak9wRx3I3_Mq65dUBJXzxORb0zTiNkFA69wpFTQ0N3aFznYT88QFlKg0R2M8kYuRGXRXYyjHmsI6lNzF6kVYgtK">
+</div>
+<span class="text-sm font-semibold text-on-surface">Bradesco</span>
+</button>
+<!-- Amil -->
+<button class="flex-shrink-0 w-28 h-32 bg-surface-container-lowest rounded-xl cloud-shadow flex flex-col items-center justify-center border border-outline-variant/10 hover:scale-[1.02] transition-transform active:scale-95">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-3">
+<img class="w-10 h-10 object-contain" data-alt="A minimalist medical brand logo displayed in a modern, professional layout. The lighting is bright and airy, typical of a high-end clinical archive, focusing on a palette of teal and light blue tones to communicate health and wellness through high-contrast typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYKaPnEpd3aUP3SDv5TsRY_Ef0aUV5EbUckTTsOSR44JwWS8hMMHf0_EUtCx95YBTz3RCs-xzumW5K_GMQXY13F_tBkD6LRj9U9681VK7dzBAHfsdZZ5nz-F94hG0cgv9D6Alctk5rA6ra9MaaT1uBEpLe7D99h_kp0czwElwSe1ECpwGJeO9XJoh7KP41qwhkLKWkssp-QWnLRK6Sz2KqOBIUDC0rOPZHPIlc3zSJ77VKSJ9_VCn1j6E1u6T_6sNUuYyzXO6ZCx3v">
+</div>
+<span class="text-sm font-semibold text-on-surface">Amil</span>
+</button>
+<!-- SulAmérica -->
+<button class="flex-shrink-0 w-28 h-32 bg-surface-container-lowest rounded-xl cloud-shadow flex flex-col items-center justify-center border border-outline-variant/10 hover:scale-[1.02] transition-transform active:scale-95">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-3">
+<img class="w-10 h-10 object-contain" data-alt="An elegant insurance provider logo with clean lines and a contemporary feel. The image is set against a soft, tonal background of surface-grey with clinical lighting, using professional blues and whites to create a serene and technologically advanced brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc48iCJDnQv51Hn-E97INYDz3JgGJs72i-udnCt9Xy2ucC3m84fakr32HKke1P8t5a3HV4tERGMLE5KSn2YhlInkcSWJHZh7n4xYOYdj5R916V-z0MsnnGQiKZONOb70uD2rN9IYuJaKS1vLPdOuglvMiXGnGgSjEYqGmE0VSDpD7uLZeK5r8Axr8npPnupWrFhT5zBiH_yA1ogDW0hQ4nY3R5Mj9JktthJoTuKqCuAnC2iLK-bKEcx9fBa4qVYaBmfr_2NoGIClHV">
+</div>
+<span class="text-sm font-semibold text-on-surface">SulAmérica</span>
+</button>
+</div>
+</section>
+<!-- Full List -->
+<section>
+<h2 class="font-headline font-bold text-xl text-on-surface tracking-tight mb-4">Todos os Convênios</h2>
+<div class="space-y-3">
+<!-- List Item 1 -->
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl cursor-pointer border border-transparent hover:border-primary/20 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mr-4">
+<img class="w-8 h-8 object-contain opacity-80 group-hover:opacity-100" data-alt="Close up of a professional health card or logo with medical branding. The aesthetic is clean and organized, with a focus on breathable density and tonal layering using blues and soft grays in a bright clinic setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbbNFj8FIXBfAv6hyVQmtkEb_Ka7DbeBjSyu5Wn7bA7Uffg9kpNfmzPADZRD7f4z-CB9MAJnQxZGE8nFBr2VgeFdU0EgbP-upYVFiZv1XlnThPjmCyMsGypw3v8JTi27XVujt7ZRt6gcop89FtyLUtQT-SE9DTXDhchl6wyjJOnZMJeOt80aUooXF4DwRH1HdRzNI3b7VeQ3VU9JH0H4FUE7-k9PxhkaejYCBaoY1A3qfJJ2YXG-XSxxpBQql5MikUOKwYJmUQEtxW">
+</div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">Unimed Nacional</p>
+<p class="text-xs text-on-surface-variant font-medium">Plano de Saúde</p>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer h-5 w-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="insurance" type="radio">
+</div>
+</label>
+<!-- List Item 2 -->
+<label class="flex items-center p-4 bg-surface-container-low rounded-xl cursor-pointer border border-transparent hover:border-primary/20 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center mr-4">
+<img class="w-8 h-8 object-contain opacity-80 group-hover:opacity-100" data-alt="A professional healthcare provider identification element in a sleek administrative interface. The design uses high-contrast typography and subtle tonal transitions to ensure maximum legibility and a premium clinical feel with soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqVO6jDerDOo_mjGsRvKnvY29jW_OfYIDjAfX_ui7N5JSaeXtUMPYpOUelNm0e7R7UtNf0Y6SYDds0KCJqXM-YwDDt29RhyVeRg9jugquT-trAeLAM8psX4_ZLIeEXZOIFyd9TWG5NYKBOKJqQyEhGjusqceRAsNiJmWcrFBTtbppG23MvBjODViLimHzUGvWxZQDdp2B_cDaOBlLlLM9e0CADOCxiV9TiQlcf9cehiat3CbuwXzrau-J9_BE8QUkTZyMkbv3ZbE83">
+</div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">Bradesco Saúde Top</p>
+<p class="text-xs text-on-surface-variant font-medium">Rede Referenciada</p>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer h-5 w-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="insurance" type="radio">
+</div>
+</label>
+<!-- List Item 3 -->
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl cursor-pointer border border-transparent hover:border-primary/20 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mr-4">
+<img class="w-8 h-8 object-contain opacity-80 group-hover:opacity-100" data-alt="A modern medical brand icon presented within a high-data administrative dashboard. The visual style prioritizes white space and sophisticated tonal layering, utilizing shades of teal and crisp whites for an authoritative and accessible medical workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtD4uWNXlT-MdKPV8XHvu1G1aB7njXU-EXn7WsoBjikq_1_0pTLWHAsg1dHs-G7s_ijn3Oeyp_8aWdxDsZv7vZ9qohnSbX_yluKOUEXZiNw3RFtd7tE3HGmWXb9i2m8_C_3ZRW-hHI4tahe7K0w_J1uqRhjLbuKmqX1KsVBRkGeaHKsYQVmvtQQhLQABiICZOgoy90Fp_SxhBOGXHLUUNpjEpo5Wb-AAMeQdn6ZlSR-ranqwOfqL5akkR3noWU5_uuKK62KqyYqgAY">
+</div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">Amil S80</p>
+<p class="text-xs text-on-surface-variant font-medium">Atendimento Regional</p>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer h-5 w-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="insurance" type="radio">
+</div>
+</label>
+<!-- List Item 4 -->
+<label class="flex items-center p-4 bg-surface-container-low rounded-xl cursor-pointer border border-transparent hover:border-primary/20 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center mr-4">
+<img class="w-8 h-8 object-contain opacity-80 group-hover:opacity-100" data-alt="A sophisticated brand logo for a health services company, rendered with clinical precision. The setting is a minimalist digital environment with soft cloud shadows and a palette centered on primary blues and neutral grays, reflecting a high-end administrative user experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnVMNgdFccaT6plRP8LTwDwG6nAM1i8FBZ1msAu9WLsRYqxIrXn-W80ykucDfWS2PyQgh6lXcS3GDShFqqktXi1ozvXK6ejNjP3Ulhd4gK3AA_aK5JYYJPAd91IM3B5VjI9sgVzdbEq2eiofpkPz97pq0QnPFWWjxFfcndoAHue8fBFY9NhBvgTdy4L5XGkEpsmIQ4K8dp4SBtlCzifCqtJi-HXmI1IcS4rW1znV35tSE-L01l8evF_yjssVHCpbgTB8j6ITlDVFPr">
+</div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">SulAmérica Especial</p>
+<p class="text-xs text-on-surface-variant font-medium">Plano Completo</p>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer h-5 w-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="insurance" type="radio">
+</div>
+</label>
+<!-- List Item 5 (Particular) -->
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl cursor-pointer border border-transparent hover:border-primary/20 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-on-primary-container">person</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">Particular</p>
+<p class="text-xs text-on-surface-variant font-medium">Pagamento Direto</p>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer h-5 w-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="insurance" type="radio">
+</div>
+</label>
+</div>
+</section>
+</main>
+<!-- Fixed Action Button Area -->
+<div class="fixed bottom-20 left-0 w-full px-6 z-30">
+<button class="w-full h-14 gradient-primary text-on-primary font-headline font-bold rounded-xl cloud-shadow active:scale-95 transition-transform flex items-center justify-center gap-2">
+            Confirmar Seleção
+            <span class="material-symbols-outlined text-xl">check_circle</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md">
+
+</nav>
+<script>
+        // Simple micro-interaction for item selection
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.addEventListener('change', function() {
+                document.querySelectorAll('label').forEach(label => {
+                    label.classList.remove('bg-primary-container/30', 'border-primary/30');
+                    if (label.contains(this)) {
+                        label.classList.add('bg-primary-container/30', 'border-primary/30');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

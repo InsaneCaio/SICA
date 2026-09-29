@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Documentos</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#4c616c",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-surface": "#191c1e",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary-container": "#007887",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#43474a",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "primary-container": "#eaf0ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#9eefff",
+                        "primary": "#005faf",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#005faf",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#001c3a",
+                        "background": "#f7f9fb",
+                        "outline-variant": "#c3c7cb",
+                        "outline": "#73787b",
+                        "on-primary-container": "#006dc8",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#d1f7ff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#071e27",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#cfe6f2",
+                        "inverse-primary": "#a5c8ff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#004786",
+                        "tertiary": "#006876",
+                        "surface-bright": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "primary-fixed": "#d4e3ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "on-secondary-container": "#526772",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Texture -->
+<div class="fixed inset-0 pointer-events-none z-0 mix-blend-multiply opacity-[0.04]">
+<img class="w-full h-full object-cover" data-alt="A highly detailed, soft and modern abstract background featuring subtle organic shapes in light clinical tones. The lighting is diffused and calming, creating a pristine, professional environment suitable for a premium healthcare application. The palette relies on soft whites and extremely subtle cool greys to maintain high legibility for overlaid content without causing distraction." src="https://lh3.googleusercontent.com/aida/ADBb0ugrp5XOVmKiDOABHsjxnXUmBselNS3TMugvk1EEqRQc7XSzhYjS8QEDUu79A2EH4ZFYtWNsA8C3y0bjxLK4lArXZ4TYoe0bgTd2lxLMpMMsctS76WOM68VtvMNtOJKM7iQ9sAAL4Yc7eC_UD4PYp5SDgXFEgIUsunZIp9O-SIcQnDPmtohEWEfdVbxKYgIDffD9s3JhbZLuPsooF7f5jvqRMEMlFn_CQmC6sGjqX5_eMCebWsr1KjHh4wLyE8sdY3YkrVjHDCXx1ks"/>
+</div>
+<!-- TopAppBar -->
+<header class="sticky w-full top-0 z-40 bg-surface/85 backdrop-blur-xl">
+<div class="flex flex-col justify-center px-6 py-4 w-full max-w-3xl mx-auto">
+<div class="flex items-center justify-between">
+<!-- Leading Icon -->
+<button aria-label="Voltar" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-primary">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<!-- Center Typography Anchor -->
+<div class="flex flex-col items-center">
+<h1 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">Documentos</h1>
+<span class="font-body text-xs font-medium text-on-surface-variant mt-0.5">Atualizações médicas</span>
+</div><div class="w-10"></div>
+<!-- Trailing Icon -->
+</div>
+</div>
+<!-- Separation Logic -->
+<div class="bg-surface-container-low h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 px-4 sm:px-6 py-8 pb-32 max-w-2xl mx-auto space-y-12">
+<!-- Document Group: Hoje -->
+<section aria-labelledby="date-hoje">
+<h2 class="font-body font-semibold text-sm text-on-surface-variant ml-2 mb-4 tracking-wide" id="date-hoje">Hoje</h2>
+<!-- Unread Document Card -->
+<article class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-[0_12px_40px_rgba(25,28,30,0.06)] outline outline-1 outline-outline-variant/15 relative group overflow-hidden">
+<!-- Unread Indicator (Pulse Badge) -->
+<span class="absolute top-6 right-6 sm:top-8 sm:right-8 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-20"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary shadow-[0_0_8px_rgba(0,95,175,0.4)]"></span>
+</span>
+<!-- Card Header -->
+<header class="mb-6">
+<p class="font-body text-sm font-medium text-on-surface-variant mb-1">Olá, Maria</p>
+<h3 class="font-headline font-extrabold text-[22px] sm:text-2xl text-on-surface leading-tight pr-8">
+                        Sua receita digital chegou!
+                    </h3>
+</header>
+<!-- Nested Context Surface -->
+<div class="bg-surface rounded-xl p-5 mb-6 outline outline-1 outline-outline-variant/10">
+<div class="flex items-start sm:items-center gap-4 mb-5">
+<div class="w-12 h-12 shrink-0 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+</div>
+<div>
+<p class="font-headline font-bold text-base text-on-surface">Dra. Helena Souza</p>
+<p class="font-body text-sm text-on-surface-variant">Enviou novos documentos de saúde:</p>
+</div>
+</div>
+<!-- Density List without Dividers -->
+<ul class="space-y-3 ml-2">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">prescriptions</span>
+<span class="font-body font-medium text-sm text-on-surface">Receita médica</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">science</span>
+<span class="font-body font-medium text-sm text-on-surface">Solicitação de exames</span>
+</li>
+</ul>
+</div>
+<!-- Primary Action -->
+<div class="mt-2">
+<button class="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-on-primary-fixed-variant text-on-primary py-4 rounded-xl font-body font-semibold text-base transition-transform active:scale-[0.98] shadow-sm hover:opacity-95">
+                        Acessar documento
+                        <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<p class="font-body text-xs text-on-surface-variant text-center mt-3 flex items-center justify-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                        Abrirá em site externo seguro
+                    </p>
+</div>
+</article>
+</section>
+<!-- Document Group: Ontem -->
+<section aria-labelledby="date-ontem">
+<h2 class="font-body font-semibold text-sm text-on-surface-variant ml-2 mb-4 tracking-wide" id="date-ontem">Ontem</h2>
+<!-- Read Document Card (No pulse badge, slightly less prominent action) -->
+<article class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(25,28,30,0.03)] outline outline-1 outline-outline-variant/15 relative group">
+<!-- Card Header -->
+<header class="mb-6">
+<p class="font-body text-sm font-medium text-on-surface-variant mb-1">Olá, Maria</p>
+<h3 class="font-headline font-bold text-[22px] sm:text-2xl text-on-surface leading-tight">
+                        Seu encaminhamento está pronto.
+                    </h3>
+</header>
+<!-- Nested Context Surface -->
+<div class="bg-surface rounded-xl p-5 mb-6 outline outline-1 outline-outline-variant/10">
+<div class="flex items-start sm:items-center gap-4 mb-5">
+<div class="w-12 h-12 shrink-0 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+</div>
+<div>
+<p class="font-headline font-bold text-base text-on-surface">Dr. Roberto Lima</p>
+<p class="font-body text-sm text-on-surface-variant">Enviou novos documentos de saúde:</p>
+</div>
+</div>
+<!-- Density List without Dividers -->
+<ul class="space-y-3 ml-2">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">medical_information</span>
+<span class="font-body font-medium text-sm text-on-surface">Encaminhamento Especialista</span>
+</li>
+</ul>
+</div>
+<!-- Primary Action -->
+<div class="mt-2">
+<button class="w-full flex items-center justify-center gap-2 bg-surface-container-high text-on-surface py-4 rounded-xl font-body font-semibold text-base transition-colors hover:bg-surface-dim">
+                        Acessar documento
+                        <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<p class="font-body text-xs text-on-surface-variant text-center mt-3 flex items-center justify-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                        Abrirá em site externo seguro
+                    </p>
+</div>
+</article>
+</section>
+</main>
+</body></html>

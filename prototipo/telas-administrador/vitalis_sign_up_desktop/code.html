@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vitalis | Clinical Archive Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-dim": "#d8dadc",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-primary-container": "#006dc8",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "surface": "#f7f9fb",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#cfe6f2",
+                    "tertiary": "#006876",
+                    "secondary-fixed": "#cfe6f2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#007887",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary": "#4c616c",
+                    "on-secondary-container": "#526772",
+                    "primary-fixed": "#d4e3ff",
+                    "outline-variant": "#c3c7cb",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-fixed": "#001c3a",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "surface-container": "#eceef0",
+                    "primary-container": "#eaf0ff",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-secondary": "#ffffff",
+                    "background": "#f7f9fb",
+                    "tertiary-container": "#d1f7ff",
+                    "on-secondary-fixed": "#071e27",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "primary": "#005faf",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "outline": "#73787b",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed": "#001f24",
+                    "tertiary-fixed": "#9eefff",
+                    "inverse-surface": "#2d3133",
+                    "surface-tint": "#005faf",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#43474a",
+                    "tertiary-fixed-dim": "#55d7ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .clinical-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        .ghost-border-input {
+            border: none;
+            border-bottom: 2px solid rgba(195, 199, 203, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ghost-border-input:focus {
+            border-bottom-color: #005faf;
+            box-shadow: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<main class="flex min-h-screen w-full">
+<!-- Left Side: Editorial Clinical Image & Brand -->
+<section class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-primary items-center justify-center p-12">
+<div class="absolute inset-0 z-0">
+<img alt="Clinical Archive Environment" class="w-full h-full object-cover opacity-60 mix-blend-overlay scale-105" data-alt="A sophisticated, ultra-modern medical archive room featuring sleek minimalist glass dividers and organized storage systems. The lighting is soft and clinical with a serene blue-tinted daylight coming through large windows. High-end medical professionals are seen in the background in a blurred, professional manner. The aesthetic is clean, premium, and calm, utilizing a palette of clinical blues and crisp whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmjM3sHEca0S1bGz9MzMduHoRidbroFb2Vx8A5jMDON6EJGvfdjknKSfSZbZWJDTAILfMbpTQUDLpoGa1cFnss8QTbSdkB2hHXdmePqQZ-MdC1dL4bi_1T0X14Cxk_qd27EvEVbBYjuEd5vjYOxPOv66FqSOsc0oTJKZLtMkynVEgpq05iSBa35PvvDvgEOx7rarEu_NY8QXyIo70jhGtQOnUppOq3sY0FmVqqcx07Z7CG6UwZuTmB1aZOPkigAnN7GpH0_T543pk"/>
+</div>
+<!-- Branding Overlay -->
+<div class="relative z-10 w-full max-w-lg">
+<div class="mb-12">
+<h1 class="font-headline font-extrabold text-5xl text-white tracking-tighter mb-4">Vitalis</h1>
+<div class="h-1 w-24 bg-primary-fixed rounded-full"></div>
+</div>
+<h2 class="font-headline font-bold text-4xl text-white leading-tight mb-6">
+                    A Curated Experience in Clinical Governance.
+                </h2>
+<p class="text-primary-fixed text-lg font-medium leading-relaxed mb-8 opacity-90">
+                    Welcome to the Clinical Archive. Our platform transforms complex medical administration into a seamless editorial-grade workspace for healthcare leaders.
+                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-6 rounded-xl border border-white/10">
+<span class="material-symbols-outlined text-primary text-3xl mb-3">shield</span>
+<h3 class="font-headline font-bold text-on-surface text-lg">Secure Records</h3>
+<p class="text-on-surface-variant text-sm">Enterprise-grade encryption for all patient data.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl border border-white/10">
+<span class="material-symbols-outlined text-primary text-3xl mb-3">analytics</span>
+<h3 class="font-headline font-bold text-on-surface text-lg">Deep Insights</h3>
+<p class="text-on-surface-variant text-sm">Real-time clinical metrics and reporting.</p>
+</div>
+</div>
+</div>
+<!-- Subtle texture overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+</section>
+<!-- Right Side: Registration Form -->
+<section class="w-full lg:w-1/2 flex items-center justify-center bg-surface p-8 sm:p-12 lg:p-24 overflow-y-auto">
+<div class="w-full max-w-md">
+<!-- Header -->
+<header class="mb-12">
+<h2 class="font-headline font-extrabold text-3xl text-on-surface tracking-tight mb-2">Criar conta</h2>
+<p class="text-on-surface-variant font-medium">Inicie sua jornada no arquivo clínico digital.</p>
+</header>
+<form class="space-y-8" onsubmit="return false">
+<!-- Name Field -->
+<div class="relative group">
+<label class="block font-label text-sm font-semibold text-on-surface-variant mb-1 transition-colors group-focus-within:text-primary" for="name">Nome completo</label>
+<div class="flex items-center">
+<span class="material-symbols-outlined absolute left-0 text-outline-variant group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full pl-8 py-3 bg-transparent ghost-border-input font-body text-on-surface placeholder:text-outline-variant/50" id="name" name="name" placeholder="Dr. João Silva" required="" type="text"/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="relative group">
+<label class="block font-label text-sm font-semibold text-on-surface-variant mb-1 transition-colors group-focus-within:text-primary" for="email">E-mail</label>
+<div class="flex items-center">
+<span class="material-symbols-outlined absolute left-0 text-outline-variant group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-8 py-3 bg-transparent ghost-border-input font-body text-on-surface placeholder:text-outline-variant/50" id="email" name="email" placeholder="nome@clinica.com.br" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="relative group">
+<label class="block font-label text-sm font-semibold text-on-surface-variant mb-1 transition-colors group-focus-within:text-primary" for="password">Senha</label>
+<div class="flex items-center">
+<span class="material-symbols-outlined absolute left-0 text-outline-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-8 py-3 bg-transparent ghost-border-input font-body text-on-surface placeholder:text-outline-variant/50" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-0 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="flex items-start gap-3">
+<div class="flex items-center h-5">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-surface bg-surface-container-highest transition-all" id="terms" required="" type="checkbox"/>
+</div>
+<label class="text-sm font-label text-on-surface-variant leading-relaxed" for="terms">
+                            Aceito os <a class="text-primary font-semibold hover:underline" href="#">termos de uso</a> e <a class="text-primary font-semibold hover:underline" href="#">política de privacidade</a>.
+                        </label>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-4 pt-4">
+<button class="w-full clinical-gradient text-white font-headline font-bold py-4 rounded-lg shadow-lg hover:shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+                            Criar conta
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center pt-2">
+<span class="text-on-surface-variant text-sm">Já tem uma conta?</span>
+<a class="ml-2 text-primary font-bold text-sm hover:underline" href="#">Entrar</a>
+</div>
+</div>
+</form>
+<!-- Footer Metadata (Editorial feel) -->
+<footer class="mt-20 pt-8 border-t border-outline-variant/10">
+<div class="flex justify-between items-center text-[10px] uppercase tracking-widest text-outline font-bold">
+<span>VITALIS CLINICAL v2.4.0</span>
+<span>REGULATORY COMPLIANT</span>
+</div>
+</footer>
+</div>
+</section>
+</main>
+<script>
+        // Simple Interaction: Button Ripple/Pulse Effect simulation
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+                
+                setTimeout(() => {
+                    ripples.remove();
+                }, 1000);
+            });
+        });
+
+        // Toggle Password Visibility
+        const togglePass = document.querySelector('button .material-symbols-outlined:contains("visibility")');
+        // Simple logic placeholder if needed for production
+    </script>
+</body></html>

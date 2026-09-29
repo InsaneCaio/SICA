@@ -1,0 +1,372 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Clinical Governance Portal - Novo Agendamento</title>
+<!-- Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-primary-fixed-variant": "#004786",
+                        "secondary": "#4c616c",
+                        "tertiary-fixed": "#9eefff",
+                        "tertiary": "#006876",
+                        "on-surface-variant": "#43474a",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "surface-bright": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "outline": "#73787b",
+                        "on-primary-container": "#006dc8",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#cfe6f2",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#007887",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c3c7cb",
+                        "surface-container": "#eceef0",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#005faf",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed": "#071e27",
+                        "primary": "#005faf",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#cfe6f2",
+                        "primary-container": "#eaf0ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001c3a",
+                        "inverse-primary": "#a5c8ff",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "tertiary-container": "#d1f7ff",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "primary-fixed": "#d4e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-badge {
+            box-shadow: 0 0 0 rgba(0, 104, 118, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0px rgba(0, 104, 118, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(0, 104, 118, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(0, 104, 118, 0); }
+        }
+        .custom-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-72 left-0 sticky bg-surface-container-low dark:bg-surface-container flex flex-col p-6 space-y-4">
+<div class="flex items-center space-x-3 mb-8 px-2">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">medical_services</span>
+</div>
+<div>
+<h1 class="font-headline text-lg font-bold text-on-surface dark:text-on-surface-variant leading-tight">Precision Health</h1>
+<p class="text-xs text-on-surface-variant">Clinical Admin</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-body text-label-md font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: &quot;FILL&quot; 1;">medical_services</span>
+<span class="font-body text-label-md">Patient Records</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">fact_check</span>
+<span class="font-body text-label-md font-medium">Clinical Audit</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+<span class="font-body text-label-md font-medium">Staff Management</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="font-body text-label-md font-medium">Compliance</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">analytics</span>
+<span class="font-body text-label-md font-medium">Reports</span>
+</a>
+</nav>
+<button class="w-full py-3 px-4 bg-primary text-white rounded-lg font-semibold flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="">New Entry</span>
+</button>
+<div class="pt-6 mt-6 border-t border-outline-variant/10 space-y-1">
+<a class="flex items-center px-4 py-3 text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="font-body text-label-md font-medium">Help Center</span>
+</a>
+<a class="flex items-center px-4 py-3 text-error hover:bg-error-container/20 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="font-body text-label-md font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar (Shared Component) -->
+<header class="w-full top-0 sticky z-30 bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 h-16">
+<div class="flex items-center space-x-8">
+<h2 class="font-headline text-xl font-extrabold text-primary tracking-tight">Clinical Governance Portal</h2>
+<div class="relative hidden lg:block w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search patients, doctors, or audits..." type="text">
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center space-x-3">
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a healthcare administrator with a confident smile, wearing a clean white clinical coat. The background is a brightly lit, modern hospital office with soft natural light streaming in, creating a professional and trustworthy atmosphere. The image is crisp, high-resolution, and perfectly suited for a clinical portal profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1tHF9-WmZNQRXEIsrl_JC24iGMphQ_MDxbCD4Bp065Bb2CqNbRJl3b-Ov3GLX7CYFvlmXneKnOdEuiBF-vlRHwjgM7HRiuO6qwBiB7EleZ7iNP71Np7zSXncZc0goIW36wvby2JkJFNrMdP7AxalqB69jL8KNqtgBDqiHlew35uF1BECtjTLDRkFiWMv5d3Di-vIHtd5zzq7PE2W1CiFpcShT9VzfYdGoGtTFwrvpiBp9cSS4oUDYUDqkU_Ux9zu8z8T3QRakwIQ">
+<div class="hidden xl:block">
+<p class="text-xs font-bold text-on-surface">Dr. Elena Fisher</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Super Admin</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="p-8 max-w-7xl mx-auto w-full">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<nav class="flex space-x-2 text-sm text-on-surface-variant mb-2 font-medium">
+<span class="hover:text-primary cursor-pointer transition-colors">Home</span>
+<span class="">/</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Agendamentos</span>
+<span class="">/</span>
+<span class="text-primary font-bold">Novo Agendamento</span>
+</nav>
+<h3 class="font-display text-4xl font-extrabold text-on-surface tracking-tight">Novo Agendamento</h3>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">1</div>
+<div class="w-12 h-0.5 bg-primary"></div>
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">2</div>
+<div class="w-12 h-0.5 bg-primary"></div>
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold ring-4 ring-primary-container">3</div>
+</div>
+<span class="text-sm font-bold text-primary">Dados do Paciente</span>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Column: Patient Form -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 transition-shadow">
+<div class="flex items-center justify-between mb-8">
+<h4 class="font-display text-xl font-bold text-on-surface">Informações Pessoais</h4>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-bold uppercase tracking-widest pulse-badge">Cadastro Manual</span>
+</div>
+<form class="space-y-8">
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2 space-y-2">
+<label class="block font-label text-label-md font-semibold text-on-surface-variant">Nome Completo</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-4 transition-all placeholder:text-outline-variant font-medium" placeholder="Digite o nome do paciente..." type="text">
+<span class="material-symbols-outlined absolute right-4 top-4 text-outline-variant">person</span>
+</div>
+</div><div class="col-span-2 space-y-2">
+<label class="block font-label text-label-md font-semibold text-on-surface-variant">CPF</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-4 transition-all placeholder:text-outline-variant font-medium" placeholder="000.000.000-00" type="text">
+<span class="material-symbols-outlined absolute right-4 top-4 text-outline-variant">badge</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label text-label-md font-semibold text-on-surface-variant">E-mail</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-4 transition-all placeholder:text-outline-variant font-medium" placeholder="paciente@exemplo.com" type="email">
+<span class="material-symbols-outlined absolute right-4 top-4 text-outline-variant">mail</span>
+</div>
+</div><div class="col-span-2 mt-4 space-y-4">
+<label class="block font-label text-label-md font-semibold text-on-surface-variant">Tipo de Atendimento</label>
+<div class="flex gap-4">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border-2 border-outline-variant checked:border-primary transition-all" name="payment_type" type="radio" value="private">
+<div class="absolute w-2.5 h-2.5 rounded-full bg-primary scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+<span class="text-on-surface font-medium">Particular</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border-2 border-outline-variant checked:border-primary transition-all" name="payment_type" type="radio" value="insurance">
+<div class="absolute w-2.5 h-2.5 rounded-full bg-primary scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+<span class="text-on-surface font-medium">Plano de Saude</span>
+</label>
+</div>
+</div>
+<div class="col-span-2 space-y-2 transition-all">
+<label class="block font-label text-label-md font-semibold text-on-surface-variant">Plano de Saude</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-4 transition-all font-medium appearance-none">
+<option disabled="" selected="" value="">Selecione o plano...</option>
+<option value="bradesco">Bradesco Sa	de</option>
+<option value="unimed">Unimed</option>
+<option value="sulamerica">SulAm	rica</option>
+<option value="amil">Amil</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-4 text-outline-variant pointer-events-none">keyboard_arrow_down</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label text-label-md font-semibold text-on-surface-variant">Telefone / WhatsApp</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-4 transition-all placeholder:text-outline-variant font-medium" placeholder="(00) 00000-0000" type="tel">
+<span class="material-symbols-outlined absolute right-4 top-4 text-outline-variant">call</span>
+</div>
+</div>
+</div>
+<div class="pt-4 flex items-center space-x-4">
+<button class="px-8 py-4 custom-gradient text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all flex items-center space-x-3" type="button">
+<span class="">Confirmar Agendamento</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-6 py-4 text-primary font-semibold hover:bg-primary-container transition-colors rounded-lg" type="button">
+                                        Salvar Rascunho
+                                    </button>
+</div>
+</form>
+</div>
+<!-- LGPD Footer -->
+
+</div>
+<!-- Right Column: Summary Card -->
+<div class="col-span-12 lg:col-span-4 sticky top-24">
+<div class="bg-surface-container-high rounded-xl overflow-hidden shadow-sm">
+<div class="bg-on-surface-variant/5 px-6 py-4 flex items-center justify-between border-b border-white/20">
+<h5 class="font-display text-sm font-extrabold text-on-surface tracking-wider uppercase">Resumo do Agendamento</h5>
+<button class="text-primary text-xs font-bold hover:underline">Editar</button>
+</div>
+<div class="p-6 space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">cardiology</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Especialidade</p>
+<p class="font-headline text-on-surface font-bold">Cardiologia Clínica</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">calendar_month</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Data e Horário</p>
+<p class="font-headline text-on-surface font-bold">24 Out, 2023 às 14:30</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-xl overflow-hidden shadow-sm">
+<img alt="Doctor Profile" class="w-full h-full object-cover" data-alt="A professional close-up of Dr. Ricardo Mendes, a warm and empathetic cardiologist with a salt-and-pepper beard, wearing a neat stethoscope around his neck. He is positioned against a clean, softly blurred medical clinic background with cool blue tones. The lighting is balanced and flattering, conveying a sense of high-end clinical expertise and care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiSyonZy70v0VYMWnQ1PAd95ag6lYijyA0m24ZOh5yFidcxv608z1TOKPWh93twLrQTyTo0dsCAj5sX3QEZPuxtfHDuX0jeFjYbC1ktDtW8ry9poLf-1uajG-2STtEL37qE9ShEWigbXwVwWzrDJlIzXJwuCnS9jU8PQrvTFKoAEEPCu50SO8ZT8cI_ABy_kQ5xR0DdRy0IPofnc57zVe5nz2PHeLzQfBZfSq2oM5KOlwrR3Xwxkm3SKe8tdkfHvaY7nOUvyy5E9g">
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Médico Responsável</p>
+<p class="font-headline text-on-surface font-bold">Dr. Ricardo Mendes</p>
+<p class="text-xs text-on-surface-variant">CRM/SP 123456</p>
+</div>
+</div>
+</div>
+<div class="bg-primary-container px-6 py-6 border-t border-white/20">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-semibold text-on-primary-container">Valor da Consulta</span>
+<span class="text-xl font-extrabold text-on-primary-container">R$ 450,00</span>
+</div>
+<div class="flex items-center space-x-2 text-[10px] text-primary/70 font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span class="">Incluso retorno em até 15 dias</span>
+</div>
+</div>
+</div>
+<!-- Help Widget -->
+
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple input focus effects and button ripples simulation
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // CTA Click interaction
+        const mainBtn = document.querySelector('button.custom-gradient');
+        mainBtn.addEventListener('click', function(e) {
+            this.classList.add('scale-95');
+            setTimeout(() => {
+                this.classList.remove('scale-95');
+                alert('Agendamento processado com sucesso! Redirecionando para confirmação...');
+            }, 150);
+        });
+    </script>
+
+
+
+
+</body></html>

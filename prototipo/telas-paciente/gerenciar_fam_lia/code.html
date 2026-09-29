@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Family Members - Vitalis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#73787b",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "secondary": "#4c616c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#a5c8ff",
+                        "on-surface-variant": "#43474a",
+                        "primary-fixed": "#d4e3ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#005faf",
+                        "on-secondary-container": "#526772",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary": "#006876",
+                        "outline-variant": "#c3c7cb",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed": "#001c3a",
+                        "on-background": "#191c1e",
+                        "secondary-fixed": "#cfe6f2",
+                        "tertiary-container": "#d1f7ff",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "surface-tint": "#005faf",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-container": "#007887",
+                        "on-secondary-fixed": "#071e27",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#006dc8",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#9eefff",
+                        "primary-container": "#eaf0ff",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#cfe6f2",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#55d7ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .clinical-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #004786 100%);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 no-border tonal-shift bg-[#f7f9fb] flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="active:opacity-70 active:scale-95 transition-all duration-150 p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined text-[#005faf] dark:text-blue-400" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-manrope font-bold text-2xl tracking-tight text-[#005faf] dark:text-blue-400">Quem você cuida</h1>
+<p class="font-inter text-sm text-slate-500">Adicione e gerencie as pessoas que você acompanha</p>
+</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 py-8 space-y-8">
+<!-- Primary CTA Card: Asymmetric Layout -->
+<section class="relative overflow-hidden clinical-gradient rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 cloud-shadow">
+<div class="relative z-10 flex-1">
+<h2 class="font-headline font-extrabold text-3xl text-on-primary mb-2 tracking-tight">Adicionar nova pessoa</h2>
+<p class="text-primary-fixed font-normal opacity-90 max-w-sm">Cadastre pessoas para gerenciar consultas e acompanhar o histórico médico da sua família em um só lugar.</p>
+<div class="mt-6">
+<button class="bg-surface-container-lowest text-primary px-6 py-3 rounded-xl font-semibold flex items-center gap-2 active:scale-95 transition-all hover:bg-primary-container group"><span class="material-symbols-outlined" data-icon="person_add">person_add</span> Adicionar pessoa</button>
+</div>
+</div>
+<div class="relative z-10 hidden md:block">
+<div class="w-48 h-48 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-7xl opacity-40" data-icon="family_history">family_history</span>
+</div>
+</div>
+<!-- Decorative circle -->
+<div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+</section>
+<!-- Family Member List -->
+<section class="space-y-4">
+<div class="flex justify-between items-end mb-2">
+<h3 class="font-headline font-bold text-lg text-on-surface-variant">Pessoas cadastradas</h3>
+<span class="text-sm font-label text-outline">3 Pessoas</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Member 1 -->
+<div class="group bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between transition-all hover:bg-surface-container-low cloud-shadow">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-primary-container p-0.5">
+<img class="w-full h-full object-cover rounded-full" data-alt="portrait of a smiling middle aged woman with glasses professional and warm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDViXdd4hwIFqZtg4wxHtrTRQhXNK7eeOwidSwTLy4PTReejrDsGLaJ_xiXsWpmZOjtD3l35sKgyl9rrgMqRIfUFG9K3ZDrKYKLpcZStNRGK4On-0nECv6o7TYezwqXNPrQsW05CZCzSwhM5pKZTrP0aaUaALIiTlks5PlimZyQ_miJ6qdJAK4G88kKJcYO8NIZsqFCDEZX29EBqaoLyYMHGXOY_Z7JOsaPGIT787Q3da68L_YbDuKXPAN6GQGDEHdchIazqk2jZlaW"/>
+</div>
+<div>
+<h4 class="font-manrope font-bold text-on-surface text-lg">Ana Oliveira</h4>
+<div class="flex items-center gap-2">
+<span class="text-sm text-on-surface-variant font-medium">Esposa</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-sm text-outline">42 anos</span>
+</div>
+<div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-semibold">
+<span class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></span>
+                                3 agendamentos
+                            </div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Member 2 -->
+<div class="group bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between transition-all hover:bg-surface-container-low cloud-shadow">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-primary-container p-0.5">
+<img class="w-full h-full object-cover rounded-full" data-alt="portrait of a young boy smiling wearing a casual blue shirt in a park setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfiCQ7xjQU02CYKuQWgSiO-XWoJ0J2IHDsyJMtfgG5sJkRJYOm-5QfLLn64qAZ9y8I04EK-6D4kgd0izXecnXmOTfD76gtniluecZdWAM8zVk9pwuzJFgBMuMdNvKqxse6kQwMJORNR4s-JXGJiVccuKkUTEAJCsNS29aiPcc5XAzwIXJyP4cXov0PEAt0mzY1le869QqIFZJDdWXJLN4e6zJwU83Jg_Lvku6CvrCG68vKCjFH7Iko4xzQ09ji-YRSieHm67pLMv-J"/>
+</div>
+<div>
+<h4 class="font-manrope font-bold text-on-surface text-lg">Lucas Oliveira</h4>
+<div class="flex items-center gap-2">
+<span class="text-sm text-on-surface-variant font-medium">Filho</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-sm text-outline">12 anos</span>
+</div>
+<div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium">
+                                Nenhum agendamento
+                            </div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Member 3 -->
+<div class="group bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between transition-all hover:bg-surface-container-low cloud-shadow">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-primary-container p-0.5">
+<img class="w-full h-full object-cover rounded-full" data-alt="headshot of an elderly man with white hair and friendly expression warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLsNkt66D9y4zN3QOEs_bJLJ-2PMBoyYIwD52cHqMcB7olLxy8WmmwT3t5iebWxFhjASUQfL-kn2EmVF8E23Q-zY-rTFfCW9gniqkBIFB2Z7_ChUU78XYXk4mYFVcg7sDuw5A8IcQoIFtTP_kah35IlG6-utxuOWwfmc2rJ_6yGXw2AzAE21lHMWSZYNB3WHx69oVw_ArQIcpZbKMfhuOW9zTH4lNtsNqLKsB-dww5XaSLuTMhneqkWL19MkH5cr0aKzW-b1ACDwfF"/>
+</div>
+<div>
+<h4 class="font-manrope font-bold text-on-surface text-lg">Ricardo Santos</h4>
+<div class="flex items-center gap-2">
+<span class="text-sm text-on-surface-variant font-medium">Pai</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-sm text-outline">74 anos</span>
+</div>
+<div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-semibold">
+<span class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></span>
+                                1 agendamento
+                            </div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Informational Tray / Contextual Help -->
+<section class="bg-surface-container-low rounded-2xl p-6 border-l-4 border-primary">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div>
+<h5 class="font-manrope font-bold text-on-surface">Gestão Compartilhada</h5>
+<p class="text-sm text-on-surface-variant mt-1">Ao adicionar uma pessoa, você poderá agendar consultas em nome delas e receber notificações sobre exames e procedimentos importantes.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Modal (Hidden state via opacity/pointer-events simulated) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 pointer-events-none opacity-0">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm"></div>
+<!-- Modal Content -->
+<div class="relative bg-surface-container-lowest w-full max-w-sm rounded-2xl overflow-hidden cloud-shadow pointer-events-auto">
+<div class="p-6">
+<div class="w-12 h-12 bg-error-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface mb-2">Remover familiar?</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                    Essa ação removerá todos os dados associados a este familiar. Você não poderá recuperar essas informações depois.
+                </p>
+</div>
+<div class="flex gap-2 p-4 bg-surface-container-low">
+<button class="flex-1 py-3 text-sm font-bold text-on-surface-variant bg-surface rounded-xl hover:bg-surface-container-highest transition-colors active:scale-95">
+                    Cancelar
+                </button>
+<button class="flex-1 py-3 text-sm font-bold text-on-error bg-error rounded-xl hover:bg-error/90 transition-colors shadow-lg shadow-error/20 active:scale-95">
+                    Confirmar
+                </button>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Doctor Profile - Vitalis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#005faf",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#d1f7ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "on-primary-container": "#006dc8",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#526772",
+                        "primary-fixed": "#d4e3ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "secondary": "#4c616c",
+                        "primary-container": "#eaf0ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001c3a",
+                        "background": "#f7f9fb",
+                        "on-surface-variant": "#43474a",
+                        "secondary-container": "#cfe6f2",
+                        "tertiary": "#006876",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "outline": "#73787b",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#9eefff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed-variant": "#004786",
+                        "inverse-primary": "#a5c8ff",
+                        "outline-variant": "#c3c7cb",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-container": "#007887",
+                        "surface-tint": "#005faf",
+                        "secondary-fixed": "#cfe6f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #004786 100%);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen">
+<!-- TopAppBar: Minimalist per request -->
+<nav class="fixed top-0 w-full z-50 flex items-center px-6 py-4 justify-between max-w-full bg-[#f7f9fb]/80 backdrop-blur-lg no-border">
+<div class="flex items-center">
+<button class="hover:bg-[#005faf]/10 transition-colors rounded-full p-2 active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#005faf]">arrow_back</span>
+</button>
+</div>
+</nav>
+<main class="pt-20 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Hero Header -->
+<header class="relative mb-8">
+<div class="flex items-start gap-6">
+<div class="relative">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-surface-container-lowest cloud-shadow">
+<img alt="Dra. Ana Costa" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8TJjJAQ5_I4g8uIiAuiaWe5Ib_kTWNIVjjVuspGdy8B4FYWtkO0X_E5x85QcquwFp8kZgaGbGjR-Ieu1NDH1tO8SUpyv7tfr8CRnm8KwsV5dA6lgpV_tVy4RjRbXPpcieIj7KEk1SFkMTEzUOg9WfhQ4kVH2MqHdSKPXNy0K3GM_I9wZdFXCDWc3uuZGIdqvh9dPLEkQe8o-dloARRHe97jw8S1eAPv8eEGKNfsTH54RAqw86pCTO3LrLBa3iI8BYmtQQ_cbq83iJ">
+</div>
+</div>
+<div class="flex-1 pt-2">
+<h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface leading-tight tracking-tight">Dra. Ana Costa</h2>
+<p class="text-on-surface-variant text-sm mt-1">CRM 123456</p>
+</div>
+</div>
+</header>
+<!-- Consultation Price Section - Updated for Dual Modality -->
+<section class="mb-8">
+<h3 class="font-headline font-bold text-lg mb-4 text-on-surface">Especialidades e Valores</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between bg-surface-container-low p-4 rounded-2xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+<span class="font-headline font-semibold text-on-surface">Pediatria</span>
+</div>
+<span class="font-headline font-bold text-primary">R$ 350,00</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low p-4 rounded-2xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">child_care</span>
+<span class="font-headline font-semibold text-on-surface">Neonatologia</span>
+</div>
+<span class="font-headline font-bold text-primary">R$ 400,00</span>
+</div>
+</div>
+</section>
+<!-- Specialties List -->
+
+<!-- Professional Bio -->
+<section class="mb-10">
+<h3 class="font-headline font-bold text-lg mb-3 text-on-surface">Sobre a profissional</h3>
+<p class="text-on-surface-variant leading-relaxed text-base">
+                Especialista em pediatria com foco em desenvolvimento infantil e neonatologia. Dedicada a oferecer um atendimento humanizado e preciso para garantir o bem-estar dos pequenos desde o nascimento.
+            </p>
+</section>
+<!-- Location Card -->
+<section class="mb-10">
+<div class="bg-surface-container-low rounded-3xl p-5">
+<h3 class="font-headline font-bold text-lg mb-4 text-on-surface">Localização</h3>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden cloud-shadow flex flex-col md:flex-row">
+<div class="w-full md:w-48 h-32 md:h-auto relative">
+<img alt="Detailed city map" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkvVhKDXQlh7Ak3dv6yDpiyO0qLDB-Gi0Kyav7sjy56Q3C9F0ZfCARDGZuSxBpOvpHatMIpiUBOnQwhRnwaXszBKplkIAxp4Wd2Ac-a2TK-Tetq1QucMlA2wgg5P9ACYRU1KemQP1TJ0JlefyK-sUGsfYAVxmYHM-hW2zkd6DJSzlQ8hpDvtHv-NO15oc0xvdARHK_CUChiOa15rz-WHAcTGdvLf0hF3KuBpmexA_I9q3PiOwmN3dUDsp-Wh5vFOp-NmFw595tYYfL">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="flex flex-col items-center">
+<div class="bg-[#1A73E8] p-1.5 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-on-surface">Clínica Central</h4>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">0.8 KM</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-snug">Av. Paulista, 1000 - Bela Vista, São Paulo - SP</p>
+</div>
+<button class="mt-4 text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+      Ver clínica <span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Availability Bento -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-5">
+<h3 class="font-headline font-bold text-lg text-on-surface">Horários disponíveis</h3>
+<button class="text-primary text-sm font-semibold">Ver calendário</button>
+</div>
+<div class="space-y-6">
+<!-- Today -->
+<div>
+<p class="text-xs font-bold text-on-surface-variant tracking-widest uppercase mb-3">Hoje, 24 Mai</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<button class="bg-surface-container-lowest border-b-2 border-transparent hover:border-primary py-3 rounded-xl cloud-shadow transition-all group">
+<span class="block text-sm font-bold text-on-surface group-hover:text-primary">14:00</span>
+</button>
+<button class="primary-gradient py-3 rounded-xl shadow-lg ring-2 ring-primary ring-offset-2 ring-offset-surface">
+<span class="block text-sm font-bold text-white">16:30</span>
+</button>
+</div>
+</div>
+<!-- Tomorrow -->
+<div>
+<p class="text-xs font-bold text-on-surface-variant tracking-widest uppercase mb-3">Amanhã, 25 Mai</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<button class="bg-surface-container-lowest border-b-2 border-transparent hover:border-primary py-3 rounded-xl cloud-shadow transition-all group">
+<span class="block text-sm font-bold text-on-surface group-hover:text-primary">09:00</span>
+</button>
+<button class="bg-surface-container-lowest border-b-2 border-transparent hover:border-primary py-3 rounded-xl cloud-shadow transition-all group">
+<span class="block text-sm font-bold text-on-surface group-hover:text-primary">11:00</span>
+</button>
+<button class="bg-surface-container-low opacity-50 py-3 rounded-xl cursor-not-allowed">
+<span class="block text-sm font-bold text-on-surface-variant line-through">14:00</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Bottom Action -->
+<footer class="fixed bottom-0 left-0 w-full p-6 bg-surface/90 backdrop-blur-xl z-50">
+<div class="max-w-2xl mx-auto">
+<button class="w-full primary-gradient text-white font-headline font-bold py-4 rounded-2xl cloud-shadow hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                Agendar consulta
+                <span class="material-symbols-outlined">calendar_add_on</span>
+</button>
+</div>
+</footer>
+
+
+</body></html>

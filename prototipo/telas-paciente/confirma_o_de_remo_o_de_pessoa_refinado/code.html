@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirmar Exclusão - Gestão Familiar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#eaf0ff",
+                        "secondary-container": "#cfe6f2",
+                        "outline-variant": "#c3c7cb",
+                        "secondary": "#4c616c",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#73787b",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container": "#eceef0",
+                        "on-background": "#191c1e",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d4e3ff",
+                        "error-container": "#ffdad6",
+                        "primary": "#005faf",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "tertiary-fixed": "#9eefff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#d1f7ff",
+                        "on-secondary-container": "#526772",
+                        "surface-bright": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "inverse-on-surface": "#eff1f3",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "surface-tint": "#005faf",
+                        "on-primary-fixed": "#001c3a",
+                        "tertiary": "#006876",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-container": "#006dc8",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#a5c8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-surface-variant": "#43474a",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-tertiary-container": "#007887",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col relative">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-6 py-4 w-full bg-[#f7f9fb] dark:bg-[#191c1e] fixed top-0 z-10">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#f2f4f6] dark:hover:bg-[#2e3133] transition-colors text-[#005faf] dark:text-[#d4e3ff]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-bold text-xl tracking-tight text-[#005faf] dark:text-[#d4e3ff]">Gestão Familiar</h1>
+</div>
+<div class="style_brand_logo text-[#005faf] font-['Manrope'] font-extrabold text-lg">Vitalis</div>
+</header>
+<!-- Background Content (Gerenciar Família) -->
+<main class="flex-grow flex flex-col px-6 pt-24 w-full max-w-md mx-auto">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline font-bold text-2xl text-on-surface">Membros</h2>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add</span> Adicionar
+        </button>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest rounded-xl p-4 flex items-center gap-4 shadow-sm border border-outline-variant/30">
+<div class="relative w-14 h-14 rounded-full overflow-hidden shrink-0">
+<img alt="Lucas Oliveira" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2LQnCZFqp5teTsdYLk1Hv1dXzMIKV8iCcEZ5G7hNqsbU6W3JoKDM274Nfgz2Y_OQpRo2l244MrQpds30ekLK3dtL968VFTx_JpAlqaVM1TqRwOKrObdFuTxb9TWA_I8775Y2J50RO-FVBQ2ldrqzBg4OZ1R71pxkt4yk9jI5VqahQQ9p0Z0k5xDohe68E8P5-MR54cLkq5-vyNFL8BzXsZWYWsoDLaPxB4C_qVnqnRifBChelyWAClF5g9z0PSFAd31LwFwGr5RgY"/>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-headline font-bold text-on-surface text-base">Lucas Oliveira</span>
+<span class="font-body text-on-surface-variant text-xs font-medium uppercase tracking-wider">Filho</span>
+</div>
+<button class="text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 flex items-center gap-4 shadow-sm border border-outline-variant/30">
+<div class="relative w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="font-headline font-bold text-on-secondary-container text-xl">M</span>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-headline font-bold text-on-surface text-base">Maria Oliveira</span>
+<span class="font-body text-on-surface-variant text-xs font-medium uppercase tracking-wider">Cônjuge</span>
+</div>
+<button class="text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Modal Overlay with Blur -->
+<div class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 bg-on-background/40 backdrop-blur-sm">
+<!-- Confirmation Modal -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(25,28,30,0.12)] p-8 flex flex-col items-center text-center">
+<!-- Icon Highlight -->
+<div class="w-20 h-20 bg-error-container rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-error text-4xl" data-icon="person_remove">person_remove</span>
+</div>
+<!-- Title & Subtitle -->
+<h2 class="font-headline font-bold text-2xl text-on-surface mb-3">Remover pessoa?</h2>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-8">
+            Essa ação não pode ser desfeita. Todos os dados e históricos associados a esta pessoa serão removidos permanentemente.
+        </p>
+<!-- Person Summary Card -->
+<div class="w-full bg-surface-container-low rounded-xl p-4 flex items-center gap-4 mb-10 text-left">
+<div class="relative w-14 h-14 rounded-full overflow-hidden shrink-0">
+<img alt="Lucas Oliveira" class="w-full h-full object-cover" data-alt="Close-up portrait of a young man with a friendly expression, soft daylight, minimalist clinical background studio style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2LQnCZFqp5teTsdYLk1Hv1dXzMIKV8iCcEZ5G7hNqsbU6W3JoKDM274Nfgz2Y_OQpRo2l244MrQpds30ekLK3dtL968VFTx_JpAlqaVM1TqRwOKrObdFuTxb9TWA_I8775Y2J50RO-FVBQ2ldrqzBg4OZ1R71pxkt4yk9jI5VqahQQ9p0Z0k5xDohe68E8P5-MR54cLkq5-vyNFL8BzXsZWYWsoDLaPxB4C_qVnqnRifBChelyWAClF5g9z0PSFAd31LwFwGr5RgY"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-on-surface text-base">Lucas Oliveira</span>
+<span class="font-body text-on-surface-variant text-xs font-medium uppercase tracking-wider">Filho</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-3">
+<button class="w-full bg-error text-on-error py-4 rounded-lg font-headline font-bold text-base transition-transform active:scale-95 shadow-sm">Remover</button>
+<button class="w-full bg-transparent text-primary py-4 rounded-lg font-headline font-bold text-base hover:bg-surface-container transition-colors">
+                Voltar
+            </button>
+</div>
+</div>
+<!-- Secondary Information / Help Text -->
+</div>
+<!-- Navigation Shell (Suppressed as per task-focused logic) -->
+<!-- The BottomNavBar is explicitly excluded for this transactional/confirmation screen -->
+</body></html>

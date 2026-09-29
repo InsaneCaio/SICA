@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Corpo Clínico | Clinical Admin</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#cfe6f2",
+                        "outline": "#73787b",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#006dc8",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-tertiary-container": "#007887",
+                        "on-surface-variant": "#43474a",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#d4e3ff",
+                        "tertiary-fixed": "#9eefff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#526772",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#004786",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#005faf",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#071e27",
+                        "background": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#001c3a",
+                        "primary-container": "#eaf0ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#005faf",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#cfe6f2",
+                        "outline-variant": "#c3c7cb",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#d1f7ff",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#006876",
+                        "inverse-primary": "#a5c8ff",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-error-container": "#93000a",
+                        "secondary": "#4c616c",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: 100dvh;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-6">
+<!-- TopAppBar -->
+<!-- Main Content -->
+<main class="pt-4 px-6 max-w-screen-xl mx-auto">
+<!-- Hero Section / Search -->
+<section class="py-4">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight mb-2 text-on-surface">Nossos médicos</h2>
+<p class="text-on-surface-variant max-w-md">Consulte nossa equipe de especialistas e gerencie disponibilidades de atendimento.</p>
+</div>
+<!-- Search Box -->
+<div class="w-full md:w-96 relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface-container-highest border-b-2 border-transparent focus:border-primary focus:ring-0 transition-all rounded-t-xl text-sm placeholder:text-outline-variant outline-none" placeholder="Buscar por nome ou especialidade..." type="text"/>
+</div>
+</div>
+<!-- Filters Chips (Horizontal Scroll) -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-xs font-semibold whitespace-nowrap">Todos</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-semibold whitespace-nowrap">Cardiologia</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-semibold whitespace-nowrap">Pediatria</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-semibold whitespace-nowrap">Ortopedia</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-semibold whitespace-nowrap">Dermatologia</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-semibold whitespace-nowrap">Neurologia</button>
+</div>
+</section>
+<!-- Physician List -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Doctor Card 1 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 p-6 rounded-xl relative flex flex-col justify-between overflow-hidden">
+<div class="flex gap-5 mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-sm">
+<img alt="Dr. Julian Sterling" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A professional portrait of a senior male physician with a warm expression, wearing a crisp white coat in a bright clinical setting. The background is softly blurred with tones of blue and silver, suggesting a high-end medical environment. The image uses soft, high-key lighting to emphasize trust and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8GeqZ_YRhyqBi9DQLFmVsJ-VGvWPvugFBTrV9QubIlH1hd_K-whEiK0A-v7DeTllFIM3at6DOEbxmaPvlE8b_yVby3g5yk_VGu5THVBgjTHmq256GwDNsiaSiBcy8c0ALBb-bAAl8WRUazQOu5hFBwGSSZ73dxq7BXOXAe8CKNi5rlV1OUEWKec0c-KjzmDBM60wTqOuo4-NV8amPo3jxKDRJk20dZ4wLHgaDkT-sKYo2A7g0Xd4f24VvCE2Qnu5lWfVVMx2GrD84"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold leading-tight">Dr. Julian Sterling</h3>
+<p class="text-primary font-semibold text-sm mb-1">Cardiologia Intervencionista</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Especialista sênior com mais de 15 anos de experiência em procedimentos minimamente invasivos.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-fixed-dim text-on-primary py-2.5 rounded-lg text-sm font-semibold active:scale-95 transition-transform">Agendar Consulta</button>
+<button class="px-4 py-2.5 text-primary border border-primary/10 rounded-lg hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 2 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 p-6 rounded-xl relative flex flex-col justify-between overflow-hidden">
+<div class="flex gap-5 mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-sm">
+<img alt="Dra. Sarah Chen" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A professional portrait of a female physician with a confident smile, wearing glasses and a medical uniform. The setting is a clean, modern medical center with soft daylight and blue accents. The visual style is premium and editorial, emphasizing clinical authority and accessibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9QoMKkZceq-mNnqyiQOgRhViucFdHR-Jt2OgLgLYNR-6gRV5MrWc-Uo3kqA8vb97-Vx5aVsOCeEWmPF9WWyObFPjaFV4h0WW3UKKTcPCb5I9Z5YqFe7Gwff_BDYS6xiAs10T1wbz5MdNcK-T6Q47kn0hbFzHkFmjahr2woWgoD6foEJMu1JaTbcXyRhsc0GTWoEc0kN5--_ZzD1kSTsNl5PBmkQQJc2ZtPR1fRMK4W_PvO8gbTH81CgrO595FvkwGYFH9vIDID_MN"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold leading-tight">Dra. Sarah Chen</h3>
+<p class="text-primary font-semibold text-sm mb-1">Pediatria Integrativa</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Líder do departamento infantil, focada em medicina preventiva e desenvolvimento neuropsicomotor.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-fixed-dim text-on-primary py-2.5 rounded-lg text-sm font-semibold active:scale-95 transition-transform">Agendar Consulta</button>
+<button class="px-4 py-2.5 text-primary border border-primary/10 rounded-lg hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 3 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 p-6 rounded-xl relative flex flex-col justify-between overflow-hidden">
+<div class="flex gap-5 mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-sm">
+<img alt="Dr. Ricardo Santos" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A professional portrait of a male doctor in his 40s, looking focused and calm. He is in a contemporary office with minimalist clinical decor and soft blue light. The lighting is crisp, highlighting the clean white fabric of his coat and the professional atmosphere of a high-tech hospital." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-xCCSfh7Ga8IHcXwXl-1QX3CwWEYrJZQQDwuNQu22vEtrY05vWB8pGaujOt5a9EB8Jc-0JvOCJ9JEGPPLUuVDfnny8ayL9KKL488XM1cEgxE3LoDOelsEUhC5aVdcZ8XxrUX8CXwfP5x5Y_oREVcekzATmZ8fPbyxpQd2RwWYr1dBq9Eo_URSqxt_WZfw6wd8EodXlxVGQd8EdX8midfzQIteJcPC_XEOGC7sH0Ofw8kBVM9sdIfokMFTy_JbfMb1uALE8PnZjGuZ"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold leading-tight">Dr. Ricardo Santos</h3>
+<p class="text-primary font-semibold text-sm mb-1">Neurologia Clínica</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Especialista em distúrbios do sono e cefaleias. Pesquisador associado do Clinical Research Lab.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-fixed-dim text-on-primary py-2.5 rounded-lg text-sm font-semibold active:scale-95 transition-transform">Agendar Consulta</button>
+<button class="px-4 py-2.5 text-primary border border-primary/10 rounded-lg hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 4 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 p-6 rounded-xl relative flex flex-col justify-between overflow-hidden">
+<div class="flex gap-5 mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-sm">
+<img alt="Dra. Helena Moreira" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A professional medical portrait of a female physician in a sleek laboratory setting. She has a dedicated look, with high-quality medical equipment visible in a soft bokeh background. Bright, clinical lighting with a sophisticated blue and white palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1Lse14R695SCPXOwwjI5-60dps57wG_a0MGfEEk_eGI9G-I4XSsUk505n_R0qY967N8BC_Or_ov2h13F2WYaGuEac4TxActpkUUJscS1kjnLWHVpU0lo_1vGpYJ3DGB_ev2Eh7RjCLxTh-jVQm4xZ8D8ECraHPTrAHXsplRNEoSEq28KDTs320rAZLpC_RddDWP7PkN2vFR16LojJppfDjx0rCAWDVfO0D4JX8YoMrDItXyZNsM15goyrIEhM32YjLxEkHPAjNjJt"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold leading-tight">Dra. Helena Moreira</h3>
+<p class="text-primary font-semibold text-sm mb-1">Dermatologia</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Referência em procedimentos estéticos avançados e oncologia cutânea. Membro da SBD.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-fixed-dim text-on-primary py-2.5 rounded-lg text-sm font-semibold active:scale-95 transition-transform">Agendar Consulta</button>
+<button class="px-4 py-2.5 text-primary border border-primary/10 rounded-lg hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 5 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 p-6 rounded-xl relative flex flex-col justify-between overflow-hidden">
+<div class="flex gap-5 mb-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-sm">
+<img alt="Dr. Marcos Viana" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A professional portrait of a male surgeon in sterile scrubs and a white coat. He stands in a high-tech hospital corridor with soft, ambient lighting creating a clean and professional mood. Cool blue tones dominate the scene, suggesting clinical excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAzMOVdnp5tHrj1Vt3KJ1WSipihS5XMHiOyfgNIW4ubS43HuHyNkojIFTLv-aVIAhQMHOP1ETn-7q-E_yYCZU_GZD4uPxMC-vxlqrSYu6MBxLJpozxuzFIbkWSsx2R_m9GYiVxolamgC4LYjdSlyXmathKItnY6b_BA0BMMgWyAZoe_wAI6yiZbaxGwIXgJ6ymaNjxrqpDGzr_qADzP0BmFCKnWbyHMHaa6FfDivYNKt720fUrQgI_yHLEiZEgmcpIQclmffOEaggB"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold leading-tight">Dr. Marcos Viana</h3>
+<p class="text-primary font-semibold text-sm mb-1">Ortopedia e Trauma</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Cirurgião chefe de trauma, especialista em lesões esportivas de alta complexidade.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-fixed-dim text-on-primary py-2.5 rounded-lg text-sm font-semibold active:scale-95 transition-transform">Agendar Consulta</button>
+<button class="px-4 py-2.5 text-primary border border-primary/10 rounded-lg hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="person">person</span>
+</button>
+</div>
+</div>
+<!-- Add New Physician Card -->
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-2 px-4 bg-surface-container-low z-50 rounded-t-xl shadow-[0_-4px_20px_rgba(25,28,30,0.04)]"><!-- Início -->
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant px-5 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-[0.7rem] uppercase tracking-wider mt-1">Início</span>
+</a>
+<!-- Buscar -->
+<a class="flex flex-col items-center justify-center text-primary px-5 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label text-[0.7rem] uppercase tracking-wider mt-1">Buscar</span>
+</a>
+<!-- Agenda -->
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant px-5 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label text-[0.7rem] uppercase tracking-wider mt-1">Agenda</span>
+</a>
+<!-- Perfil -->
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant px-5 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-[0.7rem] uppercase tracking-wider mt-1">Perfil</span>
+</a></nav>
+<script>
+        // Simple search interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.group');
+            cards.forEach(card => {
+                const name = card.querySelector('h3')?.textContent.toLowerCase();
+                const spec = card.querySelector('p')?.textContent.toLowerCase();
+                if (name?.includes(term) || spec?.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter chip logic
+        const chips = document.querySelectorAll('button[class*="rounded-full"]');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary', 'text-on-primary');
+                    c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+                });
+                chip.classList.add('bg-primary', 'text-on-primary');
+                chip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

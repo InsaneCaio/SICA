@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Admin - Notificações Financeiras</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#7c4824",
+                        "surface": "#f8fafa",
+                        "outline": "#6f797a",
+                        "surface-dim": "#d8dadb",
+                        "primary": "#00454c",
+                        "on-primary-fixed": "#001f23",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "secondary": "#565e74",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e1e3e3",
+                        "primary-fixed-dim": "#8ed1db",
+                        "inverse-on-surface": "#eff1f1",
+                        "tertiary-fixed": "#ffdbc7",
+                        "tertiary-fixed-dim": "#feb78a",
+                        "surface-tint": "#1d6871",
+                        "surface-container-highest": "#e1e3e3",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f4f4",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#6b3a17",
+                        "primary-container": "#0d5e67",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "surface-container": "#eceeee",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8e9",
+                        "tertiary": "#60320f",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bfc8ca",
+                        "on-primary-container": "#92d5df",
+                        "on-primary-fixed-variant": "#004f57",
+                        "on-surface-variant": "#3f484a",
+                        "surface-bright": "#f8fafa",
+                        "background": "#f8fafa",
+                        "inverse-surface": "#2e3131",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary-container": "#ffbb91",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "primary-fixed": "#aaeef8",
+                        "on-secondary-container": "#5c647a",
+                        "inverse-primary": "#8ed1db"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "32px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "container-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans"],
+                        "title-sm": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "label-caps": ["Public Sans"],
+                        "display-lg": ["Public Sans"],
+                        "body-sm": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "data-tabular": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        .glass-overlay {
+            background: rgba(25, 28, 29, 0.4);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-on-background border-r border-outline-variant dark:border-outline flex flex-col h-full py-xl px-md z-10">
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Admin Portal</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central Hospital Group</p>
+</div>
+<nav class="flex-grow space-y-sm">
+<a class="flex items-center gap-md py-sm px-md text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Finance</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-body-md text-body-md">Clinics</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-body-md text-body-md">System</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-lg flex items-center gap-md">
+<img alt="Hospital Administrator Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional portrait of a senior hospital administrator in a minimalist medical office. The lighting is bright and clean, reflecting a high-trust healthcare environment. She wears a clinical yet modern blazer, embodying reliability and corporate precision. The background is softly blurred to emphasize her focus and authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGO_BAbpeGpX2YTG_VJw_9LhoB4zGIk9WVL9PQzqqChBB3eOmDMnhj4X6rKKHSO0NIS-Arzgpy_WCvOSbp2YReA3ArVxHP2JV5KGjv6Kybc68WH2USBnBd144hW6AXqfQBs6nWf6SgCR86YaEiwYYMxD2Tg2-Q8CcwYZ0NNEBk9PChvh7-MIxfh-Y9n13e64XNWdPlrRuGwCe1d7aUEdV4dvRNsK5yYXhVhJrWmDDlFl8O22kg5ln5b0D5TG4MvAthJAO986BvSGa3"/>
+<div>
+<p class="font-label-caps text-label-caps">ADMIN</p>
+<button class="font-body-sm text-body-sm text-primary font-bold">Log out</button>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center w-full px-container-margin py-md ml-64 docked full-width top-0 sticky bg-surface-bright dark:bg-surface-dim border-b border-outline-variant dark:border-outline z-10">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Clinical Admin</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-xl pr-md py-xs border border-outline-variant rounded-lg bg-surface-container-low text-body-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-64" placeholder="Search clinics or reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm hover:text-primary-container transition-transform scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm hover:text-primary-container transition-transform scale-95 duration-150">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded font-title-sm text-title-sm hover:opacity-90 transition-opacity">
+                Generate Report
+            </button>
+</div>
+</header>
+<!-- Main Content (Dashboard Background) -->
+<main class="ml-64 p-xl min-h-screen bg-surface">
+<div class="max-w-7xl mx-auto space-y-lg">
+<!-- Summary Stats -->
+<div class="grid grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<p class="font-label-caps text-label-caps text-on-surface-variant">TOTAL REVENUE</p>
+<h3 class="font-display-lg text-display-lg mt-xs text-primary">R$ 1.240.500</h3>
+<div class="flex items-center gap-xs mt-sm text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-body-sm text-body-sm">+12.4% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<p class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE CLINICS</p>
+<h3 class="font-display-lg text-display-lg mt-xs text-primary">142</h3>
+<div class="flex items-center gap-xs mt-sm text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-sm">festival</span>
+<span class="font-body-sm text-body-sm">4 added this week</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<p class="font-label-caps text-label-caps text-on-surface-variant">PENDING PAYMENTS</p>
+<h3 class="font-display-lg text-display-lg mt-xs text-error">R$ 42.120</h3>
+<div class="flex items-center gap-xs mt-sm text-error">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-body-sm text-body-sm">8 clinics overdue</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<p class="font-label-caps text-label-caps text-on-surface-variant">RENEWALS (30D)</p>
+<h3 class="font-display-lg text-display-lg mt-xs text-tertiary">28</h3>
+<div class="flex items-center gap-xs mt-sm text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-sm">event</span>
+<span class="font-body-sm text-body-sm">Requires manual review</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-3 gap-gutter h-[500px]">
+<!-- Main Chart -->
+<div class="col-span-2 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h4 class="font-title-sm text-title-sm">Monthly Performance</h4>
+<div class="flex gap-sm">
+<span class="px-sm py-xs bg-primary-container text-on-primary-container text-[10px] font-bold rounded">YEARLY</span>
+<span class="px-sm py-xs bg-surface-container text-on-surface-variant text-[10px] font-bold rounded">MONTHLY</span>
+</div>
+</div>
+<div class="flex-grow flex items-end justify-between px-md pb-md border-l border-b border-outline-variant relative">
+<!-- Simulated Chart Bars -->
+<div class="w-12 bg-primary-container rounded-t h-[40%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary-container rounded-t h-[65%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary-container rounded-t h-[55%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary rounded-t h-[85%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary-container rounded-t h-[45%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary-container rounded-t h-[70%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary-container rounded-t h-[95%] transition-all hover:brightness-110"></div>
+<div class="w-12 bg-primary-container rounded-t h-[60%] transition-all hover:brightness-110"></div>
+</div>
+</div>
+<!-- Secondary Info -->
+<div class="space-y-gutter">
+<div class="bg-tertiary-container text-on-tertiary-container p-lg rounded-xl h-[238px] relative overflow-hidden">
+<h4 class="font-title-sm text-title-sm mb-sm">Expansion Target</h4>
+<p class="font-body-sm text-body-sm opacity-90">Reach 160 clinics by Q4 to unlock institutional incentives.</p>
+<div class="mt-xl">
+<div class="flex justify-between font-label-caps text-[10px] mb-xs">
+<span>CURRENT: 142</span>
+<span>88%</span>
+</div>
+<div class="h-2 w-full bg-tertiary rounded-full">
+<div class="h-2 w-[88%] bg-tertiary-fixed rounded-full shadow-lg"></div>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-[120px] opacity-10">rocket_launch</span>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm h-[238px]">
+<h4 class="font-title-sm text-title-sm mb-lg">Recent Clinics</h4>
+<ul class="space-y-md">
+<li class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-sm">local_hospital</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Clinica Santa Luzia</p>
+<p class="text-[12px] text-on-surface-variant">Added 2h ago</p>
+</div>
+</li>
+<li class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm">health_metrics</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold">Vital Health Center</p>
+<p class="text-[12px] text-on-surface-variant">Added yesterday</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center glass-overlay transition-opacity duration-300" id="notification-modal">
+<!-- Notification Pop-up -->
+<div class="bg-surface rounded-xl shadow-2xl w-full max-w-[500px] border border-outline-variant overflow-hidden animate-in fade-in zoom-in duration-300">
+<!-- Modal Header -->
+<div class="flex justify-between items-center px-lg py-md border-b border-outline-variant bg-surface-bright">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<h3 class="font-headline-md text-headline-md text-primary">Notificações</h3>
+</div>
+<button class="p-sm hover:bg-surface-container rounded-full transition-colors" onclick="document.getElementById('notification-modal').style.display='none'">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Content -->
+<div class="p-lg space-y-md">
+<!-- Delayed Payment Alert -->
+<div class="flex gap-md p-md bg-error-container rounded-lg border border-error/10 hover:shadow-md transition-shadow cursor-pointer">
+<div class="shrink-0">
+<div class="w-10 h-10 rounded-full bg-error flex items-center justify-center text-on-error shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h5 class="font-title-sm text-title-sm text-on-error-container">Aviso de Atraso</h5>
+<span class="font-label-caps text-[10px] text-on-error-container opacity-70">AGORA</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-error-container mt-xs leading-relaxed">
+                            A <span class="font-bold">Clínica Vida Saudável</span> está com o pagamento do plano em atraso há 5 dias.
+                        </p>
+<div class="mt-md flex gap-sm">
+<button class="px-md py-xs bg-error text-on-error font-label-caps text-[10px] rounded hover:brightness-110 transition-all">COBRAR AGORA</button>
+<button class="px-md py-xs border border-error text-error font-label-caps text-[10px] rounded hover:bg-error/10 transition-all">VER FATURA</button>
+</div>
+</div>
+</div>
+<!-- Renewal Alert -->
+<div class="flex gap-md p-md bg-surface-container-low rounded-lg border border-outline-variant hover:shadow-md transition-shadow cursor-pointer">
+<div class="shrink-0">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">update</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h5 class="font-title-sm text-title-sm text-on-primary-container">Renovação Próxima</h5>
+<span class="font-label-caps text-[10px] text-on-surface-variant">2H ATRÁS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs leading-relaxed">
+                            O plano da <span class="font-bold">Clínica Central</span> vence em 3 dias. Verifique os detalhes para garantir a continuidade.
+                        </p>
+<div class="mt-md flex gap-sm">
+<button class="px-md py-xs bg-primary text-on-primary font-label-caps text-[10px] rounded hover:brightness-110 transition-all">RENOVAR</button>
+<button class="px-md py-xs border border-primary text-primary font-label-caps text-[10px] rounded hover:bg-primary/5 transition-all">DETALHES</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-lg py-md border-t border-outline-variant bg-surface-container-lowest flex justify-end gap-md">
+<button class="px-lg py-sm text-on-surface-variant font-title-sm text-title-sm hover:text-on-surface transition-colors" onclick="document.getElementById('notification-modal').style.display='none'">
+                    Ignorar tudo
+                </button>
+<button class="px-lg py-sm bg-primary text-on-primary rounded font-title-sm text-title-sm hover:brightness-110 shadow-lg shadow-primary/20 transition-all">
+                    Visualizar Histórico
+                </button>
+</div>
+</div>
+</div>
+<script>
+        // Micro-interaction: Close modal on background click
+        window.onclick = function(event) {
+            const modal = document.getElementById('notification-modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Key listener for Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('notification-modal').style.display = 'none';
+            }
+        });
+    </script>
+</body></html>

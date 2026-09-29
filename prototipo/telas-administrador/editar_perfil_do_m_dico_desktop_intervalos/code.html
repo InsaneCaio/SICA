@@ -1,0 +1,354 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Editar Perfil do Médico | Precision Clinic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#d1f7ff",
+                    "secondary-container": "#cfe6f2",
+                    "surface": "#f7f9fb",
+                    "on-surface-variant": "#43474a",
+                    "tertiary": "#006876",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001c3a",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-tertiary-container": "#007887",
+                    "primary": "#005faf",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed": "#cfe6f2",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-container": "#006dc8",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c3c7cb",
+                    "primary-container": "#eaf0ff",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed": "#9eefff",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline": "#73787b",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#526772",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed": "#071e27",
+                    "surface-tint": "#005faf",
+                    "secondary": "#4c616c",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-tertiary-fixed": "#001f24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-bg { background-color: #ffffff; }
+        .glass-header {
+            background-color: rgba(247, 249, 251, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06);
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-bottom-color: #005faf !important;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-72 fixed left-0 top-0 flex flex-col p-6 gap-8 bg-surface-dim dark:bg-inverse-surface z-50">
+<div class="flex flex-col gap-1">
+<h1 class="font-headline text-lg font-extrabold tracking-tight text-on-surface dark:text-on-surface">Precision Clinic</h1>
+<p class="text-xs font-medium text-on-surface-variant opacity-70 uppercase tracking-widest">Administrative Portal</p>
+</div>
+<nav class="flex flex-col gap-2">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-xl group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<!-- Schedule -->
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-xl group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">calendar_today</span>
+<span class="font-medium">Schedule</span>
+</a>
+<!-- Doctors (ACTIVE) -->
+<a class="flex items-center gap-3 px-6 py-3 bg-surface-container-lowest dark:bg-surface-container-high text-primary dark:text-primary-fixed-dim rounded-xl font-semibold cloud-shadow" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">medical_services</span>
+<span class="font-medium">Doctors</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-xl group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-low rounded-2xl flex items-center gap-3">
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional close-up of a healthcare administrator in a bright, modern clinic setting. She is wearing professional attire, exuding confidence and approachability. The background is softly blurred with clean white walls and clinical equipment, using a high-key lighting style and a palette of soft blues and crisp whites to match a premium clinical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzOszwTNQlQPzDRbVuKaL9qI6re75gatA0mkSRN1hGm8Y2ImdI4bfdwDHlJY8EokMOZoJseW1VplH3NTi7x-7yNnyqCWEDy7WbroGrKNAoziPjTon7n-TkqNasyZ67Qw82F8O0TJbY2ZcIffON_mnUODZXdphME1m-47N3q610BsfoOAk_p8oKPwB-idZcsg9_etBjPc30jkmRiyp8DoVkcZIdpus_zr5nac0FhILjBx6ul0av_Mv0Ayf2dFrcXH3_jSYxvHXv7MY">
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Admin User</p>
+<p class="text-xs text-on-surface-variant truncate">Principal Supervisor</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-72 min-h-screen flex flex-col">
+<!-- TopNavBar Shell -->
+<header class="w-full sticky top-0 z-40 bg-surface dark:bg-surface glass-header">
+<div class="flex justify-between items-center px-10 py-6 max-w-full">
+<div class="flex flex-col">
+<h2 class="font-headline text-display-sm font-bold text-on-surface dark:text-on-surface">Clinical Overview</h2>
+<nav class="flex items-center gap-2 text-xs text-on-surface-variant mt-1">
+<span class="">Home</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="">Doctors</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-semibold">Edit Profile</span>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search records..." type="text">
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest transition-all relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="px-10 py-8 max-w-7xl w-full mx-auto">
+<div class="flex justify-between items-end mb-10">
+<div class="space-y-1">
+<h1 class="font-headline text-4xl font-black text-on-surface tracking-tight">Editar Perfil do Médico</h1>
+<p class="text-on-surface-variant font-medium">Gerencie as informações profissionais e horários de atendimento.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 text-on-surface-variant font-semibold hover:text-primary transition-colors">Cancelar</button>
+<button class="px-8 py-3 primary-gradient text-white rounded-xl font-bold cloud-shadow hover:scale-[1.02] transition-transform active:scale-95 duration-100">
+                        Salvar Alterações
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Professional Identification -->
+<div class="col-span-7 space-y-8">
+<section class="bg-surface-container-low p-8 rounded-[12px] space-y-8">
+<div class="flex items-center gap-3 border-l-4 border-primary pl-4">
+<h3 class="font-headline text-xl font-bold text-on-surface">Identificação Profissional</h3>
+</div>
+<div class="space-y-6">
+<div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Nome Completo</label>
+<input class="w-full bg-surface-container-lowest border-b-2 border-transparent py-4 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface font-medium" type="text" value="Dra. Maya Lin">
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">CRM / UF</label>
+<input class="w-full bg-surface-container-lowest border-b-2 border-transparent py-4 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface font-medium" type="text" value="45092-RJ">
+</div>
+<div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Especialidade</label>
+<select class="w-full bg-surface-container-lowest border-b-2 border-transparent py-4 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface font-medium appearance-none">
+<option selected="">Cardiologia</option>
+<option>Dermatologia</option>
+<option>Pediatria</option>
+<option>Neurologia</option>
+</select>
+</div><div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Valor da Consulta (OPCIONAL)</label>
+<input class="w-full bg-surface-container-lowest border-b-2 border-transparent py-4 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface font-medium" type="text" value="R$ 350,00" placeholder="Ex: R$ 0,00">
+</div>
+</div>
+<div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Biografia Profissional</label>
+<textarea class="w-full bg-surface-container-lowest border-b-2 border-transparent py-4 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface font-medium resize-none" rows="4">Especialista em cardiologia intervencionista com mais de 10 anos de experiência clínica. Focada em diagnósticos precisos e tratamentos humanizados para patologias complexas do sistema cardiovascular.</textarea>
+</div>
+</div>
+</section>
+<!-- Contact Subsection -->
+<section class="bg-surface-container-lowest p-8 rounded-[12px] cloud-shadow space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">contact_mail</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Informações de Contato</h3>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">E-mail Corporativo</label>
+<input class="w-full bg-surface border-b-2 border-transparent py-3 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface" type="email" value="maya.lin@precisionclinic.com">
+</div>
+<div class="group">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Telefone</label>
+<input class="w-full bg-surface border-b-2 border-transparent py-3 px-4 rounded-t-lg focus:bg-white transition-all text-on-surface" type="text" value="+55 (21) 99872-4410">
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Profile & Availability -->
+<div class="col-span-5 space-y-8">
+<!-- Profile Management Card -->
+<section class="bg-surface-container-lowest p-8 rounded-[12px] cloud-shadow text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-24 bg-primary-container opacity-30"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="relative mb-4">
+<img alt="Dra. Maya Lin Photo" class="w-32 h-32 rounded-full object-cover ring-4 ring-white shadow-lg" data-alt="A professional, high-quality portrait of a female cardiologist named Dra. Maya Lin. She is wearing a white medical coat with a stethoscope around her neck, smiling confidently in a modern, brightly lit clinical office. The lighting is soft and even, highlighting her professional demeanor. The background shows subtle medical diplomas and a hint of a high-tech medical monitor, using a clean blue and white palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFSCBvzqo04lyAQaMKB67b39xfr9iLTK8SdVx3KQIVfhGrJuilCG2rbP_sIN9Opw7G9hMTSsqZqz4LF9R05uj_oE3XnsabTYwhVV-xkVoffFaesQuIA5rjEz6oWyu2sSXPERAf_zQzmGLPunQ6zZh0yNqNZjqQTetncXcJdSU2CiIhGtAAlkcaJ8_2k2sEmeQroAts2tw3R0OvqLHZmt_RaRENOPSZaxP3f8gWGvxCm_nKVA8233q14p8KU5fDGP4B3kPHwvKvTjs">
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-md hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<h2 class="font-headline text-2xl font-bold text-on-surface">Dra. Maya Lin</h2>
+<p class="text-primary font-semibold">Cardiologista</p>
+<div class="mt-4 flex gap-2 justify-center">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-bold uppercase tracking-tighter">CRM 45092-RJ</span>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold uppercase tracking-tighter">Ativo</span>
+</div>
+</div>
+</section>
+<!-- Availability Card -->
+<section class="bg-surface-container-low p-8 rounded-[12px] space-y-8">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3 border-l-4 border-tertiary pl-4">
+<h3 class="font-headline text-xl font-bold text-on-surface">Disponibilidade</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-40">schedule</span>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-semibold text-on-surface-variant mb-4 uppercase tracking-wider">Dias de Atendimento</label>
+<div class="flex justify-between gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-primary text-white shadow-md">Seg</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-primary text-white shadow-md">Ter</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-primary text-white shadow-md">Qua</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-primary text-white shadow-md">Qui</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-primary text-white shadow-md">Sex</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-surface-container-highest text-on-surface-variant border border-outline-variant/20 hover:bg-outline-variant transition-colors">Sáb</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-surface-container-highest text-on-surface-variant border border-outline-variant/20 hover:bg-outline-variant transition-colors">Dom</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
+<div>
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Início</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none py-3 px-4 rounded-xl text-on-surface font-bold focus:ring-2 focus:ring-primary/20" type="time" value="08:00">
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Término</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none py-3 px-4 rounded-xl text-on-surface font-bold focus:ring-2 focus:ring-primary/20" type="time" value="18:00">
+</div>
+</div>
+</div><div class="pt-4 border-t border-outline-variant/10 space-y-4">
+<label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Intervalo entre Consultas</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 px-3 rounded-xl text-xs font-bold bg-primary text-white shadow-md transition-all">15 min</button>
+<button class="flex-1 py-2 px-3 rounded-xl text-xs font-bold bg-surface-container-highest text-on-surface-variant border border-outline-variant/20 hover:bg-outline-variant transition-colors">30 min</button>
+<button class="flex-1 py-2 px-3 rounded-xl text-xs font-bold bg-surface-container-highest text-on-surface-variant border border-outline-variant/20 hover:bg-outline-variant transition-colors">60 min</button>
+</div>
+<div class="group">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Customizado (minutos)</label>
+<input class="w-full bg-surface-container-lowest border-none py-3 px-4 rounded-xl text-on-surface font-bold focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Ex: 45" type="number">
+</div>
+</div>
+</div>
+</section>
+<!-- Danger Zone (Placeholder) -->
+<div class="px-8 flex items-center justify-between opacity-50 hover:opacity-100 transition-opacity">
+<p class="text-xs font-bold text-error uppercase tracking-widest">Inativar Registro Médico</p>
+<button class="text-error material-symbols-outlined">no_accounts</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Padding -->
+<footer class="mt-auto h-20"></footer>
+</main>
+<!-- Success Toast (Hidden by Default) -->
+<div class="fixed bottom-10 right-10 flex items-center gap-4 bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-2xl shadow-2xl translate-y-20 opacity-0 transition-all duration-300 z-[100]" id="save-toast">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<span class="font-medium text-sm">Alterações salvas com sucesso em nosso sistema seguro.</span>
+</div>
+<script>
+        // Simple Micro-interaction for the Save Button
+        const saveBtn = document.querySelector('.primary-gradient');
+        const toast = document.getElementById('save-toast');
+
+        saveBtn.addEventListener('click', () => {
+            // Show toast
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            // Revert after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        });
+
+        // Day Selection Toggle
+        const dayButtons = document.querySelectorAll('.flex.justify-between.gap-2 button');
+        dayButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(btn.classList.contains('bg-primary')) {
+                    btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-surface-container-highest', 'text-on-surface-variant', 'border', 'border-outline-variant/20');
+                } else {
+                    btn.classList.add('bg-primary', 'text-white', 'shadow-md');
+                    btn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant', 'border', 'border-outline-variant/20');
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

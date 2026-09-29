@@ -1,0 +1,394 @@
+<!DOCTYPE html><html class="light" lang="pt-br" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#753400",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001c3a",
+                    "secondary-fixed-dim": "#b2c8ed",
+                    "on-tertiary-container": "#ffceb4",
+                    "primary": "#004786",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-container": "#9a4600",
+                    "secondary-container": "#c2d8fe",
+                    "surface": "#f7f9fb",
+                    "on-surface-variant": "#414751",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#324867",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c1c6d3",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-container": "#c4daff",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline": "#727783",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "primary-container": "#005faf",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed": "#021c39",
+                    "surface-tint": "#005faf",
+                    "secondary": "#4a5f80",
+                    "on-tertiary-fixed-variant": "#753400",
+                    "on-tertiary-fixed": "#321200",
+                    "tertiary-fixed-dim": "#ffb68c",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#495e7f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="flex min-h-screen overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="bg-surface-container-low text-primary font-label text-label-md uppercase tracking-wider h-screen w-64 left-0 top-0 flex flex-col py-6 border-r-0 z-50 fixed md:sticky shrink-0">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">clinical_notes</span>
+</div>
+<div>
+<h1 class="font-headline text-lg font-black text-on-surface leading-tight">The Curator</h1>
+<p class="text-[10px] tracking-widest text-outline">Precision Medicine</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all hover:bg-surface-container-high text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Agenda (Active) -->
+<a class="bg-secondary-container text-on-secondary-container rounded-xl font-bold flex items-center gap-3 px-4 py-3 mx-2 my-1 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">event_note</span>
+<span class="">Agenda</span>
+</a>
+<!-- Patients -->
+
+<!-- Documents -->
+
+<!-- Clinical History -->
+
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all hover:bg-surface-container-high text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar Component -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-40 w-full flex justify-between items-center px-8 py-4 shadow-sm">
+<div class="flex items-center gap-6">
+<h2 class="font-headline text-2xl font-bold text-primary">Agenda Dashboard</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-full border-none focus:ring-2 focus:ring-primary/20 w-64 transition-all focus:w-80 text-sm" placeholder="Search medical records..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors cursor-pointer relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+
+
+</div>
+
+</div>
+</div>
+</header>
+<div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Weekly Calendar View -->
+<section class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-headline text-lg font-bold text-on-surface leading-tight">Março, 2024</h3>
+<p class="text-sm text-outline">Semana 12 • Foco na Agenda</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="px-4 py-1 font-bold text-sm bg-surface-container-lowest shadow-sm rounded-lg">Hoje</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+<button class="flex items-center gap-2 px-4 py-1 ml-2 text-sm font-bold text-primary border border-primary/20 hover:bg-primary/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="">Configurar Agenda</span>
+</button></div>
+</div>
+<div class="grid grid-cols-7 gap-4">
+<!-- Monday -->
+<div class="group cursor-pointer flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container-low transition-all">
+<span class="font-label text-xs text-outline uppercase font-bold tracking-widest">SEG</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-bold text-lg text-on-surface-variant group-hover:bg-surface-container-highest transition-colors">16</div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></div>
+</div>
+<!-- Tuesday (Active) -->
+<div class="flex flex-col items-center gap-2 p-3 rounded-2xl bg-primary text-on-primary shadow-xl shadow-primary/20 ring-4 ring-primary-fixed/50">
+<span class="font-label text-xs text-on-primary/70 uppercase font-bold tracking-widest">TER</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-black text-xl">17</div>
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+<!-- Wednesday -->
+<div class="group cursor-pointer flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container-low transition-all">
+<span class="font-label text-xs text-outline uppercase font-bold tracking-widest">QUA</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-bold text-lg text-on-surface-variant group-hover:bg-surface-container-highest transition-colors">18</div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></div>
+</div>
+<!-- Thursday -->
+<div class="group cursor-pointer flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container-low transition-all">
+<span class="font-label text-xs text-outline uppercase font-bold tracking-widest">QUI</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-bold text-lg text-on-surface-variant group-hover:bg-surface-container-highest transition-colors">19</div>
+<div class="flex gap-1">
+<div class="w-1 h-1 rounded-full bg-secondary-fixed-dim"></div>
+<div class="w-1 h-1 rounded-full bg-secondary-fixed-dim"></div>
+</div>
+</div>
+<!-- Friday -->
+<div class="group cursor-pointer flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container-low transition-all">
+<span class="font-label text-xs text-outline uppercase font-bold tracking-widest">SEX</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-bold text-lg text-on-surface-variant group-hover:bg-surface-container-highest transition-colors">20</div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></div>
+</div>
+<!-- Saturday -->
+<div class="group cursor-pointer flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container-low opacity-60">
+<span class="font-label text-xs text-outline uppercase font-bold tracking-widest">SAB</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-bold text-lg text-on-surface-variant">21</div>
+</div>
+<!-- Sunday -->
+<div class="group cursor-pointer flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container-low opacity-60">
+<span class="font-label text-xs text-outline uppercase font-bold tracking-widest">DOM</span>
+<div class="w-12 h-12 flex items-center justify-center rounded-xl font-bold text-lg text-on-surface-variant">22</div>
+</div>
+</div>
+</section>
+<!-- Daily Schedule List -->
+<section>
+<div class="flex items-end justify-between mb-6">
+<div class="flex flex-col gap-1">
+<span class="text-xs font-black text-primary tracking-widest uppercase">Agenda do Dia</span>
+<h3 class="font-headline text-3xl font-bold text-on-surface">Consultas de Hoje</h3>
+</div>
+<div class="flex gap-3">
+<div class="flex -space-x-2">
+
+
+
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full text-xs font-bold hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filtrar
+                            </button>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Card: Sarah Jenkins -->
+<div class="group bg-surface-container-lowest rounded-3xl p-5 flex items-center gap-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all relative overflow-hidden border border-outline-variant/10">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
+<div class="w-24 shrink-0 text-center">
+<p class="text-2xl font-black text-on-surface">09:00</p>
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Manhã</p>
+</div>
+<div class="flex-1 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/20">
+<img alt="Sarah Jenkins profile" class="w-full h-full object-cover" data-alt="Portrait of a young professional woman with a calm and friendly expression, wearing minimalist clothing in a brightly lit studio environment. The style is clean and editorial, using a soft palette of whites and cool grays to reflect a modern clinical high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDLYZRTkoUr57uvdejI8mZxcktqWaQUogneJzX4JTEL0UkeecL0YWZm7tLPeGyLZdnGxp41mEOv2ndmrQkmvLmYgJhHLwBF-obxIVarh6rkT7PpLc4FlWvsVUIdhdAm12vqIfD8_vXe5Q-dM-lkKKEc3GKf7XTy7Mfsvgek3x2K0FReNnlIGSWimM0cBPTkf435nov0ytLSOv4Og2g1SQaC6ELHusvEcnEX79ErdlKpQG8dgXRzMl29TNpK7gpNXDrr57UlJ6yeZ0">
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Sarah Jenkins</h4>
+<div class="flex items-center gap-3 mt-1">
+
+
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="px-4 py-2 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-xl uppercase tracking-wider">Confirmado</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-primary">edit</span></button>
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Ricardo Mendes -->
+<div class="group bg-surface-container-lowest rounded-3xl p-5 flex items-center gap-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all relative overflow-hidden border border-outline-variant/10">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-tertiary"></div>
+<div class="w-24 shrink-0 text-center">
+<p class="text-2xl font-black text-on-surface">11:30</p>
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Manhã</p>
+</div>
+<div class="flex-1 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/20">
+<img alt="Ricardo Mendes profile" class="w-full h-full object-cover" data-alt="Close-up headshot of a middle-aged man with short dark hair and a professional demeanor, looking directly at the camera. He is set against a clean, clinical background with soft morning light filtering through. The overall tone is high-end, modern, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQFwTRElqUDB7sJVsRx6mNPr0CTTmjrZ1kx_1o8TAH7UILnShoconOpLgd0D_I6D3E6Xgu1WK5MKaL9S5QsCBnzda3Po5X0s9NXhgbYdf8zbWfWy3KLY7_IwEt4XUwsbvZOaQ5QK3TabWpF7soOgX9pflCCefLC0P3Qd1qpOsGi4akW3sGl0IUUfFbpGPNYU3wXpdjgAuFEsU3UeZA1o12uJXNDVvq81Ff1WAw6XcAN7V9Iv4aCtBcZaZsx4CzOwVw-zS8TD1hOcg">
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Ricardo Mendes</h4>
+<div class="flex items-center gap-3 mt-1">
+
+
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="px-4 py-2 bg-surface-container-high text-outline text-xs font-bold rounded-xl uppercase tracking-wider">Pendente</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-primary">edit</span></button>
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Beatriz Santos -->
+<div class="group bg-surface-container-lowest rounded-3xl p-5 flex items-center gap-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all relative overflow-hidden border border-outline-variant/10">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-primary-fixed-dim"></div>
+<div class="w-24 shrink-0 text-center">
+<p class="text-2xl font-black text-on-surface">14:00</p>
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Tarde</p>
+</div>
+<div class="flex-1 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/20">
+<img alt="Beatriz Santos profile" class="w-full h-full object-cover" data-alt="Portrait of a young woman with a thoughtful, serene expression. She has dark hair and wears a professional light-colored blouse. The lighting is soft and ambient, creating a high-key aesthetic that feels clinical, precise, and sophisticated, set in a modern architectural medical space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBKJ47GGpF1UbrkXyhz5VBzm5TBBgtgLgvUHh0nfGz6e6qlBc6lrq49FMYahwsgRwXi8p95NeNolApzsWbKyTd0WcHv6WjB60ynrYVaiBgNGo3nrE55pTuh9JlBF2cxEeJvouuzTHhtFMQxodzpOtWo-q8fVc6kQ-i8cQq9gZfR4MYKKK1ErC2-blS0UsmIGSQ3_xWHHacL7Luy2UxqrLMiJd5qvvSpIn_Kh3rCiR-0BwJCOQqmphQIAh7m1KUlRMzcy8fGpz5c18">
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Beatriz Santos</h4>
+<div class="flex items-center gap-3 mt-1">
+
+
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="px-4 py-2 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-xl uppercase tracking-wider">Confirmado</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-primary">edit</span></button>
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Mark Spencer (CANCELADO) -->
+<div class="group bg-surface-container-lowest/50 rounded-3xl p-5 flex items-center gap-6 shadow-sm transition-all relative overflow-hidden border border-outline-variant/10 opacity-70">
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-error"></div>
+<div class="w-24 shrink-0 text-center">
+<p class="text-2xl font-black text-outline">16:45</p>
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Tarde</p>
+</div>
+<div class="flex-1 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl overflow-hidden bg-surface-container-low grayscale opacity-50 border border-outline-variant/20">
+<img alt="Mark Spencer profile" class="w-full h-full object-cover" data-alt="Professional male portrait in a clinical setting with desaturated tones. The subject is a mature man with graying hair and glasses, looking slightly away from the camera. The image is styled with high-end, soft, sterile lighting that fits a luxury medical platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhhomchsIcrXptjZ43fIOpoUuuVB-zNGC4JwrgViQTsaxmIvQQ5KI8TDO5MdvPaGge9Z66DxAHqsV25Zlr4QrxMN5Ij5BgRnHJ4Sx-oanDtf4CAbvpyPmPZU6BCvZVwU-M4Dtjyo5XbNot6daB0jp5YZsSnUthxJC1SSU2Hrx8AHGn5q6PooN1WW9-iZaJkwiI1XubqFu9ScqV0b-gsBoWTSFpO0usR1B5Ef-g_FcT1daVpDWrqRKp_mz2g_mmoMeWByTIl1ZdtZ0">
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-outline">Mark Spencer</h4>
+<div class="flex items-center gap-3 mt-1">
+
+
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="px-4 py-2 bg-error text-on-error text-xs font-bold rounded-xl uppercase tracking-wider">Cancelado</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-xl hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script>
+        // Simple interactivity for demonstration
+        document.querySelectorAll('.group.cursor-pointer').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active from others
+                if(this.classList.contains('bg-primary')) return;
+                
+                // Demo selection logic could go here
+                console.log('Day selected:', this.querySelector('.font-black, .font-bold.text-lg').innerText);
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

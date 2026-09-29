@@ -1,0 +1,219 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#753400",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001c3a",
+                        "secondary-fixed-dim": "#b2c8ed",
+                        "on-tertiary-container": "#ffceb4",
+                        "primary": "#004786",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-container": "#9a4600",
+                        "secondary-container": "#c2d8fe",
+                        "surface": "#f7f9fb",
+                        "on-surface-variant": "#414751",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#324867",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#c1c6d3",
+                        "secondary-fixed": "#d4e3ff",
+                        "inverse-primary": "#a5c8ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-container": "#c4daff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline": "#727783",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#005faf",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#d4e3ff",
+                        "on-secondary-fixed": "#021c39",
+                        "surface-tint": "#005faf",
+                        "secondary": "#4a5f80",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "on-tertiary-fixed": "#321200",
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#495e7f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-overlay {
+            background: rgba(247, 249, 251, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .modal-shadow {
+            box-shadow: 0 32px 48px rgba(25, 28, 30, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-hidden">
+<!-- Background Dashboard (Dimmed) -->
+<div class="fixed inset-0 flex">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface-container-low h-screen w-64 flex flex-col py-6 border-r-0 z-0">
+<div class="px-6 mb-8">
+<h1 class="font-headline text-lg font-black text-on-surface">The Curator</h1>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/70">Precision Medicine</p>
+</div>
+<nav class="flex-1">
+<div class="bg-secondary-container text-on-secondary-container rounded-xl font-bold flex items-center gap-3 px-4 py-3 mx-2 my-1 cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label-md uppercase tracking-wider">Dashboard</span>
+</div>
+<div class="text-on-surface-variant flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label text-label-md uppercase tracking-wider">Agenda</span>
+</div>
+<div class="text-on-surface-variant flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-label text-label-md uppercase tracking-wider">Patients</span>
+</div>
+</nav>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden opacity-40 grayscale-[0.2]">
+<!-- TopNavBar Anchor -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md flex justify-between items-center px-6 py-3 w-full shadow-sm sticky top-0 z-10">
+<div class="font-headline text-xl font-bold text-primary">ClinicalArchive</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<div class="grid grid-cols-3 gap-6">
+<div class="h-32 bg-surface-container-lowest rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest rounded-xl"></div>
+</div>
+<div class="h-96 bg-surface-container-lowest rounded-xl"></div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center glass-overlay">
+<!-- Modal Card -->
+<div class="bg-surface-container-lowest w-full rounded-xl modal-shadow p-8 flex flex-col gap-8 transform scale-100 transition-transform duration-300 max-w-3xl" style="transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); opacity: 1; transform: translateY(0px) scale(1);">
+<!-- Header Section -->
+<div class="space-y-2">
+<div class="flex items-center gap-3 text-primary mb-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-label text-label-sm uppercase tracking-[0.2em] font-bold">Protocolo Digital</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold text-on-surface leading-tight">Opções de Emissão</h2>
+<p class="text-on-surface-variant font-body text-md max-w-md">Selecione como deseja disponibilizar o documento para o paciente.</p>
+</div>
+<!-- Content / Form -->
+<div class="space-y-6"><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Online Option -->
+<div class="group cursor-pointer p-6 rounded-2xl bg-surface-container-low border-2 border-transparent hover:border-primary-container hover:bg-surface-container-high transition-all duration-300">
+<div class="w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">send</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">Enviar Receita Online</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            Gere um link seguro e envie automaticamente via SMS e E-mail para o paciente.
+        </p>
+</div>
+<!-- Physical Option -->
+<div class="group cursor-pointer p-6 rounded-2xl bg-surface-container-low border-2 border-transparent hover:border-primary-container hover:bg-surface-container-high transition-all duration-300">
+<div class="w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">print</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">Imprimir Documento</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            Prepare o arquivo para impressão local em papel timbrado ou receituário padrão.
+        </p>
+</div>
+</div>
+<div class="flex gap-4 p-4 bg-primary-fixed/20 rounded-xl items-start">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<p class="text-xs text-on-secondary-fixed-variant leading-relaxed">
+        Todas as emissões são registradas no prontuário digital com selo de autenticidade e validade jurídica.
+    </p>
+</div></div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-4 mt-2">
+<button class="px-6 py-3 rounded-xl font-bold text-on-surface hover:bg-surface-container-high transition-all active:scale-95">
+                    Cancelar
+                </button>
+</div>
+</div>
+</div>
+<!-- Atmospheric Micro-interaction -->
+<script>
+        // Simple entrance animation handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.querySelector('.modal-shadow');
+            modal.style.opacity = '0';
+            modal.style.transform = 'translateY(20px) scale(0.98)';
+            
+            setTimeout(() => {
+                modal.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                modal.style.opacity = '1';
+                modal.style.transform = 'translateY(0) scale(1)';
+            }, 100);
+        });
+
+        // Close logic mock
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = document.querySelector('.modal-shadow');
+                const overlay = document.querySelector('.glass-overlay');
+                
+                modal.style.transform = 'translateY(10px) scale(0.95)';
+                modal.style.opacity = '0';
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.4s ease';
+                
+                setTimeout(() => {
+                    alert('Action executed. Returning to dashboard.');
+                    window.location.reload();
+                }, 400);
+            });
+        });
+    </script>
+
+
+</body></html>

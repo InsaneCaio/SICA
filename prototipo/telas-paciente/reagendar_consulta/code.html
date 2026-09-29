@@ -1,0 +1,247 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Reagendar Consulta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eceef0",
+                      "on-secondary-container": "#526772",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#006876",
+                      "primary-fixed": "#d4e3ff",
+                      "on-surface": "#191c1e",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#004786",
+                      "surface": "#f7f9fb",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-container": "#cfe6f2",
+                      "on-tertiary-container": "#007887",
+                      "inverse-primary": "#a5c8ff",
+                      "inverse-surface": "#2d3133",
+                      "primary": "#005faf",
+                      "tertiary-fixed-dim": "#55d7ed",
+                      "secondary-fixed-dim": "#b4cad6",
+                      "on-secondary-fixed-variant": "#354a53",
+                      "surface-container-low": "#f2f4f6",
+                      "on-tertiary-fixed-variant": "#004e59",
+                      "surface-container-high": "#e6e8ea",
+                      "background": "#f7f9fb",
+                      "tertiary-container": "#d1f7ff",
+                      "tertiary-fixed": "#9eefff",
+                      "surface-tint": "#005faf",
+                      "outline": "#73787b",
+                      "primary-container": "#eaf0ff",
+                      "on-primary-container": "#006dc8",
+                      "primary-fixed-dim": "#a5c8ff",
+                      "on-surface-variant": "#43474a",
+                      "secondary-fixed": "#cfe6f2",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#f7f9fb",
+                      "on-background": "#191c1e",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-fixed": "#071e27",
+                      "on-primary-fixed": "#001c3a",
+                      "surface-dim": "#d8dadc",
+                      "on-tertiary-fixed": "#001f24",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#4c616c",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c3c7cb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.5rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Manrope', sans-serif; }</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top Navigation -->
+<header class="w-full top-0 sticky z-50 bg-[#f7f9fb] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-200/50 transition-colors active:scale-95 duration-200 text-[#005faf]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col"><h1 class="font-['Manrope'] font-bold text-xl tracking-tight text-[#005faf]">Reagendar Consulta</h1><div class="flex items-center gap-2 mt-0.5"><div class="w-5 h-5 rounded-full overflow-hidden bg-surface-container-highest"><img alt="Maria" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/a/default-user"></div><p class="text-on-surface-variant text-sm font-medium">Paciente: Maria (Esposa)</p></div></div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 mt-6">
+<!-- Summary Card: Original Appointment -->
+<section class="mb-6">
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/30">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Consulta Atual</h2>
+</div>
+<div class="flex items-start gap-5">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img alt="Dr. Adriano Martins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs_VNdt-LBeNaF5HiCMkU1-Qf_NMf4AidwCVg0iC6pGH-JFs6e2cWUfq1GKKPUV1Fq4ieXGUyTxXEEMdh6BdI2BJgvMjiMym0wa6dSV83iqpNDggSpiD0OwQYlgLuzVdrH5ANt0vWev4ofbHp7rlAvxM8l92Nh3qy54zzyO5ogWt7-iCtSJHE6Tx0UU6TPefCUcl1J4cgKsHABjrvgxAh2sRgClrD9aw3QVzKsprsK8w809egE7bu0SY3no-xoKOawQfMHFA_nGNjx">
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-on-surface leading-tight">Dr. Adriano Martins</h3>
+<p class="text-on-surface-variant text-sm">Cardiologia • Centro Clínico - Unidade 1</p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+<span class="">Av. Paulista, 1000</span>
+</div>
+<div class="flex items-center gap-2 mt-3 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span class="">12 Out, 10:30</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Indicador de Mudança -->
+<section class="mb-8">
+<div class="bg-primary-container/40 rounded-xl p-4 flex items-center justify-between border border-primary/10">
+<div class="flex-1 text-center">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Antes</p>
+<p class="text-sm font-semibold text-on-surface-variant">12 Out • 10:30</p>
+</div>
+<div class="flex items-center text-primary px-4">
+<span class="material-symbols-outlined">trending_flat</span>
+</div>
+<div class="flex-1 text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Novo</p>
+<p class="text-sm font-bold text-primary">19 Out • 10:15</p>
+</div>
+</div>
+</section>
+<!-- Selection Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+<!-- Calendar Column -->
+<section class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/20 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-extrabold tracking-tight">Outubro 2023</h2>
+<div class="flex gap-1">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-y-4 text-center"><!-- Days Labels -->
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Dom</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Seg</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Ter</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Qua</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Qui</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Sex</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Sáb</div>
+<!-- Days Grid (October 2023 starts on a Sunday) -->
+<div class="py-2 font-semibold">1</div>
+<div class="py-2 font-semibold">2</div>
+<div class="py-2 font-semibold">3</div>
+<div class="py-2 font-semibold">4</div>
+<div class="py-2 font-semibold">5</div>
+<div class="py-2 text-on-surface/50">6</div>
+<div class="py-2 text-on-surface/50">7</div>
+<div class="py-2 text-on-surface/50">8</div>
+<div class="py-2 text-on-surface/50">9</div>
+<div class="py-2 text-on-surface/50">10</div>
+<div class="py-2 text-on-surface/50">11</div>
+<div class="py-2 font-bold text-error bg-error-container/20 rounded-lg">12</div>
+<div class="py-2 font-semibold">13</div>
+<div class="py-2 font-semibold">14</div>
+<div class="py-2 font-semibold">15</div>
+<div class="py-2 font-semibold">16</div>
+<div class="py-2 font-semibold">17</div>
+<div class="py-2 font-semibold">18</div>
+<div class="py-2 font-bold bg-primary text-white rounded-lg shadow-md ring-2 ring-primary ring-offset-2">19</div>
+<div class="py-2 font-semibold">20</div>
+<div class="py-2 font-semibold">21</div>
+<div class="py-2 font-semibold">22</div>
+<div class="py-2 font-semibold">23</div>
+<div class="py-2 font-semibold">24</div>
+<div class="py-2 font-semibold">25</div>
+<div class="py-2 font-semibold">26</div>
+<div class="py-2 font-semibold">27</div>
+<div class="py-2 font-semibold">28</div>
+<div class="py-2 font-semibold">29</div>
+<div class="py-2 font-semibold">30</div>
+<div class="py-2 font-semibold">31</div></div>
+</section>
+<!-- Time Slots Column -->
+<section class="lg:col-span-5 space-y-4">
+<!-- Morning Slots -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="light_mode">light_mode</span>
+<h3 class="font-bold text-on-surface text-sm">Manhã</h3>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-xs font-medium border border-outline-variant/50 hover:bg-primary-container transition-all">08:00</button>
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-xs font-medium border border-outline-variant/50 hover:bg-primary-container transition-all">08:45</button>
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-xs font-medium border border-outline-variant/50 hover:bg-primary-container transition-all">09:30</button>
+<button class="py-2.5 rounded-lg bg-primary text-white text-xs font-bold shadow-sm border border-primary">10:15</button>
+</div>
+</div>
+<!-- Afternoon Slots -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="wb_twilight">wb_twilight</span>
+<h3 class="font-bold text-on-surface text-sm">Tarde</h3>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-xs font-medium border border-outline-variant/50 hover:bg-primary-container transition-all">14:00</button>
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-xs font-medium border border-outline-variant/50 hover:bg-primary-container transition-all">15:30</button>
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface/30 text-xs font-medium border border-outline-variant/30 cursor-not-allowed">16:15</button>
+<button class="py-2.5 rounded-lg bg-surface-container-lowest text-on-surface text-xs font-medium border border-outline-variant/50 hover:bg-primary-container transition-all">17:00</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Important Warning -->
+<section class="mb-12">
+<div class="bg-surface-container-highest/30 rounded-xl p-4 flex gap-3 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div class="space-y-1">
+<p class="text-xs text-on-surface font-medium leading-relaxed">
+                        Reagendamentos devem ser feitos com pelo menos 24h de antecedência.
+                    </p>
+<p class="text-[10px] text-on-surface-variant">
+                        Sujeito à disponibilidade do profissional.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md px-6 py-5 border-t border-surface-container-high z-50">
+<div class="max-w-4xl mx-auto">
+<button class="w-full py-4 bg-[#005faf] text-white font-bold rounded-xl shadow-lg shadow-primary/20 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2">
+                Confirmar novo horário
+                <span class="material-symbols-outlined text-xl" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</div>
+
+
+</body></html>

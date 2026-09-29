@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perfil do Paciente - Clínica Digital</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#a5c8ff",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "secondary": "#4c616c",
+                        "on-tertiary-fixed": "#001f24",
+                        "surface-tint": "#005faf",
+                        "primary-fixed": "#d4e3ff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#001c3a",
+                        "tertiary-fixed": "#9eefff",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "on-surface-variant": "#43474a",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary-container": "#007887",
+                        "primary": "#005faf",
+                        "outline-variant": "#c3c7cb",
+                        "primary-container": "#eaf0ff",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-primary-container": "#006dc8",
+                        "surface-container-high": "#e6e8ea",
+                        "background": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#d1f7ff",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-container": "#526772",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary": "#006876",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#071e27",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "outline": "#73787b",
+                        "inverse-surface": "#2d3133",
+                        "surface": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .cloud-shadow { box-shadow: 0 12px 40px rgba(25, 28, 30, 0.06); }
+        .primary-gradient { background: linear-gradient(135deg, #005faf 0%, #d4e3ff 100%); }
+        .glass-shell { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-surface selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-[#f7f9fb] dark:bg-[#191c1e] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors active:scale-95 duration-150">arrow_back</button>
+<div>
+<h1 class="font-['Manrope'] font-bold text-lg text-[#005faf] dark:text-[#d4e3ff]">João</h1>
+<p class="font-['Inter'] text-xs font-medium text-on-surface-variant">Dependente</p>
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-6 pb-32 pt-6">
+<!-- Profile Header Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-10">
+<!-- Main Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 cloud-shadow relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:col-span-12">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/20 rounded-bl-full -mr-16 -mt-16"></div>
+<div class="relative">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full primary-gradient p-1">
+<div class="w-full h-full rounded-full border-4 border-surface-container-lowest overflow-hidden bg-surface-container">
+<img alt="Close-up of a smiling young boy with curly hair, natural daylight, professional studio lighting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf505qswg0UkR8Qm96V_0dYazk8GO8kXic-M0ItH5jGxqKRsP1OJGWnKB3OgubR2XScQPIy7ZuAKVlpl3UoUyYHIHXAzyqyZ86m9p8CwNO6TpTaVqm1nM7aNS_bKJHjLuydJh2qUidVI8DVSXL5GFw4k067uLpMxovtQUkqUFUpSP0yoSKlFRJFIl2BtZ3FqfDkPvwjzWdJx4e2lBIOb9jUJk1xZtdYvJli2hbzwXVbyrDfMmHj64eqiukalLyFwAjwRYOZhZl_j_-"/>
+</div>
+</div>
+</div>
+<div class="text-center md:text-left space-y-2">
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface">João Silva Pereira</h2>
+<div class="inline-flex items-center justify-center md:justify-start gap-1.5 px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-xs font-bold uppercase tracking-wider mt-2 mx-auto md:mx-0">
+<span class="material-symbols-outlined text-[16px]">medical_services</span>
+    Unimed Pleno
+</div>
+<div class="flex flex-wrap justify-center md:justify-start gap-3 mt-4"></div>
+</div>
+</div>
+<!-- Quick Info -->
+</section>
+<!-- Quick Actions Section -->
+<section class="mb-10">
+<h3 class="font-headline font-bold text-xl flex items-center gap-2 mb-6">
+<span class="w-2 h-8 bg-tertiary-fixed-dim rounded-full"></span>
+    Ações rápidas
+</h3>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest text-on-surface rounded-xl shadow-[0_4px_20px_rgba(25,28,30,0.02)] border border-outline-variant/10 hover:bg-surface-container-low transition-all active:scale-95 gap-2">
+<span class="material-symbols-outlined text-primary">edit</span>
+<span class="font-body text-sm font-semibold">Editar perfil</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-primary text-on-primary rounded-xl shadow-md hover:opacity-90 transition-all active:scale-95 gap-2">
+<span class="material-symbols-outlined">calendar_add_on</span>
+<span class="font-body text-sm font-semibold">Agendar consulta</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest text-on-surface rounded-xl shadow-[0_4px_20px_rgba(25,28,30,0.02)] border border-outline-variant/10 hover:bg-surface-container-low transition-all active:scale-95 gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+<span class="font-body text-sm font-semibold">Histórico médico</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest text-on-surface rounded-xl shadow-[0_4px_20px_rgba(25,28,30,0.02)] border border-outline-variant/10 hover:bg-surface-container-low transition-all active:scale-95 gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+<span class="font-body text-sm font-semibold">Documentos</span>
+</button>
+</div>
+</section>
+<!-- Consultations Grid -->
+<div class="grid grid-cols-1 gap-10">
+<!-- Next Consultations -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-xl flex items-center gap-2">
+<span class="w-2 h-8 bg-primary rounded-full"></span>
+                        Próximas consultas
+                    </h3>
+<button class="text-primary font-bold text-sm">Ver todas</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Consultation Card 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl cloud-shadow border-l-4 border-primary flex items-center gap-4 hover:translate-x-1 transition-transform">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg min-w-[64px] py-2">
+<span class="text-[10px] font-bold uppercase">Dez</span>
+<span class="text-2xl font-black">12</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-primary mb-1">Pediatria • 14:30</p>
+<h4 class="font-headline font-bold text-on-surface">Dr. Ricardo Amâncio</h4>
+<p class="text-xs text-on-surface-variant">Unidade Central - Sala 204</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant/40">chevron_right</button>
+</div>
+<!-- Consultation Card 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl cloud-shadow border-l-4 border-secondary/30 flex items-center gap-4 opacity-80">
+<div class="flex flex-col items-center justify-center bg-surface-container text-on-surface-variant rounded-lg min-w-[64px] py-2">
+<span class="text-[10px] font-bold uppercase">Jan</span>
+<span class="text-2xl font-black">05</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Odontopediatria • 09:00</p>
+<h4 class="font-headline font-bold text-on-surface">Dra. Heloísa Souza</h4>
+<p class="text-xs text-on-surface-variant">Clínica Sorriso Feliz</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant/40">chevron_right</button>
+</div>
+</div>
+</section><section class="mt-10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-xl flex items-center gap-2">
+<span class="w-2 h-8 bg-secondary/40 rounded-full"></span>
+                        Últimas consultas
+                    </h3>
+<button class="text-on-surface-variant font-bold text-sm hover:text-primary transition-colors">Ver todas</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Last Consultation 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl cloud-shadow border-l-4 border-surface-variant flex items-center gap-4 hover:translate-x-1 transition-transform">
+<div class="flex flex-col items-center justify-center bg-surface-container-low text-on-surface-variant rounded-lg min-w-[64px] py-2">
+<span class="text-[10px] font-bold uppercase">Nov</span>
+<span class="text-2xl font-black">22</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<p class="text-xs font-bold text-on-surface-variant">Avaliação de Rotina</p>
+<span class="bg-green-100 text-green-700 text-[9px] px-1.5 py-0.5 rounded font-bold uppercase">Concluída</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface">Dr. Marcos Vinícius</h4>
+<p class="text-xs text-on-surface-variant">Centro Médico Saúde</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant/40">chevron_right</button>
+</div>
+<!-- Last Consultation 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl cloud-shadow border-l-4 border-surface-variant flex items-center gap-4 hover:translate-x-1 transition-transform">
+<div class="flex flex-col items-center justify-center bg-surface-container-low text-on-surface-variant rounded-lg min-w-[64px] py-2">
+<span class="text-[10px] font-bold uppercase">Out</span>
+<span class="text-2xl font-black">15</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<p class="text-xs font-bold text-on-surface-variant">Oftalmologia</p>
+<span class="bg-green-100 text-green-700 text-[9px] px-1.5 py-0.5 rounded font-bold uppercase">Concluída</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface">Dra. Clara Mendes</h4>
+<p class="text-xs text-on-surface-variant">Clínica de Olhos Vision</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant/40">chevron_right</button>
+</div>
+<!-- Last Consultation 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl cloud-shadow border-l-4 border-surface-variant flex items-center gap-4 hover:translate-x-1 transition-transform">
+<div class="flex flex-col items-center justify-center bg-surface-container-low text-on-surface-variant rounded-lg min-w-[64px] py-2">
+<span class="text-[10px] font-bold uppercase">Ago</span>
+<span class="text-2xl font-black">30</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<p class="text-xs font-bold text-on-surface-variant">Pronto Atendimento</p>
+<span class="bg-green-100 text-green-700 text-[9px] px-1.5 py-0.5 rounded font-bold uppercase">Concluída</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface">Plantão Pediátrico</h4>
+<p class="text-xs text-on-surface-variant">Hospital Infantil</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant/40">chevron_right</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+</body></html>

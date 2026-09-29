@@ -1,0 +1,303 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head></head><body class="bg-surface text-on-surface min-h-screen flex overflow-hidden">```html
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ClinicalArchive - Resumo do Dia</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#753400",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001c3a",
+                        "secondary-fixed-dim": "#b2c8ed",
+                        "on-tertiary-container": "#ffceb4",
+                        "primary": "#004786",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-container": "#9a4600",
+                        "secondary-container": "#c2d8fe",
+                        "surface": "#f7f9fb",
+                        "on-surface-variant": "#414751",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#324867",
+                        "on-primary-fixed-variant": "#004786",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#c1c6d3",
+                        "secondary-fixed": "#d4e3ff",
+                        "inverse-primary": "#a5c8ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-container": "#c4daff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline": "#727783",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#005faf",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#d4e3ff",
+                        "on-secondary-fixed": "#021c39",
+                        "surface-tint": "#005faf",
+                        "secondary": "#4a5f80",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "on-tertiary-fixed": "#321200",
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#495e7f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-header { backdrop-filter: blur(16px); background-color: rgba(255, 255, 255, 0.8); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e0e3e5; border-radius: 10px; }
+        .primary-gradient { background: linear-gradient(180deg, #004786 0%, #005faf 100%); }
+    </style>
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 left-0 top-0 bg-surface-container-low border-r-0 z-50">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 primary-gradient rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">clinical_notes</span>
+</div>
+<div>
+<h1 class="font-headline text-lg font-black text-on-surface">The Curator</h1>
+<p class="font-label text-[10px] uppercase tracking-wider text-outline">Precision Medicine</p>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- Dashboard Active -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label-md uppercase tracking-wider text-xs">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label text-label-md uppercase tracking-wider text-xs">Agenda</span>
+</a>
+
+
+
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-label-md uppercase tracking-wider text-xs">Settings</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- TopAppBar Component -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group" style="transform: translateY(0px);">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full py-2.5 pl-11 pr-4 font-body text-body-md focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search patients or archives..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface leading-tight">Dr. Silva</p>
+<p class="text-[11px] text-outline leading-tight">Cardiologia</p>
+</div>
+<img alt="Doctor's profile avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary-fixed" data-alt="A professional headshot of a mature male doctor with grey hair and glasses, wearing a crisp white laboratory coat and a subtle blue stethoscope around his neck. The portrait is captured with professional studio lighting against a soft, clean blue-tinted neutral background, reflecting a high-end medical clinic aesthetic. The lighting is bright and airy, conveying authority, calmness, and clinical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAktBJ5YSxYWcRIs-O0pYUUC6SVZDntvjzY3axL3EC1g-hHd2_uEm4Ed4Ck9WkztfRTYn4uhDBEyGo-JCEpqF1sGQ_Y0kGfc2yvi2fRIlFOCfcKWUDVS4n1--8q2j-GMfa-t5R-yujgVa_GrXPyU6iCqI5rHBwewhYAHeXViOGtOR-84KWSg3q_D4Xw1URqcK2y0NwHQfkaRGYx3hnnad3RO6cQIMFJberBiQ51PGjuGoGVsNIEEjvuG99jXO075cJPUsxxJ7CKMYw">
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+<!-- Welcome Header Section -->
+<section class="mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight mb-2">Olá, <span class="text-primary">Dr. Silva</span></h2>
+<div class="flex items-center gap-3">
+<div class="px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-sm font-medium">Você tem 4 consultas hoje</span>
+</div>
+<span class="text-outline text-sm">•</span>
+<span class="text-outline text-sm font-medium">Quinta-feira, 24 de Outubro</span>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Schedule Section -->
+<div class="col-span-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-xl font-bold">Próximas Consultas</h3>
+<button class="text-primary text-sm font-bold hover:underline">Ver agenda completa</button>
+</div>
+<div class="space-y-4">
+<!-- Consultation Card 1 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 hover:shadow-xl hover:shadow-primary/5 transition-all cursor-pointer" style="transform: translateY(0px);">
+<div class="flex flex-col items-center justify-center min-w-[80px] py-2 border-r border-outline-variant/20">
+<span class="text-lg font-bold text-on-surface">09:00</span>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Início</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="font-bold text-on-surface text-lg">Ricardo Mendonça</h4>
+
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+
+
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Confirmado</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Consultation Card 2 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 hover:shadow-xl hover:shadow-primary/5 transition-all cursor-pointer" style="transform: translateY(0px);">
+<div class="flex flex-col items-center justify-center min-w-[80px] py-2 border-r border-outline-variant/20">
+<span class="text-lg font-bold text-on-surface">10:30</span>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Início</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="font-bold text-on-surface text-lg">Beatriz Oliveira</h4>
+
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+
+
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Confirmado</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Consultation Card 3 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 opacity-80 hover:opacity-100 hover:shadow-xl hover:shadow-primary/5 transition-all cursor-pointer" style="transform: translateY(0px);">
+<div class="flex flex-col items-center justify-center min-w-[80px] py-2 border-r border-outline-variant/20">
+<span class="text-lg font-bold text-on-surface">14:00</span>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Início</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="font-bold text-on-surface text-lg">Carlos Eduardo</h4>
+
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+
+
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Agendado</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Consultation Card 4 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 opacity-80 hover:opacity-100 hover:shadow-xl hover:shadow-primary/5 transition-all cursor-pointer" style="transform: translateY(0px);">
+<div class="flex flex-col items-center justify-center min-w-[80px] py-2 border-r border-outline-variant/20">
+<span class="text-lg font-bold text-on-surface">15:30</span>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Início</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="font-bold text-on-surface text-lg">Mariana Costa</h4>
+
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+
+
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Agendado</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Abstract Decoration (Subtle Clinical Atmosphere) -->
+<div class="fixed bottom-0 right-0 pointer-events-none opacity-20 -z-10 translate-x-1/4 translate-y-1/4">
+<div class="w-[600px] h-[600px] rounded-full blur-[100px] bg-primary-fixed"></div>
+</div>
+</main>
+<script>
+        // Micro-interactions for Cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Current Navigation State logic based on the user's focus
+        // Here we ensure "Dashboard" is active as it's the Resumo do Dia
+    </script>
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Agendar Consulta - Selecionar Médico</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#4c616c",
+                        "inverse-surface": "#2d3133",
+                        "primary": "#005faf",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#006876",
+                        "secondary-container": "#cfe6f2",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline": "#73787b",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "on-secondary-fixed": "#071e27",
+                        "inverse-primary": "#a5c8ff",
+                        "primary-container": "#eaf0ff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-container": "#007887",
+                        "surface-tint": "#005faf",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#526772",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-primary-fixed": "#001c3a",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001f24",
+                        "outline-variant": "#c3c7cb",
+                        "tertiary-container": "#d1f7ff",
+                        "tertiary-fixed-dim": "#55d7ed",
+                        "surface": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed": "#d4e3ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed": "#9eefff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#006dc8",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474a",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#cfe6f2",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-[#f7f9fb] dark:bg-[#191c1e] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-150 p-2 hover:bg-[#f2f4f6] rounded-full transition-colors">
+<span class="material-symbols-outlined text-[#005faf]">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline font-bold text-lg tracking-tight text-[#191c1e]">Selecionar médico</h1>
+<p class="text-on-surface-variant text-sm font-medium">Para: Maria</p>
+</div>
+</div>
+</header>
+<main class="flex-1 px-6 pb-32">
+<!-- Search Section -->
+<div class="mt-4 mb-6">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-xl">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-12 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary transition-all text-on-surface placeholder:text-on-surface-variant/60" placeholder="Buscar médico por nome..." type="text">
+<button class="absolute inset-y-0 right-4 flex items-center">
+<span class="material-symbols-outlined text-outline text-xl hover:text-on-surface transition-colors">close</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips Section -->
+<section class="space-y-4 mb-8">
+<div class="overflow-x-auto hide-scrollbar flex gap-2 -mx-6 px-6">
+
+
+<div class="w-[1px] bg-outline-variant/30 my-1"></div>
+<button class="shrink-0 px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-sm font-medium hover:bg-surface-variant transition-colors">Até R$200</button>
+<button class="shrink-0 px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-sm font-medium hover:bg-surface-variant transition-colors">R$200–400</button>
+<button class="shrink-0 px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-sm font-medium hover:bg-surface-variant transition-colors">R$400+</button>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar -mx-6 px-6">
+<span class="text-xs font-bold uppercase tracking-widest text-outline shrink-0">Ordenar:</span>
+
+<button class="shrink-0 px-4 py-1.5 border border-outline-variant/30 text-on-surface-variant rounded-full text-xs font-semibold">Menor preço</button>
+<button class="shrink-0 px-4 py-1.5 border border-outline-variant/30 text-on-surface-variant rounded-full text-xs font-semibold">Alfabética</button>
+</div>
+</section>
+<!-- Doctors Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Doctor Card - Selected -->
+<div class="bg-surface-container-lowest p-4 rounded-xl ring-2 ring-primary relative flex flex-col items-center text-center transition-transform active:scale-[0.98]">
+<div class="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-base" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+</div>
+<div class="w-20 h-20 rounded-full overflow-hidden mb-3 border-4 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a smiling male doctor in a white coat with a modern medical office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB2_nGkqkvVc7LKF30bokAwRTYsro4GTlgz7k0QJaZ-26a-UXOo4IWaK0pXEzG3iLOycHqrPUD4WJ1ofD_xf1UywfOmVysltlhFyz3Hd-B9_xzpLZ6c_GaFfXYXo24ddgFqyb_8j6DGqmDmIzdrfAITsHV_tyesyHArM2-Q5PWfvB4eZB09DWTnVK3tIAFa0SS0G0EZRNqF3v0IPnXeQ5YiGQ2gM5m9LVi-39-KpRrXzPrOVnN-CkJOExzP3OfToZocU086WmnipIo">
+</div>
+<h3 class="font-headline font-bold text-on-surface text-sm leading-tight mb-1">Dr. Ricardo Almeida</h3>
+<div class="mt-auto w-full">
+<p class="font-headline font-extrabold text-on-surface">R$ 350</p>
+</div>
+</div>
+<!-- Doctor Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-transparent flex flex-col items-center text-center transition-all hover:bg-surface-container-low active:scale-[0.98]">
+<div class="w-20 h-20 rounded-full overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Portrait of a focused female doctor with dark hair tied back wearing professional clinical attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlQ45YLDWgw4qAv0l8QwSsfVPmeGicEEdGQIZM_c7tgAR-aNEFjKfOi6sYSh8pKp5wwXI8C5hoAn_WX_7Sk0WcTzsYIcJZi4PyTTiHwpNMA4BPQMF_wC1_r6YSIO9JjyZl0SJ5wx8vh9uCpaycZEGmG4-EFBkZqxcNdvHfC1sKL6ndPhz8jiFHKIclVPg6ACQl0kY7rLxdODfmRRaMxAIfQ9-3IwAjTHoZ-3Y6QFKUplqfVOOGu2lliZSen9MA1El5Eu_hCk8febCz">
+</div>
+<h3 class="font-headline font-bold text-on-surface text-sm leading-tight mb-1">Dra. Juliana Silva</h3>
+<div class="mt-auto w-full">
+<p class="font-headline font-extrabold text-on-surface">R$ 280</p>
+</div>
+</div>
+<!-- Doctor Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-transparent flex flex-col items-center text-center transition-all hover:bg-surface-container-low active:scale-[0.98]">
+<div class="w-20 h-20 rounded-full overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Friendly male doctor with glasses smiling warmly in a clinical setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY_LGINVVAIoDVF1447bcrn3DVG9SM4Sx3h7oF3gjj7zixBrlOdYJbTWliO62Syx3bltaACdf12Gb4_4Chwt1ssYYpADnzhx6It1EhxxdRgB8-0FqHXBIhfjJI1jYEldG5HglQfCH88ApWbK8Gswjfzxn8Ial9eZOpQKyzvu75jY6k-l4o3Fp_R5qft3TpbP70fR2BvigIISFWZEJ1UXkhaZNN96pM6YgbJ84_bJAVC9ENqKLhjcfpr4J61MJCntI1CnU9MJIjSf3N">
+</div>
+<h3 class="font-headline font-bold text-on-surface text-sm leading-tight mb-1">Dr. Marcos Paulo</h3>
+<div class="mt-auto w-full">
+<p class="font-headline font-extrabold text-on-surface">R$ 320</p>
+</div>
+</div>
+<!-- Doctor Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-transparent flex flex-col items-center text-center transition-all hover:bg-surface-container-low active:scale-[0.98]">
+<div class="w-20 h-20 rounded-full overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Professional female medical specialist with stethoscope looking confidently at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnb54zeH8v4sRSz3Mm2sV1GrImFrSEXny9zUiOAokSFppRKS7DKvYZMga_Q23oEQjsavn27ExjXFOZk-x6Xw3R4ve6t9oiXUYufvJ2Xyul1ourP0A0G9HVVpErySq2wWE2rr--bKvVX-m1XpnqdUt7ZsqP6tkVTcgbUleI1Q8NK_kYzYZjHH1QNez1Opi8X6k4Y4AZBN7oqibdiAHT69Ao1gsGHvjcZOBjbFeI8Mklo8R5oHS8gn0ZcWBT-Ir35JA767XqUyzH7B_p">
+</div>
+<h3 class="font-headline font-bold text-on-surface text-sm leading-tight mb-1">Dra. Beatriz Costa</h3>
+<div class="mt-auto w-full">
+<p class="font-headline font-extrabold text-on-surface">R$ 300</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<footer class="fixed bottom-0 left-0 right-0 p-6 bg-surface/80 backdrop-blur-lg border-none z-40">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-[#004786] text-on-primary rounded-xl font-headline font-bold text-lg shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+            Próximo
+        </button>
+</footer>
+
+
+
+
+</body></html>

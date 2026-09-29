@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Detalhes da Consulta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eceef0",
+                    "on-secondary-container": "#526772",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#006876",
+                    "primary-fixed": "#d4e3ff",
+                    "on-surface": "#191c1e",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-container": "#cfe6f2",
+                    "on-tertiary-container": "#007887",
+                    "inverse-primary": "#a5c8ff",
+                    "inverse-surface": "#2d3133",
+                    "primary": "#005faf",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "surface-container-high": "#e6e8ea",
+                    "background": "#f7f9fb",
+                    "tertiary-container": "#d1f7ff",
+                    "tertiary-fixed": "#9eefff",
+                    "surface-tint": "#005faf",
+                    "outline": "#73787b",
+                    "primary-container": "#eaf0ff",
+                    "on-primary-container": "#006dc8",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-surface-variant": "#43474a",
+                    "secondary-fixed": "#cfe6f2",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed": "#071e27",
+                    "on-primary-fixed": "#001c3a",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-fixed": "#001f24",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#4c616c",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c3c7cb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col pb-36">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#f7f9fb]/80 backdrop-blur-md flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-high transition-colors active:scale-95 duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-xl tracking-tight text-primary">Detalhes da Consulta</h1>
+</div>
+</header>
+<main class="flex-1 max-w-2xl mx-auto w-full px-6 py-4 space-y-6">
+<!-- Patient Section -->
+<section class="flex justify-between items-center bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Paciente" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN6x-PTM5VyyMoVgNtxJb4Bt7278j5F5X_Ji4PNe55TbEfg2iu82yIZMVy6joqRygbKgtn44HinkE2ySXGiHUPIN5-q6XwKnsBrTZSNgMDD3BH8lCOEZreFr07e6w5DF4Pq6y12ktNelq77JRHY0QQUle8YqbWQi4cDlW2LldaiU-3eOi3uBn8P-fOWwRnw99j0fwDNnxvSx_m5Rn1r_rB__zEuAX2MYHlFqfb960HHk0VCf9Z24F5kq_Jpu56OuI24iEe6bs1dP8P">
+</div>
+<div>
+<p class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Paciente</p>
+<h2 class="text-lg font-bold font-headline">Maria Silva</h2>
+</div>
+</div>
+<div class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center gap-1.5 border border-tertiary/20">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label text-xs font-bold uppercase tracking-wider">Confirmada</span>
+</div>
+</section>
+<!-- Doctor Card -->
+<section class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/30 shadow-sm space-y-4">
+<div class="flex items-start gap-4">
+<div class="relative w-20 h-20 flex-shrink-0">
+<img alt="Médico" class="w-full h-full object-cover rounded-xl shadow-inner border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_m31ZOnQXVaJ484kc7LI7A14sLFBy1v8rfYqT_sT6DPJl49U2ZkztSP23mxygKwSC0mQYaWWF8L-DYFyabyUI23GyrVVk-XGoWE2qxmOADeIP_mfyHnNPkayKwzwBCEoLUYNGdFHzUPXSPQ6EsahK4RMwT-uEyzwqpdo0MF2YOf-urpijqVdX5GYI8fFRDy783VviyKRGSZPrh3zZKr31Q4HyXqqUZ6dCmm7HrodauOPKcY-Cmy7Xe09-F9dy0EwohP0QKJ1Mpfh">
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold font-headline text-on-surface">Dr. Adriano Martins</h3>
+<p class="text-primary font-semibold text-sm">Cardiologia</p>
+<p class="text-on-surface-variant text-sm mt-0.5">Centro Clínico Vitalis - Unidade 1</p>
+<a class="inline-flex items-center gap-1 text-primary text-xs font-bold mt-2 hover:underline" href="#">
+        Ver perfil
+        <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Consultation Type & Map -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/20">
+<div class="p-5 space-y-4">
+
+<div class="pl-12">
+<p class="text-sm text-on-surface font-semibold">Centro Clínico - Unidade 1</p>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Av. Paulista, 1000 - 4º Andar<br>São Paulo, SP - 01310-100</p>
+</div>
+</div>
+<div class="relative w-full h-40 overflow-hidden">
+<img alt="Mapa de localização" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkvVhKDXQlh7Ak3dv6yDpiyO0qLDB-Gi0Kyav7sjy56Q3C9F0ZfCARDGZuSxBpOvpHatMIpiUBOnQwhRnwaXszBKplkIAxp4Wd2Ac-a2TK-Tetq1QucMlA2wgg5P9ACYRU1KemQP1TJ0JlefyK-sUGsfYAVxmYHM-hW2zkd6DJSzlQ8hpDvtHv-NO15oc0xvdARHK_CUChiOa15rz-WHAcTGdvLf0hF3KuBpmexA_I9q3PiOwmN3dUDsp-Wh5vFOp-NmFw595tYYfL">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-[#EA4335] p-1.5 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-[20px] text-white" style="font-variation-settings: &quot;FILL&quot; 1;">location_on</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Details Bento Grid -->
+<section class="grid gap-4 grid-cols-1">
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary-container text-on-primary-container rounded-lg">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Data e Hora</p>
+<p class="font-bold text-on-surface text-xs sm:text-sm">04 de Outubro às 08:30</p>
+</div>
+</div>
+</div>
+
+</section>
+<!-- Payment Card -->
+<section class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-secondary-container text-on-secondary-container rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Valor da Consulta</p>
+<p class="font-extrabold text-on-surface text-lg">R$ 350,00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Instructions -->
+<section class="bg-primary-container/30 border border-primary-container p-4 rounded-xl space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-lg">info</span>
+<h4 class="font-bold text-xs uppercase tracking-widest">Instruções</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Chegar com 15 minutos de antecedência. Não esqueça de trazer documento com foto e exames anteriores.</p>
+</section>
+<!-- Actions -->
+<section class="flex flex-col gap-3 pt-2">
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl shadow-md hover:bg-on-primary-fixed-variant transition-all active:scale-[0.98] duration-200">
+                Reagendar consulta
+            </button>
+<button class="w-full py-4 text-error font-bold hover:bg-error-container/10 rounded-xl transition-colors border border-transparent active:scale-[0.98]">
+                Cancelar consulta
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+
+
+
+
+
+
+
+</body></html>

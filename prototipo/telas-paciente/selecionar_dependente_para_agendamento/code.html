@@ -1,0 +1,230 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004786",
+                    "background": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "outline": "#73787b",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#d1f7ff",
+                    "secondary-container": "#cfe6f2",
+                    "on-surface-variant": "#43474a",
+                    "on-secondary-container": "#526772",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed": "#001c3a",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary": "#006876",
+                    "surface-dim": "#d8dadc",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed": "#9eefff",
+                    "primary": "#005faf",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#eaf0ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#007887",
+                    "on-secondary-fixed": "#071e27",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "outline-variant": "#c3c7cb",
+                    "primary-fixed": "#d4e3ff",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#4c616c",
+                    "secondary-fixed": "#cfe6f2",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-tint": "#005faf",
+                    "surface-container": "#eceef0",
+                    "tertiary-fixed-dim": "#55d7ed",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#006dc8",
+                    "primary-fixed-dim": "#a5c8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-card {
+            background-color: #ffffff;
+            box-shadow: 0 12px 40px rgba(0, 95, 175, 0.08);
+            outline: 2px solid #005faf;
+        }
+        .step-active {
+            width: 32px;
+            background-color: #005faf;
+        }
+        .clinical-gradient {
+            background: linear-gradient(135deg, #005faf 0%, #004786 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container min-h-screen flex flex-col">
+<!-- Top Navigation Anchor -->
+<header class="w-full sticky top-0 z-50 bg-[#f7f9fb] dark:bg-[#191c1e] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#f2f4f6] dark:hover:bg-[#2c2e30] transition-colors active:scale-95 duration-150 p-2 rounded-full"><span class="material-symbols-outlined text-primary">arrow_back</span></button>
+
+</div>
+</header>
+<main class="flex-1 flex flex-col px-6 pt-4 pb-24 max-w-md mx-auto w-full">
+<!-- Progress Indicator -->
+<!-- Hero Text -->
+<div class="mb-10">
+<h2 class="font-headline font-extrabold text-3xl text-on-surface leading-tight mb-2">Para quem é o agendamento?</h2>
+<p class="text-on-surface-variant font-body">Escolha o paciente que receberá o atendimento médico.</p>
+</div>
+<!-- Selection Cards (Asymmetric Grid/Stack) -->
+<div class="grid gap-4">
+<!-- Card 1: Self -->
+<button class="group relative flex flex-col items-start p-6 rounded-xl bg-surface-container-low transition-all duration-300 text-left hover:bg-surface-container-lowest" id="card-self" onclick="selectOption('self')">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-4 text-on-primary-container transition-transform duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">person</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-1 text-on-surface">Agendar para mim</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Utilize seus dados cadastrados e histórico médico pessoal para este atendimento.</p>
+<div class="absolute top-4 right-4 opacity-0 transition-opacity duration-300 check-icon">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</div>
+</button>
+<!-- Card 2: Dependent -->
+<button class="group relative flex flex-col items-start p-6 rounded-xl bg-surface-container-low transition-all duration-300 text-left hover:bg-surface-container-lowest active-card" id="card-dependent" onclick="selectOption('dependent')">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-4 text-on-secondary-container transition-transform duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">family_restroom</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-1 text-on-surface">Agendar para dependente</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Selecione um familiar ou dependente já vinculado à sua conta Vitalis.</p>
+<div class="absolute top-4 right-4 transition-opacity duration-300 check-icon">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</div>
+</button><div class="mt-4 space-y-3 pl-4 border-l-2 border-primary/20">
+<div class="flex items-center justify-between p-3 bg-white rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">João Silva</p>
+<p class="text-xs text-on-surface-variant">Filho</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">radio_button_checked</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Pedro Silva</p>
+<p class="text-xs text-on-surface-variant">Filho</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">radio_button_unchecked</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Helena Souza</p>
+<p class="text-xs text-on-surface-variant">Mãe</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+<!-- Contextual Illustration (Subtle) -->
+<div class="mt-auto pt-12 opacity-40 grayscale pointer-events-none">
+
+</div>
+</main>
+<!-- Fixed Action Button / Primary CTA -->
+<footer class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background via-background/90 to-transparent">
+<div class="max-w-md mx-auto">
+<button class="w-full py-4 rounded-xl clinical-gradient text-white font-headline font-bold text-lg shadow-lg transition-all duration-300 active:scale-95 flex items-center justify-center gap-2" id="btn-continue">
+                Continuar
+                <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</footer>
+<script>
+        function selectOption(type) {
+            const selfCard = document.getElementById('card-self');
+            const dependentCard = document.getElementById('card-dependent');
+            const continueBtn = document.getElementById('btn-continue');
+            
+            // Reset styles
+            selfCard.classList.remove('active-card');
+            dependentCard.classList.remove('active-card');
+            selfCard.querySelectorAll('.check-icon').forEach(el => el.classList.add('opacity-0'));
+            dependentCard.querySelectorAll('.check-icon').forEach(el => el.classList.add('opacity-0'));
+
+            // Apply active styles
+            const selected = type === 'self' ? selfCard : dependentCard;
+            selected.classList.add('active-card');
+            selected.querySelector('.check-icon').classList.remove('opacity-0');
+
+            // Enable button
+            continueBtn.disabled = false;
+            continueBtn.classList.remove('opacity-50');
+            continueBtn.classList.add('shadow-primary/20');
+        }
+
+        // Add a micro-interaction for the progress dots
+        document.addEventListener('DOMContentLoaded', () => {
+            const dots = document.querySelectorAll('.h-1.5');
+            dots.forEach((dot, index) => {
+                setTimeout(() => {
+                    dot.style.transform = 'scale(1.1)';
+                    setTimeout(() => dot.style.transform = 'scale(1)', 200);
+                }, index * 100);
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

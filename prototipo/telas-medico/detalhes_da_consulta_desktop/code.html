@@ -1,0 +1,313 @@
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Detalhes da Consulta | ClinicalArchive</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#753400",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001c3a",
+                    "secondary-fixed-dim": "#b2c8ed",
+                    "on-tertiary-container": "#ffceb4",
+                    "primary": "#004786",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-container": "#9a4600",
+                    "secondary-container": "#c2d8fe",
+                    "surface": "#f7f9fb",
+                    "on-surface-variant": "#414751",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#324867",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#c1c6d3",
+                    "secondary-fixed": "#d4e3ff",
+                    "inverse-primary": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-container": "#c4daff",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline": "#727783",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "primary-container": "#005faf",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed": "#021c39",
+                    "surface-tint": "#005faf",
+                    "secondary": "#4a5f80",
+                    "on-tertiary-fixed-variant": "#753400",
+                    "on-tertiary-fixed": "#321200",
+                    "tertiary-fixed-dim": "#ffb68c",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#495e7f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-header {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .cloud-shadow {
+            box-shadow: 0 32px 48px -12px rgba(25, 28, 30, 0.06);
+        }
+        .sidebar-active {
+            background-color: #c2d8fe; /* secondary-container */
+            color: #495e7f; /* on-secondary-container */
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen flex overflow-hidden">
+<!-- SIDEBAR NAVIGATION -->
+<aside class="hidden md:flex flex-col h-screen w-64 left-0 top-0 bg-surface-container-low border-r-0 py-6 shrink-0">
+<div class="px-6 mb-10">
+<h1 class="font-headline text-lg font-black text-on-surface uppercase tracking-tight">The Curator</h1>
+<p class="font-label text-label-md uppercase tracking-wider text-on-surface-variant opacity-70">Precision Medicine</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label-md uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all bg-secondary-container text-on-secondary-container font-bold" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label text-label-md uppercase tracking-wider">Agenda</span>
+</a>
+
+
+
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-xl transition-all hover:bg-surface-container-high text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-label-md uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- MAIN CONTENT CANVAS -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto">
+<!-- TOP APP BAR -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-40 flex justify-between items-center px-6 py-3 w-full shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-headline text-xl font-bold text-primary">ClinicalArchive</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+</div>
+<img alt="Doctor's profile avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-fixed" data-alt="A professional medical headshot of a confident doctor in a clean clinical environment. The lighting is bright and even, reflecting a high-end medical practice. The doctor wears a white lab coat over a professional shirt. The background is a soft-focus clinical hallway with cool blue and white tones, maintaining a premium and authoritative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACs403yl4VtbIMB4_CwcdSS6zvJJ6uAZ9DX2q2xQwj_xqfgnNkSe_xZBVwQH2Zr4Mj9xaOj791shQd6iWnbBpYE7Mc6bDsvz0HzrGVbJHhmCrIuMk_jiZ--3vaTC3uO17CFo3bv6kd3b-qgwEWexwdQzDUAdG_HqzFgiO9I_-LdDHkI71fY6FPEhrvqbZQNUFr-AaCMfAKN6wvQupY9E3peXfOtIyU8ozDXf-ZHwSCE7BZLpKk8whODSWnKfyPw1lOwk6HdZMc2j4">
+</div>
+</header>
+<!-- DASHBOARD CONTENT -->
+<div class="p-8 max-w-7xl mx-auto w-full grid grid-cols-12 gap-8">
+<!-- LEFT COLUMN: PATIENT PROFILE -->
+<div class="col-span-12 lg:col-span-4 space-y-6 flex flex-col">
+<!-- Patient Info Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 cloud-shadow h-full">
+<div class="flex flex-col items-center text-center mb-8">
+<div class="relative mb-4">
+<img alt="Sarah Jenkins" class="w-32 h-32 rounded-full object-cover ring-4 ring-secondary-fixed" data-alt="A detailed portrait of a 28-year-old woman with a calm expression, captured in high-resolution photography. The lighting is soft and natural, emphasizing a realistic and empathetic patient profile. She is in a minimalist setting with soft-toned background colors that align with a clean medical interface. The style is professional, editorial, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCA18UoNuSoOjxd9H8EQYxDuPq_u6UtXIW3mKX1kAQ0UEW2NT5C8Q7mWrTw61i1FpYXzI-L6agPHeM3nMahzLUQy7MYe_2iuxAut1Z8Jlj9P7CV-UmhwEEYcOZfIX52uvxglGgwvUhwXSsPx-Qlm4FtN-SD-lHXJSqXtTe9K2fySv-P8C0ApBH7YiVLVhsOY8WwAKhLPAfo6LJtk7Z7Bpob9ywY21xqmVCa11ZlD0N_lnStSQJu_RXNGv8aCMi7_TPW7vtSX1GuAw">
+<span class="absolute bottom-1 right-1 bg-green-500 w-5 h-5 rounded-full border-4 border-surface-container-lowest"></span>
+</div>
+<h2 class="text-2xl font-bold text-on-surface">Sarah Jenkins</h2>
+<p class="text-on-surface-variant font-medium">28 anos • ID #SJ-9928</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-3 border-b border-surface-variant/30">
+<span class="text-label-sm uppercase tracking-widest text-on-surface-variant">Tipo Sanguíneo</span>
+<span class="font-bold text-primary">O+ Positivo</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-surface-variant/30">
+<span class="text-label-sm uppercase tracking-widest text-on-surface-variant">Peso</span>
+<span class="font-bold text-on-surface">62.5 kg</span>
+</div>
+<div class="flex justify-between items-center py-3">
+<span class="text-label-sm uppercase tracking-widest text-on-surface-variant">Altura</span>
+<span class="font-bold text-on-surface">1.68 m</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions -->
+
+</div>
+<!-- RIGHT COLUMN: CONSULTATION DETAILS -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Header Title -->
+<div class="mb-2">
+<span class="text-primary font-bold text-sm bg-primary-fixed px-3 py-1 rounded-full">Consulta em Andamento</span>
+<h1 class="text-3xl font-extrabold text-on-surface mt-4 tracking-tight">Detalhes da Consulta</h1>
+<p class="text-on-surface-variant mt-1">Sessão iniciada às 14:30 • Dr. Matheus Arantes</p>
+</div>
+<!-- Bento Grid Sections -->
+<div class="space-y-4">
+<!-- Section: Acessar Prontuário -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden cloud-shadow transition-all duration-300">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-low transition-colors" onclick="toggleSection('prontuario')">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">clinical_notes</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Acessar Prontuário Médico</h3>
+<p class="text-sm text-on-surface-variant">Histórico completo, diagnósticos anteriores e alergias.</p>
+</div>
+</div>
+<span class="material-symbols-outlined transform transition-transform duration-300" id="icon-prontuario" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="px-6 pb-6 border-t border-surface-variant/20 pt-6 animate-in slide-in-from-top-4 duration-300 hidden" id="content-prontuario">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center justify-between mb-2"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Diagnóstico Recente</span><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">edit</span></button></div>
+<p class="text-on-surface font-medium">Asma brônquica leve intermitente (J45.0)</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center justify-between mb-2"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Alergias</span><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">edit</span></button></div>
+<p class="text-error font-bold italic">Penicilina, Ácaros</p>
+</div>
+</div>
+<div class="mt-4 p-4 border border-outline-variant/30 rounded-xl">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest block mb-2">Notas da última sessão (12/05)</span>
+<p class="text-on-surface leading-relaxed italic">"Paciente relatou melhora nos sintomas noturnos após início de Budesonida. Mantendo monitoramento de pico de fluxo expiratório."</p>
+</div>
+</div>
+</div>
+<!-- Section: Documentos e Receitas -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden cloud-shadow transition-all duration-300">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-low transition-colors" onclick="toggleSection('docs')">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Documentos e Receitas</h3>
+<p class="text-sm text-on-surface-variant">Emitir atestados, prescrições e pedidos de exames.</p>
+</div>
+</div>
+<span class="material-symbols-outlined transform transition-transform duration-300" id="icon-docs">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 border-t border-surface-variant/20 pt-6" id="content-docs">
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary font-bold hover:bg-primary-fixed transition-all">
+<span class="material-symbols-outlined">medication</span> Nova Prescrição
+                                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary font-bold hover:bg-primary-fixed transition-all">
+<span class="material-symbols-outlined">lab_research</span> Pedido de Exame
+                                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary font-bold hover:bg-primary-fixed transition-all">
+<span class="material-symbols-outlined">assignment</span> Atestado Médico
+                                </button>
+</div>
+
+</div>
+</div>
+<!-- Section: Concluir Consulta (Critical Action) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden cloud-shadow transition-all duration-300">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-low transition-colors" onclick="toggleSection('concluir')">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface">Concluir Consulta</h3>
+<p class="text-sm text-on-surface-variant">Finalizar atendimento e gerar resumo da visita.</p>
+</div>
+</div>
+<span class="material-symbols-outlined transform transition-transform duration-300" id="icon-concluir">expand_more</span>
+</button>
+<div class="hidden px-6 pb-6 border-t border-surface-variant/20 pt-6" id="content-concluir">
+<div class="space-y-4">
+<div>
+<label class="text-label-sm uppercase tracking-widest text-on-surface-variant block mb-2">Parecer Médico Final</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary h-32" placeholder="Descreva os principais achados e conduta..."></textarea>
+</div>
+<div class="flex justify-end gap-3">
+<button class="px-6 py-3 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Salvar Rascunho</button>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">Finalizar e Enviar</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats / Meta Rail -->
+
+</div>
+</div>
+</main>
+<script>
+        function toggleSection(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            const isHidden = content.classList.contains('hidden');
+            
+            // Toggle visibility
+            content.classList.toggle('hidden');
+            
+            // Toggle icon rotation
+            if (isHidden) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Initialize with first section open
+        window.onload = () => {
+            toggleSection('prontuario');
+        };
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
