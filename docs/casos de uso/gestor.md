@@ -4,9 +4,6 @@ Este diagrama representa as interações do gestor com o sistema de agendamento.
 
 ## Casos de uso
 
-* Analisar desempenho financeiro
-* Gerar relatório financeiro
-* Analisar previsão financeira
 * Gerenciar assinatura
 * Monitorar sistema
 * Gerenciar usuário administrativo
