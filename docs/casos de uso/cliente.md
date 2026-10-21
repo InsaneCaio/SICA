@@ -8,7 +8,7 @@ Este diagrama representa as interações do cliente com o sistema de agendamento
 - Cancelar consulta  
 - Gerenciar dependentes  
 - Responder confirmação
-- Visualizar documentos
+
 
 ## Diagrama
 ```mermaid
@@ -28,6 +28,5 @@ flowchart LR
     P --> UC3
     P --> UC4
     P --> UC5
-    P --> UC6
 
 ```
