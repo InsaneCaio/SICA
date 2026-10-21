@@ -21,7 +21,6 @@ flowchart LR
         UC3((Cancelar consulta))
         UC4((Gerenciar dependentes))
         UC5((Responder confirmacao))
-        UC6((Visualizar documentos))
     end
 
     P --> UC1
