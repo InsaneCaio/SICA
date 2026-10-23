@@ -1,8 +1,6 @@
 # Diagrama Entidade-Relacionamento
 
-<img width="1099" height="834" alt="dPPTRzCm58Rl8-K_MBbXc-ZKJlI62xHegaIbqQADAn2AZEFI8_mHsSwa2RZYOZ-iVspEv-p6AP3Ur3ddpR6VryTkhxN1ofISnL4SxI6dY80YZCQH_W6Ym0fpn41GyrXG99NPoqf8XG7pY99IbrY1J13Mg1sZdt64xES2GPvriRS8X6dYirdpRQ2GJlu1AxB7wkngVjxaXUGqa5_CEm7b65" src="https://github.com/user-attachments/assets/456fb8a5-5fc0-4496-a16e-f40e6a8dd026" />
-
-
+<img width="1054" height="834" alt="er-diagram" src="https://github.com/user-attachments/assets/d8c266ae-40d7-4649-80b5-6db845d2cd5c" />
 
 ## Código
 ```plantuml
@@ -66,7 +64,7 @@ entity "medico" as medico {
     - id_usuario : int
     --
     crm : varchar(20)
-    especialidade_medico : varchar(100)
+    especialidade_medico : text[]
     sobre_medico : varchar(500)
     valor_consulta : numeric(10,2)
     status_medico : varchar(10)
@@ -111,4 +109,5 @@ medico "1" -- "0..*" horario_medico
 medico "1" -- "0..*" consulta
 
 @enduml
+
 ```
