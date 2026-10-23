@@ -31,11 +31,13 @@ const signup = async (req, res, next) => {
   }
 
   const dados = result.data;
-  const tipoUsuario = "PACIENTE";
+  const tipoUsuario = "ADMIN";
+
+  
 
   // Verifacando se email existe no banco
   const userEmail = await db.query(
-    'SELECT emailUsuario FROM usuario WHERE emailUsuario=$1',
+    'SELECT email_usuario FROM usuario WHERE email_usuario=$1',
     [dados.email]
   );
   if (userEmail.rows.length) {
@@ -44,7 +46,7 @@ const signup = async (req, res, next) => {
 
   // Verificando se CPF é repetido
   const userCpf = await db.query(
-    'SELECT cpf FROM paciente WHERE cpf=$1',
+    'SELECT cpf_admin FROM admin WHERE cpf_admin=$1',
     [dados.cpf]
   );
   if (userCpf.rows.length) {
@@ -60,18 +62,18 @@ const signup = async (req, res, next) => {
     await client.query("BEGIN");
 
     const userRes = await client.query(
-      `INSERT INTO usuario (tipoUsuario, nomeUsuario, emailUsuario, senhaUsuario)
-     VALUES ($1, $2, $3, $4) RETURNING idUsuario AS "idUsuario"`,
+      `INSERT INTO usuario (tipo_usuario, nome_usuario, email_usuario, senha_usuario)
+     VALUES ($1, $2, $3, $4) RETURNING id_usuario AS "idUsuario"`,
       [tipoUsuario, dados.nome, dados.email, senhaEncriptada],
     );
     const idUsuario = userRes.rows[0].idUsuario;
 
     await client.query(
-      `INSERT INTO paciente (idUsuario, CPF, tipoUsuarioRef)
+      `INSERT INTO admin (id_usuario, cpf_admin, tipo_usuario_ref)
      VALUES ($1, $2, $3)`,
       [idUsuario, dados.cpf, tipoUsuario],
     );
-
+    
     await client.query("COMMIT");
     res.status(201).json({ mensagem: "Usuário cadastrado com sucesso" });
   } catch (error) {
