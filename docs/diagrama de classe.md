@@ -1,140 +1,91 @@
 # Diagrama de Classes
-```mermaid
-classDiagram
+<img width="714" height="735" alt="fLNDRjf04BuZyGuhBf4Y4QLNr4fPOQTO0fjYU831teHHrxlMxhfIq_RGKwM-5Y_MCM0mnf3G-EITdVdcv_l6Vh0EZ2iosUrqE_OhgXmCP2oHO2rtpk2oS298j8hnHR3xkez49TptN31jt4gNyJViqzLF6JNrupZYCVFPAF1dVFPb4N3c-MmHBzQ_Pq4K_ozqjxDfX2ri0GOr-z7jC7hw3D" src="https://github.com/user-attachments/assets/601426ff-8270-476b-b900-a0059f33f4f0" />
 
-%% ==================================================
-%% PESSOAS E HIERARQUIA DE USUÁRIOS
-%% ==================================================
+# Código
+``` plantuml
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+' ==================================================
+' PESSOAS E HIERARQUIA DE USUÁRIOS
+' ==================================================
 
 class Usuario {
-    +id: int
-    +nome: string
-    +email: string
-    +senha: string
+    - id: int
+    - tipoUsuario: String
+    - nome: String
+    - email: String
+    - senha: String
+    - telefone: String
+}
+
+class Admin {
+    - id: int
+    - cpf: String
+}
+
+class Funcionario {
+    - id: int
+    - cpf: String
+    - status: String
 }
 
 class Paciente {
-    +cpf: string
-    +dataNascimento: date
-    +convenio: string
-}
-
-class Principal {
-    +telefone: string
+    - id: int
+    - cpf: String
+    - dataNascimento: LocalDate
 }
 
 class Dependente {
-    +id: int
-    +nome: string
-    +parentesco: string
+    - id: int
+    - cpf: String
+    - nome: String
+    - dataNascimento: LocalDate
 }
 
 class Medico {
-    +crm: string
-    +especialidade: string
-    +valorConsulta: double
+    - id: int
+    - crm: String
+    - especialidade: String
+    - sobre: String
+    - valorConsulta: Double
+    - status: String
 }
 
-class Administrador
-class Gestor
-
-Usuario <|-- Medico
-Usuario <|-- Administrador
-Usuario <|-- Gestor
+' HERANÇA
+Usuario <|-- Admin
+Usuario <|-- Funcionario
 Usuario <|-- Paciente
+Usuario <|-- Medico
 
-Paciente <|-- Principal
-Principal "1" *-- "0..*" Dependente : possui
+' RELACIONAMENTO DE DEPENDÊNCIA
+Paciente "1" *-- "0..*" Dependente : possui
 
-%% ==================================================
-%% ATENDIMENTO E PRONTUÁRIO
-%% ==================================================
+' ==================================================
+' AGENDAMENTO E ATENDIMENTO
+' ==================================================
+
+class HorarioMedico {
+    - id: int
+    - diaSemana: String
+    - horaInicio: LocalTime
+    - horaFim: LocalTime
+    - intervaloMinutos: int
+}
 
 class Consulta {
-    +id: int
-    +dataHora: datetime
-    +status: string
+    - id: int
+    - dataConsulta: LocalDateTime
+    - valorPago: Double
+    - status: String
 }
 
-class Prontuario {
-    +id: int
-    +alergias: Set~string~
-    +medicamentos: List~string~
-    +observacoes: string
-}
-
-class DocumentoMedico {
-    +id: int
-    +tipo: string
-    +urlArquivo: string
-    +dataEnvio: datetime
-}
-
+' RELACIONAMENTOS DE CONSULTA E HORÁRIOS
+Medico "1" *-- "0..*" HorarioMedico : disponibiliza
 Paciente "1" -- "0..*" Consulta : solicita
 Dependente "0..1" -- "0..*" Consulta : realiza
 Medico "1" -- "0..*" Consulta : atende
-Paciente "1" -- "1" Prontuario : possui
-Prontuario "1" *-- "0..*" DocumentoMedico : contem
-Consulta "1" -- "0..*" DocumentoMedico : gera
 
-%% ==================================================
-%% CLÍNICA E FINANCEIRO
-%% ==================================================
-
-class Clinica {
-    +id: int
-    +nome: string
-    +cnpj: string
-    +email: string
-    +telefone: string
-    +endereco: string
-}
-
-class Assinatura {
-    +id: int
-    +plano: string
-    +status: string
-}
-
-class Pagamento {
-    +id: int
-    +valor: float
-    +data: date
-}
-
-class Despesa {
-    +id: int
-    +categoria: string
-    +valor: float
-    +data: date
-}
-
-Administrador "1" -- "0..1" Clinica : administra
-Clinica "0..*" -- "0..*" Medico
-Clinica "1" *-- "0..*" Assinatura
-Assinatura "1" *-- "1..*" Pagamento
-Clinica "1" *-- "0..*" Despesa
-Gestor "1" -- "0..*" Assinatura : gerencia
-
-%% ==================================================
-%% RELATÓRIOS E ALERTAS
-%% ==================================================
-
-class Relatorio {
-    +id: int
-    +tipo: string
-    +dataGeracao: date
-}
-
-class Notificacao {
-    +id: int
-    +data: string
-    +hora: string
-    +modulo: string
-    +descricao: string
-    +status: string
-}
-
-Gestor "1" --> "0..*" Relatorio : gera
-Gestor "1" <-- "0..*" Notificacao : recebe
-```
+@enduml
