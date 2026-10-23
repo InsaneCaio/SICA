@@ -1,5 +1,6 @@
 # Diagrama de Classes
-<img width="714" height="735" alt="fLNDRjf04BuZyGuhBf4Y4QLNr4fPOQTO0fjYU831teHHrxlMxhfIq_RGKwM-5Y_MCM0mnf3G-EITdVdcv_l6Vh0EZ2iosUrqE_OhgXmCP2oHO2rtpk2oS298j8hnHR3xkez49TptN31jt4gNyJViqzLF6JNrupZYCVFPAF1dVFPb4N3c-MmHBzQ_Pq4K_ozqjxDfX2ri0GOr-z7jC7hw3D" src="https://github.com/user-attachments/assets/601426ff-8270-476b-b900-a0059f33f4f0" />
+<img width="754" height="668" alt="class-diagram-basic" src="https://github.com/user-attachments/assets/20fd79cb-f910-4a35-a057-81a19ed2b1a7" />
+
 
 # Código
 ``` plantuml
@@ -13,7 +14,6 @@ skinparam linetype ortho
 ' ==================================================
 
 class Usuario {
-    - id: int
     - tipoUsuario: String
     - nome: String
     - email: String
@@ -22,33 +22,28 @@ class Usuario {
 }
 
 class Admin {
-    - id: int
     - cpf: String
 }
 
 class Funcionario {
-    - id: int
     - cpf: String
     - status: String
 }
 
 class Paciente {
-    - id: int
     - cpf: String
     - dataNascimento: LocalDate
 }
 
 class Dependente {
-    - id: int
     - cpf: String
     - nome: String
     - dataNascimento: LocalDate
 }
 
 class Medico {
-    - id: int
     - crm: String
-    - especialidade: String
+    - especialidade: List<String>
     - sobre: String
     - valorConsulta: Double
     - status: String
@@ -68,7 +63,6 @@ Paciente "1" *-- "0..*" Dependente : possui
 ' ==================================================
 
 class HorarioMedico {
-    - id: int
     - diaSemana: String
     - horaInicio: LocalTime
     - horaFim: LocalTime
@@ -76,7 +70,6 @@ class HorarioMedico {
 }
 
 class Consulta {
-    - id: int
     - dataConsulta: LocalDateTime
     - valorPago: Double
     - status: String
