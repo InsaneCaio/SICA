@@ -1,6 +1,7 @@
 # Diagrama Entidade-Relacionamento
 
-<img width="1291" height="1226" alt="image" src="https://github.com/user-attachments/assets/7f80729f-22f9-4896-b959-33d165dca110" />
+<img width="1099" height="834" alt="dPPTRzCm58Rl8-K_MBbXc-ZKJlI62xHegaIbqQADAn2AZEFI8_mHsSwa2RZYOZ-iVspEv-p6AP3Ur3ddpR6VryTkhxN1ofISnL4SxI6dY80YZCQH_W6Ym0fpn41GyrXG99NPoqf8XG7pY99IbrY1J13Mg1sZdt64xES2GPvriRS8X6dYirdpRQ2GJlu1AxB7wkngVjxaXUGqa5_CEm7b65" src="https://github.com/user-attachments/assets/456fb8a5-5fc0-4496-a16e-f40e6a8dd026" />
+
 
 
 ## Código
@@ -11,208 +12,103 @@ hide circle
 skinparam linetype ortho
 
 entity "usuario" as usuario {
-    * idUsuario : int
+    * id_usuario : int
     --
-    tipoUsuario : varchar
-    nomeUsuario : varchar
-    emailUsuario : varchar
-    senhaUsuario : varchar
-}
-
-entity "gestor" as gestor {
-    * idGestor : int
-    --
-    - idUsuario : int
+    tipo_usuario : varchar(20)
+    nome_usuario : varchar(100)
+    email_usuario : varchar(254)
+    senha_usuario : varchar(255)
+    telefone_usuario : varchar(20)
 }
 
 entity "admin" as admin {
-    * idAdm : int
+    * id_admin : int
     --
-    - idUsuario : int
+    - id_usuario : int
     --
-    telefoneAdm : varchar
-}
-
-entity "medico" as medico {
-    * crm : varchar
-    --
-    - idUsuario : int
-    --
-    especialidade : varchar
-    obs : text
+    cpf_admin : varchar(11)
+    tipo_usuario_ref : varchar(20)
 }
 
 entity "paciente" as paciente {
-    * cpf : varchar
+    * id_paciente : int
     --
-    - idUsuario : int
+    - id_usuario : int
     --
-    dataNascimento : date
-    convenio : varchar
-    genero : varchar
-    obs : text
-}
-
-entity "principal" as principal {
-    * cpfPrincipal : varchar
-    --
-    telefone : varchar
+    cpf_paciente : varchar(11)
+    data_nascimento_paciente : date
+    tipo_usuario_ref : varchar(20)
 }
 
 entity "dependente" as dependente {
-    * idDependente : int
+    * id_dependente : int
     --
-    - cpfPrincipal : varchar
+    - id_paciente : int
     --
-    nomeDep : varchar
-    dataNascimento : date
-    parentesco : varchar
+    cpf_dependente : varchar(11)
+    nome_dependente : varchar(100)
+    data_nascimento_dependente : date
 }
 
-entity "notificacao" as notificacao {
-    * idNot : int
+entity "funcionario" as funcionario {
+    * id_funcionario : int
     --
-    - idGestor : int
+    - id_usuario : int
     --
-    data : varchar
-    hora : varchar
-    modulo : varchar
-    desc : varchar
-    status : varchar
+    cpf_funcionario : varchar(11)
+    status_funcionario : varchar(10)
+    tipo_usuario_ref : varchar(20)
 }
 
-entity "diaSemana" as diaSemana {
-    * id_dia : int
+entity "medico" as medico {
+    * id_medico : int
     --
-    nome_dia : varchar
+    - id_usuario : int
+    --
+    crm : varchar(20)
+    especialidade_medico : varchar(100)
+    sobre_medico : varchar(500)
+    valor_consulta : numeric(10,2)
+    status_medico : varchar(10)
+    tipo_usuario_ref : varchar(20)
 }
 
-entity "horarioAtend" as horarioAtend {
-    * idHora : int
+entity "horario_medico" as horario_medico {
+    * id_horario : int
     --
-    - id_dia : int
-    - crm : varchar
+    - id_medico : int
     --
+    dia_semana : varchar(10)
     hora_inicio : time
     hora_fim : time
-}
-
-entity "plano" as plano {
-    * idPlano : int
-    --
-    nomePlano : varchar
-    valorPlano : decimal
-    descPlano : text
-}
-
-entity "clinica" as clinica {
-    * idClinica : int
-    --
-    - idPlano : int
-    - idAdm : int
-    --
-    nomeClinica : varchar
-    endClinica : varchar
-    telefone : varchar
-    email : varchar
-}
-
-entity "fatura" as fatura {
-    * idFatura : int
-    --
-    - idClinica : int
-    --
-    dataFatura : date
-    valorFatura : decimal
-    statusFatura : varchar
-}
-
-entity "despesa" as despesa {
-    * idDespesa : int
-    --
-    - idClinica : int
-    --
-    categoria : varchar
-    valor : decimal
-    dataDespesa : date
-    descricao : text
-}
-
-entity "relatorio" as relatorio {
-    * idRelatorio : int
-    --
-    - idGestor : int
-    --
-    tipo : varchar
-    dataGeracao : date
-    conteudo : text
+    intervalo_minutos : smallint
 }
 
 entity "consulta" as consulta {
-    * idConsulta : int
+    * id_consulta : int
     --
-    - cpfpaciente : varchar
-    - crmMedico : varchar
-    - idClinica : int
-    - idDependente : int [opcional]
+    - id_paciente : int
+    - id_dependente : int [opcional]
+    - id_medico : int
     --
-    data : date
-    horario : time
-    status : varchar
+    data_consulta : timestamp
+    valor_pago : numeric(10,2)
+    status_consulta : varchar(20)
 }
 
-entity "prontuario" as prontuario {
-    * idProntuario : int
-    --
-    - cpfpaciente : varchar
-    - crmMedico : varchar
-    --
-    alergias : text
-    medicamentos : text
-    observacoes : text
-}
-
-entity "documentoMedico" as documentoMedico {
-    * idDocumento : int
-    --
-    - idConsulta : int
-    - idProntuario : int
-    --
-    tipoDoc : varchar
-    urlArquivo : varchar
-    dataEnvio : datetime
-}
-
-' HERANÇA
-usuario --|> gestor
+' HERANÇA (ESPECIALIZAÇÃO)
 usuario --|> admin
-usuario --|> medico
 usuario --|> paciente
-
-paciente --|> principal
+usuario --|> funcionario
+usuario --|> medico
 
 ' RELACIONAMENTOS
-principal "1" -- "0..*" dependente
-medico "1" -- "0..*" horarioAtend
-diaSemana "1" -- "0..*" horarioAtend
-
-plano "1" -- "0..*" clinica
-admin "1" -- "0..*" clinica
-gestor "1" -- "0..*" notificacao
-gestor "1" -- "0..*" relatorio
-
-clinica "1" -- "0..*" fatura
-clinica "1" -- "0..*" despesa
-clinica "0..*" -- "0..*" medico
-
+paciente "1" -- "0..*" dependente
 paciente "1" -- "0..*" consulta
-medico "1" -- "0..*" consulta
-clinica "1" -- "0..*" consulta
 dependente "0..1" -- "0..*" consulta
 
-paciente "1" -- "0..1" prontuario
-prontuario "1" -- "0..*" documentoMedico
-consulta "1" -- "0..*" documentoMedico
+medico "1" -- "0..*" horario_medico
+medico "1" -- "0..*" consulta
 
 @enduml
 ```
