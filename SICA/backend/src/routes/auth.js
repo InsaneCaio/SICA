@@ -7,9 +7,9 @@ import login from '../controllers/login.js';
 const router = Router();
 
 // SIGN UP
-router.get('/signup', signup);
+router.post('/signup', signup);
 
 // LOGIN
-router.get('/login', login);
+router.post('/login', login);
 
 export default router;
