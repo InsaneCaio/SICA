@@ -8,6 +8,7 @@ Este diagrama representa as interações do cliente com o sistema de agendamento
 - Gerenciar consultas  
 - Gerenciar dependentes  
 - Visualizar dependentes
+- Visualizar notificações
 
 
 ## Diagrama
@@ -21,6 +22,7 @@ flowchart LR
         UC3((Gerenciar consultas))
         UC4((Gerenciar dependentes))
         UC5((Visualizar dependentes))
+        UC6((Visualizar notificações))
     end
 
     P --> UC1
@@ -28,5 +30,6 @@ flowchart LR
     P --> UC3
     P --> UC4
     P --> UC5
+    P --> UC6
 
 ```
