@@ -3,12 +3,15 @@
 Este diagrama representa as interações do administrador com o sistema de agendamento.
 
 ## Casos de uso
-- Gerenciar médicos
-- Gerenciar/Editar dados da clínica
-- Fazer agendamento
-- Reagendar
+- Gerenciar usuários
+- Gerenciar clínica
+- Agendar consulta
+- Reagendar consulta
 - Cancelar agendamento
-- Gerenciar assinatura
+- Login
+- Logout
+- Visualizar consultas
+- Visualizar usuários
 
 ## Diagrama
 ```mermaid
@@ -16,12 +19,15 @@ flowchart LR
     A[Administrador]
 
     subgraph Sistema de Agendamento
-        UC1((Gerenciar médicos))
-        UC2((Gerenciar/Editar dados da clínica))
-        UC3((Fazer agendamento))
-        UC4((Reagendar))
+        UC1((Gerenciar usuários))
+        UC2((Gerenciar clínica))
+        UC3((Agendar consulta))
+        UC4((Reagendar consulta))
         UC5((Cancelar agendamento))
-        UC6((Gerenciar assinatura))
+        UC6((Login))
+        UC7((Logout))
+        UC8((Visualizar consultas))
+        UC9((Visualizar usuários))
     end
 
     A --> UC1
@@ -30,6 +36,8 @@ flowchart LR
     A --> UC4
     A --> UC5
     A --> UC6
+    A --> UC7
+    A --> UC8
+    A --> UC9
 
 ```
-
