@@ -10,6 +10,7 @@ Este diagrama representa as interações do administrador com o sistema de agend
 - Cancelar agendamento
 - Visualizar consultas
 - Visualizar usuários
+- Visualizar notificações
 
 ## Diagrama
 ```mermaid
@@ -24,6 +25,7 @@ flowchart LR
         UC5((Cancelar agendamento))
         UC6((Visualizar consultas))
         UC7((Visualizar usuários))
+        UC8((Visualizar notificações))
     end
 
     A --> UC1
@@ -33,5 +35,6 @@ flowchart LR
     A --> UC5
     A --> UC6
     A --> UC7
+    A --> UC8
 
 ```
