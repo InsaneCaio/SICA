@@ -8,8 +8,6 @@ Este diagrama representa as interações do administrador com o sistema de agend
 - Agendar consulta
 - Reagendar consulta
 - Cancelar agendamento
-- Login
-- Logout
 - Visualizar consultas
 - Visualizar usuários
 
@@ -24,10 +22,8 @@ flowchart LR
         UC3((Agendar consulta))
         UC4((Reagendar consulta))
         UC5((Cancelar agendamento))
-        UC6((Login))
-        UC7((Logout))
-        UC8((Visualizar consultas))
-        UC9((Visualizar usuários))
+        UC6((Visualizar consultas))
+        UC7((Visualizar usuários))
     end
 
     A --> UC1
@@ -37,7 +33,5 @@ flowchart LR
     A --> UC5
     A --> UC6
     A --> UC7
-    A --> UC8
-    A --> UC9
 
 ```
