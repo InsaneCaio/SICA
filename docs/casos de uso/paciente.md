@@ -1,13 +1,13 @@
-# Casos de Uso - Cliente
+# Casos de Uso - Paciente
 
 Este diagrama representa as interações do cliente com o sistema de agendamento.
 
 ## Casos de uso
-- Fazer agendamento  
-- Consultar agenda  
-- Cancelar consulta  
+- Agendar consultas 
+- Visualizar consultas
+- Gerenciar consultas  
 - Gerenciar dependentes  
-- Responder confirmação
+- Visualizar dependentes
 
 
 ## Diagrama
@@ -16,11 +16,11 @@ flowchart LR
     P[Cliente]
 
     subgraph Sistema de Agendamento
-        UC1((Fazer agendamento))
-        UC2((Consultar agenda))
-        UC3((Cancelar consulta))
+        UC1((Agendar consultas))
+        UC2((Visualizar consultas))
+        UC3((Gerenciar consultas))
         UC4((Gerenciar dependentes))
-        UC5((Responder confirmacao))
+        UC5((Visualizar dependentes))
     end
 
     P --> UC1
