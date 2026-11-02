@@ -35,7 +35,7 @@ const login = async (req, res, next) => {
     
     // Vendo se email existe no banco
     const userDB = await db.query(
-      "SELECT u.id_usuario, f.cpf_funcionario, a.cpf_admin, u.senha_usuario, u.tipo_usuario FROM usuario u LEFT JOIN admin a ON u.id_usuario = a.id_usuario LEFT JOIN funcionario f ON u.id_usuario = f.id_usuario WHERE f.cpf_funcionario=$1 OR a.cpf_admin=$1",
+      "SELECT u.id_usuario, u.nome_usuario, f.cpf_funcionario, a.cpf_admin, u.senha_usuario, u.tipo_usuario FROM usuario u LEFT JOIN admin a ON u.id_usuario = a.id_usuario LEFT JOIN funcionario f ON u.id_usuario = f.id_usuario WHERE f.cpf_funcionario=$1 OR a.cpf_admin=$1",
       [cpf],
     );
 
@@ -69,13 +69,16 @@ const login = async (req, res, next) => {
       maxAge: 24 * 60 * 60 * 1000,
     });
 
-    res.status(200).json({mensagem: 'Login bem-sucedido'});
+    res.status(200).json({
+      mensagem: 'Login bem-sucedido',
+      nome: userDB.rows[0].nome_usuario
+    });
     
     
   } else if (/^\d{5}-[A-Z]{2}$/.test(crm)) {
 
     const userDB = await db.query(
-      "SELECT u.id_usuario, m.crm, u.senha_usuario, u.tipo_usuario FROM usuario u INNER JOIN medico m ON u.id_usuario = m.id_usuario WHERE crm=$1",
+      "SELECT u.id_usuario, u.nome_usuario, m.crm, u.senha_usuario, u.tipo_usuario FROM usuario u INNER JOIN medico m ON u.id_usuario = m.id_usuario WHERE crm=$1",
       [crm],
     );
 
@@ -109,7 +112,10 @@ const login = async (req, res, next) => {
       maxAge: 24 * 60 * 60 * 1000,
     });
 
-    res.status(200).json({ mensagem: "Login bem-sucedido" });
+    res.status(200).json({
+      mensagem: "Login bem-sucedido",
+      nome: userDB.rows[0].nome_usuario
+    });
 
   } else {
     return next(criarErro('Identificador inválido', 400));
