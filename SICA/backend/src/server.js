@@ -1,23 +1,29 @@
 import express from 'express';
 import errorHandler from './middleware/erros.js';
+import cors from 'cors';
 
 // IMPORTANDO AS ROTAS
 import auth from './routes/auth.js';
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
 
-//remover depois:
-app.get('/', (req, res) => {
-  res.status(200).send('Conexão funcional');
-});
+// CORS
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL, "http://localhost:5173"],
+    credentials: true, // obrigatório para enviar cookies
+  }),
+);
+
+app.get("/", (req, res) => res.json({ status: "API online" }));
 
 // ROTAS
 app.use('/auth', auth); // rota de signup/login
 
 app.use(errorHandler);
 
-app.listen(3000, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
