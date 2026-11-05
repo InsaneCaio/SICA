@@ -1,0 +1,29 @@
+.cabecalho {
+    height: 52px;
+    flex: 0 0 52px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 32px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.usuario-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    font-weight: 550;
+}
+
+.avatar-usuario {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dbe4ff;
+    color: var(--azul-sec);
+}
