@@ -1,0 +1,20 @@
+:root {
+    font-family: Inter, sans-serif;
+    color: #171717;
+    background: #f4f4f5;
+    text-rendering: optimizeLegibility;
+    --azul-princ: #3563f5;
+    --azul-sec: #254ed1;
+    --border: #e5e5e7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    min-height: 100%;
+    margin: 0;
+}

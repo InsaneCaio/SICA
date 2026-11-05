@@ -1,0 +1,12 @@
+.logo-sica {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 750;
+    color: #0e0e0e;
+}
+
+.logo-sica svg {
+    color: var(--azul-princ);
+}
