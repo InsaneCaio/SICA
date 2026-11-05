@@ -4,8 +4,3 @@ A tela de Cadastro não estará no produto final, servindo apenas como demonstra
 
 A tela de Início está com dados fictícios e estáticos enquanto não temos como criar consultas/médicos/etc.
 
-Após extrair, rodar no terminal:
-
-npm.cmd install
-
-npm.cmd run dev
