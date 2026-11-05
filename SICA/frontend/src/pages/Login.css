@@ -76,6 +76,10 @@
     color: #b32f38;
 }
 
+.sucesso-login {
+    color: black;
+}
+
 .link-cadastro {
     display: inline-block;
     margin-top: 13px;
