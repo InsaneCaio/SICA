@@ -73,11 +73,13 @@
 }
 
 .erro-login {
-    color: #b32f38;
+    color: rgb(173, 39, 39);
+    text-align: center;
 }
 
 .sucesso-login {
     color: green;
+    text-align: center;
 }
 
 .link-cadastro {
