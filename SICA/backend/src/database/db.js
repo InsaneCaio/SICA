@@ -5,7 +5,7 @@ import { Pool } from "pg";
 dotenv.config();
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false }, // Necessário para o banco na nuvem rodar
 });
 
 // TESTANDO CONEXÃO

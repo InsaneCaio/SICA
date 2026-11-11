@@ -4,6 +4,7 @@ import cors from 'cors';
 
 // IMPORTANDO AS ROTAS
 import auth from './routes/auth.js';
+import medico from './routes/medico.js';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -22,7 +23,8 @@ app.use(
 app.get("/", (req, res) => res.json({ status: "API online" }));
 
 // ROTAS
-app.use('/auth', auth); // rota de signup/login
+app.use('/auth', auth);     // rota de signup/login
+app.use('/medico', medico); // rota de crud medico
 
 app.use(errorHandler);
 
