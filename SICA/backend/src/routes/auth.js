@@ -1,8 +1,8 @@
 import Router from 'express';
 
 // CONTROLLERS
-import signup from '../controllers/signup.js';
-import {login, logout} from '../controllers/login.js';
+import signup from '../controllers/signupController.js';
+import {login, logout} from '../controllers/loginController.js';
 
 const router = Router();
 
