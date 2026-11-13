@@ -1,17 +1,18 @@
 import Router from 'express';
-
+import upload from '../middleware/imgUpload.js';
 import { listarTodosMedicos, listarMedico, criarMedico, editarMedico, excluirMedico } from '../controllers/medicoController.js';
+import { autenticar } from '../middleware/autenticacao.js';
 
 const router = Router();
 
-router.get('/', /*função autenticar*/ listarTodosMedicos);
+router.get("/", autenticar, upload.single("foto"), listarTodosMedicos);
 
-router.get("/:id", /*função autenticar*/  listarMedico);
+router.get("/:id", autenticar, upload.single("foto"), listarMedico);
 
-router.post("/", /*função autenticar*/  criarMedico);
+router.post("/", autenticar, upload.single('foto'),  criarMedico);
 
-router.put("/:id", /*função autenticar*/ editarMedico);
+router.put("/:id", autenticar, upload.single("foto"), editarMedico);
 
-router.delete("/:id", /*função autenticar*/ excluirMedico);
+router.delete("/:id", autenticar, excluirMedico);
 
 export default router;
