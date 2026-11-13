@@ -1,7 +1,7 @@
 import z from "zod";
 import bcrypt from "bcrypt";
 
-import db from "../database/db.js";
+import db from "../config/database.js";
 import criarErro from "../utils/criarErro.js";
 
 const signup = async (req, res, next) => {

@@ -2,7 +2,7 @@ import z from "zod";
 import bcrypt from "bcrypt";
 import JWT from "jsonwebtoken";
 
-import db from "../database/db.js";
+import db from "../config/database.js";
 import criarErro from "../utils/criarErro.js";
 
 export const login = async (req, res, next) => {
@@ -97,7 +97,6 @@ export const login = async (req, res, next) => {
       { expiresIn: "24h" },
     );
 
-  
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

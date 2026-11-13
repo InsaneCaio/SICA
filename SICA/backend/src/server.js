@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import errorHandler from './middleware/erros.js';
 import cors from 'cors';
 
@@ -11,6 +12,7 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
+app.use(cookieParser());
 
 // CORS
 app.use(
