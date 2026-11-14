@@ -7,6 +7,7 @@ CREATE TABLE usuario (
     email_usuario    VARCHAR(254) NOT NULL,
     senha_usuario    VARCHAR(255) NOT NULL,
     telefone_usuario VARCHAR(20),
+    foto_url VARCHAR(500) NULL,
 
     CONSTRAINT pk_usuario PRIMARY KEY (id_usuario),
     CONSTRAINT ck_usuario_tipo_usuario CHECK (tipo_usuario IN ('PACIENTE', 'FUNCIONARIO', 'MEDICO', 'ADMIN')),
@@ -127,3 +128,6 @@ CREATE TABLE consulta (
     ) 
     WHERE (status_consulta NOT IN ('CANCELADA'))
 );
+
+-- ALTER TABLE usuario 
+-- ADD COLUMN foto_url VARCHAR(500) NULL;

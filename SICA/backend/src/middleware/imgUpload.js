@@ -1,4 +1,5 @@
 import multer from "multer";
+import criarErro from "../utils/criarErro.js";
 
 // Guarda na memória RAM enquanto faz o upload
 const storage = multer.memoryStorage();
@@ -14,7 +15,7 @@ const upload = multer({
     if (tiposPermitidos.includes(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error("Formato de arquivo inválido. Apenas JPEG, PNG ou WEBP."));
+      cb(criarErro("Formato de arquivo inválido. Apenas JPEG, PNG ou WEBP", 400));
     }
   },
 });
