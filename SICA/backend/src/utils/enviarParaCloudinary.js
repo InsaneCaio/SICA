@@ -1,9 +1,11 @@
 import cloudinary from "../config/cloudinary.js";
+import criarErro from "./criarErro.js";
 
 export const enviarParaCloudinary = (
   fileBuffer,
   userId,
-  pasta = "usuarios",
+  pasta
+  // pasta = "usuarios",
 ) => {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
@@ -19,7 +21,16 @@ export const enviarParaCloudinary = (
         ],
       },
       (error, result) => {
-        if (error) return reject(error);
+        
+        if (error) {
+
+          if (error.message.includes("Invalid image file") || error.message.includes("Empty file")) {
+            return reject(criarErro("O arquivo enviado não é uma imagem válida.", 400));
+          }
+
+          return reject(error);
+        }
+
         resolve(result);
       },
     );
