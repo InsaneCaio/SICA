@@ -3,7 +3,8 @@ import criarErro from "./criarErro.js";
 
 export const enviarParaCloudinary = (
   fileBuffer,
-  userId,
+  //userId,
+  identificador,
   pasta
   // pasta = "usuarios",
 ) => {
@@ -13,7 +14,7 @@ export const enviarParaCloudinary = (
         folder: pasta,
         // Usar public_id com o ID do usuário garante que, se ele trocar de foto,
         // a anterior é substituída automaticamente sem acumular lixo
-        public_id: `foto_${userId}`,
+        public_id: `foto_${identificador}`,
         overwrite: true,
         transformation: [
           { width: 300, height: 300, crop: "fill", gravity: "face" }, // Foca no rosto e corta 300x300
