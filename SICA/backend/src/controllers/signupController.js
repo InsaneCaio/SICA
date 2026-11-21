@@ -1,7 +1,7 @@
 import z from "zod";
 import bcrypt from "bcrypt";
 
-import db from "../database/db.js";
+import db from "../config/database.js";
 import criarErro from "../utils/criarErro.js";
 
 const signup = async (req, res, next) => {
@@ -31,7 +31,7 @@ const signup = async (req, res, next) => {
   }
 
   const dados = result.data;
-  const tipoUsuario = "ADMIN";
+  //const tipoUsuario = "ADMIN";
 
   
 
@@ -62,16 +62,16 @@ const signup = async (req, res, next) => {
     await client.query("BEGIN");
 
     const userRes = await client.query(
-      `INSERT INTO usuario (tipo_usuario, nome_usuario, email_usuario, senha_usuario)
-     VALUES ($1, $2, $3, $4) RETURNING id_usuario AS "idUsuario"`,
-      [tipoUsuario, dados.nome, dados.email, senhaEncriptada],
+      `INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario)
+     VALUES ($1, $2, $3) RETURNING id_usuario AS "idUsuario"`,
+      [dados.nome, dados.email, senhaEncriptada],
     );
     const idUsuario = userRes.rows[0].idUsuario;
 
     await client.query(
-      `INSERT INTO admin (id_usuario, cpf_admin, tipo_usuario_ref)
-     VALUES ($1, $2, $3)`,
-      [idUsuario, dados.cpf, tipoUsuario],
+      `INSERT INTO admin (id_usuario, cpf_admin)
+     VALUES ($1, $2)`,
+      [idUsuario, dados.cpf],
     );
     
     await client.query("COMMIT");
