@@ -10,7 +10,9 @@ async function requisitarMedicos(caminho, opcoes = {}) {
         throw new Error("Não foi possível conectar ao servidor.");
     }
 
-    const resultado = await resposta.json().catch(() => ({}));
+    const resultado = await resposta.json().catch(() => {
+        throw new Error("Resposta inválida do servidor.");
+    });
 
     if (!resposta.ok) {
         throw new Error(resultado.erro || "Não foi possível concluir a solicitação.");
@@ -19,16 +21,28 @@ async function requisitarMedicos(caminho, opcoes = {}) {
     return resultado;
 }
 
-export function listarMedicos() {
-    return requisitarMedicos("");
+export async function listarMedicos() {
+    const resultado = await requisitarMedicos("");
+
+    if (!Array.isArray(resultado)) {
+        throw new Error("Lista de médicos inválida.");
+    }
+
+    return resultado;
 }
 
 export function obterMedico(id) {
     return requisitarMedicos(`/${id}`);
 }
 
-export function listarEspecialidades() {
-    return requisitarMedicos("/especialidades");
+export async function listarEspecialidades() {
+    const resultado = await requisitarMedicos("/especialidades");
+
+    if (!Array.isArray(resultado)) {
+        throw new Error("Lista de especialidades inválida.");
+    }
+
+    return resultado;
 }
 
 function prepararDados(dados) {
