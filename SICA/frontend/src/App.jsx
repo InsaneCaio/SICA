@@ -3,6 +3,8 @@ import LayoutPrincipal from "./components/LayoutPrincipal";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Inicio from "./pages/Inicio";
+import Medicos from "./pages/Medicos";
+import FormularioMedico from "./pages/FormularioMedico";
 import "./App.css";
 
 export default function App() {
@@ -11,8 +13,12 @@ export default function App() {
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
+
                 <Route element={<LayoutPrincipal />}>
                     <Route path="/inicio" element={<Inicio />} />
+                    <Route path="/medicos" element={<Medicos />} />
+                    <Route path="/medicos/novo" element={<FormularioMedico />} />
+                    <Route path="/medicos/:id/editar" element={<FormularioMedico />} />
                 </Route>
 
                 <Route path="*" element={<Navigate to="/login" replace />} />

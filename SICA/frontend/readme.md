@@ -1,6 +1,5 @@
-O SICA atualmente conta com 3 telas: Login, Cadastro e Início
+O SICA atualmente conta com 7 telas: Login, Cadastro, Ínicio, Diretório Médico e Criar/Editar Médicos
 
-A tela de Cadastro não estará no produto final, servindo apenas como demonstração do funcionamento da criação de contas por enquanto. 
+A tela de Cadastro não estará no produto final, servindo apenas como demonstração do funcionamento da criação de contas por enquanto.
 
-A tela de Início está com dados fictícios e estáticos enquanto não temos como criar consultas/médicos/etc.
-
+A tela de Início está com dados fictícios e estáticos enquanto não temos como criar consultas.

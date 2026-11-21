@@ -6,6 +6,7 @@ export default defineConfig({
     server: {
         proxy: {
             "/auth": "http://localhost:3000",
+            "/medico": "http://localhost:3000",
         },
     },
 });

@@ -1,5 +1,9 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Home as IconeInicio, LogOut as IconeSair } from "lucide-react";
+import {
+    Home as IconeInicio,
+    LogOut as IconeSair,
+    Stethoscope as IconeMedicos,
+} from "lucide-react";
 import { encerrarSessao } from "../services/servicoAutenticacao";
 import Logo from "./Logo";
 import "./BarraLateral.css";
@@ -22,10 +26,14 @@ export default function BarraLateral() {
                 <Logo />
             </Link>
 
-            <nav className="menu-lateral">
+            <nav className="menu-lateral" aria-label="Menu principal">
                 <NavLink to="/inicio">
                     <IconeInicio size={17} aria-hidden="true" />
                     <span>Início</span>
+                </NavLink>
+                <NavLink to="/medicos">
+                    <IconeMedicos size={17} aria-hidden="true" />
+                    <span>Médicos</span>
                 </NavLink>
             </nav>
 

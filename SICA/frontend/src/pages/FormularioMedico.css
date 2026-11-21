@@ -1,0 +1,325 @@
+.pagina-formulario-medico {
+    background: #f5f5f5;
+}
+
+.cabecalho-formulario-medico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.cabecalho-formulario-medico h1 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.cabecalho-formulario-medico a {
+    color: var(--azul-sec);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.grade-formulario-medico {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(270px, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.coluna-formulario-medico {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.cartao-formulario-medico {
+    padding: 22px;
+    border: 1px solid #e7e7e7;
+    border-radius: 19px;
+    background: #fff;
+}
+
+.cartao-formulario-medico h2 {
+    margin: 0 0 16px;
+    font-size: 15px;
+}
+
+.campo-formulario-medico {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    margin-bottom: 14px;
+    font-size: 12px;
+}
+
+.campo-formulario-medico input,
+.campo-formulario-medico textarea,
+.campo-formulario-medico select {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    padding: 9px 11px;
+    border: 1px solid #e7e7e7;
+    border-radius: 17px;
+    background: #f0f0f0;
+    color: #222;
+    font: inherit;
+    font-size: 12px;
+}
+
+.campo-formulario-medico textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.campo-formulario-medico input:focus,
+.campo-formulario-medico textarea:focus,
+.campo-formulario-medico select:focus {
+    outline: 2px solid #abc2ff;
+    outline-offset: 1px;
+}
+
+.campos-lado-a-lado-medico {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.campo-valor-consulta {
+    width: 52%;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.especialidades-selecionadas-medico {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.especialidades-selecionadas-medico button {
+    padding: 6px 8px;
+    border: 1px solid #cbd8fa;
+    border-radius: 12px;
+    background: #eef3ff;
+    color: #294b9e;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.cartao-foto-medico {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+}
+
+.foto-perfil-medico {
+    width: 92px;
+    height: 92px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e2e9ff;
+    color: #355ed0;
+}
+
+.foto-perfil-medico img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cartao-foto-medico strong {
+    text-align: center;
+    font-size: 15px;
+}
+
+.botao-foto-medico {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: #ededed;
+    color: #222;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.botao-foto-medico input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.botao-foto-medico:focus-within {
+    outline: 2px solid #9db6fa;
+    outline-offset: 2px;
+}
+
+.nome-foto-medico {
+    color: grey;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.rotulo-grupo-medico {
+    display: block;
+    margin: 18px 0 9px;
+    font-size: 12px;
+}
+
+.dias-atendimento-medico,
+.intervalos-medico {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.dias-atendimento-medico button {
+    min-width: 31px;
+    padding: 8px 6px;
+    border: 0;
+    border-radius: 7px;
+    background: #ededed;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.dias-atendimento-medico button.selecionado {
+    background: var(--azul-princ);
+    color: white;
+}
+
+.campos-horario-medico {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 8px;
+}
+
+.campos-horario-medico .campo-formulario-medico {
+    margin-bottom: 0;
+}
+
+.campos-horario-medico input,
+.campos-horario-medico select {
+    padding: 8px 6px;
+    font-size: 11px;
+}
+
+.intervalos-medico {
+    margin-bottom: 12px;
+}
+
+.intervalos-medico button {
+    padding: 9px 11px;
+    border: 0;
+    border-radius: 17px;
+    background: #ededed;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.intervalos-medico button.selecionado {
+    color: white;
+    background: var(--azul-princ);
+}
+
+.aviso-horario-medico {
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff5db;
+    color: #805a0c;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.botao-inativar-medico {
+    width: 100%;
+    min-height: 35px;
+    padding: 9px 15px;
+    border: 0;
+    border-radius: 17px;
+    background: #f4adad;
+    text-align: left;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.botao-inativar-medico:hover {
+    background: #e99a9a;
+}
+
+.botoes-formulario-medico {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+    padding: 14px 10px 0;
+}
+
+.botao-salvar-medico {
+    min-width: 210px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--azul-princ);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.botao-salvar-medico:hover {
+    background: var(--azul-sec);
+}
+
+.botao-salvar-medico:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+.botao-cancelar-medico {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    border-radius: 20px;
+    background: #ececec;
+    color: #222;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.erro-formulario-medico {
+    padding: 10px 14px;
+    border: 1px solid #f0caca;
+    border-radius: 8px;
+    background: #fff0f0;
+    color: #b02a2a;
+    font-size: 12px;
+}
+
+.estado-formulario-medico {
+    font-size: 12px;
+}
+
+.ajuda-senha-medico {
+    color: grey;
+    font-size: 11px;
+    line-height: 1.4;
+}

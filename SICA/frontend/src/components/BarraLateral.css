@@ -78,3 +78,7 @@
     background: #f3f5fb;
 }
 
+.menu-lateral a[aria-current="page"] {
+    background: #eef2ff;
+    color: var(--azul-sec);
+}

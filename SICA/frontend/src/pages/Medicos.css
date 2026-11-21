@@ -1,0 +1,269 @@
+.pagina-medicos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f5f5f5;
+}
+
+.topo-medicos {
+    min-height: 55px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+}
+
+.topo-medicos h1 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.botao-novo-medico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 31px;
+    padding: 6px 16px;
+    border-radius: 18px;
+    background: var(--azul-princ);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.botao-novo-medico:hover {
+    background: var(--azul-sec);
+}
+
+.painel-medicos {
+    min-height: 440px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #d8d8d8;
+    border-radius: 12px;
+    background: #efefef;
+}
+
+.pesquisa-medicos {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.campo-pesquisa-medicos {
+    width: 300px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 17px;
+    background: white;
+}
+
+.campo-pesquisa-medicos input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 12px;
+}
+
+.campo-pesquisa-medicos input::placeholder {
+    color: #aaa;
+}
+
+.rolagem-medicos {
+    overflow-x: auto;
+}
+
+.tabela-medicos {
+    width: 100%;
+    min-width: 570px;
+    border-collapse: collapse;
+    background: white;
+    font-size: 12px;
+}
+
+.tabela-medicos th {
+    height: 36px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: center;
+}
+
+.tabela-medicos td {
+    height: 60px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ececec;
+    text-align: center;
+}
+
+.tabela-medicos td:first-child {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.identificacao-medico {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.foto-lista-medico {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e1e8ff;
+    color: #315ec4;
+}
+
+.foto-lista-medico img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.especialidades-lista small {
+    display: block;
+    margin-top: 3px;
+    color: #555;
+    font-size: 10px;
+}
+
+.etiqueta-situacao {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 10px;
+}
+
+.etiqueta-situacao.ativo {
+    background: #e6f5e9;
+    color: #28703b;
+}
+
+.etiqueta-situacao.inativo {
+    background: #f8e4e4;
+    color: #a43a3a;
+}
+
+.acoes-medico {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+.acao-medico {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    background: white;
+    color: #222;
+    cursor: pointer;
+}
+
+.acao-medico:first-child {
+    color: var(--azul-princ);
+}
+
+.acao-medico:hover {
+    background: #f3f5ff;
+}
+
+.acao-inativar {
+    color: #d43d3d;
+}
+
+.acao-medico:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.estado-lista-medicos {
+    margin: 20px 12px;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+}
+
+.espaco-lista-medicos {
+    flex: 1;
+}
+
+.paginacao-medicos {
+    min-height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-top: 1px solid #d9d9d9;
+    background: white;
+}
+
+.paginacao-medicos button {
+    min-width: 23px;
+    height: 23px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background: white;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.paginacao-medicos button.selecionada {
+    color: white;
+    background: var(--azul-princ);
+    border-color: var(--azul-princ);
+}
+
+.aviso-medicos {
+    margin: 0;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.sucesso-medicos {
+    color: #247542;
+    background: #edf8f0;
+    border-color: #cfe7d5;
+}
+
+.erro-medicos {
+    color: #ab3030;
+    background: #fff2f2;
+    border-color: #f0cbcb;
+}
+
+.erro-medicos button {
+    margin-left: 12px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
