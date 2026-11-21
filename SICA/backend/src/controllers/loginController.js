@@ -2,7 +2,7 @@ import z from "zod";
 import bcrypt from "bcrypt";
 import JWT from "jsonwebtoken";
 
-import db from "../database/db.js";
+import db from "../config/database.js";
 import criarErro from "../utils/criarErro.js";
 
 export const login = async (req, res, next) => {
@@ -30,28 +30,33 @@ export const login = async (req, res, next) => {
 
   // restante da lógica do login
   if (/^\d{11}$/.test(cpf)) {
-    // Vendo se email existe no banco
     const userDB = await db.query(
-      "SELECT u.id_usuario, u.nome_usuario, f.cpf_funcionario, a.cpf_admin, u.senha_usuario, u.tipo_usuario FROM usuario u LEFT JOIN admin a ON u.id_usuario = a.id_usuario LEFT JOIN funcionario f ON u.id_usuario = f.id_usuario WHERE f.cpf_funcionario=$1 OR a.cpf_admin=$1",
+      "SELECT u.id_usuario, u.nome_usuario, u.senha_usuario, (a.id_admin IS NOT NULL) AS is_admin, (f.id_funcionario IS NOT NULL) AS is_funcionario FROM usuario u LEFT JOIN admin a ON a.id_usuario = u.id_usuario LEFT JOIN funcionario f ON f.id_usuario = u.id_usuario WHERE f.cpf_funcionario = $1 OR a.cpf_admin = $1;",
       [cpf],
     );
-
+    
+    // Vendo se email existe no banco
     if (userDB.rows.length === 0) {
       return next(criarErro("Credenciais inválidas", 401));
     }
-
+    
     // Verificando a senha
     const isMatch = await bcrypt.compare(senha, userDB.rows[0].senha_usuario);
-
+    
     if (!isMatch) {
       return next(criarErro("Credenciais inválidas", 401));
     }
 
-    // criando token
+    // Verificando a permissão
+    const papeis = [];
+    if (userDB.rows[0].is_admin) papeis.push("ADMIN");
+    if (userDB.rows[0].is_funcionario) papeis.push("FUNCIONARIO");
+
+     // criando token
     const token = JWT.sign(
       {
         id: userDB.rows[0].id_usuario,
-        tipo: userDB.rows[0].tipo_usuario,
+        papeis: papeis,
       },
       process.env.JWT_SECRET,
       { expiresIn: "24h" },
@@ -69,10 +74,11 @@ export const login = async (req, res, next) => {
     res.status(200).json({
       mensagem: "Login bem-sucedido",
       nome: userDB.rows[0].nome_usuario,
+      papeis: papeis,
     });
   } else if (/^\d{5}-[A-Z]{2}$/.test(crm)) {
     const userDB = await db.query(
-      "SELECT u.id_usuario, u.nome_usuario, m.crm, u.senha_usuario, u.tipo_usuario FROM usuario u INNER JOIN medico m ON u.id_usuario = m.id_usuario WHERE crm=$1",
+      "SELECT u.id_usuario, u.nome_usuario, u.senha_usuario, (m.id_usuario IS NOT NULL) AS is_medico FROM usuario u INNER JOIN medico m ON u.id_usuario = m.id_usuario WHERE crm = $1;",
       [crm],
     );
 
@@ -87,17 +93,19 @@ export const login = async (req, res, next) => {
       return next(criarErro("Credenciais inválidas", 401));
     }
 
+    const papeis = [];
+    if (userDB.rows[0].is_medico) papeis.push("MEDICO");
+
     // criando token
     const token = JWT.sign(
       {
         id: userDB.rows[0].id_usuario,
-        tipo: userDB.rows[0].tipo_usuario,
+        papeis: papeis,
       },
       process.env.JWT_SECRET,
       { expiresIn: "24h" },
     );
 
-  
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -108,6 +116,7 @@ export const login = async (req, res, next) => {
     res.status(200).json({
       mensagem: "Login bem-sucedido",
       nome: userDB.rows[0].nome_usuario,
+      papeis: papeis,
     });
   } else {
     return next(criarErro("Identificador inválido", 400));
