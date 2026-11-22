@@ -6,6 +6,8 @@ import cors from 'cors';
 // IMPORTANDO AS ROTAS
 import auth from './routes/auth.js';
 import medico from './routes/medico.js';
+import agendamento from './routes/agendamento.js';
+import paciente from './routes/paciente.js';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -27,6 +29,8 @@ app.get("/", (req, res) => res.json({ status: "API online" }));
 // ROTAS
 app.use('/auth', auth);     // rota de signup/login
 app.use('/medico', medico); // rota de crud medico
+app.use('/agendamento', agendamento);
+app.use('/paciente', paciente);
 
 app.use(errorHandler);
 

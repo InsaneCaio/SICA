@@ -31,7 +31,7 @@ export const login = async (req, res, next) => {
   // restante da lógica do login
   if (/^\d{11}$/.test(cpf)) {
     const userDB = await db.query(
-      "SELECT u.id_usuario, u.nome_usuario, u.senha_usuario, (a.id_admin IS NOT NULL) AS is_admin, (f.id_funcionario IS NOT NULL) AS is_funcionario FROM usuario u LEFT JOIN admin a ON a.id_usuario = u.id_usuario LEFT JOIN funcionario f ON f.id_usuario = u.id_usuario WHERE f.cpf_funcionario = $1 OR a.cpf_admin = $1;",
+      "SELECT u.id_usuario, u.nome_usuario, u.senha_usuario, (a.id_admin IS NOT NULL) AS is_admin, (f.id_funcionario IS NOT NULL) AS is_funcionario, (m.id_medico IS NOT NULL) AS is_medico, (p.id_paciente IS NOT NULL) AS is_paciente FROM usuario u LEFT JOIN admin a ON a.id_usuario = u.id_usuario LEFT JOIN funcionario f ON f.id_usuario = u.id_usuario LEFT JOIN medico m ON m.id_usuario = u.id_usuario LEFT JOIN paciente p ON p.id_usuario = u.id_usuario WHERE a.cpf_admin = $1 OR f.cpf_funcionario = $1;",
       [cpf],
     );
     
@@ -51,6 +51,9 @@ export const login = async (req, res, next) => {
     const papeis = [];
     if (userDB.rows[0].is_admin) papeis.push("ADMIN");
     if (userDB.rows[0].is_funcionario) papeis.push("FUNCIONARIO");
+    if (userDB.rows[0].is_medico) papeis.push("MEDICO");
+    if (userDB.rows[0].is_paciente) papeis.push("PACIENTE");
+   
 
      // criando token
     const token = JWT.sign(
@@ -78,7 +81,7 @@ export const login = async (req, res, next) => {
     });
   } else if (/^\d{5}-[A-Z]{2}$/.test(crm)) {
     const userDB = await db.query(
-      "SELECT u.id_usuario, u.nome_usuario, u.senha_usuario, (m.id_usuario IS NOT NULL) AS is_medico FROM usuario u INNER JOIN medico m ON u.id_usuario = m.id_usuario WHERE crm = $1;",
+      "SELECT u.id_usuario, u.nome_usuario, u.senha_usuario, (m.id_medico IS NOT NULL) AS is_medico, (a.id_admin IS NOT NULL) AS is_admin, (f.id_funcionario IS NOT NULL) AS is_funcionario, (p.id_paciente IS NOT NULL) AS is_paciente FROM usuario u INNER JOIN medico m ON u.id_usuario = m.id_usuario LEFT JOIN admin a ON a.id_usuario = u.id_usuario LEFT JOIN funcionario f ON f.id_usuario = u.id_usuario LEFT JOIN paciente p ON p.id_usuario = u.id_usuario WHERE m.crm = $1;",
       [crm],
     );
 
@@ -95,6 +98,9 @@ export const login = async (req, res, next) => {
 
     const papeis = [];
     if (userDB.rows[0].is_medico) papeis.push("MEDICO");
+    if (userDB.rows[0].is_admin) papeis.push("ADMIN");
+    if (userDB.rows[0].is_funcionario) papeis.push("FUNCIONARIO");
+    if (userDB.rows[0].is_paciente) papeis.push("PACIENTE");
 
     // criando token
     const token = JWT.sign(

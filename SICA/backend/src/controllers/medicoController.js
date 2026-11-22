@@ -1,7 +1,6 @@
 import z from "zod";
 import bcrypt from "bcrypt";
 
-import upload from "../middleware/imgUpload.js";
 import { enviarParaCloudinary } from "../utils/enviarParaCloudinary.js";
 import db from "../config/database.js";
 import criarErro from "../utils/criarErro.js";
@@ -243,10 +242,8 @@ export const criarMedico = async (req, res, next) => {
 
     res.status(201).json({ message: "Médico cadastrado com sucesso" });
   } catch (error) {
-
     await client.query("ROLLBACK");
     return next(criarErro(error.message || "Erro interno do servidor", 500));
-
   } finally {
     client.release();
   }
@@ -499,7 +496,7 @@ export const editarMedico = async (req, res, next) => {
   } finally {
     client.release();
   }
-};;
+};
 
 export const inativarMedico = async (req, res, next) => {
   const idMedico = req.params.id;
@@ -532,5 +529,121 @@ export const especialidades = async (req, res, next) => {
     res.status(200).json(result.rows);
   } catch (error) {
     return next(criarErro("Erro interno do servidor", 500));
+  }
+};
+
+export const disponibilidade = async (req, res, next) => {
+  const idMedico = req.params.id;
+
+  const DIAS_SEMANA = [
+    "DOMINGO",
+    "SEGUNDA",
+    "TERCA",
+    "QUARTA",
+    "QUINTA",
+    "SEXTA",
+    "SABADO",
+  ];
+
+  try {
+    const horarioMedicoDB = await db.query(
+      "SELECT * FROM horario_medico WHERE id_medico = $1",
+      [idMedico],
+    );
+
+    const consultaMedicoDB = await db.query(
+      `SELECT data_inicio_consulta FROM consulta 
+       WHERE id_medico = $1 
+         AND status_consulta != 'CANCELADA' 
+         AND data_inicio_consulta >= NOW() 
+         AND data_inicio_consulta <= (NOW() + INTERVAL '6 months')`,
+      [idMedico],
+    );
+
+    const diasDisponiveis = [];
+    const hoje = new Date();
+
+    // 1. Percorre os próximos 180 dias (6 meses)
+    for (let i = 0; i < 180; i++) {
+      const dataAtual = new Date();
+      dataAtual.setDate(hoje.getDate() + i);
+
+      // Pega o nome do dia (ex: 'SEGUNDA', 'TERCA'...)
+      const nomeDiaSemana = DIAS_SEMANA[dataAtual.getDay()];
+
+      // 2. Vê se o médico atende nesse dia da semana
+      const regraDia = horarioMedicoDB.rows.find(
+        (h) => h.dia_semana === nomeDiaSemana,
+      );
+      if (!regraDia) continue; // Se não atende, pula para o próximo dia
+
+      // 3. Converte os horários de início e fim para minutos
+      // Ex: "08:00:00" -> 480 minutos | "12:00:00" -> 720 minutos
+      const [hIni, mIni] = regraDia.hora_inicio.split(":").map(Number);
+      const [hFim, mFim] = regraDia.hora_fim.split(":").map(Number);
+      const inicioMin = hIni * 60 + mIni;
+      const fimMin = hFim * 60 + mFim;
+      const passo =
+        regraDia.duracao_minutos + (regraDia.intervalo_minutos || 0);
+
+      const horariosLivresDoDia = [];
+
+      // 4. Gera cada slot do dia (08:00, 08:30, 09:00...)
+      for (
+        let minAtual = inicioMin;
+        minAtual + regraDia.duracao_minutos <= fimMin;
+        minAtual += passo
+      ) {
+        const hora = Math.floor(minAtual / 60);
+        const minuto = minAtual % 60;
+
+        // Cria a data/hora exata desse slot
+        const slotDataHora = new Date(
+          dataAtual.getFullYear(),
+          dataAtual.getMonth(),
+          dataAtual.getDate(),
+          hora,
+          minuto,
+        );
+
+        // Se o horário já passou (caso seja hoje), ignora
+        if (slotDataHora <= new Date()) continue;
+
+        // Checa se já existe consulta marcada nesse exato horário
+        const estaOcupado = consultaMedicoDB.rows.some((c) => {
+          return (
+            new Date(c.data_inicio_consulta).getTime() ===
+            slotDataHora.getTime()
+          );
+        });
+
+        // Se estiver livre, guarda no array (ex: "08:30")
+        if (!estaOcupado) {
+          const horaFmt = String(hora).padStart(2, "0");
+          const minFmt = String(minuto).padStart(2, "0");
+          horariosLivresDoDia.push(`${horaFmt}:${minFmt}`);
+        }
+      }
+
+      // 5. Se o dia teve pelo menos 1 vaga livre, adiciona na resposta
+      if (horariosLivresDoDia.length > 0) {
+        const ano = dataAtual.getFullYear();
+        const mes = String(dataAtual.getMonth() + 1).padStart(2, "0");
+        const dia = String(dataAtual.getDate()).padStart(2, "0");
+
+        diasDisponiveis.push({
+          data: `${ano}-${mes}-${dia}`, // "2026-10-27"
+          diaSemana: nomeDiaSemana.slice(0, 3), // "TER"
+          totalVagas: horariosLivresDoDia.length,
+          horarios: horariosLivresDoDia,
+        });
+      }
+    }
+
+    // Retorna a lista completa para o frontend
+    res.status(200).json(diasDisponiveis);
+  } catch (error) {
+    return next(criarErro({ erro: error.message, stack: error.stack }, 500));
+    //return next(criarErro("Erro ao consultar disponibilidade", 500));
   }
 };

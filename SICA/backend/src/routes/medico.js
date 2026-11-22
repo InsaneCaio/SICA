@@ -1,12 +1,12 @@
 import Router from 'express';
 import upload from '../middleware/imgUpload.js';
-import { listarTodosMedicos, listarMedico, criarMedico, editarMedico, inativarMedico, especialidades } from '../controllers/medicoController.js';
+import { listarTodosMedicos, listarMedico, criarMedico, editarMedico, inativarMedico, especialidades, disponibilidade } from '../controllers/medicoController.js';
 import { autenticar } from '../middleware/autenticacao.js';
 import { autorizar } from '../middleware/autorizacao.js';
 
 const router = Router();
 
-router.get("/", autenticar, autorizar('ADMIN'), listarTodosMedicos);
+router.get("/", autenticar, autorizar('ADMIN', 'FUNCIONARIO', 'PACIENTE'), listarTodosMedicos);
 
 router.get('/especialidades', especialidades);
 
@@ -18,5 +18,11 @@ router.put("/:id", autenticar, autorizar('ADMIN'), upload.single("foto"), editar
 
 router.delete("/:id", autenticar, autorizar('ADMIN'), inativarMedico);
 
+router.get(
+  "/disponibilidade/:id",
+  autenticar,
+  autorizar("ADMIN", "FUNCIONARIO", "PACIENTE", "MEDICO"),
+  disponibilidade,
+);
 
 export default router;

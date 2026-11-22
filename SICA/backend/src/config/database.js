@@ -1,11 +1,15 @@
 import dotenv from "dotenv";
-import { Pool } from "pg";
+import pg, { Pool } from "pg";
 
 // CONFIGURANDO O BANCO
+
+// Força o pg a retornar TIMESTAMP sem fuso como string pura ("YYYY-MM-DD HH:mm:ss")
+pg.types.setTypeParser(1114, (str) => str);
+
 dotenv.config();
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }, // Necessário para o banco na nuvem rodar
+  //ssl: { rejectUnauthorized: false }, // Necessário para o banco na nuvem rodar
 });
 
 // TESTANDO CONEXÃO
