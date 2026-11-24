@@ -1,113 +1,123 @@
 # Diagrama Entidade-Relacionamento
 
-<img width="1054" height="834" alt="er-diagram" src="https://github.com/user-attachments/assets/d8c266ae-40d7-4649-80b5-6db845d2cd5c" />
+<img width="1371" height="833" alt="image" src="https://github.com/user-attachments/assets/b8c938e8-e67d-4173-b09c-8aa36a265259" />
 
 ## Código
 ```plantuml
 @startuml
-
-hide circle
 skinparam linetype ortho
+hide circle
 
 entity "usuario" as usuario {
-    * id_usuario : int
-    --
-    tipo_usuario : varchar(20)
-    nome_usuario : varchar(100)
-    email_usuario : varchar(254)
-    senha_usuario : varchar(255)
-    telefone_usuario : varchar(20)
+  * id_usuario : INT PK
+  --
+  nome_usuario : VARCHAR(100)
+  email_usuario : VARCHAR(255)
+  senha_usuario : VARCHAR(255)
+  telefone_usuario : VARCHAR(20)
+  foto_url : VARCHAR(500)
 }
 
 entity "admin" as admin {
-    * id_admin : int
-    --
-    - id_usuario : int
-    --
-    cpf_admin : varchar(11)
-    tipo_usuario_ref : varchar(20)
+  * id_admin : INT PK
+  --
+  - id_usuario : INT FK
+  --
+  cpf_admin : VARCHAR(11)
 }
 
 entity "paciente" as paciente {
-    * id_paciente : int
-    --
-    - id_usuario : int
-    --
-    cpf_paciente : varchar(11)
-    data_nascimento_paciente : date
-    tipo_usuario_ref : varchar(20)
+  * id_paciente : INT PK
+  --
+  - id_usuario : INT FK
+  --
+  cpf_paciente : VARCHAR(11)
+  data_nascimento_paciente : DATE
+  conta_ativada : BOOLEAN
 }
 
 entity "dependente" as dependente {
-    * id_dependente : int
-    --
-    - id_paciente : int
-    --
-    cpf_dependente : varchar(11)
-    nome_dependente : varchar(100)
-    data_nascimento_dependente : date
+  * id_dependente : INT PK
+  --
+  - id_paciente : INT FK
+  --
+  cpf_dependente : VARCHAR(11)
+  nome_dependente : VARCHAR(100)
+  data_nascimento_dependente : DATE
 }
 
 entity "funcionario" as funcionario {
-    * id_funcionario : int
-    --
-    - id_usuario : int
-    --
-    cpf_funcionario : varchar(11)
-    status_funcionario : varchar(10)
-    tipo_usuario_ref : varchar(20)
+  * id_funcionario : INT PK
+  --
+  - id_usuario : INT FK
+  --
+  cpf_funcionario : VARCHAR(11)
+  status_funcionario : VARCHAR(10)
 }
 
 entity "medico" as medico {
-    * id_medico : int
-    --
-    - id_usuario : int
-    --
-    crm : varchar(20)
-    especialidade_medico : text[]
-    sobre_medico : varchar(500)
-    valor_consulta : numeric(10,2)
-    status_medico : varchar(10)
-    tipo_usuario_ref : varchar(20)
+  * id_medico : INT PK
+  --
+  - id_usuario : INT FK
+  --
+  crm : VARCHAR(20)
+  sobre_medico : VARCHAR(500)
+  valor_consulta : NUMERIC(10, 2)
+  status_medico : VARCHAR(10)
+}
+
+entity "especialidade" as especialidade {
+  * id_especialidade : INT PK
+  --
+  nome_especialidade : VARCHAR(100)
+}
+
+entity "medico_especialidade" as medico_especialidade {
+  * id_medico : INT PK, FK
+  * id_especialidade : INT PK, FK
 }
 
 entity "horario_medico" as horario_medico {
-    * id_horario : int
-    --
-    - id_medico : int
-    --
-    dia_semana : varchar(10)
-    hora_inicio : time
-    hora_fim : time
-    intervalo_minutos : smallint
+  * id_horario : INT PK
+  --
+  - id_medico : INT FK
+  --
+  dia_semana : VARCHAR(10)
+  hora_inicio : TIME
+  hora_fim : TIME
+  intervalo_minutos : SMALLINT
+  duracao_minutos : SMALLINT
 }
 
 entity "consulta" as consulta {
-    * id_consulta : int
-    --
-    - id_paciente : int
-    - id_dependente : int [opcional]
-    - id_medico : int
-    --
-    data_consulta : timestamp
-    valor_pago : numeric(10,2)
-    status_consulta : varchar(20)
+  * id_consulta : INT PK
+  --
+  - id_paciente : INT FK
+  - id_dependente : INT FK
+  - id_medico : INT FK
+  --
+  data_inicio_consulta : TIMESTAMP
+  data_fim_consulta : TIMESTAMP
+  valor_pago : NUMERIC(10, 2)
+  status_consulta : VARCHAR(20)
 }
 
-' HERANÇA (ESPECIALIZAÇÃO)
-usuario --|> admin
-usuario --|> paciente
-usuario --|> funcionario
-usuario --|> medico
+' Especialização de usuario (1:1 via FK UNIQUE)
+usuario ||--o| admin
+usuario ||--o| paciente
+usuario ||--o| funcionario
+usuario ||--o| medico
 
-' RELACIONAMENTOS
-paciente "1" -- "0..*" dependente
-paciente "1" -- "0..*" consulta
-dependente "0..1" -- "0..*" consulta
+' Relacionamentos N:N e 1:N
+medico ||--o{ medico_especialidade
+especialidade ||--o{ medico_especialidade
 
-medico "1" -- "0..*" horario_medico
-medico "1" -- "0..*" consulta
+paciente ||--o{ dependente
+medico ||--o{ horario_medico
+
+paciente ||--o{ consulta
+dependente |o--o{ consulta
+medico ||--o{ consulta
 
 @enduml
-
 ```
