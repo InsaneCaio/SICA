@@ -1,113 +1,92 @@
 # Diagrama de Classes
-<img width="1427" height="809" alt="der" src="https://github.com/user-attachments/assets/588f5bb9-dd87-45ae-bd69-a122b7e35258" />
+<img width="754" height="668" alt="image" src="https://github.com/user-attachments/assets/7ba7ee74-9990-47c7-b5f9-336a10ac4b83" />
 
 # Código
 ``` plantuml
 @startuml
+
+skinparam classAttributeIconSize 0
 skinparam linetype ortho
-hide circle
 
-entity "usuario" as usuario {
-  * id_usuario : INT PK
-  --
-  nome_usuario : VARCHAR(100)
-  email_usuario : VARCHAR(255)
-  senha_usuario : VARCHAR(255)
-  telefone_usuario : VARCHAR(20)
-  foto_url : VARCHAR(500)
+' ==================================================
+' PESSOAS E HIERARQUIA DE USUÁRIOS
+' ==================================================
+
+class Usuario {
+    - id: int
+    - tipoUsuario: String
+    - nome: String
+    - email: String
+    - senha: String
+    - telefone: String
 }
 
-entity "admin" as admin {
-  * id_admin : INT PK
-  --
-  - id_usuario : INT FK
-  cpf_admin : VARCHAR(11)
+class Admin {
+    - id: int
+    - cpf: String
 }
 
-entity "paciente" as paciente {
-  * id_paciente : INT PK
-  --
-  - id_usuario : INT FK
-  cpf_paciente : VARCHAR(11)
-  data_nascimento_paciente : DATE
-  conta_ativada : BOOLEAN
+class Funcionario {
+    - id: int
+    - cpf: String
+    - status: String
 }
 
-entity "dependente" as dependente {
-  * id_dependente : INT PK
-  --
-  - id_paciente : INT FK
-  cpf_dependente : VARCHAR(11)
-  nome_dependente : VARCHAR(100)
-  data_nascimento_dependente : DATE
+class Paciente {
+    - id: int
+    - cpf: String
+    - dataNascimento: LocalDate
 }
 
-entity "funcionario" as funcionario {
-  * id_funcionario : INT PK
-  --
-  - id_usuario : INT FK
-  cpf_funcionario : VARCHAR(11)
-  status_funcionario : VARCHAR(10)
+class Dependente {
+    - id: int
+    - cpf: String
+    - nome: String
+    - dataNascimento: LocalDate
 }
 
-entity "medico" as medico {
-  * id_medico : INT PK
-  --
-  - id_usuario : INT FK
-  crm : VARCHAR(20)
-  sobre_medico : VARCHAR(500)
-  valor_consulta : NUMERIC(10, 2)
-  status_medico : VARCHAR(10)
+class Medico {
+    - id: int
+    - crm: String
+    - especialidade: List<String>
+    - especialidade: String
+    - sobre: String
+    - valorConsulta: Double
+    - status: String
 }
 
-entity "especialidade" as especialidade {
-  * id_especialidade : INT PK
-  --
-  nome_especialidade : VARCHAR(100)
+' HERANÇA
+Usuario <|-- Admin
+Usuario <|-- Funcionario
+Usuario <|-- Paciente
+Usuario <|-- Medico
+
+' RELACIONAMENTO DE DEPENDÊNCIA
+Paciente "1" *-- "0..*" Dependente : possui
+
+' ==================================================
+' AGENDAMENTO E ATENDIMENTO
+' ==================================================
+
+class HorarioMedico {
+    - id: int
+    - diaSemana: String
+    - horaInicio: LocalTime
+    - horaFim: LocalTime
+    - intervaloMinutos: int
 }
 
-entity "medico_especialidade" as medico_especialidade {
-  * id_medico : INT PK, FK
-  * id_especialidade : INT PK, FK
+class Consulta {
+    - id: int
+    - dataConsulta: LocalDateTime
+    - valorPago: Double
+    - status: String
 }
 
-entity "horario_medico" as horario_medico {
-  * id_horario : INT PK
-  --
-  - id_medico : INT FK
-  dia_semana : VARCHAR(10)
-  hora_inicio : TIME
-  hora_fim : TIME
-  intervalo_minutos : SMALLINT
-  duracao_minutos : SMALLINT
-}
+' RELACIONAMENTOS DE CONSULTA E HORÁRIOS
+Medico "1" *-- "0..*" HorarioMedico : disponibiliza
+Paciente "1" -- "0..*" Consulta : solicita
+Dependente "0..1" -- "0..*" Consulta : realiza
+Medico "1" -- "0..*" Consulta : atende
 
-entity "consulta" as consulta {
-  * id_consulta : INT PK
-  --
-  - id_paciente : INT FK
-  - id_dependente : INT FK
-  - id_medico : INT FK
-  data_inicio_consulta : TIMESTAMP
-  data_fim_consulta : TIMESTAMP
-  valor_pago : NUMERIC(10, 2)
-  status_consulta : VARCHAR(20)
-}
-
-' Especialização de usuario (1:1 via FK UNIQUE)
-usuario ||--o| admin
-usuario ||--o| paciente
-usuario ||--o| funcionario
-usuario ||--o| medico
-
-' Relacionamentos N:N e 1:N
-medico ||--o{ medico_especialidade
-especialidade ||--o{ medico_especialidade
-
-paciente ||--o{ dependente
-medico ||--o{ horario_medico
-
-paciente ||--o{ consulta
-dependente |o--o{ consulta
-medico ||--o{ consulta
 @enduml
