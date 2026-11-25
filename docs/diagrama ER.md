@@ -1,6 +1,6 @@
 # Diagrama Entidade-Relacionamento
+<img width="1371" height="833" alt="image" src="https://github.com/user-attachments/assets/1bca4730-12d5-4d8d-bb47-1bd1f5b478fc" />
 
-<img width="1371" height="833" alt="image" src="https://github.com/user-attachments/assets/b8c938e8-e67d-4173-b09c-8aa36a265259" />
 
 ## Código
 ```plantuml
@@ -109,15 +109,14 @@ usuario ||--o| funcionario
 usuario ||--o| medico
 
 ' Relacionamentos N:N e 1:N
-medico ||--o{ medico_especialidade
-especialidade ||--o{ medico_especialidade
+medico "1..1" --  "1..N" medico_especialidade
+especialidade "1..1" -- "1..N" medico_especialidade
 
-paciente ||--o{ dependente
-medico ||--o{ horario_medico
+paciente "1..1" -- "0..N" dependente
+medico "1..N" -- "1..1" horario_medico
 
-paciente ||--o{ consulta
-dependente |o--o{ consulta
-medico ||--o{ consulta
-
+paciente "1..1" -- "0..N" consulta
+dependente "1..1" -- "0..N" consulta
+medico "1..1" -- "0..N" consulta
 @enduml
 ```
