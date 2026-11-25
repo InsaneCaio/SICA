@@ -1,0 +1,232 @@
+.pagina-agenda {
+    gap: 12px;
+    color: #192236;
+}
+
+.topo-agenda {
+    min-height: 72px;
+    padding: 13px 18px;
+}
+
+.topo-agenda p,
+.topo-agenda small {
+    margin: 6px 0 0;
+    font-size: 13px;
+}
+
+.topo-agenda small + h1 {
+    margin-top: 5px;
+}
+
+.dias-agenda {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dias-agenda button,
+.calendario-agenda {
+    flex: 1 1 90px;
+    min-height: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: inherit;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dias-agenda button span,
+.horarios-agenda header,
+.pagina-agenda dt,
+.formulario-agenda label {
+    text-transform: uppercase;
+}
+
+.dias-agenda button[aria-pressed="true"],
+.azul-agenda {
+    color: white;
+    background: var(--azul-princ);
+}
+
+.calendario-agenda {
+    position: relative;
+}
+
+.calendario-agenda strong {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.calendario-agenda input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.calendario-agenda:focus-within {
+    outline: 2px solid var(--azul-princ);
+}
+
+.azul-agenda,
+.rodape-agenda a {
+    padding: 7px 17px;
+    border: 0;
+    border-radius: 18px;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pagina-agenda button:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.rodape-agenda {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rodape-agenda a {
+    color: #1f1f1f;
+    background: #d8d8d8;
+    text-decoration: none;
+}
+
+.horarios-agenda {
+    padding: 12px;
+    background: #efefef;
+    border: 1px solid #d8d8d8;
+    border-radius: 12px;
+    overflow: auto;
+    max-height: 58vh;
+    font-size: 13px;
+}
+
+.horarios-agenda header,
+.horarios-agenda > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.horarios-agenda header {
+    padding: 3px 1px 5px;
+    font-size: 12px;
+}
+
+.horarios-agenda > div {
+    margin-top: 8px;
+    background: white;
+    padding: 7px 12px;
+    border-radius: 8px;
+}
+
+.pagina-agenda .linha-escolhida {
+    background: #dceafa;
+}
+
+.cartao-agenda {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: white;
+    padding: 18px;
+}
+
+.cartao-agenda h2 {
+    font-size: 16px;
+    margin: 0 0 16px;
+}
+
+.cartao-agenda dl {
+    margin: 0;
+}
+
+.resumo-atual,
+.dados-agenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.resumo-atual div {
+    flex: 1;
+}
+
+.cartao-agenda dt {
+    color: #536176;
+    font-size: 11px;
+}
+
+.cartao-agenda dd {
+    margin: 5px 0 0;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.dados-agenda {
+    align-items: flex-start;
+}
+
+.formulario-agenda {
+    flex: 2 1 310px;
+}
+
+.resumo-agenda {
+    flex: 1 1 195px;
+}
+
+.resumo-agenda dl {
+    border-top: 1px solid var(--border);
+}
+
+.resumo-agenda dt {
+    margin-top: 15px;
+}
+
+.formulario-agenda fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.formulario-agenda label {
+    display: block;
+    margin: 20px 0;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.formulario-agenda input {
+    display: block;
+    width: min(100%, 490px);
+    margin-top: 4px;
+    padding: 8px 10px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    border: 1px solid #d9d9db;
+    border-radius: 6px;
+}
+
+.formulario-agenda input[type="date"],
+.formulario-agenda input[type="tel"] {
+    width: auto;
+}
+
+.pagina-agenda .tabela-medicos td:first-child {
+    text-align: center;
+}

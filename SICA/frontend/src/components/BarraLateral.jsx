@@ -1,10 +1,11 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
+    CalendarDays as IconeAgenda,
     Home as IconeInicio,
     LogOut as IconeSair,
     Stethoscope as IconeMedicos,
 } from "lucide-react";
-import { encerrarSessao } from "../services/servicoAutenticacao";
+import { encerrarSessao, podeAcessarAgenda } from "../services/servicoAutenticacao";
 import Logo from "./Logo";
 import "./BarraLateral.css";
 
@@ -31,6 +32,12 @@ export default function BarraLateral() {
                     <IconeInicio size={17} aria-hidden="true" />
                     <span>Início</span>
                 </NavLink>
+                {podeAcessarAgenda() && (
+                    <NavLink to="/agenda">
+                        <IconeAgenda size={17} aria-hidden="true" />
+                        <span>Agenda</span>
+                    </NavLink>
+                )}
                 <NavLink to="/medicos">
                     <IconeMedicos size={17} aria-hidden="true" />
                     <span>Médicos</span>

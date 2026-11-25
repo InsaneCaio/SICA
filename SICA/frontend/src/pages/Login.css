@@ -93,3 +93,8 @@
 .link-cadastro:hover {
     text-decoration: underline;
 }
+
+.btn-entrar:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}

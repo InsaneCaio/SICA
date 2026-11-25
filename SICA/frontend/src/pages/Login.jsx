@@ -10,16 +10,23 @@ export default function Login() {
     const [identificador, setIdentificador] = useState("");
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
+    const [enviando, setEnviando] = useState(false);
 
     async function entrar(evento) {
         evento.preventDefault();
+
+        if (enviando) return;
+
         setErro("");
+        setEnviando(true);
 
         try {
             await fazerLogin(identificador, senha);
             navegar("/inicio", { replace: true });
         } catch (erroRecebido) {
             setErro(erroRecebido.message);
+        } finally {
+            setEnviando(false);
         }
     }
 
@@ -52,8 +59,8 @@ export default function Login() {
                         required
                     />
 
-                    <button type="submit" className="btn-entrar">
-                        Entrar
+                    <button type="submit" className="btn-entrar" disabled={enviando}>
+                        {enviando ? "Entrando..." : "Entrar"}
                     </button>
                 </form>
 

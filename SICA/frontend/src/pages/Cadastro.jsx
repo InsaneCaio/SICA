@@ -15,6 +15,7 @@ export default function Cadastro() {
     const navegar = useNavigate();
     const [dados, setDados] = useState(dadosIniciais);
     const [erro, setErro] = useState("");
+    const [enviando, setEnviando] = useState(false);
 
     function atualizarCampo(evento) {
         setDados((dadosAnteriores) => ({
@@ -25,6 +26,9 @@ export default function Cadastro() {
 
     async function criarConta(evento) {
         evento.preventDefault();
+
+        if (enviando) return;
+
         setErro("");
 
         if (dados.cpf.replace(/\D/g, "").length !== 11) {
@@ -57,6 +61,8 @@ export default function Cadastro() {
             return;
         }
 
+        setEnviando(true);
+
         try {
             await cadastrarUsuario(dados);
             navegar("/login", {
@@ -65,6 +71,8 @@ export default function Cadastro() {
             });
         } catch (erroRecebido) {
             setErro(erroRecebido.message);
+        } finally {
+            setEnviando(false);
         }
     }
 
@@ -115,8 +123,8 @@ export default function Cadastro() {
                         required
                     />
 
-                    <button type="submit" className="btn-cadastrar">
-                        Criar conta
+                    <button type="submit" className="btn-cadastrar" disabled={enviando}>
+                        {enviando ? "Criando conta..." : "Criar conta"}
                     </button>
                 </form>
 

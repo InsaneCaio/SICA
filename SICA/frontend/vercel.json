@@ -13,6 +13,18 @@
             "destination": "https://sica-u564.onrender.com/medico/:path*"
         },
         {
+            "source": "/agendamento",
+            "destination": "https://sica-u564.onrender.com/agendamento"
+        },
+        {
+            "source": "/agendamento/:path*",
+            "destination": "https://sica-u564.onrender.com/agendamento/:path*"
+        },
+        {
+            "source": "/paciente/:path*",
+            "destination": "https://sica-u564.onrender.com/paciente/:path*"
+        },
+        {
             "source": "/(.*)",
             "destination": "/index.html"
         }

@@ -30,7 +30,12 @@ export async function fazerLogin(identificador, senha) {
     });
 
     sessionStorage.setItem("nome_usuario", resultado.nome || "Usuário");
+    sessionStorage.setItem("admin_agenda", String(resultado.papeis?.includes("ADMIN") === true));
     return resultado;
+}
+
+export function podeAcessarAgenda() {
+    return sessionStorage.getItem("admin_agenda") === "true";
 }
 
 export function obterNomeUsuario() {
@@ -40,6 +45,7 @@ export function obterNomeUsuario() {
 export async function encerrarSessao() {
     await enviarRequisicao("logout", {});
     sessionStorage.removeItem("nome_usuario");
+    sessionStorage.removeItem("admin_agenda");
 }
 
 export function cadastrarUsuario({ nome, cpf, email, senha }) {

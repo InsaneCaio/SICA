@@ -71,3 +71,8 @@
     line-height: 1.45;
     color: #b32b34;
 }
+
+.btn-cadastrar:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
