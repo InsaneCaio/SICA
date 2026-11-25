@@ -230,3 +230,33 @@
 .pagina-agenda .tabela-medicos td:first-child {
     text-align: center;
 }
+
+.campo-nascimento {
+    position: relative;
+    display: block;
+    width: fit-content;
+    min-width: 130px;
+    margin-top: 4px;
+    padding: 8px 10px;
+    border: 1px solid #d9d9db;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.formulario-agenda .campo-nascimento input[type="date"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.campo-nascimento:focus-within {
+    outline: 2px solid var(--azul-princ);
+    outline-offset: 2px;
+}

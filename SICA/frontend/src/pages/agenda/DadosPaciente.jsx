@@ -143,17 +143,31 @@ export default function DadosPaciente() {
                             />
                         </label>
                         <label>
-                            Data de nascimento
-                            <input
-                                type="date"
-                                name="dataNascimento"
-                                readOnly={Boolean(cadastro?.data_nascimento)}
-                                required
-                                min="1900-01-01"
-                                max={dataLocal()}
-                                value={campos.dataNascimento}
-                                onChange={alterarCampo}
-                            />
+                            <label>
+                                Data de nascimento
+                                <span className="campo-nascimento">
+                                    <span aria-hidden="true">
+                                        {campos.dataNascimento
+                                            ? campos.dataNascimento.split("-").reverse().join("/")
+                                            : "dd/mm/aaaa"}
+                                    </span>
+
+                                    <input
+                                        type="date"
+                                        name="dataNascimento"
+                                        readOnly={Boolean(cadastro?.data_nascimento)}
+                                        required
+                                        min="1900-01-01"
+                                        max={dataLocal()}
+                                        value={campos.dataNascimento}
+                                        onChange={alterarCampo}
+                                        onClick={(evento) => {
+                                            const campo = evento.currentTarget;
+                                            if (!campo.readOnly) campo.showPicker?.();
+                                        }}
+                                    />
+                                </span>
+                            </label>
                         </label>
                         <label>
                             Telefone / WhatsApp
