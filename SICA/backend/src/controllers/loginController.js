@@ -35,7 +35,7 @@ export const login = async (req, res, next) => {
       [cpf],
     );
     
-    // Vendo se email existe no banco
+    
     if (userDB.rows.length === 0) {
       return next(criarErro("Credenciais inválidas", 401));
     }

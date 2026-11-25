@@ -44,6 +44,17 @@ const signup = async (req, res, next) => {
     return next(criarErro("Email já cadastrado por outro usuário", 400));
   }
 
+  try {
+    const cpfValido = await db.query("SELECT validar_cpf($1) AS valido", [
+      dados.cpf,
+    ]);
+  
+    if (!cpfValido.rows[0].valido) return next(criarErro("CPF inválido", 400));
+    
+  } catch (error) {
+    return next(error.message, 500);
+  }
+
   // Verificando se CPF é repetido
   const userCpf = await db.query(
     'SELECT cpf_admin FROM admin WHERE cpf_admin=$1',
