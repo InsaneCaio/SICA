@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
-    CalendarDays as IconeAgenda,
     Pencil as IconeEditar,
     Plus as IconeAdicionar,
     Search as IconePesquisa,
@@ -170,14 +169,6 @@ export default function Medicos() {
                                     </td>
                                     <td>
                                         <div className="acoes-medico">
-                                            <Link
-                                                to={`/medicos/${medico.id_medico}/editar#disponibilidade`}
-                                                className="acao-medico"
-                                                aria-label={`Editar disponibilidade de ${medico.nome_usuario}`}
-                                                title="Editar disponibilidade"
-                                            >
-                                                <IconeAgenda size={16} aria-hidden="true" />
-                                            </Link>
                                             <Link
                                                 to={`/medicos/${medico.id_medico}/editar`}
                                                 className="acao-medico"

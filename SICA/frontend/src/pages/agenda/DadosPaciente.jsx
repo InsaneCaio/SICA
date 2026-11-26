@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { consultarAgenda } from "../../services/servicoAgenda";
 import { CabecalhoAgenda } from "./ComponentesAgenda";
+import Calendario from "./Calendario";
 import { dataLocal, formatarDia } from "./datas";
 
 const camposVazios = { nome: "", dataNascimento: "", telefone: "", email: "" };
@@ -37,7 +38,7 @@ export default function DadosPaciente() {
                 definirCadastro(p);
                 definirCampos({
                     nome: p.nome || "",
-                    dataNascimento: p.data_nascimento?.slice(0, 10) || "",
+                    dataNascimento: p.data_nascimento?.slice(0, 10).split("-").reverse().join("/") || "",
                     telefone: p.telefone || "",
                     email: p.email || "",
                 });
@@ -71,9 +72,19 @@ export default function DadosPaciente() {
     function alterarCampo(e) {
         definirCampos({ ...campos, [e.target.name]: e.target.value });
     }
+    const nascimentoIso = campos.dataNascimento.split("/").reverse().join("-");
+    const nascimentoValido =
+        /^\d{4}-\d{2}-\d{2}$/.test(nascimentoIso) &&
+        nascimentoIso >= "1900-01-01" &&
+        nascimentoIso <= dataLocal() &&
+        dataLocal(new Date(nascimentoIso + "T12:00:00")) === nascimentoIso;
     async function concluir(e) {
         e.preventDefault();
         if (!pronto || salvando || ocupado) return;
+        if (!nascimentoValido) {
+            definirErro("Informe uma data de nascimento válida entre 01/01/1900 e hoje.");
+            return;
+        }
         salvar(true);
         definirErro("");
         try {
@@ -84,7 +95,6 @@ export default function DadosPaciente() {
                     ...campos,
                     cpf: numeros,
                     nome: campos.nome.trim(),
-                    dataNascimento: campos.dataNascimento.split("-").reverse().join("/"),
                 },
             });
             navegar("/agenda", {
@@ -142,33 +152,41 @@ export default function DadosPaciente() {
                                 placeholder="Digite o nome do paciente..."
                             />
                         </label>
-                        <label>
-                            <label>
-                                Data de nascimento
-                                <span className="campo-nascimento">
-                                    <span aria-hidden="true">
-                                        {campos.dataNascimento
-                                            ? campos.dataNascimento.split("-").reverse().join("/")
-                                            : "dd/mm/aaaa"}
-                                    </span>
-
-                                    <input
-                                        type="date"
-                                        name="dataNascimento"
-                                        readOnly={Boolean(cadastro?.data_nascimento)}
-                                        required
-                                        min="1900-01-01"
-                                        max={dataLocal()}
-                                        value={campos.dataNascimento}
-                                        onChange={alterarCampo}
-                                        onClick={(evento) => {
-                                            const campo = evento.currentTarget;
-                                            if (!campo.readOnly) campo.showPicker?.();
-                                        }}
-                                    />
-                                </span>
-                            </label>
-                        </label>
+                        <label htmlFor="nascimento">Data de nascimento</label>
+                        <div className="entrada-nascimento">
+                            <input
+                                id="nascimento"
+                                name="dataNascimento"
+                                required
+                                inputMode="numeric"
+                                placeholder="dd/mm/aaaa"
+                                maxLength={10}
+                                value={campos.dataNascimento}
+                                readOnly={Boolean(cadastro?.data_nascimento)}
+                                onChange={(e) => {
+                                    const texto = e.target.value
+                                        .replace(/\D/g, "")
+                                        .slice(0, 8)
+                                        .replace(/^(\d{2})(\d)/, "$1/$2")
+                                        .replace(/^(\d{2}\/\d{2})(\d)/, "$1/$2");
+                                    definirCampos({ ...campos, dataNascimento: texto });
+                                }}
+                            />
+                            {!cadastro?.data_nascimento && (
+                                <Calendario
+                                    nascimento
+                                    valor={nascimentoValido ? nascimentoIso : ""}
+                                    minimo="1900-01-01"
+                                    maximo={dataLocal()}
+                                    escolher={(dia) =>
+                                        definirCampos({
+                                            ...campos,
+                                            dataNascimento: dia.split("-").reverse().join("/"),
+                                        })
+                                    }
+                                />
+                            )}
+                        </div>
                         <label>
                             Telefone / WhatsApp
                             <input

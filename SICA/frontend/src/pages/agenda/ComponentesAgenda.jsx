@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { CalendarDays, Search } from "lucide-react";
+import Calendario from "./Calendario";
+import { Search } from "lucide-react";
 import { diasDaSemana, formatarDia } from "./datas";
 import "../Medicos.css";
 import "./Agenda.css";
@@ -39,23 +40,13 @@ export function Dias({ data, alterar, quantidades, unidade, minimo, maximo }) {
                     </button>
                 );
             })}
-            <label className="calendario-agenda">
-                <span>Outras datas</span>
-                <strong>
-                    <CalendarDays size={14} /> Abrir calendário
-                </strong>
-                <input
-                    type="date"
-                    aria-label="Outras datas"
-                    value={data}
-                    min={minimo}
-                    max={maximo}
-                    onClick={(e) => e.currentTarget.showPicker?.()}
-                    onChange={(e) => {
-                        if (e.target.value && e.target.validity.valid) alterar(e.target.value);
-                    }}
-                />
-            </label>
+            <Calendario
+                valor={data}
+                escolher={alterar}
+                minimo={minimo}
+                maximo={maximo}
+                vagas={unidade === "vaga" ? quantidades : undefined}
+            />
         </section>
     );
 }

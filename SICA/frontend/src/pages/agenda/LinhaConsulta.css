@@ -1,0 +1,39 @@
+.hora-com-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.hora-com-detalhes button {
+    display: grid;
+    place-items: center;
+    padding: 3px;
+    border: 1px solid #cbd1da;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+.tabela-medicos td.informacoes-consulta:first-child {
+    padding: 14px 5%;
+    text-align: left;
+    background: #fafafa;
+}
+.informacoes-consulta h3 {
+    margin: 0 0 12px;
+    font-size: 13px;
+}
+.informacoes-consulta dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0;
+}
+.informacoes-consulta dt,
+.informacoes-consulta dd {
+    text-transform: none;
+    display: inline;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+.informacoes-consulta dt::after {
+    content: ": ";
+}

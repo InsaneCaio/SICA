@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Pencil, Trash2, UserPlus } from "lucide-react";
 import { consultarAgenda } from "../../services/servicoAgenda";
+import LinhaConsulta from "./LinhaConsulta";
 import { Dias, ListaAgenda } from "./ComponentesAgenda";
 import { dataLocal, formatarDia, horaConsulta, instanteConsulta } from "./datas";
 
@@ -107,30 +108,25 @@ export default function Agenda() {
                 carregando={carregando}
                 falhou={!!erro}
                 linha={(c) => (
-                    <tr key={c.id_consulta}>
-                        <td>{horaConsulta(c.data_inicio_consulta)}</td>
-                        <td>{c.nome_paciente}</td>
-                        <td>{c.nome_medico}</td>
-                        <td>
-                            <div className="acoes-medico">
-                                <Link
-                                    className="acao-medico"
-                                    to={"/agenda/" + c.id_consulta + "/reagendar"}
-                                    aria-label={"Reagendar consulta de " + c.nome_paciente}
-                                >
-                                    <Pencil size={15} />
-                                </Link>
-                                <button
-                                    className="acao-medico acao-inativar"
-                                    disabled={cancelando}
-                                    onClick={() => cancelarConsulta(c)}
-                                    aria-label={"Cancelar consulta de " + c.nome_paciente}
-                                >
-                                    <Trash2 size={15} />
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                    <LinhaConsulta key={c.id_consulta} consulta={c}>
+                        <div className="acoes-medico">
+                            <Link
+                                className="acao-medico"
+                                to={"/agenda/" + c.id_consulta + "/reagendar"}
+                                aria-label={"Reagendar consulta de " + c.nome_paciente}
+                            >
+                                <Pencil size={15} />
+                            </Link>
+                            <button
+                                className="acao-medico acao-inativar"
+                                disabled={cancelando}
+                                onClick={() => cancelarConsulta(c)}
+                                aria-label={"Cancelar consulta de " + c.nome_paciente}
+                            >
+                                <Trash2 size={15} />
+                            </button>
+                        </div>
+                    </LinhaConsulta>
                 )}
             />
         </main>
