@@ -127,23 +127,35 @@ export const criarConsulta = async (req, res, next) => {
     }
 
     // 2. Verifica se o horário bate com um slot válido
-    regraDia = rows[0];
-    const [hIni, mIni] = regraDia.hora_inicio.split(":").map(Number);
-    const [hFim, mFim] = regraDia.hora_fim.split(":").map(Number);
-    const passo = regraDia.duracao_minutos + (regraDia.intervalo_minutos || 0);
-
+    // ADICIONE — verifica se o slot cabe em QUALQUER bloco (manhã OU tarde):
     const horaSlot = dataInicio.getHours() * 60 + dataInicio.getMinutes();
-    const inicioMin = hIni * 60 + mIni;
-    const fimMin = hFim * 60 + mFim;
 
-    const slotValido =
-      horaSlot >= inicioMin &&
-      horaSlot < fimMin &&
-      (horaSlot - inicioMin) % passo === 0; // ← bate com o ritmo dos slots
+    const slotValido = rows.some((bloco) => {
+      const [hIni, mIni] = bloco.hora_inicio.split(":").map(Number);
+      const [hFim, mFim] = bloco.hora_fim.split(":").map(Number);
+      const inicioMin = hIni * 60 + mIni;
+      const fimMin = hFim * 60 + mFim;
+      const passo = bloco.duracao_minutos + (bloco.intervalo_minutos || 0);
+
+      return (
+        horaSlot >= inicioMin &&
+        horaSlot < fimMin &&
+        (horaSlot - inicioMin) % passo === 0
+      );
+    });
 
     if (!slotValido) {
       return next(criarErro("Horário inválido para este médico", 400));
     }
+
+    // Pega o bloco que contém o slot (para usar duracao_minutos abaixo)
+    regraDia = rows.find((bloco) => {
+      const [hIni, mIni] = bloco.hora_inicio.split(":").map(Number);
+      const [hFim, mFim] = bloco.hora_fim.split(":").map(Number);
+      const inicioMin = hIni * 60 + mIni;
+      const fimMin = hFim * 60 + mFim;
+      return horaSlot >= inicioMin && horaSlot < fimMin;
+    });
   } catch (error) {
     return next(criarErro("Erro interno do servidor", 500));
   }
@@ -367,23 +379,35 @@ export const reagendarConsulta = async (req, res, next) => {
     }
 
     // 2. Verifica se o horário bate com um slot válido
-    regraDia = rows[0];
-    const [hIni, mIni] = regraDia.hora_inicio.split(":").map(Number);
-    const [hFim, mFim] = regraDia.hora_fim.split(":").map(Number);
-    const passo = regraDia.duracao_minutos + (regraDia.intervalo_minutos || 0);
-
+    // ADICIONE — verifica se o slot cabe em QUALQUER bloco (manhã OU tarde):
     const horaSlot = dataInicio.getHours() * 60 + dataInicio.getMinutes();
-    const inicioMin = hIni * 60 + mIni;
-    const fimMin = hFim * 60 + mFim;
 
-    const slotValido =
-      horaSlot >= inicioMin &&
-      horaSlot < fimMin &&
-      (horaSlot - inicioMin) % passo === 0; // ← bate com o ritmo dos slots
+    const slotValido = rows.some((bloco) => {
+      const [hIni, mIni] = bloco.hora_inicio.split(":").map(Number);
+      const [hFim, mFim] = bloco.hora_fim.split(":").map(Number);
+      const inicioMin = hIni * 60 + mIni;
+      const fimMin = hFim * 60 + mFim;
+      const passo = bloco.duracao_minutos + (bloco.intervalo_minutos || 0);
+
+      return (
+        horaSlot >= inicioMin &&
+        horaSlot < fimMin &&
+        (horaSlot - inicioMin) % passo === 0
+      );
+    });
 
     if (!slotValido) {
       return next(criarErro("Horário inválido para este médico", 400));
     }
+
+    // Pega o bloco que contém o slot (para usar duracao_minutos abaixo)
+    regraDia = rows.find((bloco) => {
+      const [hIni, mIni] = bloco.hora_inicio.split(":").map(Number);
+      const [hFim, mFim] = bloco.hora_fim.split(":").map(Number);
+      const inicioMin = hIni * 60 + mIni;
+      const fimMin = hFim * 60 + mFim;
+      return horaSlot >= inicioMin && horaSlot < fimMin;
+    });
   } catch (error) {
     return next(criarErro("Erro interno do servidor", 500));
   }
