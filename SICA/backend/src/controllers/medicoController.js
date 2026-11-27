@@ -54,96 +54,146 @@ export const criarMedico = async (req, res, next) => {
   ]);
 
   // SCHEMA ZOD PARA VALIDAR DADOS
-  const medicoSchema = z
-    .object({
-      nome: z.string().trim().min(1, "Nome Obrigatório"),
-      senha: z
-        .string()
-        .min(8, "A senha deve ter no mínimo 8 caracteres")
-        .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maiúscula")
-        .regex(/[a-z]/, "A senha deve ter pelo menos uma letra minúscula")
-        .regex(/[0-9]/, "A senha deve ter pelo menos um número")
-        .regex(
-          /[^A-Za-z0-9]/,
-          "A senha deve ter pelo menos um caractere especial",
-        ),
-      sobre: z.string().trim().optional(),
-      CRM: z
-        .string()
-        .min(1, "CRM Obrigatório")
-        .regex(/^\d{4,7}\s*[-/]?\s*[A-Za-z]{2}$/, "CRM inválido"),
-      especialidade: z.preprocess(
-        (val) => {
-          if (typeof val === "string") {
-            try {
-              return JSON.parse(val);
-            } catch {
-              return val;
-            }
+  const medicoSchema = z.object({
+    nome: z.string().trim().min(1, "Nome Obrigatório"),
+    senha: z
+      .string()
+      .min(8, "A senha deve ter no mínimo 8 caracteres")
+      .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maiúscula")
+      .regex(/[a-z]/, "A senha deve ter pelo menos uma letra minúscula")
+      .regex(/[0-9]/, "A senha deve ter pelo menos um número")
+      .regex(
+        /[^A-Za-z0-9]/,
+        "A senha deve ter pelo menos um caractere especial",
+      ),
+    sobre: z.string().trim().optional(),
+    CRM: z
+      .string()
+      .min(1, "CRM Obrigatório")
+      .regex(/^\d{4,7}\s*[-/]?\s*[A-Za-z]{2}$/, "CRM inválido"),
+    especialidade: z.preprocess(
+      (val) => {
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return val;
           }
-          return val;
-        },
-        z
-          .array(z.number().int().positive("ID de especialidade inválido"))
-          .min(1, "Informe ao menos uma especialidade"),
-      ),
-      valorConsulta: z.preprocess(
-        (val) =>
-          val === "" || val === null || val === undefined ? undefined : val,
-        z.coerce
-          .number()
-          .min(0, "O valor da consulta deve ser positivo ou zero")
-          .optional(),
-      ),
-      email: z.email("E-mail inválido").toLowerCase(),
-      telefone: z.string().min(10, "Telefone Obrigatório"),
-      diasAtendimento: z.preprocess(
-        (val) => {
-          // Se vier como texto '["SEGUNDA", "QUINTA"]', faz o parse para array real
-          if (typeof val === "string") {
-            try {
-              return JSON.parse(val);
-            } catch {
-              return [val]; // Se mandar só "SEGUNDA" solto
-            }
-          }
-          return val;
-        },
-        z
-          .array(DiaSemanaEnum, {
-            required_error: "Dias de atendimento são obrigatórios",
-            invalid_type_error: "Dias de atendimento deve ser uma lista",
-          })
-          .min(1, "O médico deve atender em pelo menos um dia da semana"),
-      ),
-      horaInicio: z
-        .string()
-        .regex(
-          /^([01]\d|2[0-3]):([0-5]\d)$/,
-          "Horário inválido. Use o formato HH:mm (ex: 08:00 ou 17:30)",
-        ),
-      horaFim: z
-        .string()
-        .regex(
-          /^([01]\d|2[0-3]):([0-5]\d)$/,
-          "Horário inválido. Use o formato HH:mm (ex: 08:00 ou 17:30)",
-        ),
-      intervaloMinutos: z.coerce
+        }
+        return val;
+      },
+      z
+        .array(z.number().int().positive("ID de especialidade inválido"))
+        .min(1, "Informe ao menos uma especialidade"),
+    ),
+    valorConsulta: z.preprocess(
+      (val) =>
+        val === "" || val === null || val === undefined ? undefined : val,
+      z.coerce
         .number()
-        .int("O intervalo deve ser um número inteiro")
-        .min(5, "Mínimo de 5 minutos")
-        .max(60, "Máximo de 60 minutos"),
-    })
-    .refine(
-      // Validando se horaFim é maior que horaInicio
-      (dados) => {
-        return dados.horaFim > dados.horaInicio;
+        .min(0, "O valor da consulta deve ser positivo ou zero")
+        .optional(),
+    ),
+    email: z.email("E-mail inválido").toLowerCase(),
+    telefone: z.string().min(10, "Telefone Obrigatório"),
+    diasAtendimento: z.preprocess(
+      (val) => {
+        // Se vier como texto '["SEGUNDA", "QUINTA"]', faz o parse para array real
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return [val]; // Se mandar só "SEGUNDA" solto
+          }
+        }
+        return val;
       },
-      {
-        message: "O horário de término deve ser posterior ao horário de início",
-        path: ["horaFim"],
+      z
+        .array(DiaSemanaEnum, {
+          required_error: "Dias de atendimento são obrigatórios",
+          invalid_type_error: "Dias de atendimento deve ser uma lista",
+        })
+        .min(1, "O médico deve atender em pelo menos um dia da semana"),
+    ),
+    turnos: z.preprocess(
+      (val) => {
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return val;
+          }
+        }
+        return val;
       },
-    );
+      z
+        .object({
+          manha: z
+            .object({
+              horaInicio: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de início da manhã inválido",
+                ),
+              horaFim: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de fim da manhã inválido",
+                ),
+            })
+            .nullable()
+            .optional(),
+          tarde: z
+            .object({
+              horaInicio: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de início da tarde inválido",
+                ),
+              horaFim: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de fim da tarde inválido",
+                ),
+            })
+            .nullable()
+            .optional(),
+        })
+        .refine(
+          (t) => t.manha || t.tarde,
+          "Informe ao menos um turno de atendimento (manhã ou tarde)",
+        )
+        .refine((t) => !t.manha || t.manha.horaFim > t.manha.horaInicio, {
+          message: "Horário de fim da manhã deve ser após o início",
+          path: ["manha"],
+        })
+        .refine((t) => !t.tarde || t.tarde.horaFim > t.tarde.horaInicio, {
+          message: "Horário de fim da tarde deve ser após o início",
+          path: ["tarde"],
+        })
+        .refine(
+          (t) => {
+            if (t.manha && t.tarde) {
+              return t.tarde.horaInicio >= t.manha.horaFim;
+            }
+            return true;
+          },
+          {
+            message: "O turno da tarde deve começar após o término da manhã",
+            path: ["tarde"],
+          },
+        ),
+    ),
+    intervaloMinutos: z.coerce
+      .number()
+      .int("O intervalo deve ser um número inteiro")
+      .min(5, "Mínimo de 5 minutos")
+      .max(60, "Máximo de 60 minutos"),
+  });
 
   // FAZENDO A VALIDAÇÃO
   const resultado = medicoSchema.safeParse(req.body);
@@ -213,17 +263,32 @@ export const criarMedico = async (req, res, next) => {
 
     const idMedico = userRes2.rows[0].idMedico;
 
+    
     for (const element of dados.diasAtendimento) {
-      await client.query(
-        "INSERT INTO horario_medico (id_medico, dia_semana, hora_inicio, hora_fim, intervalo_minutos) VALUES ($1, $2, $3, $4, $5)",
-        [
-          idMedico,
-          element,
-          dados.horaInicio,
-          dados.horaFim,
-          dados.intervaloMinutos,
-        ],
-      );
+      if (dados.turnos.manha) {
+        await client.query(
+          "INSERT INTO horario_medico (id_medico, dia_semana, hora_inicio, hora_fim, intervalo_minutos) VALUES ($1, $2, $3, $4, $5)",
+          [
+            idMedico,
+            element,
+            dados.turnos.manha.horaInicio,
+            dados.turnos.manha.horaFim,
+            dados.intervaloMinutos,
+          ],
+        );
+      }
+      if (dados.turnos.tarde) {
+        await client.query(
+          "INSERT INTO horario_medico (id_medico, dia_semana, hora_inicio, hora_fim, intervalo_minutos) VALUES ($1, $2, $3, $4, $5)",
+          [
+            idMedico,
+            element,
+            dados.turnos.tarde.horaInicio,
+            dados.turnos.tarde.horaFim,
+            dados.intervaloMinutos,
+          ],
+        );
+      }
     }
 
     for (const id of dados.especialidade) {
@@ -280,101 +345,151 @@ export const editarMedico = async (req, res, next) => {
   ]);
 
   // SCHEMA ZOD PARA VALIDAR DADOS
-  const medicoSchema = z
-    .object({
-      nome: z.string().trim().min(1, "Nome Obrigatório"),
-      senha: z.preprocess(
-        (val) =>
-          !val || val === "null" || val === "undefined" ? undefined : val,
-        z
-          .string()
-          .min(8, "A senha deve ter no mínimo 8 caracteres")
-          .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maiúscula")
-          .regex(/[a-z]/, "A senha deve ter pelo menos uma letra minúscula")
-          .regex(/[0-9]/, "A senha deve ter pelo menos um número")
-          .regex(
-            /[^A-Za-z0-9]/,
-            "A senha deve ter pelo menos um caractere especial",
-          )
-          .optional(),
-      ),
-      sobre: z.string().trim().optional(),
-      CRM: z
+  const medicoSchema = z.object({
+    nome: z.string().trim().min(1, "Nome Obrigatório"),
+    senha: z.preprocess(
+      (val) =>
+        !val || val === "null" || val === "undefined" ? undefined : val,
+      z
         .string()
-        .min(1, "CRM Obrigatório")
-        .regex(/^\d{4,7}\s*[-/]?\s*[A-Za-z]{2}$/, "CRM inválido"),
-      especialidade: z.preprocess(
-        (val) => {
-          if (typeof val === "string") {
-            try {
-              return JSON.parse(val);
-            } catch {
-              return val;
-            }
-          }
-          return val;
-        },
-        z
-          .array(z.number().int().positive("ID de especialidade inválido"))
-          .min(1, "Informe ao menos uma especialidade"),
-      ),
-      valorConsulta: z.preprocess(
-        (val) =>
-          val === "" || val === null || val === undefined ? undefined : val,
-        z.coerce
-          .number()
-          .min(0, "O valor da consulta deve ser positivo ou zero")
-          .optional(),
-      ),
-      email: z.email("E-mail inválido").toLowerCase(),
-      telefone: z.string().min(10, "Telefone Obrigatório"),
-      diasAtendimento: z.preprocess(
-        (val) => {
-          // Se vier como texto '["SEGUNDA", "QUINTA"]', faz o parse para array real
-          if (typeof val === "string") {
-            try {
-              return JSON.parse(val);
-            } catch {
-              return [val]; // Se mandar só "SEGUNDA" solto
-            }
-          }
-          return val;
-        },
-        z
-          .array(DiaSemanaEnum, {
-            required_error: "Dias de atendimento são obrigatórios",
-            invalid_type_error: "Dias de atendimento deve ser uma lista",
-          })
-          .min(1, "O médico deve atender em pelo menos um dia da semana"),
-      ),
-      horaInicio: z
-        .string()
+        .min(8, "A senha deve ter no mínimo 8 caracteres")
+        .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maiúscula")
+        .regex(/[a-z]/, "A senha deve ter pelo menos uma letra minúscula")
+        .regex(/[0-9]/, "A senha deve ter pelo menos um número")
         .regex(
-          /^([01]\d|2[0-3]):([0-5]\d)$/,
-          "Horário inválido. Use o formato HH:mm (ex: 08:00 ou 17:30)",
-        ),
-      horaFim: z
-        .string()
-        .regex(
-          /^([01]\d|2[0-3]):([0-5]\d)$/,
-          "Horário inválido. Use o formato HH:mm (ex: 08:00 ou 17:30)",
-        ),
-      intervaloMinutos: z.coerce
+          /[^A-Za-z0-9]/,
+          "A senha deve ter pelo menos um caractere especial",
+        )
+        .optional(),
+    ),
+    sobre: z.string().trim().optional(),
+    CRM: z
+      .string()
+      .min(1, "CRM Obrigatório")
+      .regex(/^\d{4,7}\s*[-/]?\s*[A-Za-z]{2}$/, "CRM inválido"),
+    especialidade: z.preprocess(
+      (val) => {
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return val;
+          }
+        }
+        return val;
+      },
+      z
+        .array(z.number().int().positive("ID de especialidade inválido"))
+        .min(1, "Informe ao menos uma especialidade"),
+    ),
+    valorConsulta: z.preprocess(
+      (val) =>
+        val === "" || val === null || val === undefined ? undefined : val,
+      z.coerce
         .number()
-        .int("O intervalo deve ser um número inteiro")
-        .min(5, "Mínimo de 5 minutos")
-        .max(60, "Máximo de 60 minutos"),
-    })
-    .refine(
-      // Validando se horaFim é maior que horaInicio
-      (dados) => {
-        return dados.horaFim > dados.horaInicio;
+        .min(0, "O valor da consulta deve ser positivo ou zero")
+        .optional(),
+    ),
+    email: z.email("E-mail inválido").toLowerCase(),
+    telefone: z.string().min(10, "Telefone Obrigatório"),
+    diasAtendimento: z.preprocess(
+      (val) => {
+        // Se vier como texto '["SEGUNDA", "QUINTA"]', faz o parse para array real
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return [val]; // Se mandar só "SEGUNDA" solto
+          }
+        }
+        return val;
       },
-      {
-        message: "O horário de término deve ser posterior ao horário de início",
-        path: ["horaFim"],
+      z
+        .array(DiaSemanaEnum, {
+          required_error: "Dias de atendimento são obrigatórios",
+          invalid_type_error: "Dias de atendimento deve ser uma lista",
+        })
+        .min(1, "O médico deve atender em pelo menos um dia da semana"),
+    ),
+    turnos: z.preprocess(
+      (val) => {
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return val;
+          }
+        }
+        return val;
       },
-    );
+      z
+        .object({
+          manha: z
+            .object({
+              horaInicio: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de início da manhã inválido",
+                ),
+              horaFim: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de fim da manhã inválido",
+                ),
+            })
+            .nullable()
+            .optional(),
+          tarde: z
+            .object({
+              horaInicio: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de início da tarde inválido",
+                ),
+              horaFim: z
+                .string()
+                .regex(
+                  /^([01]\d|2[0-3]):([0-5]\d)$/,
+                  "Horário de fim da tarde inválido",
+                ),
+            })
+            .nullable()
+            .optional(),
+        })
+        .refine(
+          (t) => t.manha || t.tarde,
+          "Informe ao menos um turno de atendimento (manhã ou tarde)",
+        )
+        .refine((t) => !t.manha || t.manha.horaFim > t.manha.horaInicio, {
+          message: "Horário de fim da manhã deve ser após o início",
+          path: ["manha"],
+        })
+        .refine((t) => !t.tarde || t.tarde.horaFim > t.tarde.horaInicio, {
+          message: "Horário de fim da tarde deve ser após o início",
+          path: ["tarde"],
+        })
+        .refine(
+          (t) => {
+            if (t.manha && t.tarde) {
+              return t.tarde.horaInicio >= t.manha.horaFim;
+            }
+            return true;
+          },
+          {
+            message: "O turno da tarde deve começar após o término da manhã",
+            path: ["tarde"],
+          },
+        ),
+    ),
+    intervaloMinutos: z.coerce
+      .number()
+      .int("O intervalo deve ser um número inteiro")
+      .min(5, "Mínimo de 5 minutos")
+      .max(60, "Máximo de 60 minutos"),
+  });
 
   // FAZENDO A VALIDAÇÃO
   const resultado = medicoSchema.safeParse(req.body);
@@ -459,18 +574,31 @@ export const editarMedico = async (req, res, next) => {
       idMedico,
     ]);
 
-    // FAZENDO O INSERT NA TABELA horario_medico
     for (const element of dados.diasAtendimento) {
-      await client.query(
-        "INSERT INTO horario_medico (id_medico, dia_semana, hora_inicio, hora_fim, intervalo_minutos) VALUES ($1, $2, $3, $4, $5)",
-        [
-          idMedico,
-          element,
-          dados.horaInicio,
-          dados.horaFim,
-          dados.intervaloMinutos,
-        ],
-      );
+      if (dados.turnos.manha) {
+        await client.query(
+          "INSERT INTO horario_medico (id_medico, dia_semana, hora_inicio, hora_fim, intervalo_minutos) VALUES ($1, $2, $3, $4, $5)",
+          [
+            idMedico,
+            element,
+            dados.turnos.manha.horaInicio,
+            dados.turnos.manha.horaFim,
+            dados.intervaloMinutos,
+          ],
+        );
+      }
+      if (dados.turnos.tarde) {
+        await client.query(
+          "INSERT INTO horario_medico (id_medico, dia_semana, hora_inicio, hora_fim, intervalo_minutos) VALUES ($1, $2, $3, $4, $5)",
+          [
+            idMedico,
+            element,
+            dados.turnos.tarde.horaInicio,
+            dados.turnos.tarde.horaFim,
+            dados.intervaloMinutos,
+          ],
+        );
+      }
     }
 
     // PREPARANDO PARA FAZER INSERT DE
@@ -571,59 +699,64 @@ export const disponibilidade = async (req, res, next) => {
       // Pega o nome do dia (ex: 'SEGUNDA', 'TERCA'...)
       const nomeDiaSemana = DIAS_SEMANA[dataAtual.getDay()];
 
-      // 2. Vê se o médico atende nesse dia da semana
-      const regraDia = horarioMedicoDB.rows.find(
+      // 2. Pega todos os turnos (manhã e/ou tarde) em que o médico atende nesse dia
+      const regrasDia = horarioMedicoDB.rows.filter(
         (h) => h.dia_semana === nomeDiaSemana,
       );
-      if (!regraDia) continue; // Se não atende, pula para o próximo dia
-
-      // 3. Converte os horários de início e fim para minutos
-      // Ex: "08:00:00" -> 480 minutos | "12:00:00" -> 720 minutos
-      const [hIni, mIni] = regraDia.hora_inicio.split(":").map(Number);
-      const [hFim, mFim] = regraDia.hora_fim.split(":").map(Number);
-      const inicioMin = hIni * 60 + mIni;
-      const fimMin = hFim * 60 + mFim;
-      const passo =
-        regraDia.duracao_minutos + (regraDia.intervalo_minutos || 0);
+      if (regrasDia.length === 0) continue; // Se não atende, pula para o próximo dia
 
       const horariosLivresDoDia = [];
 
-      // 4. Gera cada slot do dia (08:00, 08:30, 09:00...)
-      for (
-        let minAtual = inicioMin;
-        minAtual + regraDia.duracao_minutos <= fimMin;
-        minAtual += passo
-      ) {
-        const hora = Math.floor(minAtual / 60);
-        const minuto = minAtual % 60;
+      // 3. Percorre cada turno do dia
+      for (const regraDia of regrasDia) {
+        // Converte os horários de início e fim para minutos
+        // Ex: "08:00:00" -> 480 minutos | "12:00:00" -> 720 minutos
+        const [hIni, mIni] = regraDia.hora_inicio.split(":").map(Number);
+        const [hFim, mFim] = regraDia.hora_fim.split(":").map(Number);
+        const inicioMin = hIni * 60 + mIni;
+        const fimMin = hFim * 60 + mFim;
+        const passo =
+          regraDia.duracao_minutos + (regraDia.intervalo_minutos || 0);
 
-        // Cria a data/hora exata desse slot
-        const slotDataHora = new Date(
-          dataAtual.getFullYear(),
-          dataAtual.getMonth(),
-          dataAtual.getDate(),
-          hora,
-          minuto,
-        );
+        // 4. Gera cada slot do turno (08:00, 08:30, 09:00...)
+        for (
+          let minAtual = inicioMin;
+          minAtual + regraDia.duracao_minutos <= fimMin;
+          minAtual += passo
+        ) {
+          const hora = Math.floor(minAtual / 60);
+          const minuto = minAtual % 60;
 
-        // Se o horário já passou (caso seja hoje), ignora
-        if (slotDataHora <= new Date()) continue;
-
-        // Checa se já existe consulta marcada nesse exato horário
-        const estaOcupado = consultaMedicoDB.rows.some((c) => {
-          return (
-            new Date(c.data_inicio_consulta).getTime() ===
-            slotDataHora.getTime()
+          // Cria a data/hora exata desse slot
+          const slotDataHora = new Date(
+            dataAtual.getFullYear(),
+            dataAtual.getMonth(),
+            dataAtual.getDate(),
+            hora,
+            minuto,
           );
-        });
 
-        // Se estiver livre, guarda no array (ex: "08:30")
-        if (!estaOcupado) {
-          const horaFmt = String(hora).padStart(2, "0");
-          const minFmt = String(minuto).padStart(2, "0");
-          horariosLivresDoDia.push(`${horaFmt}:${minFmt}`);
+          // Se o horário já passou (caso seja hoje), ignora
+          if (slotDataHora <= new Date()) continue;
+
+          // Checa se já existe consulta marcada nesse exato horário
+          const estaOcupado = consultaMedicoDB.rows.some((c) => {
+            return (
+              new Date(c.data_inicio_consulta).getTime() ===
+              slotDataHora.getTime()
+            );
+          });
+
+          // Se estiver livre, guarda no array (ex: "08:30")
+          if (!estaOcupado) {
+            const horaFmt = String(hora).padStart(2, "0");
+            const minFmt = String(minuto).padStart(2, "0");
+            horariosLivresDoDia.push(`${horaFmt}:${minFmt}`);
+          }
         }
       }
+
+      horariosLivresDoDia.sort();
 
       // 5. Se o dia teve pelo menos 1 vaga livre, adiciona na resposta
       if (horariosLivresDoDia.length > 0) {

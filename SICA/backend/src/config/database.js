@@ -9,7 +9,7 @@ pg.types.setTypeParser(1114, (str) => str);
 dotenv.config();
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
-  //ssl: { rejectUnauthorized: false }, // Necessário para o banco na nuvem rodar
+  ssl: { rejectUnauthorized: false }, // Necessário para o banco na nuvem rodar
 });
 
 // TESTANDO CONEXÃO
