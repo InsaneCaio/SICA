@@ -33,8 +33,10 @@ const dadosIniciais = {
     email: "",
     telefone: "",
     diasAtendimento: ["SEGUNDA", "TERCA", "QUARTA", "QUINTA", "SEXTA"],
-    horaInicio: "08:00",
-    horaFim: "18:00",
+    turnos: {
+        manha: { horaInicio: "08:00", horaFim: "12:00" },
+        tarde: { horaInicio: "13:00", horaFim: "18:00" },
+    },
     intervaloMinutos: 30,
     foto: null,
     fotoUrl: "",
@@ -42,6 +44,107 @@ const dadosIniciais = {
 
 function formatarHora(hora) {
     return typeof hora === "string" ? hora.slice(0, 5) : "";
+}
+
+function aplicarMascaraHora(valor) {
+    if (valor.includes(":")) {
+        const [hora, minutos = ""] = valor.split(":");
+        const horaFormatada = hora.replace(/\D/g, "").slice(0, 2).padStart(2, "0");
+        const minutosFormatados = minutos.replace(/\D/g, "").slice(0, 2);
+
+        return `${horaFormatada}:${minutosFormatados}`;
+    }
+
+    const numeros = valor.replace(/\D/g, "").slice(0, 4);
+
+    if (numeros.length <= 2) {
+        return numeros;
+    }
+
+    return `${numeros.slice(0, 2)}:${numeros.slice(2)}`;
+}
+
+function horarioValido(hora) {
+    return /^([01]\d|2[0-3]):([0-5]\d)$/.test(hora);
+}
+
+function extrairTurnos(horarios) {
+    const faixasUnicas = new Map();
+    const faixasPorDia = new Map();
+    const intervalos = new Set();
+    const duracoes = new Set();
+
+    horarios.forEach((horario) => {
+        const horaInicio = formatarHora(horario.hora_inicio);
+        const horaFim = formatarHora(horario.hora_fim);
+
+        if (!horaInicio || !horaFim) {
+            return;
+        }
+
+        const chave = `${horaInicio}-${horaFim}`;
+
+        if (!faixasUnicas.has(chave)) {
+            faixasUnicas.set(chave, { horaInicio, horaFim });
+        }
+
+        if (!faixasPorDia.has(horario.dia_semana)) {
+            faixasPorDia.set(horario.dia_semana, new Set());
+        }
+
+        faixasPorDia.get(horario.dia_semana).add(chave);
+
+        if (horario.intervalo_minutos !== null && horario.intervalo_minutos !== undefined) {
+            intervalos.add(Number(horario.intervalo_minutos));
+        }
+
+        if (horario.duracao_minutos !== null && horario.duracao_minutos !== undefined) {
+            duracoes.add(Number(horario.duracao_minutos));
+        }
+    });
+
+    const faixas = [...faixasUnicas.values()].sort((a, b) =>
+        a.horaInicio.localeCompare(b.horaInicio)
+    );
+
+    let faixaManha = null;
+    let faixaTarde = null;
+
+    if (faixas.length === 1) {
+        if (faixas[0].horaInicio >= "12:00") {
+            faixaTarde = faixas[0];
+        } else {
+            faixaManha = faixas[0];
+        }
+    } else {
+        faixaManha = faixas[0] || null;
+        faixaTarde = faixas[1] || null;
+    }
+
+    const assinaturasPorDia = new Set(
+        [...faixasPorDia.values()].map((faixasDoDia) =>
+            [...faixasDoDia].sort().join("|")
+        )
+    );
+
+    const diasAtendimento = [...new Set(horarios.map((horario) => horario.dia_semana))];
+
+    return {
+        turnos: {
+            manha: faixaManha || { horaInicio: "08:00", horaFim: "12:00" },
+            tarde: faixaTarde || { horaInicio: "13:00", horaFim: "18:00" },
+        },
+        usarManha: Boolean(faixaManha),
+        usarTarde: Boolean(faixaTarde),
+        diasAtendimento,
+        intervaloMinutos: Number(horarios[0]?.intervalo_minutos ?? 30),
+        horariosDiferentes:
+            assinaturasPorDia.size > 1 ||
+            faixas.length > 2 ||
+            intervalos.size > 1 ||
+            duracoes.size > 1 ||
+            (duracoes.size === 1 && !duracoes.has(30)),
+    };
 }
 
 export default function FormularioMedico() {
@@ -52,7 +155,8 @@ export default function FormularioMedico() {
 
     const [dados, setDados] = useState(dadosIniciais);
     const [especialidadesDisponiveis, setEspecialidadesDisponiveis] = useState([]);
-    const [periodo, setPeriodo] = useState("INTEGRAL");
+    const [usarManha, setUsarManha] = useState(true);
+    const [usarTarde, setUsarTarde] = useState(true);
     const [nomeFoto, setNomeFoto] = useState("");
     const [fotoPrevia, setFotoPrevia] = useState("");
     const [carregando, setCarregando] = useState(true);
@@ -78,15 +182,14 @@ export default function FormularioMedico() {
                 setEspecialidadesDisponiveis(listaEspecialidades);
 
                 if (medico) {
-                    const horarios = medico.horarios_atendimento || [];
-                    const primeiroHorario = horarios[0];
-                    const diferencas = horarios.some((horario) =>
-                        horario.hora_inicio !== primeiroHorario.hora_inicio ||
-                        horario.hora_fim !== primeiroHorario.hora_fim ||
-                        Number(horario.intervalo_minutos) !== Number(primeiroHorario.intervalo_minutos)
-                    );
+                    const horarios = Array.isArray(medico.horarios_atendimento)
+                        ? medico.horarios_atendimento
+                        : [];
+                    const configuracao = extrairTurnos(horarios);
 
-                    setHorariosDiferentes(diferencas);
+                    setHorariosDiferentes(configuracao.horariosDiferentes);
+                    setUsarManha(configuracao.usarManha);
+                    setUsarTarde(configuracao.usarTarde);
                     setSituacaoMedico(medico.status_medico);
                     setFotoPrevia(medico.foto_url || "");
                     setDados({
@@ -98,21 +201,12 @@ export default function FormularioMedico() {
                         valorConsulta: medico.valor_consulta ?? "",
                         email: medico.email_usuario || "",
                         telefone: medico.telefone_usuario || "",
-                        diasAtendimento: [...new Set(horarios.map((horario) => horario.dia_semana))],
-                        horaInicio: formatarHora(primeiroHorario?.hora_inicio) || "08:00",
-                        horaFim: formatarHora(primeiroHorario?.hora_fim) || "18:00",
-                        intervaloMinutos: Number(primeiroHorario?.intervalo_minutos ?? 30),
+                        diasAtendimento: configuracao.diasAtendimento,
+                        turnos: configuracao.turnos,
+                        intervaloMinutos: configuracao.intervaloMinutos,
                         foto: null,
                         fotoUrl: medico.foto_url || "",
                     });
-
-                    const inicio = formatarHora(primeiroHorario?.hora_inicio);
-                    const fim = formatarHora(primeiroHorario?.hora_fim);
-                    setPeriodo(
-                        inicio === "08:00" && fim === "12:00" ? "MANHA" :
-                        inicio === "13:00" && fim === "18:00" ? "TARDE" :
-                        inicio === "08:00" && fim === "18:00" ? "INTEGRAL" : "PERSONALIZADO"
-                    );
                 }
             } catch (erroRecebido) {
                 if (ativo) {
@@ -143,10 +237,21 @@ export default function FormularioMedico() {
     function atualizarCampo(evento) {
         const { name, value } = evento.target;
         setDados((anteriores) => ({ ...anteriores, [name]: value }));
+    }
 
-        if (name === "horaInicio" || name === "horaFim") {
-            setPeriodo("PERSONALIZADO");
-        }
+    function atualizarHorario(turno, campo, evento) {
+        const valor = aplicarMascaraHora(evento.target.value);
+
+        setDados((anteriores) => ({
+            ...anteriores,
+            turnos: {
+                ...anteriores.turnos,
+                [turno]: {
+                    ...anteriores.turnos[turno],
+                    [campo]: valor,
+                },
+            },
+        }));
     }
 
     function alternarDia(valor) {
@@ -182,24 +287,6 @@ export default function FormularioMedico() {
         }));
     }
 
-    function alterarPeriodo(evento) {
-        const escolha = evento.target.value;
-        setPeriodo(escolha);
-
-        const horarios = {
-            MANHA: ["08:00", "12:00"],
-            TARDE: ["13:00", "18:00"],
-            INTEGRAL: ["08:00", "18:00"],
-        };
-
-        if (horarios[escolha]) {
-            setDados((anteriores) => ({
-                ...anteriores,
-                horaInicio: horarios[escolha][0],
-                horaFim: horarios[escolha][1],
-            }));
-        }
-    }
 
     function alterarFoto(evento) {
         const arquivo = evento.target.files?.[0];
@@ -278,8 +365,36 @@ export default function FormularioMedico() {
             return;
         }
 
-        if (dados.horaFim <= dados.horaInicio) {
-            setErro("O horário de término precisa ser posterior ao início.");
+        const turnos = {
+            manha: usarManha ? dados.turnos.manha : null,
+            tarde: usarTarde ? dados.turnos.tarde : null,
+        };
+
+        if (!turnos.manha && !turnos.tarde) {
+            setErro("Ative pelo menos um período de atendimento.");
+            return;
+        }
+
+        for (const [nome, turno] of Object.entries(turnos)) {
+            if (!turno) {
+                continue;
+            }
+
+            const nomePeriodo = nome === "manha" ? "manhã" : "tarde";
+
+            if (!horarioValido(turno.horaInicio) || !horarioValido(turno.horaFim)) {
+                setErro(`Informe horários válidos para o período da ${nomePeriodo}. Use o formato 24 horas HH:mm.`);
+                return;
+            }
+
+            if (turno.horaFim <= turno.horaInicio) {
+                setErro(`O término do período da ${nomePeriodo} precisa ser posterior ao início.`);
+                return;
+            }
+        }
+
+        if (turnos.manha && turnos.tarde && turnos.tarde.horaInicio < turnos.manha.horaFim) {
+            setErro("O período da tarde deve começar após o término da manhã.");
             return;
         }
 
@@ -290,22 +405,24 @@ export default function FormularioMedico() {
         }
 
         if (horariosDiferentes && !window.confirm(
-            "Este médico possui horários diferentes entre os dias. Deseja continuar?"
+            "Este médico possui horários diferentes entre os dias ou mais de duas faixas. Ao salvar, todos os dias selecionados passarão a usar os turnos exibidos no formulário. Deseja continuar?"
         )) {
             return;
         }
+
+        const dadosParaSalvar = { ...dados, turnos };
 
         setSalvando(true);
 
         try {
             if (editando) {
-                await editarMedico(id, dados);
+                await editarMedico(id, dadosParaSalvar);
                 navegar("/medicos", {
                     replace: true,
                     state: { mensagem: "Médico atualizado com sucesso." },
                 });
             } else {
-                await criarMedico(dados);
+                await criarMedico(dadosParaSalvar);
                 navegar("/medicos", {
                     replace: true,
                     state: { mensagem: "Médico cadastrado com sucesso." },
@@ -483,27 +600,95 @@ export default function FormularioMedico() {
                                 </div>
 
                                 <span className="rotulo-grupo-medico">Horário de atendimento</span>
-                                <div className="campos-horario-medico">
-                                    <label className="campo-formulario-medico">
-                                        Período
-                                        <select value={periodo} onChange={alterarPeriodo}>
-                                            <option value="MANHA">Manhã</option>
-                                            <option value="TARDE">Tarde</option>
-                                            <option value="INTEGRAL">Integral</option>
-                                            <option value="PERSONALIZADO">Personalizado</option>
-                                        </select>
-                                    </label>
-                                    <label className="campo-formulario-medico">
-                                        Início
-                                        <input name="horaInicio" type="time" value={dados.horaInicio} onChange={atualizarCampo} required />
-                                    </label>
-                                    <label className="campo-formulario-medico">
-                                        Término
-                                        <input name="horaFim" type="time" value={dados.horaFim} onChange={atualizarCampo} required />
-                                    </label>
+                                <div className="turnos-medico">
+                                    <section className="turno-medico">
+                                        <label className="cabecalho-turno-medico">
+                                            <input
+                                                type="checkbox"
+                                                checked={usarManha}
+                                                onChange={(evento) => setUsarManha(evento.target.checked)}
+                                            />
+                                            <strong>Atendimento pela manhã</strong>
+                                        </label>
+
+                                        {usarManha && (
+                                            <div className="campos-horario-medico">
+                                                <label className="campo-formulario-medico">
+                                                    Início
+                                                    <input
+                                                        type="text"
+                                                        inputMode="numeric"
+                                                        maxLength={5}
+                                                        placeholder="08:00"
+                                                        value={dados.turnos.manha.horaInicio}
+                                                        onChange={(evento) => atualizarHorario("manha", "horaInicio", evento)}
+                                                        required
+                                                    />
+                                                </label>
+                                                <label className="campo-formulario-medico">
+                                                    Término
+                                                    <input
+                                                        type="text"
+                                                        inputMode="numeric"
+                                                        maxLength={5}
+                                                        placeholder="12:00"
+                                                        value={dados.turnos.manha.horaFim}
+                                                        onChange={(evento) => atualizarHorario("manha", "horaFim", evento)}
+                                                        required
+                                                    />
+                                                </label>
+                                            </div>
+                                        )}
+                                    </section>
+
+                                    <section className="turno-medico">
+                                        <label className="cabecalho-turno-medico">
+                                            <input
+                                                type="checkbox"
+                                                checked={usarTarde}
+                                                onChange={(evento) => setUsarTarde(evento.target.checked)}
+                                            />
+                                            <strong>Atendimento à tarde</strong>
+                                        </label>
+
+                                        {usarTarde && (
+                                            <div className="campos-horario-medico">
+                                                <label className="campo-formulario-medico">
+                                                    Início
+                                                    <input
+                                                        type="text"
+                                                        inputMode="numeric"
+                                                        maxLength={5}
+                                                        placeholder="13:00"
+                                                        value={dados.turnos.tarde.horaInicio}
+                                                        onChange={(evento) => atualizarHorario("tarde", "horaInicio", evento)}
+                                                        required
+                                                    />
+                                                </label>
+                                                <label className="campo-formulario-medico">
+                                                    Término
+                                                    <input
+                                                        type="text"
+                                                        inputMode="numeric"
+                                                        maxLength={5}
+                                                        placeholder="18:00"
+                                                        value={dados.turnos.tarde.horaFim}
+                                                        onChange={(evento) => atualizarHorario("tarde", "horaFim", evento)}
+                                                        required
+                                                    />
+                                                </label>
+                                            </div>
+                                        )}
+                                    </section>
                                 </div>
+                                <small className="ajuda-horario-medico">
+                                    Informe os horários no formato de 24 horas (HH:mm).
+                                </small>
 
                                 <span className="rotulo-grupo-medico">Intervalos entre consultas</span>
+                                <small className="ajuda-horario-medico">
+                                    O intervalo selecionado será aplicado aos dois períodos.
+                                </small>
                                 <div className="intervalos-medico">
                                     {[15, 30, 60].map((minutos) => (
                                         <button
@@ -544,7 +729,7 @@ export default function FormularioMedico() {
 
                                 {horariosDiferentes && (
                                     <p className="aviso-horario-medico">
-                                        Este médico tem horários diferentes entre os dias. Ao salvar, todos os dias selecionados passarão a usar o mesmo horário e intervalo.
+                                        Este médico possui horários diferentes entre os dias ou mais de duas faixas. Ao salvar, todos os dias selecionados passarão a usar os turnos exibidos acima.
                                     </p>
                                 )}
                             </section>

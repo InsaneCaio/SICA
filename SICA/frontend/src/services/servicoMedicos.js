@@ -56,8 +56,7 @@ function prepararDados(dados) {
     formulario.append("email", dados.email.trim().toLowerCase());
     formulario.append("telefone", dados.telefone.trim());
     formulario.append("diasAtendimento", JSON.stringify(dados.diasAtendimento));
-    formulario.append("horaInicio", dados.horaInicio);
-    formulario.append("horaFim", dados.horaFim);
+    formulario.append("turnos", JSON.stringify(dados.turnos));
     formulario.append("intervaloMinutos", String(dados.intervaloMinutos));
 
     if (dados.senha) {
